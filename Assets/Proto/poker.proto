@@ -1,0 +1,180 @@
+﻿
+syntax = "proto3";
+package poker;
+
+option go_package = "github.com/DanTuovsky/pepper-poker/proto";
+
+// go
+// protoc -I proto proto/poker.proto --go_out=plugins=grpc:.
+// --go_opt=module=github.com/DanTuovsky/pepper-poker
+
+// c#
+// protoc -I proto proto/poker.proto --csharp_out=client/grpc
+// --grpc_out=client/grpc
+// --plugin=protoc-gen-grpc=/usr/local/bin/grpc_csharp_plugin
+
+service PokerServer {
+  rpc SayHello(SayHelloRequest) returns(SayHelloResponse) {}
+  rpc JoinTable(JoinTableRequest) returns(JoinTableResponse) {}
+  rpc TakeTurn(PlayerActionRequest) returns(PlayerActionResponse) {}
+  rpc GetInfo(GetInfoRequest) returns(GetInfoResponse) {}
+}
+
+message SayHelloRequest { string name = 10; }
+
+message SayHelloResponse { string playerID = 10; }
+
+message JoinTableRequest {
+  string tableID = 10;
+  string playerID = 20;
+}
+
+enum JoinTableStatus {
+  UNKNOWN = 0; SUCCESS = 1; NO_AVAILABLE_TABLES = 2; ERROR = 3;
+}
+
+message JoinTableResponse {
+  JoinTableStatus status = 20;
+  string tableID = 30;
+  string roundID = 40;
+}
+
+enum Action {
+  ActionFold = 0; ActionCheck = 1; ActionBet = 2; ActionAllIn = 3;
+  ActionCall = 4;
+  ActionSayHello = 5;
+  ActionJoinTable = 6;
+  ActionGetInfo = 7;
+}
+
+message ActionOpts {
+  // Bet options
+  int64 betAmount = 10;
+
+  // SayHello options
+  string name = 20;
+}
+
+message PlayerActionRequest {
+  string playerID = 10;
+  string tableID = 20;
+  string roundID = 30;
+  Action action = 40;
+  ActionOpts opts = 50;
+}
+
+message PlayerActionResponse {}
+
+enum CardSuit { Spade = 0; Club = 1; Diamond = 2; Heart = 3; }
+enum CardRank {
+  Two = 0; Three = 1; Four = 2; Five = 3; Six = 4; Seven = 5; Eight = 6;
+  Nine = 7;
+  Ten = 8;
+  Jack = 9;
+  Queen = 10;
+  King = 11;
+  Ace = 12;
+
+}
+
+message Card {
+  CardSuit suite = 10;
+  CardRank rank = 20;
+}
+
+enum PlayerState {
+  PlayerStateUnknown = 0; PlayerStateReady = 1; PlayerStatePlaying = 2;
+  PlayerStateFolded = 3;
+}
+
+enum TableStatus {
+  TableStatusInitializing = 0; TableStatusWaitingPlayers = 1;
+  TableStatusGameReadyToStart = 2;
+  TableStatusGamePlaying = 3;
+  TableStatusGameFinished = 4;
+}
+
+enum RoundStatus {
+  RoundStatusInitializing = 0; RoundStatusSmallBlind = 1;
+  RoundStatusBigBlind = 2;
+  RoundStatusPreFlop = 3;
+  RoundStatusFlop = 4;
+  RoundStatusTurn = 5;
+  RoundStatusRiver = 6;
+  RoundStatusDone = 7;
+
+}
+
+message PlayerMoney {
+  // money player has in the bank, excluding what they're currently playing with
+  int64 bank = 10;
+
+  // money in the stack the player is playing with at their table
+  int64 stack = 20;
+
+  // total pot size so far in the hand
+  int64 pot = 30;
+
+  // current minimum bet this betting round
+  int64 minBetThisRound = 40;
+
+  // money bet by the player in the betting round so far
+  int64 betThisRound = 50;
+
+  // total money bet by the player in the hand so far
+  int64 betThisHand = 60;
+
+  // total money won by this player in the hand
+  int64 winnings = 70;
+}
+
+message Player {
+  string name = 10;
+
+  // only filled in for the player that matches the requesting player
+  string id = 15;
+
+  // position around the table
+  int64 position = 20;
+
+  PlayerMoney money = 30;
+  PlayerState state = 50;
+
+  // only filled in for the player that matches the requesting player except at
+  // the end
+  repeated Card card = 60;
+
+  // Final hand of the player
+  repeated Card hand = 70;
+  string combo = 80;
+}
+
+message CommunityCards { repeated Card card = 10; }
+
+message TableInfo {
+  repeated Player player = 10;
+
+  // player whose turn it is
+  Player nextPlayer = 20;
+
+  //  Winners
+  repeated Player winners = 30;
+
+  CommunityCards community_cards = 50;
+  TableStatus tableStatus = 60;
+  RoundStatus roundStatus = 70;
+
+  string tableID = 80;
+  string roundID = 90;
+
+  int64 smallBlind = 100;
+  int64 bigBlind = 110;
+}
+
+message GetInfoRequest {
+  string tableID = 10;
+  string roundID = 20;
+  string playerID = 30;
+}
+
+message GetInfoResponse { TableInfo info = 10; }
