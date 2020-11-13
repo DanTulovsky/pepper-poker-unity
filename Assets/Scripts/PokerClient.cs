@@ -37,10 +37,6 @@ public class PokerClient {
         return res.PlayerID;
     }
 
-    private void OnDisable() {
-        channel.ShutdownAsync().Wait();
-    }
-
     internal string JoinTable(string tableID, string playerID) {
         Debug.Log("Calling JoinTable");
         var req = new JoinTableRequest {
@@ -59,9 +55,9 @@ public class PokerClient {
     }
 
     // Stream version
-    internal AsyncDuplexStreamingCall<GetInfoRequest, TableInfo> GetInfoStreaming(string playerID, string tableID, string roundID) {
+    internal AsyncDuplexStreamingCall<GetInfoRequest, Poker.TableInfo> GetInfoStreaming() {
 
-        AsyncDuplexStreamingCall<GetInfoRequest, TableInfo> stream;
+        AsyncDuplexStreamingCall<GetInfoRequest, Poker.TableInfo> stream;
 
         try {
             stream = client.GetGameInfo();

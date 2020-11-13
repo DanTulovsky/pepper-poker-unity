@@ -15,24 +15,23 @@ public class Manager : MonoBehaviour {
     public TMP_Text blindsDisplay;
     public TMP_Text tableStatusDisplay;
     public TMP_Text roundStatusDisplay;
+    public TMP_Text playerNameInput;
 
     private PokerClient pokerClient;
     private string playerID;
     private string tableID = "";
     private string roundID = "";
 
-    private Poker.TableInfo tableInfo = new Poker.TableInfo { };
-    private readonly object tableInfoLocker = new object();
+    private TableInfo tableInfo = new TableInfo { };
 
     // Post-round start cancellation token
     private System.Threading.CancellationTokenSource tokenSource = new System.Threading.CancellationTokenSource { };
 
-    // bi-direction streaming
-    private AsyncDuplexStreamingCall<Poker.GetInfoRequest, Poker.TableInfo> stream;
+    // bi-direction streaming for GetInfo from server
+    private AsyncDuplexStreamingCall<GetInfoRequest, Poker.TableInfo> stream;
 
-    private Grpc.Core.Logging.LogLevelFilterLogger logger;
+    //private Grpc.Core.Logging.LogLevelFilterLogger logger;
 
-    public TMPro.TMP_Text playerNameInput;
 
     // Start is called before the first frame update
     private void Start() {
@@ -75,9 +74,9 @@ public class Manager : MonoBehaviour {
 
         // Wait for round to start
         Debug.Log("Waiting for round to start...");
-        yield return new WaitUntil(() => tableInfo.RoundID != "");
-        roundID = tableInfo.RoundID;
-        Debug.Log("Round ID: " + tableInfo.RoundID);
+        yield return new WaitUntil(() => tableInfo.RoundID() != "");
+        roundID = tableInfo.RoundID();
+        Debug.Log("Round ID: " + roundID);
     }
 
     // fileForCard returns the filename for the given card
@@ -208,31 +207,31 @@ public class Manager : MonoBehaviour {
     public void ActionAllIn() {
         // TODO: Fix amount
         var amount = 0;
-        pokerClient.ActionBet(tableID, playerID, tableInfo.RoundID, amount);
+        pokerClient.ActionBet(tableID, playerID, roundID, amount);
     }
 
     public void ActionCheck() {
-        pokerClient.ActionCheck(tableID, playerID, tableInfo.RoundID);
+        pokerClient.ActionCheck(tableID, playerID, roundID);
     }
 
     public void ActionCall() {
         // TODO: Fix amount
         var amount = 0;
-        pokerClient.ActionBet(tableID, playerID, tableInfo.RoundID, amount);
+        pokerClient.ActionBet(tableID, playerID, roundID, amount);
     }
 
     public void ActionFold() {
-        pokerClient.ActionFold(tableID, playerID, tableInfo.RoundID);
+        pokerClient.ActionFold(tableID, playerID, roundID);
     }
 
     public void ActionRaise() {
         // TODO: Fix amount
         var amount = 0;
-        pokerClient.ActionBet(tableID, playerID, tableInfo.RoundID, amount);
+        pokerClient.ActionBet(tableID, playerID, roundID, amount);
     }
 
     private void StartInfoStream() {
-        var call = pokerClient.GetInfoStreaming(playerID, tableID, "");
+        var call = pokerClient.GetInfoStreaming();
         this.stream = call;
 
         Debug.Log("Starting server stream listener...");
@@ -243,11 +242,9 @@ public class Manager : MonoBehaviour {
     }
 
     // SendClientRequest sends a client request to the server
-    private IEnumerator StartClientStream()
-    {
+    private IEnumerator StartClientStream() {
         while (true) {
-            var req = new Poker.GetInfoRequest
-            {
+            var req = new Poker.GetInfoRequest {
                 PlayerID = playerID,
                 TableID = tableID,
                 RoundID = roundID,
@@ -276,15 +273,10 @@ public class Manager : MonoBehaviour {
                 tokenSource.Token.ThrowIfCancellationRequested();
 
                 var info = stream.ResponseStream.Current;
-                Poker.TableInfo infoCopy;
+                tableInfo.Set(info);
 
-                lock (tableInfoLocker) {
-                    tableInfo = info;
-                    Debug.Log(info.ToString());
-                    infoCopy = tableInfo.Clone();
-                }
-                UpdateUI(infoCopy);
-                Debug.Log(infoCopy.ToString());
+                Debug.Log(info.ToString());
+                UpdateUI(info);
             }
         } catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled) {
             Debug.Log("Stream cancelled");
@@ -297,12 +289,11 @@ public class Manager : MonoBehaviour {
         return null;
     }
 
-    private Poker.Player MyInfo(Poker.TableInfo ti) {
+    private Poker.Player MyInfo(Poker.TableInfo info) {
         Debug.Log("Getting my info...");
-        foreach (var p in ti.Player) {
-            Debug.Log("Checking player...");
+
+        foreach (var p in info.Player) {
             if (p.Id != playerID) continue;
-            Debug.Log("Found player..");
             return p;
         }
 
