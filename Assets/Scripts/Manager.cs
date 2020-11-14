@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using Grpc.Core;
-using TMPro;
 using System.Collections;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -10,22 +9,20 @@ using Poker;
 
 
 public class Manager : MonoBehaviour {
-    public TMP_Text playerNameDisplay;
-    public TMP_Text playerStackDisplay;
-    public TMP_Text blindsDisplay;
-    public TMP_Text tableStatusDisplay;
-    public TMP_Text roundStatusDisplay;
-    public TMP_Text playerNameInput;
+    public UI ui;
 
     private PokerClient pokerClient;
     private string playerID;
+    private long playerPosition;
+    private Player player;
     private string tableID = "";
     private string roundID = "";
 
-    private TableInfo tableInfo = new TableInfo { };
+    private readonly Cards cards = new Cards();
+    private readonly TableInfo tableInfo = new TableInfo { };
 
     // Post-round start cancellation token
-    private System.Threading.CancellationTokenSource tokenSource = new System.Threading.CancellationTokenSource { };
+    private readonly System.Threading.CancellationTokenSource tokenSource = new System.Threading.CancellationTokenSource { };
 
     // bi-direction streaming for GetInfo from server
     private AsyncDuplexStreamingCall<GetInfoRequest, Poker.TableInfo> stream;
@@ -50,14 +47,11 @@ public class Manager : MonoBehaviour {
     }
 
     public void SayHello() {
-        playerNameDisplay.SetText(playerNameInput.text);
-        playerID = pokerClient.SayHello(playerNameDisplay.text);
+        ui.playerNameDisplay.SetText(ui.playerNameInput.text);
+        playerID = pokerClient.SayHello(ui.playerNameDisplay.text);
 
         Debug.Log("PlayerID: " + playerID.ToString());
-        Debug.Log("Player Name: " + playerNameDisplay.text);
-
-        // Now join table
-        tokenSource = new System.Threading.CancellationTokenSource();
+        Debug.Log("Player Name: " + ui.playerNameDisplay.text);
 
         StartCoroutine(nameof(JoinTable));
         Debug.Log("leaving SayHello");
@@ -65,9 +59,12 @@ public class Manager : MonoBehaviour {
 
     private IEnumerator JoinTable() {
         Debug.Log("Joining table...");
-        tableID = pokerClient.JoinTable(tableID, playerID);
+        var joinTableReturn = pokerClient.JoinTable(tableID, playerID);
+        tableID = joinTableReturn.id;
+        playerPosition = joinTableReturn.position;
 
-        Debug.Log("Table ID: " + this.tableID.ToString());
+        Debug.Log("Table ID: " + tableID.ToString());
+        Debug.Log("Player Position: " + playerPosition.ToString());
 
         // Kick off background refresh thread for tableInfo
         StartInfoStream();
@@ -76,137 +73,15 @@ public class Manager : MonoBehaviour {
         Debug.Log("Waiting for round to start...");
         yield return new WaitUntil(() => tableInfo.RoundID() != "");
         roundID = tableInfo.RoundID();
-        Debug.Log("Round ID: " + roundID);
+        Debug.Log("> Round ID: " + roundID);
     }
 
-    // fileForCard returns the filename for the given card
-    // This is specific to the PlayingCards plugin we are using.
-    private string FileForCard(Poker.Card card) {
-        var prefix = "Prefab/BackColor_Red/Red_PlayingCards_";
-        var fmt = "00.##";
-
-        var rank = (int)card.Rank + 1;
-        var suit = card.Suite.ToString();
-
-        var file = $"{prefix}{suit}{rank.ToString(fmt)}_00";
-
-        return file;
-    }
-
-    public void TestCommunityCards() {
-        var cc = new Poker.CommunityCards();
-
-        var card = new Poker.Card {
-            Rank = Poker.CardRank.Ace,
-            Suite = Poker.CardSuit.Club,
-        };
-        cc.Card.Add(card);
-
-        card = new Poker.Card {
-            Rank = Poker.CardRank.Queen,
-            Suite = Poker.CardSuit.Heart,
-        };
-        cc.Card.Add(card);
-        card = new Poker.Card {
-            Rank = Poker.CardRank.Two,
-            Suite = Poker.CardSuit.Diamond,
-        };
-        cc.Card.Add(card);
-        card = new Poker.Card {
-            Rank = Poker.CardRank.Jack,
-            Suite = Poker.CardSuit.Club,
-        };
-        cc.Card.Add(card);
-        card = new Poker.Card {
-            Rank = Poker.CardRank.Eight,
-            Suite = Poker.CardSuit.Club,
-        };
-        cc.Card.Add(card);
-
-        ShowCommunityCards(cc);
-    }
-
-    public void ShowCommunityCards(Poker.CommunityCards cards) {
-
-        var offset = 180;
-
-        for (var i = 0; i < cards.Card.Count; i++) {
-            var file = FileForCard(cards.Card[i]);
-            var cardPrefab = Resources.Load(file);
-            if (cardPrefab == null) {
-                throw new FileNotFoundException(file + " not file found - please check the configuration");
-            }
-
-            var parent = GameObject.Find("Card0");
-            var cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
-            cardObject.transform.parent = parent.transform;
-            cardObject.transform.Rotate(new Vector3(-90, 0, 0));
-            var position = parent.transform.position;
-            cardObject.transform.position = new Vector3(
-                position.x + i * offset, position.y, position.z);
-            cardObject.transform.localScale = new Vector3(12, 12, 12);
-        }
-    }
-
-    public void DealFlop() {
-        var cards = new List<string> { };
-        cards.Add("Prefab/BackColor_Red/Red_PlayingCards_Club01_00");
-        cards.Add("Prefab/BackColor_Red/Red_PlayingCards_Club06_00");
-        cards.Add("Prefab/BackColor_Red/Red_PlayingCards_Club11_00");
-
-        for (var i = 0; i < cards.Count; i++) {
-            var file = cards[i];
-            var cardPrefab = Resources.Load(file);
-            if (cardPrefab == null) {
-                throw new FileNotFoundException(file + " not file found - please check the configuration");
-            }
-
-            var parent = GameObject.Find("Flop" + i.ToString());
-            var cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
-            cardObject.transform.parent = parent.transform;
-            cardObject.transform.Rotate(new Vector3(-90, 0, 0));
-            cardObject.transform.position = parent.transform.position;
-            cardObject.transform.localScale = new Vector3(12, 12, 12);
-        }
-    }
-
-    public void DealTurn() {
-        var card = "Prefab/BackColor_Red/Red_PlayingCards_Diamond03_00";
-
-        var file = card;
-        var cardPrefab = Resources.Load(file);
-        if (cardPrefab == null) {
-            throw new FileNotFoundException(file + " not file found - please check the configuration");
-        }
-
-        var parent = GameObject.Find("Turn");
-        var cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
-        cardObject.transform.parent = parent.transform;
-        cardObject.transform.Rotate(new Vector3(-90, 0, 0));
-        cardObject.transform.position = parent.transform.position;
-        cardObject.transform.localScale = new Vector3(12, 12, 12);
-    }
-
-    public void DealRiver() {
-        var card = "Prefab/BackColor_Red/Red_PlayingCards_Heart09_00";
-
-        var file = card;
-        var cardPrefab = Resources.Load(file);
-        if (cardPrefab == null) {
-            throw new FileNotFoundException(file + " not file found - please check the configuration");
-        }
-
-        var parent = GameObject.Find("River");
-        var cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
-        cardObject.transform.parent = parent.transform;
-        cardObject.transform.Rotate(new Vector3(-90, 0, 0));
-        cardObject.transform.position = parent.transform.position;
-        cardObject.transform.localScale = new Vector3(12, 12, 12);
+    private Poker.Player Player(string playerID) {
+        return player ?? tableInfo.PlayerFromID(playerID);
     }
 
     public void ActionAllIn() {
-        // TODO: Fix amount
-        var amount = 0;
+        var amount = Player(playerID).Money.Stack;
         pokerClient.ActionBet(tableID, playerID, roundID, amount);
     }
 
@@ -215,18 +90,24 @@ public class Manager : MonoBehaviour {
     }
 
     public void ActionCall() {
-        // TODO: Fix amount
-        var amount = 0;
-        pokerClient.ActionBet(tableID, playerID, roundID, amount);
+        pokerClient.ActionCall(tableID, playerID, roundID);
     }
 
     public void ActionFold() {
         pokerClient.ActionFold(tableID, playerID, roundID);
     }
 
-    public void ActionRaise() {
-        // TODO: Fix amount
-        var amount = 0;
+    public void ActionBet() {
+        long amount = 0;
+        // Why????
+        var input = ui.betAmount.text.Replace("\u200B", "");
+        try {
+            Debug.Log($"Converting: [{input}] ({input.Length})");
+            amount = Convert.ToInt64(input);
+        } catch (FormatException ex) {
+            Debug.Log($"> {ex}: {input}");
+            return;
+        }
         pokerClient.ActionBet(tableID, playerID, roundID, amount);
     }
 
@@ -243,7 +124,7 @@ public class Manager : MonoBehaviour {
 
     // SendClientRequest sends a client request to the server
     private IEnumerator StartClientStream() {
-        while (true) {
+        while (!tokenSource.IsCancellationRequested) {
             var req = new Poker.GetInfoRequest {
                 PlayerID = playerID,
                 TableID = tableID,
@@ -254,13 +135,12 @@ public class Manager : MonoBehaviour {
             Debug.Log("tableID: " + tableID);
             Debug.Log("roundID: " + roundID);
 
-            // Exit if application is stopped
-            tokenSource.Token.ThrowIfCancellationRequested();
-
             stream.RequestStream.WriteAsync(req);
 
             yield return new WaitForSeconds(2);
         }
+
+        Debug.Log($"Exiting client info thread...");
     }
 
     // StartServerStream starts a background task listening to server responses
@@ -276,7 +156,7 @@ public class Manager : MonoBehaviour {
                 tableInfo.Set(info);
 
                 Debug.Log(info.ToString());
-                UpdateUI(info);
+                ui.UpdateUI(tableInfo, playerID);
             }
         } catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled) {
             Debug.Log("Stream cancelled");
@@ -284,38 +164,16 @@ public class Manager : MonoBehaviour {
             stream.Dispose();
         } catch (RpcException ex) {
             Debug.Log(ex.ToString());
+        } catch (Exception ex) {
+            Debug.Log($"Server reading thread failed: {ex.ToString()}");
+            Application.Quit();
         }
 
+        Debug.Log("Exiting server info thread...");
+        tokenSource.Cancel();
         return null;
     }
 
-    private Poker.Player MyInfo(Poker.TableInfo info) {
-        Debug.Log("Getting my info...");
-
-        foreach (var p in info.Player) {
-            if (p.Id != playerID) continue;
-            return p;
-        }
-
-        Debug.Log("Failed to find player...");
-        return null;
-    }
-
-    // UpdateUI updates the UI with info from tableInfo
-    // tableInfo should be a copy!
-    private void UpdateUI(Poker.TableInfo tableInfoCopy) {
-        Debug.Log("Updating UI...");
-        var player = MyInfo(tableInfoCopy);
-
-        var stack = $"${player?.Money?.Stack.ToString()}";
-        playerStackDisplay.SetText(stack);
-
-        var blinds = $"${tableInfoCopy?.SmallBlind} / ${tableInfoCopy?.BigBlind}";
-        blindsDisplay.SetText(blinds);
-
-        tableStatusDisplay.SetText(tableInfoCopy?.TableStatus.ToString());
-        roundStatusDisplay.SetText(tableInfoCopy?.RoundStatus.ToString());
-    }
 
     // Update is called once per frame
     private void Update() {

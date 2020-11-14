@@ -37,7 +37,7 @@ public class PokerClient {
         return res.PlayerID;
     }
 
-    internal string JoinTable(string tableID, string playerID) {
+    internal (string id, long position) JoinTable(string tableID, string playerID) {
         Debug.Log("Calling JoinTable");
         var req = new JoinTableRequest {
             PlayerID = playerID,
@@ -51,7 +51,7 @@ public class PokerClient {
             Debug.Log(ex.ToString());
         }
 
-        return res.TableID;
+        return (res.TableID, res.Position);
     }
 
     // Stream version
@@ -69,8 +69,8 @@ public class PokerClient {
         return null;
     }
 
-    // ActionBet used for Call, Raise, AllIn
-    internal void ActionBet(string tableID, string playerID, string roundID, int amount) {
+    // ActionBet used for Raise, AllIn
+    internal void ActionBet(string tableID, string playerID, string roundID, long amount) {
         Debug.Log("Calling ActionBet: " + amount);
         var req = new PlayerActionRequest {
             PlayerID = playerID,
@@ -78,6 +78,24 @@ public class PokerClient {
             RoundID = roundID,
             Action = Action.Bet,
             Opts = new ActionOpts { BetAmount = amount },
+        };
+        PlayerActionResponse res;
+
+        try {
+            res = client.TakeTurn(req);
+        } catch (RpcException ex) {
+            Debug.Log(ex.ToString());
+        }
+    }
+
+    // ActionCall calls
+    internal void ActionCall(string tableID, string playerID, string roundID) {
+        Debug.Log("Calling ActionCall");
+        var req = new PlayerActionRequest {
+            PlayerID = playerID,
+            TableID = tableID,
+            RoundID = roundID,
+            Action = Action.Call,
         };
         PlayerActionResponse res;
 
