@@ -177,6 +177,14 @@ public class Manager : MonoBehaviour {
             stream.RequestStream.WriteAsync(req);
 
             yield return new WaitForSeconds(2);
+
+            // Check if the game is finished and exit
+            if (tableInfo.GameFinished()) {
+                Debug.Log("Game fnished, closing client stream...");
+                tokenSource.Cancel();
+                stream.RequestStream.CompleteAsync();
+                break;
+            }
         }
 
         Debug.Log($"Exiting client info thread...");
