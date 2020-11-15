@@ -140,3 +140,15 @@ public class PokerClient {
         }
     }
 }
+public class InvalidTurnException : Exception {
+    public InvalidTurnException() {
+    }
+
+    public InvalidTurnException(string message)
+        : base(message) {
+    }
+
+    public InvalidTurnException(string message, Exception inner)
+        : base(message, inner) {
+    }
+}

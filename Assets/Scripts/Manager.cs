@@ -13,12 +13,13 @@ public class Manager : MonoBehaviour {
 
     private PokerClient pokerClient;
     private string playerID;
+    private string playerName;
     private long playerPosition;
+    private long lastTurnID = -1;
     private Player player;
     private string tableID = "";
     private string roundID = "";
 
-    private readonly Cards cards = new Cards();
     private readonly TableInfo tableInfo = new TableInfo { };
 
     // Post-round start cancellation token
@@ -47,14 +48,13 @@ public class Manager : MonoBehaviour {
     }
 
     public void SayHello() {
-        ui.playerNameDisplay.SetText(ui.playerNameInput.text);
-        playerID = pokerClient.SayHello(ui.playerNameDisplay.text);
 
-        Debug.Log("PlayerID: " + playerID.ToString());
-        Debug.Log("Player Name: " + ui.playerNameDisplay.text);
+        playerName = ui.playerNameInput.text;
+        playerID = pokerClient.SayHello(playerName);
+
+        ui.playerNameDisplay.SetText(playerName);
 
         StartCoroutine(nameof(JoinTable));
-        Debug.Log("leaving SayHello");
     }
 
     private IEnumerator JoinTable() {
@@ -77,38 +77,77 @@ public class Manager : MonoBehaviour {
     }
 
     private Poker.Player Player(string playerID) {
-        return player ?? tableInfo.PlayerFromID(playerID);
+        player = player ?? tableInfo.PlayerFromID(playerID);
+        return player;
     }
 
     public void ActionAllIn() {
+        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+
         var amount = Player(playerID).Money.Stack;
-        pokerClient.ActionBet(tableID, playerID, roundID, amount);
+        try {
+            pokerClient.ActionBet(tableID, playerID, roundID, amount);
+        } catch (InvalidTurnException ex) {
+            Debug.Log(ex);
+            return;
+        }
+        lastTurnID = tableInfo.TurnID();
     }
 
     public void ActionCheck() {
-        pokerClient.ActionCheck(tableID, playerID, roundID);
+        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+
+        try {
+            pokerClient.ActionCheck(tableID, playerID, roundID);
+        } catch (InvalidTurnException ex) {
+            Debug.Log(ex);
+            return;
+        }
+        lastTurnID = tableInfo.TurnID();
     }
 
     public void ActionCall() {
-        pokerClient.ActionCall(tableID, playerID, roundID);
+        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+
+        try {
+            pokerClient.ActionCall(tableID, playerID, roundID);
+        } catch (InvalidTurnException ex) {
+            Debug.Log(ex);
+            return;
+        }
+        lastTurnID = tableInfo.TurnID();
     }
 
     public void ActionFold() {
-        pokerClient.ActionFold(tableID, playerID, roundID);
+        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+
+        try {
+            pokerClient.ActionFold(tableID, playerID, roundID);
+        } catch (InvalidTurnException ex) {
+            Debug.Log(ex);
+            return;
+        }
+        lastTurnID = tableInfo.TurnID();
     }
 
     public void ActionBet() {
-        long amount = 0;
-        // Why????
-        var input = ui.betAmount.text.Replace("\u200B", "");
+        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+        long amount;
+        var input = ui.betAmount.text;
         try {
-            Debug.Log($"Converting: [{input}] ({input.Length})");
             amount = Convert.ToInt64(input);
         } catch (FormatException ex) {
-            Debug.Log($"> {ex}: {input}");
+            Debug.Log(ex.ToString());
             return;
         }
-        pokerClient.ActionBet(tableID, playerID, roundID, amount);
+
+        try {
+            pokerClient.ActionBet(tableID, playerID, roundID, amount);
+        } catch (InvalidTurnException ex) {
+            Debug.Log(ex);
+            return;
+        }
+        lastTurnID = tableInfo.TurnID();
     }
 
     private void StartInfoStream() {

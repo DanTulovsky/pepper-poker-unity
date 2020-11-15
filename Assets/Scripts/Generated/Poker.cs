@@ -44,47 +44,48 @@ namespace Poker {
             "eWVyTW9uZXkSIQoFc3RhdGUYMiABKA4yEi5wb2tlci5QbGF5ZXJTdGF0ZRIZ",
             "CgRjYXJkGDwgAygLMgsucG9rZXIuQ2FyZBIZCgRoYW5kGEYgAygLMgsucG9r",
             "ZXIuQ2FyZBINCgVjb21ibxhQIAEoCSIrCg5Db21tdW5pdHlDYXJkcxIZCgRj",
-            "YXJkGAogAygLMgsucG9rZXIuQ2FyZCKJAwoJVGFibGVJbmZvEh0KBnBsYXll",
+            "YXJkGAogAygLMgsucG9rZXIuQ2FyZCK5AwoJVGFibGVJbmZvEh0KBnBsYXll",
             "chgKIAMoCzINLnBva2VyLlBsYXllchIhCgpuZXh0UGxheWVyGBQgASgLMg0u",
-            "cG9rZXIuUGxheWVyEhsKE3R1cm5UaW1lTGVmdFNlY29uZHMYGSABKAMSHgoH",
-            "d2lubmVycxgeIAMoCzINLnBva2VyLlBsYXllchIuCg9jb21tdW5pdHlfY2Fy",
-            "ZHMYMiABKAsyFS5wb2tlci5Db21tdW5pdHlDYXJkcxInCgt0YWJsZVN0YXR1",
-            "cxg8IAEoDjISLnBva2VyLlRhYmxlU3RhdHVzEicKC3JvdW5kU3RhdHVzGEYg",
-            "ASgOMhIucG9rZXIuUm91bmRTdGF0dXMSDwoHdGFibGVJRBhQIAEoCRIPCgdy",
-            "b3VuZElEGFogASgJEhIKCnNtYWxsQmxpbmQYZCABKAMSEAoIYmlnQmxpbmQY",
-            "biABKAMSDQoFdG9rZW4YeCABKAkSEgoJc3RhcnRUaW1lGIIBIAEoAxIQCgdl",
-            "bmRUaW1lGIwBIAEoAyJECg5HZXRJbmZvUmVxdWVzdBIPCgd0YWJsZUlEGAog",
-            "ASgJEg8KB3JvdW5kSUQYFCABKAkSEAoIcGxheWVySUQYHiABKAkiMQoPR2V0",
-            "SW5mb1Jlc3BvbnNlEh4KBGluZm8YCiABKAsyEC5wb2tlci5UYWJsZUluZm8q",
-            "TwoPSm9pblRhYmxlU3RhdHVzEgsKB1VOS05PV04QABILCgdTVUNDRVNTEAES",
-            "FwoTTk9fQVZBSUxBQkxFX1RBQkxFUxACEgkKBUVSUk9SEAMqpAEKBkFjdGlv",
-            "bhIOCgpBY3Rpb25Gb2xkEAASDwoLQWN0aW9uQ2hlY2sQARINCglBY3Rpb25C",
-            "ZXQQAhIPCgtBY3Rpb25BbGxJbhADEg4KCkFjdGlvbkNhbGwQBBISCg5BY3Rp",
-            "b25TYXlIZWxsbxAFEhMKD0FjdGlvbkpvaW5UYWJsZRAGEhEKDUFjdGlvbkdl",
-            "dEluZm8QBxINCglBY3Rpb25BY2sQCCo3CghDYXJkU3VpdBIJCgVTcGFkZRAA",
-            "EggKBENsdWIQARILCgdEaWFtb25kEAISCQoFSGVhcnQQAyqMAQoIQ2FyZFJh",
-            "bmsSBwoDVHdvEAASCQoFVGhyZWUQARIICgRGb3VyEAISCAoERml2ZRADEgcK",
-            "A1NpeBAEEgkKBVNldmVuEAUSCQoFRWlnaHQQBhIICgROaW5lEAcSBwoDVGVu",
-            "EAgSCAoESmFjaxAJEgkKBVF1ZWVuEAoSCAoES2luZxALEgcKA0FjZRAMKmoK",
-            "C1BsYXllclN0YXRlEhYKElBsYXllclN0YXRlVW5rbm93bhAAEhQKEFBsYXll",
-            "clN0YXRlUmVhZHkQARIWChJQbGF5ZXJTdGF0ZVBsYXlpbmcQAhIVChFQbGF5",
-            "ZXJTdGF0ZUZvbGRlZBADKrsBCgtUYWJsZVN0YXR1cxIWChJUYWJsZVN0YXR1",
-            "c1Vua25vd24QABIbChdUYWJsZVN0YXR1c0luaXRpYWxpemluZxABEh0KGVRh",
-            "YmxlU3RhdHVzV2FpdGluZ1BsYXllcnMQAhIfChtUYWJsZVN0YXR1c0dhbWVS",
-            "ZWFkeVRvU3RhcnQQAxIaChZUYWJsZVN0YXR1c0dhbWVQbGF5aW5nEAQSGwoX",
-            "VGFibGVTdGF0dXNHYW1lRmluaXNoZWQQBSrLAQoLUm91bmRTdGF0dXMSGwoX",
-            "Um91bmRTdGF0dXNJbml0aWFsaXppbmcQABIZChVSb3VuZFN0YXR1c1NtYWxs",
-            "QmxpbmQQARIXChNSb3VuZFN0YXR1c0JpZ0JsaW5kEAISFgoSUm91bmRTdGF0",
-            "dXNQcmVGbG9wEAMSEwoPUm91bmRTdGF0dXNGbG9wEAQSEwoPUm91bmRTdGF0",
-            "dXNUdXJuEAUSFAoQUm91bmRTdGF0dXNSaXZlchAGEhMKD1JvdW5kU3RhdHVz",
-            "RG9uZRAHMpMCCgtQb2tlclNlcnZlchI9CghTYXlIZWxsbxIWLnBva2VyLlNh",
-            "eUhlbGxvUmVxdWVzdBoXLnBva2VyLlNheUhlbGxvUmVzcG9uc2UiABJACglK",
-            "b2luVGFibGUSFy5wb2tlci5Kb2luVGFibGVSZXF1ZXN0GhgucG9rZXIuSm9p",
-            "blRhYmxlUmVzcG9uc2UiABJFCghUYWtlVHVybhIaLnBva2VyLlBsYXllckFj",
-            "dGlvblJlcXVlc3QaGy5wb2tlci5QbGF5ZXJBY3Rpb25SZXNwb25zZSIAEjwK",
-            "C0dldEdhbWVJbmZvEhUucG9rZXIuR2V0SW5mb1JlcXVlc3QaEC5wb2tlci5U",
-            "YWJsZUluZm8iACgBMAFCKlooZ2l0aHViLmNvbS9EYW5UdW92c2t5L3BlcHBl",
-            "ci1wb2tlci9wcm90b2IGcHJvdG8z"));
+            "cG9rZXIuUGxheWVyEhwKE3R1cm5UaW1lTGVmdFNlY29uZHMYlgEgASgDEhwK",
+            "E2dhbWVTdGFydHNJblNlY29uZHMYqgEgASgDEg8KBnR1cm5JRBigASABKAMS",
+            "HgoHd2lubmVycxgeIAMoCzINLnBva2VyLlBsYXllchIuCg9jb21tdW5pdHlf",
+            "Y2FyZHMYMiABKAsyFS5wb2tlci5Db21tdW5pdHlDYXJkcxInCgt0YWJsZVN0",
+            "YXR1cxg8IAEoDjISLnBva2VyLlRhYmxlU3RhdHVzEicKC3JvdW5kU3RhdHVz",
+            "GEYgASgOMhIucG9rZXIuUm91bmRTdGF0dXMSDwoHdGFibGVJRBhQIAEoCRIP",
+            "Cgdyb3VuZElEGFogASgJEhIKCnNtYWxsQmxpbmQYZCABKAMSEAoIYmlnQmxp",
+            "bmQYbiABKAMSDQoFdG9rZW4YeCABKAkSEgoJc3RhcnRUaW1lGIIBIAEoAxIQ",
+            "CgdlbmRUaW1lGIwBIAEoAyJECg5HZXRJbmZvUmVxdWVzdBIPCgd0YWJsZUlE",
+            "GAogASgJEg8KB3JvdW5kSUQYFCABKAkSEAoIcGxheWVySUQYHiABKAkiMQoP",
+            "R2V0SW5mb1Jlc3BvbnNlEh4KBGluZm8YCiABKAsyEC5wb2tlci5UYWJsZUlu",
+            "Zm8qTwoPSm9pblRhYmxlU3RhdHVzEgsKB1VOS05PV04QABILCgdTVUNDRVNT",
+            "EAESFwoTTk9fQVZBSUxBQkxFX1RBQkxFUxACEgkKBUVSUk9SEAMqpAEKBkFj",
+            "dGlvbhIOCgpBY3Rpb25Gb2xkEAASDwoLQWN0aW9uQ2hlY2sQARINCglBY3Rp",
+            "b25CZXQQAhIPCgtBY3Rpb25BbGxJbhADEg4KCkFjdGlvbkNhbGwQBBISCg5B",
+            "Y3Rpb25TYXlIZWxsbxAFEhMKD0FjdGlvbkpvaW5UYWJsZRAGEhEKDUFjdGlv",
+            "bkdldEluZm8QBxINCglBY3Rpb25BY2sQCCo3CghDYXJkU3VpdBIJCgVTcGFk",
+            "ZRAAEggKBENsdWIQARILCgdEaWFtb25kEAISCQoFSGVhcnQQAyqMAQoIQ2Fy",
+            "ZFJhbmsSBwoDVHdvEAASCQoFVGhyZWUQARIICgRGb3VyEAISCAoERml2ZRAD",
+            "EgcKA1NpeBAEEgkKBVNldmVuEAUSCQoFRWlnaHQQBhIICgROaW5lEAcSBwoD",
+            "VGVuEAgSCAoESmFjaxAJEgkKBVF1ZWVuEAoSCAoES2luZxALEgcKA0FjZRAM",
+            "KmoKC1BsYXllclN0YXRlEhYKElBsYXllclN0YXRlVW5rbm93bhAAEhQKEFBs",
+            "YXllclN0YXRlUmVhZHkQARIWChJQbGF5ZXJTdGF0ZVBsYXlpbmcQAhIVChFQ",
+            "bGF5ZXJTdGF0ZUZvbGRlZBADKrsBCgtUYWJsZVN0YXR1cxIWChJUYWJsZVN0",
+            "YXR1c1Vua25vd24QABIbChdUYWJsZVN0YXR1c0luaXRpYWxpemluZxABEh0K",
+            "GVRhYmxlU3RhdHVzV2FpdGluZ1BsYXllcnMQAhIfChtUYWJsZVN0YXR1c0dh",
+            "bWVSZWFkeVRvU3RhcnQQAxIaChZUYWJsZVN0YXR1c0dhbWVQbGF5aW5nEAQS",
+            "GwoXVGFibGVTdGF0dXNHYW1lRmluaXNoZWQQBSrLAQoLUm91bmRTdGF0dXMS",
+            "GwoXUm91bmRTdGF0dXNJbml0aWFsaXppbmcQABIZChVSb3VuZFN0YXR1c1Nt",
+            "YWxsQmxpbmQQARIXChNSb3VuZFN0YXR1c0JpZ0JsaW5kEAISFgoSUm91bmRT",
+            "dGF0dXNQcmVGbG9wEAMSEwoPUm91bmRTdGF0dXNGbG9wEAQSEwoPUm91bmRT",
+            "dGF0dXNUdXJuEAUSFAoQUm91bmRTdGF0dXNSaXZlchAGEhMKD1JvdW5kU3Rh",
+            "dHVzRG9uZRAHMpMCCgtQb2tlclNlcnZlchI9CghTYXlIZWxsbxIWLnBva2Vy",
+            "LlNheUhlbGxvUmVxdWVzdBoXLnBva2VyLlNheUhlbGxvUmVzcG9uc2UiABJA",
+            "CglKb2luVGFibGUSFy5wb2tlci5Kb2luVGFibGVSZXF1ZXN0GhgucG9rZXIu",
+            "Sm9pblRhYmxlUmVzcG9uc2UiABJFCghUYWtlVHVybhIaLnBva2VyLlBsYXll",
+            "ckFjdGlvblJlcXVlc3QaGy5wb2tlci5QbGF5ZXJBY3Rpb25SZXNwb25zZSIA",
+            "EjwKC0dldEdhbWVJbmZvEhUucG9rZXIuR2V0SW5mb1JlcXVlc3QaEC5wb2tl",
+            "ci5UYWJsZUluZm8iACgBMAFCKlooZ2l0aHViLmNvbS9EYW5UdW92c2t5L3Bl",
+            "cHBlci1wb2tlci9wcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Poker.JoinTableStatus), typeof(global::Poker.Action), typeof(global::Poker.CardSuit), typeof(global::Poker.CardRank), typeof(global::Poker.PlayerState), typeof(global::Poker.TableStatus), typeof(global::Poker.RoundStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -99,7 +100,7 @@ namespace Poker {
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayerMoney), global::Poker.PlayerMoney.Parser, new[]{ "Bank", "Stack", "Pot", "MinBetThisRound", "BetThisRound", "BetThisHand", "Winnings" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Player), global::Poker.Player.Parser, new[]{ "Name", "Id", "Position", "Money", "State", "Card", "Hand", "Combo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.CommunityCards), global::Poker.CommunityCards.Parser, new[]{ "Card" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.TableInfo), global::Poker.TableInfo.Parser, new[]{ "Player", "NextPlayer", "TurnTimeLeftSeconds", "Winners", "CommunityCards", "TableStatus", "RoundStatus", "TableID", "RoundID", "SmallBlind", "BigBlind", "Token", "StartTime", "EndTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.TableInfo), global::Poker.TableInfo.Parser, new[]{ "Player", "NextPlayer", "TurnTimeLeftSeconds", "GameStartsInSeconds", "TurnID", "Winners", "CommunityCards", "TableStatus", "RoundStatus", "TableID", "RoundID", "SmallBlind", "BigBlind", "Token", "StartTime", "EndTime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GetInfoRequest), global::Poker.GetInfoRequest.Parser, new[]{ "TableID", "RoundID", "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GetInfoResponse), global::Poker.GetInfoResponse.Parser, new[]{ "Info" }, null, null, null, null)
           }));
@@ -2924,6 +2925,8 @@ namespace Poker {
       player_ = other.player_.Clone();
       nextPlayer_ = other.nextPlayer_ != null ? other.nextPlayer_.Clone() : null;
       turnTimeLeftSeconds_ = other.turnTimeLeftSeconds_;
+      gameStartsInSeconds_ = other.gameStartsInSeconds_;
+      turnID_ = other.turnID_;
       winners_ = other.winners_.Clone();
       communityCards_ = other.communityCards_ != null ? other.communityCards_.Clone() : null;
       tableStatus_ = other.tableStatus_;
@@ -2968,13 +2971,35 @@ namespace Poker {
     }
 
     /// <summary>Field number for the "turnTimeLeftSeconds" field.</summary>
-    public const int TurnTimeLeftSecondsFieldNumber = 25;
+    public const int TurnTimeLeftSecondsFieldNumber = 150;
     private long turnTimeLeftSeconds_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long TurnTimeLeftSeconds {
       get { return turnTimeLeftSeconds_; }
       set {
         turnTimeLeftSeconds_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "gameStartsInSeconds" field.</summary>
+    public const int GameStartsInSecondsFieldNumber = 170;
+    private long gameStartsInSeconds_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long GameStartsInSeconds {
+      get { return gameStartsInSeconds_; }
+      set {
+        gameStartsInSeconds_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "turnID" field.</summary>
+    public const int TurnIDFieldNumber = 160;
+    private long turnID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TurnID {
+      get { return turnID_; }
+      set {
+        turnID_ = value;
       }
     }
 
@@ -3123,6 +3148,8 @@ namespace Poker {
       if(!player_.Equals(other.player_)) return false;
       if (!object.Equals(NextPlayer, other.NextPlayer)) return false;
       if (TurnTimeLeftSeconds != other.TurnTimeLeftSeconds) return false;
+      if (GameStartsInSeconds != other.GameStartsInSeconds) return false;
+      if (TurnID != other.TurnID) return false;
       if(!winners_.Equals(other.winners_)) return false;
       if (!object.Equals(CommunityCards, other.CommunityCards)) return false;
       if (TableStatus != other.TableStatus) return false;
@@ -3143,6 +3170,8 @@ namespace Poker {
       hash ^= player_.GetHashCode();
       if (nextPlayer_ != null) hash ^= NextPlayer.GetHashCode();
       if (TurnTimeLeftSeconds != 0L) hash ^= TurnTimeLeftSeconds.GetHashCode();
+      if (GameStartsInSeconds != 0L) hash ^= GameStartsInSeconds.GetHashCode();
+      if (TurnID != 0L) hash ^= TurnID.GetHashCode();
       hash ^= winners_.GetHashCode();
       if (communityCards_ != null) hash ^= CommunityCards.GetHashCode();
       if (TableStatus != global::Poker.TableStatus.Unknown) hash ^= TableStatus.GetHashCode();
@@ -3174,10 +3203,6 @@ namespace Poker {
       if (nextPlayer_ != null) {
         output.WriteRawTag(162, 1);
         output.WriteMessage(NextPlayer);
-      }
-      if (TurnTimeLeftSeconds != 0L) {
-        output.WriteRawTag(200, 1);
-        output.WriteInt64(TurnTimeLeftSeconds);
       }
       winners_.WriteTo(output, _repeated_winners_codec);
       if (communityCards_ != null) {
@@ -3220,6 +3245,18 @@ namespace Poker {
         output.WriteRawTag(224, 8);
         output.WriteInt64(EndTime);
       }
+      if (TurnTimeLeftSeconds != 0L) {
+        output.WriteRawTag(176, 9);
+        output.WriteInt64(TurnTimeLeftSeconds);
+      }
+      if (TurnID != 0L) {
+        output.WriteRawTag(128, 10);
+        output.WriteInt64(TurnID);
+      }
+      if (GameStartsInSeconds != 0L) {
+        output.WriteRawTag(208, 10);
+        output.WriteInt64(GameStartsInSeconds);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3233,10 +3270,6 @@ namespace Poker {
       if (nextPlayer_ != null) {
         output.WriteRawTag(162, 1);
         output.WriteMessage(NextPlayer);
-      }
-      if (TurnTimeLeftSeconds != 0L) {
-        output.WriteRawTag(200, 1);
-        output.WriteInt64(TurnTimeLeftSeconds);
       }
       winners_.WriteTo(ref output, _repeated_winners_codec);
       if (communityCards_ != null) {
@@ -3279,6 +3312,18 @@ namespace Poker {
         output.WriteRawTag(224, 8);
         output.WriteInt64(EndTime);
       }
+      if (TurnTimeLeftSeconds != 0L) {
+        output.WriteRawTag(176, 9);
+        output.WriteInt64(TurnTimeLeftSeconds);
+      }
+      if (TurnID != 0L) {
+        output.WriteRawTag(128, 10);
+        output.WriteInt64(TurnID);
+      }
+      if (GameStartsInSeconds != 0L) {
+        output.WriteRawTag(208, 10);
+        output.WriteInt64(GameStartsInSeconds);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3294,6 +3339,12 @@ namespace Poker {
       }
       if (TurnTimeLeftSeconds != 0L) {
         size += 2 + pb::CodedOutputStream.ComputeInt64Size(TurnTimeLeftSeconds);
+      }
+      if (GameStartsInSeconds != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(GameStartsInSeconds);
+      }
+      if (TurnID != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(TurnID);
       }
       size += winners_.CalculateSize(_repeated_winners_codec);
       if (communityCards_ != null) {
@@ -3346,6 +3397,12 @@ namespace Poker {
       }
       if (other.TurnTimeLeftSeconds != 0L) {
         TurnTimeLeftSeconds = other.TurnTimeLeftSeconds;
+      }
+      if (other.GameStartsInSeconds != 0L) {
+        GameStartsInSeconds = other.GameStartsInSeconds;
+      }
+      if (other.TurnID != 0L) {
+        TurnID = other.TurnID;
       }
       winners_.Add(other.winners_);
       if (other.communityCards_ != null) {
@@ -3406,10 +3463,6 @@ namespace Poker {
             input.ReadMessage(NextPlayer);
             break;
           }
-          case 200: {
-            TurnTimeLeftSeconds = input.ReadInt64();
-            break;
-          }
           case 242: {
             winners_.AddEntriesFrom(input, _repeated_winners_codec);
             break;
@@ -3457,6 +3510,18 @@ namespace Poker {
             EndTime = input.ReadInt64();
             break;
           }
+          case 1200: {
+            TurnTimeLeftSeconds = input.ReadInt64();
+            break;
+          }
+          case 1280: {
+            TurnID = input.ReadInt64();
+            break;
+          }
+          case 1360: {
+            GameStartsInSeconds = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -3480,10 +3545,6 @@ namespace Poker {
               NextPlayer = new global::Poker.Player();
             }
             input.ReadMessage(NextPlayer);
-            break;
-          }
-          case 200: {
-            TurnTimeLeftSeconds = input.ReadInt64();
             break;
           }
           case 242: {
@@ -3531,6 +3592,18 @@ namespace Poker {
           }
           case 1120: {
             EndTime = input.ReadInt64();
+            break;
+          }
+          case 1200: {
+            TurnTimeLeftSeconds = input.ReadInt64();
+            break;
+          }
+          case 1280: {
+            TurnID = input.ReadInt64();
+            break;
+          }
+          case 1360: {
+            GameStartsInSeconds = input.ReadInt64();
             break;
           }
         }
