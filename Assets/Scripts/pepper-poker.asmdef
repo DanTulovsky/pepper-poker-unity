@@ -1,0 +1,17 @@
+{
+    "name": "pepper-poker",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:29298052db6144ebaac1982ea8fcd446",
+        "GUID:46b0a0ff9c17b4f9385227391ea56b6c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
