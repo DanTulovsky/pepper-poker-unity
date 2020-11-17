@@ -199,10 +199,10 @@ public class Manager : MonoBehaviour {
                 // Exit if application is stopped
                 tokenSource.Token.ThrowIfCancellationRequested();
 
-                var info = stream.ResponseStream.Current;
+                Poker.TableInfo info = stream.ResponseStream.Current;
                 tableInfo.Set(info);
 
-                Debug.Log(info.ToString());
+                Debug.Log($"> {info}");
                 ui.UpdateUI(tableInfo, playerID);
             }
         } catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled) {
