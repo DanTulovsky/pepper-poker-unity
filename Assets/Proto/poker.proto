@@ -1,12 +1,10 @@
-﻿
 syntax = "proto3";
 package poker;
 
-option go_package = "github.com/DanTuovsky/pepper-poker/proto";
-
+option go_package = "github.com/DanTuovsky/pepper-poker-v2/proto";
 // go
 // protoc -I proto proto/poker.proto --go_out=plugins=grpc:.
-// --go_opt=module=github.com/DanTuovsky/pepper-poker
+// --go_opt=module=github.com/DanTuovsky/pepper-poker-v2
 
 // c#
 // protoc -I proto proto/poker.proto --csharp_out=client/grpc
@@ -14,95 +12,174 @@ option go_package = "github.com/DanTuovsky/pepper-poker/proto";
 // --plugin=protoc-gen-grpc=/usr/local/bin/grpc_csharp_plugin
 
 service PokerServer {
-  rpc SayHello(SayHelloRequest) returns(SayHelloResponse) {}
+  // AckToken acks an ack token
+  rpc AckToken(AckTokenRequest) returns(AckTokenResponse) {}
+
+  // JoinTable joins a table once authenticated
   rpc JoinTable(JoinTableRequest) returns(JoinTableResponse) {}
-  rpc TakeTurn(PlayerActionRequest) returns(PlayerActionResponse) {}
-  rpc GetInfo(GetInfoRequest) returns(GetInfoResponse) {}
+
+  // Play subscribes the client to updates after joining a table
+  rpc Play(PlayRequest) returns(stream GameData) {}
+
+  // Register registers with the server
+  rpc Register(RegisterRequest) returns(RegisterResponse) {}
+
+  // TakeTurn sends a Poker game turn request
+  rpc TakeTurn(TakeTurnRequest) returns(TakeTurnResponse) {}
 }
 
-message SayHelloRequest { string name = 10; }
-
-message SayHelloResponse { string playerID = 10; }
-
-message JoinTableRequest {
-  string tableID = 10;
-  string playerID = 20;
+message AckTokenRequest {
+  ClientInfo clientInfo = 10;
+  string token = 20;
 }
+message AckTokenResponse {}
 
-enum JoinTableStatus {
-  UNKNOWN = 0; SUCCESS = 1; NO_AVAILABLE_TABLES = 2; ERROR = 3;
-}
-
-message JoinTableResponse {
-  JoinTableStatus status = 20;
-  string tableID = 30;
-  string roundID = 40;
-}
-
-enum Action {
-  ActionFold = 0; ActionCheck = 1; ActionBet = 2; ActionAllIn = 3;
-  ActionCall = 4;
-  ActionSayHello = 5;
-  ActionJoinTable = 6;
-  ActionGetInfo = 7;
+enum PlayerAction {
+  PlayerActionNone = 0; PlayerActionRegister = 1; PlayerActionJoinTable = 2;
+  PlayerActionPlay = 3;
+  PlayerActionCall = 4;
+  PlayerActionCheck = 5;
+  PlayerActionBet = 6;
+  PlayerActionFold = 7;
+  PlayerActionAckToken = 8;
+  PlayerActionAllIn = 9;
+  PlayerActionBuyIn = 10;
+  PlayerActionDisconnect = 11;
 }
 
 message ActionOpts {
   // Bet options
   int64 betAmount = 10;
 
-  // SayHello options
-  string name = 20;
+  // Ack options
+  string ackToken = 20;
 }
 
-message PlayerActionRequest {
+message RegisterRequest {
+  ClientInfo clientInfo = 10;
+  PlayerAction playerAction = 20;
+}
+message RegisterResponse {
   string playerID = 10;
+  string message = 20;
+}
+
+message JoinTableRequest {
+  ClientInfo clientInfo = 10;
+  PlayerAction playerAction = 20;
+  string tableID = 30;
+}
+message JoinTableResponse {
+  string tableID = 10;
+  int64 position = 20;
+  string message = 30;
+}
+
+message TakeTurnRequest {
+  ClientInfo clientInfo = 10;
+  PlayerAction playerAction = 20;
+  ActionOpts actionOpts = 30;
+}
+message TakeTurnResponse { string message = 20; }
+message DisconnectResponse { string message = 20; }
+
+// PlayRequest is sent to register for the GameData streaming response
+message PlayRequest {
+  ClientInfo clientInfo = 10;
+  PlayerAction playerAction = 50;
+}
+
+// ClientInfo is sent to the server with every RPC request, contains common data
+// Not all fields are filled in for all requests
+message ClientInfo {
+  string playerID = 10;
+  string playerName = 20;
+  string playerUsername = 30;
+  string tableID = 40;
+  string password = 50;
+}
+
+enum GameState {
+  GameStateWaitingPlayers = 0; GameStateInitializing = 1;
+  GameStateReadyToStart = 2;
+  GameStatePlayingSmallBlind = 3;
+  GameStatePlayingBigBlind = 4;
+  GameStatePlayingPreFlop = 5;
+  GameStatePlayingFlop = 6;
+  GameStatePlayingTurn = 7;
+  GameStatePlayingRiver = 8;
+  GameStatePlayingDone = 9;
+  GameStateFinished = 10;
+}
+
+// GameInfo contains all the game info
+message GameInfo {
+  string tableName = 10;
   string tableID = 20;
-  string roundID = 30;
-  Action action = 40;
-  ActionOpts opts = 50;
+  GameState gameState = 30;
+  int64 gameStartsInSec = 40;
+  string ackToken = 50;
+
+  CommunityCards CommunityCards = 60;
+
+  int64 maxPlayers = 100;
+  int64 minPlayers = 110;
+  int64 bigBlind = 120;
+  int64 smallBlind = 125;
+  int64 buyin = 130;
+
+  // All players, no confidential info
+  repeated Player players = 140;
+  repeated string winners = 150;
 }
 
-message PlayerActionResponse {}
+// GameData is sent to the client, it tells the client when it's their turn and
+// provides the current state
+message GameData {
+  GameInfo info = 10;
 
-enum CardSuit { Spade = 0; Club = 1; Diamond = 2; Heart = 3; }
-enum CardRank {
-  Two = 0; Three = 1; Four = 2; Five = 3; Six = 4; Seven = 5; Eight = 6;
-  Nine = 7;
-  Ten = 8;
-  Jack = 9;
-  Queen = 10;
-  King = 11;
-  Ace = 12;
+  string waitTurnID = 20;   // the ID of the player whose turn it is
+  string waitTurnName = 30; // the name of the player whose turn it is
+  int64 waitTurnNum = 35;   // the turn count of the player whose turn it is
+  string playerID = 40;     // the ID of the calling player
 
+  // calling player, includes confidential info
+  Player player = 50;
 }
 
-message Card {
-  CardSuit suite = 10;
-  CardRank rank = 20;
-}
-
+// PlayerState is the player state according to the server
 enum PlayerState {
-  PlayerStateUnknown = 0; PlayerStateReady = 1; PlayerStatePlaying = 2;
-  PlayerStateFolded = 3;
+  PlayerStateDefault = 0;
+
+  // PlayerStateStackEmpty means the player has run out of money in the stack
+  PlayerStateStackEmpty = 1;
+
+  // PlayerStateBankEmpty means the player has run out of money in the bank
+  PlayerStateBankEmpty = 2;
+
+  // PlayerStateCurrentTurn marks this player's turn
+  PlayerStateCurrentTurn = 3;
 }
 
-enum TableStatus {
-  TableStatusInitializing = 0; TableStatusWaitingPlayers = 1;
-  TableStatusGameReadyToStart = 2;
-  TableStatusGamePlaying = 3;
-  TableStatusGameFinished = 4;
-}
+message Player {
+  string name = 10;
 
-enum RoundStatus {
-  RoundStatusInitializing = 0; RoundStatusSmallBlind = 1;
-  RoundStatusBigBlind = 2;
-  RoundStatusPreFlop = 3;
-  RoundStatusFlop = 4;
-  RoundStatusTurn = 5;
-  RoundStatusRiver = 6;
-  RoundStatusDone = 7;
+  // only filled in for the player that matches the requesting player
+  string id = 15;
 
+  // position around the table
+  int64 position = 20;
+
+  PlayerMoney money = 30;
+  PlayerState state = 50;
+
+  // only filled in for the player that matches the requesting player except at
+  // the end
+  repeated Card card = 60;
+
+  // Final hand of the player
+  repeated Card hand = 70;
+  string combo = 80;
 }
 
 message PlayerMoney {
@@ -128,53 +205,21 @@ message PlayerMoney {
   int64 winnings = 70;
 }
 
-message Player {
-  string name = 10;
-
-  // only filled in for the player that matches the requesting player
-  string id = 15;
-
-  // position around the table
-  int64 position = 20;
-
-  PlayerMoney money = 30;
-  PlayerState state = 50;
-
-  // only filled in for the player that matches the requesting player except at
-  // the end
-  repeated Card card = 60;
-
-  // Final hand of the player
-  repeated Card hand = 70;
-  string combo = 80;
-}
-
+// Cards
 message CommunityCards { repeated Card card = 10; }
 
-message TableInfo {
-  repeated Player player = 10;
-
-  // player whose turn it is
-  Player nextPlayer = 20;
-
-  //  Winners
-  repeated Player winners = 30;
-
-  CommunityCards community_cards = 50;
-  TableStatus tableStatus = 60;
-  RoundStatus roundStatus = 70;
-
-  string tableID = 80;
-  string roundID = 90;
-
-  int64 smallBlind = 100;
-  int64 bigBlind = 110;
+enum CardSuit { Spade = 0; Club = 1; Diamond = 2; Heart = 3; }
+enum CardRank {
+  Two = 0; Three = 1; Four = 2; Five = 3; Six = 4; Seven = 5; Eight = 6;
+  Nine = 7;
+  Ten = 8;
+  Jack = 9;
+  Queen = 10;
+  King = 11;
+  Ace = 12;
 }
 
-message GetInfoRequest {
-  string tableID = 10;
-  string roundID = 20;
-  string playerID = 30;
+message Card {
+  CardSuit suite = 10;
+  CardRank rank = 20;
 }
-
-message GetInfoResponse { TableInfo info = 10; }

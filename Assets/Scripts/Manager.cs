@@ -1,38 +1,36 @@
 ﻿using System;
-using UnityEngine;
-using Grpc.Core;
 using System.Collections;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.IO;
+using Grpc.Core;
 using Poker;
+using UnityEngine;
 
-
-public class Manager : MonoBehaviour {
+public class Manager : MonoBehaviour
+{
     public UI ui;
 
     private PokerClient pokerClient;
-    private string playerID;
-    private string playerName;
     private long playerPosition;
     private long lastTurnID = -1;
     private Player player;
-    private string tableID = "";
-    private string roundID = "";
+    
+    private ClientInfo clientInfo = new ClientInfo();
 
-    private readonly TableInfo tableInfo = new TableInfo { };
+    private readonly GameData gameData = new GameData();
 
     // Post-round start cancellation token
-    private readonly System.Threading.CancellationTokenSource tokenSource = new System.Threading.CancellationTokenSource { };
+    private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
-    // bi-direction streaming for GetInfo from server
-    private AsyncDuplexStreamingCall<GetInfoRequest, Poker.TableInfo> stream;
+    // server streaming for GameData from server
+    private AsyncServerStreamingCall<Poker.GameData> stream;
 
     //private Grpc.Core.Logging.LogLevelFilterLogger logger;
 
 
     // Start is called before the first frame update
-    private void Start() {
+    private void Start()
+    {
         //Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "info");
         //Environment.SetEnvironmentVariable("GRPC_DNS_RESOLVER", "native");
         //Environment.SetEnvironmentVariable("GRPC_TRACE", "all");
@@ -47,172 +45,174 @@ public class Manager : MonoBehaviour {
         pokerClient = new PokerClient();
     }
 
-    public void SayHello() {
+    public void Register()
+    {
 
-        playerName = ui.playerNameInput.text;
-        playerID = pokerClient.SayHello(playerName);
+        clientInfo.PlayerUsername = ui.playerUsernameInput.text;
+        clientInfo.Password = ui.playerPasswordInput.text;
+        clientInfo.PlayerID = pokerClient.Register(clientInfo);
 
-        ui.playerNameDisplay.SetText(playerName);
+        ui.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
 
-        StartCoroutine(nameof(JoinTable));
+        JoinTable();
     }
 
-    private IEnumerator JoinTable() {
+    private void JoinTable()
+    {
         Debug.Log("Joining table...");
-        var joinTableReturn = pokerClient.JoinTable(tableID, playerID);
-        tableID = joinTableReturn.id;
-        playerPosition = joinTableReturn.position;
+        (string id, long position) = pokerClient.JoinTable(clientInfo);
+        clientInfo.TableID = id;
+        playerPosition = position;
 
-        Debug.Log("Table ID: " + tableID.ToString());
-        Debug.Log("Player Position: " + playerPosition.ToString());
+        Debug.Log("Table ID: " + clientInfo.TableID);
+        Debug.Log("Player Position: " + playerPosition);
 
-        // Kick off background refresh thread for tableInfo
+        // Kick off background refresh thread for gameData
         StartInfoStream();
-
-        // Wait for round to start
-        Debug.Log("Waiting for round to start...");
-        yield return new WaitUntil(() => tableInfo.RoundID() != "");
-        roundID = tableInfo.RoundID();
-        Debug.Log("> Round ID: " + roundID);
     }
 
-    private Poker.Player Player(string playerID) {
-        player = player ?? tableInfo.PlayerFromID(playerID);
+    private Player Player(string id)
+    {
+        player = player ?? gameData.PlayerFromID(id);
         return player;
     }
 
-    public void ActionAllIn() {
-        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+    public void ActionAllIn()
+    {
+        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
 
-        var amount = Player(playerID).Money.Stack;
-        try {
-            pokerClient.ActionBet(tableID, playerID, roundID, amount);
-        } catch (InvalidTurnException ex) {
+        long amount = Player(clientInfo.PlayerID).Money.Stack;
+        try
+        {
+            pokerClient.ActionBet(clientInfo, amount);
+        }
+        catch (InvalidTurnException ex)
+        {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = tableInfo.TurnID();
+        lastTurnID = gameData.WaitTurnNum();
     }
 
-    public void ActionCheck() {
-        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+    public void ActionCheck()
+    {
+        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
 
-        try {
-            pokerClient.ActionCheck(tableID, playerID, roundID);
-        } catch (InvalidTurnException ex) {
+        try
+        {
+            pokerClient.ActionCheck(clientInfo);
+        }
+        catch (InvalidTurnException ex)
+        {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = tableInfo.TurnID();
+        lastTurnID = gameData.WaitTurnNum();
     }
 
-    public void ActionCall() {
-        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+    public void ActionCall()
+    {
+        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
 
-        try {
-            pokerClient.ActionCall(tableID, playerID, roundID);
-        } catch (InvalidTurnException ex) {
+        try
+        {
+            pokerClient.ActionCall(clientInfo);
+        }
+        catch (InvalidTurnException ex)
+        {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = tableInfo.TurnID();
+        lastTurnID = gameData.WaitTurnNum();
     }
 
-    public void ActionFold() {
-        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+    public void ActionFold()
+    {
+        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
 
-        try {
-            pokerClient.ActionFold(tableID, playerID, roundID);
-        } catch (InvalidTurnException ex) {
+        try
+        {
+            pokerClient.ActionFold(clientInfo);
+        }
+        catch (InvalidTurnException ex)
+        {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = tableInfo.TurnID();
+        lastTurnID = gameData.WaitTurnNum();
     }
 
-    public void ActionBet() {
-        if (!tableInfo.IsMyTurn(playerID, lastTurnID)) { return; }
+    public void ActionBet()
+    {
+        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
         long amount;
-        var input = ui.betAmount.text;
-        try {
+        string input = ui.betAmount.text;
+        try
+        {
             amount = Convert.ToInt64(input);
-        } catch (FormatException ex) {
+        }
+        catch (FormatException ex)
+        {
             Debug.Log(ex.ToString());
             return;
         }
 
-        try {
-            pokerClient.ActionBet(tableID, playerID, roundID, amount);
-        } catch (InvalidTurnException ex) {
+        try
+        {
+            pokerClient.ActionBet(clientInfo, amount);
+        }
+        catch (InvalidTurnException ex)
+        {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = tableInfo.TurnID();
+        lastTurnID = gameData.WaitTurnNum();
     }
 
-    private void StartInfoStream() {
-        var call = pokerClient.GetInfoStreaming();
-        this.stream = call;
+    private void StartInfoStream()
+    {
+        stream = pokerClient.GetGameDataStreaming(clientInfo);
 
         Debug.Log("Starting server stream listener...");
         StartCoroutine(nameof(StartServerStream));
 
-        // Send client request
-        StartCoroutine(nameof(StartClientStream));
     }
 
-    // SendClientRequest sends a client request to the server
-    private IEnumerator StartClientStream() {
-        while (!tokenSource.IsCancellationRequested) {
-            var req = new Poker.GetInfoRequest {
-                PlayerID = playerID,
-                TableID = tableID,
-                RoundID = roundID,
-            };
-            Debug.Log("Sending client request...");
-            Debug.Log("playerID: " + playerID);
-            Debug.Log("tableID: " + tableID);
-            Debug.Log("roundID: " + roundID);
-
-            stream.RequestStream.WriteAsync(req);
-
-            yield return new WaitForSeconds(2);
-
-            // Check if the game is finished and exit
-            if (tableInfo.GameFinished()) {
-                Debug.Log("Game fnished, closing client stream...");
-                tokenSource.Cancel();
-                stream.RequestStream.CompleteAsync();
-                break;
-            }
-        }
-
-        Debug.Log($"Exiting client info thread...");
-    }
 
     // StartServerStream starts a background task listening to server responses
     // https://github.com/grpc/grpc/issues/21734#issuecomment-578519701
-    private async Task<AsyncDuplexStreamingCall<Poker.GetInfoRequest, Poker.TableInfo>> StartServerStream() {
-        try {
-            while (await stream.ResponseStream.MoveNext()) {
-                Debug.Log("got info");
+    private async Task<AsyncServerStreamingCall<Poker.GameData>> StartServerStream()
+    {
+        try
+        {
+            while (await stream.ResponseStream.MoveNext())
+            {
+                Debug.Log("got data");
                 // Exit if application is stopped
                 tokenSource.Token.ThrowIfCancellationRequested();
 
-                Poker.TableInfo info = stream.ResponseStream.Current;
-                tableInfo.Set(info);
+                Poker.GameData gd = stream.ResponseStream.Current;
+                gameData.Set(gd);
 
-                Debug.Log($"> {info}");
-                ui.UpdateUI(tableInfo, playerID);
+                Debug.Log($"> {gd}");
+                ui.UpdateUI(gameData, clientInfo.PlayerID);
             }
-        } catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled) {
+        }
+        catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
+        {
             Debug.Log("Stream cancelled");
-        } catch (OperationCanceledException) {
+        }
+        catch (OperationCanceledException)
+        {
             stream.Dispose();
-        } catch (RpcException ex) {
+        }
+        catch (RpcException ex)
+        {
             Debug.Log(ex.ToString());
-        } catch (Exception ex) {
-            Debug.Log($"Server reading thread failed: {ex.ToString()}");
+        }
+        catch (Exception ex)
+        {
+            Debug.Log($"Server reading thread failed: {ex}");
             Application.Quit();
         }
 
@@ -223,11 +223,13 @@ public class Manager : MonoBehaviour {
 
 
     // Update is called once per frame
-    private void Update() {
+    private void Update()
+    {
 
     }
 
-    private void OnApplicationQuit() {
+    private void OnApplicationQuit()
+    {
         tokenSource.Cancel();
         Debug.Log("Application ending after " + Time.time + " seconds");
     }

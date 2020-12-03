@@ -4,32 +4,30 @@ using Poker;
 using System.IO;
 using UnityEngine;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Action = Poker.Action;
 
 
 public class PokerClient {
     private readonly PokerServer.PokerServerClient client;
-    private readonly Channel channel;
-    private readonly string server = "montester";
-    private readonly int port = 8443;
+    private const string Server = "montester";
+    private const int Port = 8443;
 
     internal PokerClient() {
-        var rootCertificates = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "Server.crt"));
-        var credentials = new SslCredentials(rootCertificates);
+        string rootCertificates = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "Server.crt"));
+        SslCredentials credentials = new SslCredentials(rootCertificates);
 
         var opts = new List<ChannelOption> { new ChannelOption("InsecureSkipVerify", "True"), new ChannelOption(ChannelOptions.SslTargetNameOverride, "montester") };
-        channel = new Channel(server, port, credentials, opts);
+        Channel channel = new Channel(Server, Port, credentials, opts);
         client = new PokerServer.PokerServerClient(channel);
     }
 
-    // SayHello registers with the server and gets back a PlayerID
-    internal string SayHello(string name) {
-        var req = new SayHelloRequest { Name = name };
-        var res = new SayHelloResponse { };
+    
+    // Register registers with the server and gets back a PlayerID
+    internal string Register(ClientInfo clientInfo) {
+        RegisterRequest req = new RegisterRequest { ClientInfo = clientInfo };
+        RegisterResponse res = new RegisterResponse { };
 
         try {
-            res = client.SayHello(req);
+            res = client.Register(req);
         } catch (RpcException ex) {
             Debug.Log(ex.ToString());
         }
@@ -37,13 +35,12 @@ public class PokerClient {
         return res.PlayerID;
     }
 
-    internal (string id, long position) JoinTable(string tableID, string playerID) {
+    internal (string id, long position) JoinTable(ClientInfo clientInfo) {
         Debug.Log("Calling JoinTable");
-        var req = new JoinTableRequest {
-            PlayerID = playerID,
-            TableID = tableID,
+        JoinTableRequest req = new JoinTableRequest {
+            ClientInfo = clientInfo,
         };
-        var res = new JoinTableResponse { };
+        JoinTableResponse res = new JoinTableResponse { };
 
         try {
             res = client.JoinTable(req);
@@ -55,12 +52,14 @@ public class PokerClient {
     }
 
     // Stream version
-    internal AsyncDuplexStreamingCall<GetInfoRequest, Poker.TableInfo> GetInfoStreaming() {
-
-        AsyncDuplexStreamingCall<GetInfoRequest, Poker.TableInfo> stream;
-
-        try {
-            stream = client.GetGameInfo();
+    internal AsyncServerStreamingCall<Poker.GameData> GetGameDataStreaming(ClientInfo clientInfo) {
+        try
+        {
+            PlayRequest req = new PlayRequest
+            {
+                ClientInfo = clientInfo,
+            };
+            var stream = client.Play(new PlayRequest(req));
             return stream;
         } catch (RpcException ex) {
             Debug.Log(ex.ToString());
@@ -70,16 +69,15 @@ public class PokerClient {
     }
 
     // ActionBet used for Raise, AllIn
-    internal void ActionBet(string tableID, string playerID, string roundID, long amount) {
+    internal void ActionBet(ClientInfo clientInfo, long amount) {
         Debug.Log("Calling ActionBet: " + amount);
-        var req = new PlayerActionRequest {
-            PlayerID = playerID,
-            TableID = tableID,
-            RoundID = roundID,
-            Action = Action.Bet,
-            Opts = new ActionOpts { BetAmount = amount },
+        TakeTurnRequest req = new TakeTurnRequest
+        {
+            ClientInfo = clientInfo,
+            PlayerAction = PlayerAction.Bet,
+            ActionOpts = new ActionOpts { BetAmount = amount}
         };
-        PlayerActionResponse res;
+        TakeTurnResponse res;
 
         try {
             res = client.TakeTurn(req);
@@ -89,15 +87,14 @@ public class PokerClient {
     }
 
     // ActionCall calls
-    internal void ActionCall(string tableID, string playerID, string roundID) {
+    internal void ActionCall(ClientInfo clientInfo) {
         Debug.Log("Calling ActionCall");
-        var req = new PlayerActionRequest {
-            PlayerID = playerID,
-            TableID = tableID,
-            RoundID = roundID,
-            Action = Action.Call,
+        TakeTurnRequest req = new TakeTurnRequest
+        {
+            ClientInfo = clientInfo,
+            PlayerAction = PlayerAction.Call,
         };
-        PlayerActionResponse res;
+        TakeTurnResponse res;
 
         try {
             res = client.TakeTurn(req);
@@ -106,15 +103,14 @@ public class PokerClient {
         }
     }
 
-    internal void ActionCheck(string tableID, string playerID, string roundID) {
+    internal void ActionCheck(ClientInfo clientInfo) {
         Debug.Log("Calling ActionCheck");
-        var req = new PlayerActionRequest {
-            PlayerID = playerID,
-            TableID = tableID,
-            RoundID = roundID,
-            Action = Action.Check,
+        TakeTurnRequest req = new TakeTurnRequest
+        {
+            ClientInfo = clientInfo,
+            PlayerAction = PlayerAction.Check,
         };
-        PlayerActionResponse res;
+        TakeTurnResponse res;
 
         try {
             res = client.TakeTurn(req);
@@ -123,15 +119,14 @@ public class PokerClient {
         }
     }
 
-    internal void ActionFold(string tableID, string playerID, string roundID) {
+    internal void ActionFold(ClientInfo clientInfo) {
         Debug.Log("Calling ActionFold");
-        var req = new PlayerActionRequest {
-            PlayerID = playerID,
-            TableID = tableID,
-            RoundID = roundID,
-            Action = Action.Fold,
+        TakeTurnRequest req = new TakeTurnRequest
+        {
+            ClientInfo = clientInfo,
+            PlayerAction = PlayerAction.Fold,
         };
-        PlayerActionResponse res;
+        TakeTurnResponse res;
 
         try {
             res = client.TakeTurn(req);

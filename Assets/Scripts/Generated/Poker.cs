@@ -24,138 +24,150 @@ namespace Poker {
     static PokerReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtwb2tlci5wcm90bxIFcG9rZXIiHwoPU2F5SGVsbG9SZXF1ZXN0EgwKBG5h",
-            "bWUYCiABKAkiJAoQU2F5SGVsbG9SZXNwb25zZRIQCghwbGF5ZXJJRBgKIAEo",
-            "CSITChFMaXN0VGFibGVzUmVxdWVzdCJgCgVUYWJsZRIKCgJpZBgKIAEoCRIM",
-            "CgRuYW1lGBQgASgJEhMKC251bV9wbGF5ZXJzGB4gASgDEhMKC21heF9wbGF5",
-            "ZXJzGCggASgDEhMKC21pbl9wbGF5ZXJzGDIgASgDIjIKEkxpc3RUYWJsZXNS",
-            "ZXNwb25zZRIcCgZ0YWJsZXMYCiADKAsyDC5wb2tlci5UYWJsZSImChJDcmVh",
-            "dGVUYWJsZVJlcXVlc3QSEAoIcGxheWVySUQYFCABKAkiOQoTQ3JlYXRlVGFi",
-            "bGVSZXNwb25zZRIPCgd0YWJsZUlEGBQgASgJEhEKCXRhYmxlTmFtZRgeIAEo",
-            "CSI1ChBKb2luVGFibGVSZXF1ZXN0Eg8KB3RhYmxlSUQYCiABKAkSEAoIcGxh",
-            "eWVySUQYFCABKAkiXgoRSm9pblRhYmxlUmVzcG9uc2USJgoGc3RhdHVzGBQg",
-            "ASgOMhYucG9rZXIuSm9pblRhYmxlU3RhdHVzEg8KB3RhYmxlSUQYHiABKAkS",
-            "EAoIcG9zaXRpb24YKCABKAMiNQoQU3RhcnRIYW5kUmVxdWVzdBIQCghwbGF5",
-            "ZXJJRBgKIAEoCRIPCgd0YWJsZUlEGBQgASgJIiQKEVN0YXJ0SGFuZFJlc3Bv",
-            "bnNlEg8KB3JvdW5kSUQYCiABKAkiPAoKQWN0aW9uT3B0cxIRCgliZXRBbW91",
-            "bnQYCiABKAMSDAoEbmFtZRgUIAEoCRINCgV0b2tlbhgeIAEoCSKJAQoTUGxh",
-            "eWVyQWN0aW9uUmVxdWVzdBIQCghwbGF5ZXJJRBgKIAEoCRIPCgd0YWJsZUlE",
-            "GBQgASgJEg8KB3JvdW5kSUQYHiABKAkSHQoGYWN0aW9uGCggASgOMg0ucG9r",
-            "ZXIuQWN0aW9uEh8KBG9wdHMYMiABKAsyES5wb2tlci5BY3Rpb25PcHRzIhYK",
-            "FFBsYXllckFjdGlvblJlc3BvbnNlIkUKBENhcmQSHgoFc3VpdGUYCiABKA4y",
-            "Dy5wb2tlci5DYXJkU3VpdBIdCgRyYW5rGBQgASgOMg8ucG9rZXIuQ2FyZFJh",
-            "bmsijQEKC1BsYXllck1vbmV5EgwKBGJhbmsYCiABKAMSDQoFc3RhY2sYFCAB",
-            "KAMSCwoDcG90GB4gASgDEhcKD21pbkJldFRoaXNSb3VuZBgoIAEoAxIUCgxi",
-            "ZXRUaGlzUm91bmQYMiABKAMSEwoLYmV0VGhpc0hhbmQYPCABKAMSEAoId2lu",
-            "bmluZ3MYRiABKAMivwEKBlBsYXllchIMCgRuYW1lGAogASgJEgoKAmlkGA8g",
-            "ASgJEhAKCHBvc2l0aW9uGBQgASgDEiEKBW1vbmV5GB4gASgLMhIucG9rZXIu",
-            "UGxheWVyTW9uZXkSIQoFc3RhdGUYMiABKA4yEi5wb2tlci5QbGF5ZXJTdGF0",
-            "ZRIZCgRjYXJkGDwgAygLMgsucG9rZXIuQ2FyZBIZCgRoYW5kGEYgAygLMgsu",
-            "cG9rZXIuQ2FyZBINCgVjb21ibxhQIAEoCSIrCg5Db21tdW5pdHlDYXJkcxIZ",
-            "CgRjYXJkGAogAygLMgsucG9rZXIuQ2FyZCKFAQoEVHVybhISCgpwbGF5ZXJO",
-            "YW1lGAogASgJEhAKCHBsYXllcklEGBQgASgJEioKBmFjdGlvbhgeIAEoCzIa",
-            "LnBva2VyLlBsYXllckFjdGlvblJlcXVlc3QSKwoGcmVzdWx0GCggASgLMhsu",
-            "cG9rZXIuUGxheWVyQWN0aW9uUmVzcG9uc2UiJQoHVHVybkxvZxIaCgV0dXJu",
-            "cxgKIAMoCzILLnBva2VyLlR1cm4i7wMKCVRhYmxlSW5mbxIdCgZwbGF5ZXIY",
-            "CiADKAsyDS5wb2tlci5QbGF5ZXISIQoKbmV4dFBsYXllchgUIAEoCzINLnBv",
-            "a2VyLlBsYXllchIcChN0dXJuVGltZUxlZnRTZWNvbmRzGJYBIAEoAxIcChNn",
-            "YW1lU3RhcnRzSW5TZWNvbmRzGKoBIAEoAxIPCgZ0dXJuSUQYoAEgASgDEh4K",
-            "B3dpbm5lcnMYHiADKAsyDS5wb2tlci5QbGF5ZXISLgoPY29tbXVuaXR5X2Nh",
-            "cmRzGDIgASgLMhUucG9rZXIuQ29tbXVuaXR5Q2FyZHMSJwoLdGFibGVTdGF0",
-            "dXMYPCABKA4yEi5wb2tlci5UYWJsZVN0YXR1cxInCgtyb3VuZFN0YXR1cxhG",
-            "IAEoDjISLnBva2VyLlJvdW5kU3RhdHVzEg8KB3RhYmxlSUQYUCABKAkSEgoJ",
-            "dGFibGVOYW1lGLQBIAEoCRIPCgdyb3VuZElEGFogASgJEhIKCnNtYWxsQmxp",
-            "bmQYZCABKAMSEAoIYmlnQmxpbmQYbiABKAMSDQoFdG9rZW4YeCABKAkSEgoJ",
-            "c3RhcnRUaW1lGIIBIAEoAxIQCgdlbmRUaW1lGIwBIAEoAxIgCgd0dXJuTG9n",
-            "GL4BIAEoCzIOLnBva2VyLlR1cm5Mb2ciRAoOR2V0SW5mb1JlcXVlc3QSDwoH",
-            "dGFibGVJRBgKIAEoCRIPCgdyb3VuZElEGBQgASgJEhAKCHBsYXllcklEGB4g",
-            "ASgJIjEKD0dldEluZm9SZXNwb25zZRIeCgRpbmZvGAogASgLMhAucG9rZXIu",
-            "VGFibGVJbmZvKk8KD0pvaW5UYWJsZVN0YXR1cxILCgdVTktOT1dOEAASCwoH",
-            "U1VDQ0VTUxABEhcKE05PX0FWQUlMQUJMRV9UQUJMRVMQAhIJCgVFUlJPUhAD",
-            "KtEBCgZBY3Rpb24SDgoKQWN0aW9uRm9sZBAAEg8KC0FjdGlvbkNoZWNrEAES",
-            "DQoJQWN0aW9uQmV0EAISDwoLQWN0aW9uQWxsSW4QAxIOCgpBY3Rpb25DYWxs",
-            "EAQSEgoOQWN0aW9uU2F5SGVsbG8QBRITCg9BY3Rpb25Kb2luVGFibGUQBhIR",
-            "Cg1BY3Rpb25HZXRJbmZvEAcSDQoJQWN0aW9uQWNrEAgSFAoQQWN0aW9uTGlz",
-            "dFRhYmxlcxAJEhUKEUFjdGlvbkNyZWF0ZVRhYmxlEAoqNwoIQ2FyZFN1aXQS",
-            "CQoFU3BhZGUQABIICgRDbHViEAESCwoHRGlhbW9uZBACEgkKBUhlYXJ0EAMq",
-            "jAEKCENhcmRSYW5rEgcKA1R3bxAAEgkKBVRocmVlEAESCAoERm91chACEggK",
-            "BEZpdmUQAxIHCgNTaXgQBBIJCgVTZXZlbhAFEgkKBUVpZ2h0EAYSCAoETmlu",
-            "ZRAHEgcKA1RlbhAIEggKBEphY2sQCRIJCgVRdWVlbhAKEggKBEtpbmcQCxIH",
-            "CgNBY2UQDCpqCgtQbGF5ZXJTdGF0ZRIWChJQbGF5ZXJTdGF0ZVVua25vd24Q",
-            "ABIUChBQbGF5ZXJTdGF0ZVJlYWR5EAESFgoSUGxheWVyU3RhdGVQbGF5aW5n",
-            "EAISFQoRUGxheWVyU3RhdGVGb2xkZWQQAyq7AQoLVGFibGVTdGF0dXMSFgoS",
-            "VGFibGVTdGF0dXNVbmtub3duEAASGwoXVGFibGVTdGF0dXNJbml0aWFsaXpp",
-            "bmcQARIdChlUYWJsZVN0YXR1c1dhaXRpbmdQbGF5ZXJzEAISHwobVGFibGVT",
-            "dGF0dXNHYW1lUmVhZHlUb1N0YXJ0EAMSGgoWVGFibGVTdGF0dXNHYW1lUGxh",
-            "eWluZxAEEhsKF1RhYmxlU3RhdHVzR2FtZUZpbmlzaGVkEAUqywEKC1JvdW5k",
-            "U3RhdHVzEhsKF1JvdW5kU3RhdHVzSW5pdGlhbGl6aW5nEAASGQoVUm91bmRT",
-            "dGF0dXNTbWFsbEJsaW5kEAESFwoTUm91bmRTdGF0dXNCaWdCbGluZBACEhYK",
-            "ElJvdW5kU3RhdHVzUHJlRmxvcBADEhMKD1JvdW5kU3RhdHVzRmxvcBAEEhMK",
-            "D1JvdW5kU3RhdHVzVHVybhAFEhQKEFJvdW5kU3RhdHVzUml2ZXIQBhITCg9S",
-            "b3VuZFN0YXR1c0RvbmUQBzLiAwoLUG9rZXJTZXJ2ZXISPQoIU2F5SGVsbG8S",
-            "Fi5wb2tlci5TYXlIZWxsb1JlcXVlc3QaFy5wb2tlci5TYXlIZWxsb1Jlc3Bv",
-            "bnNlIgASQwoKTGlzdFRhYmxlcxIYLnBva2VyLkxpc3RUYWJsZXNSZXF1ZXN0",
-            "GhkucG9rZXIuTGlzdFRhYmxlc1Jlc3BvbnNlIgASRgoLQ3JlYXRlVGFibGUS",
-            "GS5wb2tlci5DcmVhdGVUYWJsZVJlcXVlc3QaGi5wb2tlci5DcmVhdGVUYWJs",
-            "ZVJlc3BvbnNlIgASQAoJSm9pblRhYmxlEhcucG9rZXIuSm9pblRhYmxlUmVx",
-            "dWVzdBoYLnBva2VyLkpvaW5UYWJsZVJlc3BvbnNlIgASRQoIVGFrZVR1cm4S",
-            "Gi5wb2tlci5QbGF5ZXJBY3Rpb25SZXF1ZXN0GhsucG9rZXIuUGxheWVyQWN0",
-            "aW9uUmVzcG9uc2UiABI8CgtHZXRHYW1lSW5mbxIVLnBva2VyLkdldEluZm9S",
-            "ZXF1ZXN0GhAucG9rZXIuVGFibGVJbmZvIgAoATABEkAKCVN0YXJ0SGFuZBIX",
-            "LnBva2VyLlN0YXJ0SGFuZFJlcXVlc3QaGC5wb2tlci5TdGFydEhhbmRSZXNw",
-            "b25zZSIAQipaKGdpdGh1Yi5jb20vRGFuVHVvdnNreS9wZXBwZXItcG9rZXIv",
-            "cHJvdG9iBnByb3RvMw=="));
+            "Cgtwb2tlci5wcm90bxIFcG9rZXIiRwoPQWNrVG9rZW5SZXF1ZXN0EiUKCmNs",
+            "aWVudEluZm8YCiABKAsyES5wb2tlci5DbGllbnRJbmZvEg0KBXRva2VuGBQg",
+            "ASgJIhIKEEFja1Rva2VuUmVzcG9uc2UiMQoKQWN0aW9uT3B0cxIRCgliZXRB",
+            "bW91bnQYCiABKAMSEAoIYWNrVG9rZW4YFCABKAkiYwoPUmVnaXN0ZXJSZXF1",
+            "ZXN0EiUKCmNsaWVudEluZm8YCiABKAsyES5wb2tlci5DbGllbnRJbmZvEikK",
+            "DHBsYXllckFjdGlvbhgUIAEoDjITLnBva2VyLlBsYXllckFjdGlvbiI1ChBS",
+            "ZWdpc3RlclJlc3BvbnNlEhAKCHBsYXllcklEGAogASgJEg8KB21lc3NhZ2UY",
+            "FCABKAkidQoQSm9pblRhYmxlUmVxdWVzdBIlCgpjbGllbnRJbmZvGAogASgL",
+            "MhEucG9rZXIuQ2xpZW50SW5mbxIpCgxwbGF5ZXJBY3Rpb24YFCABKA4yEy5w",
+            "b2tlci5QbGF5ZXJBY3Rpb24SDwoHdGFibGVJRBgeIAEoCSJHChFKb2luVGFi",
+            "bGVSZXNwb25zZRIPCgd0YWJsZUlEGAogASgJEhAKCHBvc2l0aW9uGBQgASgD",
+            "Eg8KB21lc3NhZ2UYHiABKAkiigEKD1Rha2VUdXJuUmVxdWVzdBIlCgpjbGll",
+            "bnRJbmZvGAogASgLMhEucG9rZXIuQ2xpZW50SW5mbxIpCgxwbGF5ZXJBY3Rp",
+            "b24YFCABKA4yEy5wb2tlci5QbGF5ZXJBY3Rpb24SJQoKYWN0aW9uT3B0cxge",
+            "IAEoCzIRLnBva2VyLkFjdGlvbk9wdHMiIwoQVGFrZVR1cm5SZXNwb25zZRIP",
+            "CgdtZXNzYWdlGBQgASgJIiUKEkRpc2Nvbm5lY3RSZXNwb25zZRIPCgdtZXNz",
+            "YWdlGBQgASgJIl8KC1BsYXlSZXF1ZXN0EiUKCmNsaWVudEluZm8YCiABKAsy",
+            "ES5wb2tlci5DbGllbnRJbmZvEikKDHBsYXllckFjdGlvbhgyIAEoDjITLnBv",
+            "a2VyLlBsYXllckFjdGlvbiJtCgpDbGllbnRJbmZvEhAKCHBsYXllcklEGAog",
+            "ASgJEhIKCnBsYXllck5hbWUYFCABKAkSFgoOcGxheWVyVXNlcm5hbWUYHiAB",
+            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSK+AgoIR2Ft",
+            "ZUluZm8SEQoJdGFibGVOYW1lGAogASgJEg8KB3RhYmxlSUQYFCABKAkSIwoJ",
+            "Z2FtZVN0YXRlGB4gASgOMhAucG9rZXIuR2FtZVN0YXRlEhcKD2dhbWVTdGFy",
+            "dHNJblNlYxgoIAEoAxIQCghhY2tUb2tlbhgyIAEoCRItCg5Db21tdW5pdHlD",
+            "YXJkcxg8IAEoCzIVLnBva2VyLkNvbW11bml0eUNhcmRzEhIKCm1heFBsYXll",
+            "cnMYZCABKAMSEgoKbWluUGxheWVycxhuIAEoAxIQCghiaWdCbGluZBh4IAEo",
+            "AxISCgpzbWFsbEJsaW5kGH0gASgDEg4KBWJ1eWluGIIBIAEoAxIfCgdwbGF5",
+            "ZXJzGIwBIAMoCzINLnBva2VyLlBsYXllchIQCgd3aW5uZXJzGJYBIAMoCSKZ",
+            "AQoIR2FtZURhdGESHQoEaW5mbxgKIAEoCzIPLnBva2VyLkdhbWVJbmZvEhIK",
+            "CndhaXRUdXJuSUQYFCABKAkSFAoMd2FpdFR1cm5OYW1lGB4gASgJEhMKC3dh",
+            "aXRUdXJuTnVtGCMgASgDEhAKCHBsYXllcklEGCggASgJEh0KBnBsYXllchgy",
+            "IAEoCzINLnBva2VyLlBsYXllciK/AQoGUGxheWVyEgwKBG5hbWUYCiABKAkS",
+            "CgoCaWQYDyABKAkSEAoIcG9zaXRpb24YFCABKAMSIQoFbW9uZXkYHiABKAsy",
+            "Ei5wb2tlci5QbGF5ZXJNb25leRIhCgVzdGF0ZRgyIAEoDjISLnBva2VyLlBs",
+            "YXllclN0YXRlEhkKBGNhcmQYPCADKAsyCy5wb2tlci5DYXJkEhkKBGhhbmQY",
+            "RiADKAsyCy5wb2tlci5DYXJkEg0KBWNvbWJvGFAgASgJIo0BCgtQbGF5ZXJN",
+            "b25leRIMCgRiYW5rGAogASgDEg0KBXN0YWNrGBQgASgDEgsKA3BvdBgeIAEo",
+            "AxIXCg9taW5CZXRUaGlzUm91bmQYKCABKAMSFAoMYmV0VGhpc1JvdW5kGDIg",
+            "ASgDEhMKC2JldFRoaXNIYW5kGDwgASgDEhAKCHdpbm5pbmdzGEYgASgDIisK",
+            "DkNvbW11bml0eUNhcmRzEhkKBGNhcmQYCiADKAsyCy5wb2tlci5DYXJkIkUK",
+            "BENhcmQSHgoFc3VpdGUYCiABKA4yDy5wb2tlci5DYXJkU3VpdBIdCgRyYW5r",
+            "GBQgASgOMg8ucG9rZXIuQ2FyZFJhbmsqqwIKDFBsYXllckFjdGlvbhIUChBQ",
+            "bGF5ZXJBY3Rpb25Ob25lEAASGAoUUGxheWVyQWN0aW9uUmVnaXN0ZXIQARIZ",
+            "ChVQbGF5ZXJBY3Rpb25Kb2luVGFibGUQAhIUChBQbGF5ZXJBY3Rpb25QbGF5",
+            "EAMSFAoQUGxheWVyQWN0aW9uQ2FsbBAEEhUKEVBsYXllckFjdGlvbkNoZWNr",
+            "EAUSEwoPUGxheWVyQWN0aW9uQmV0EAYSFAoQUGxheWVyQWN0aW9uRm9sZBAH",
+            "EhgKFFBsYXllckFjdGlvbkFja1Rva2VuEAgSFQoRUGxheWVyQWN0aW9uQWxs",
+            "SW4QCRIVChFQbGF5ZXJBY3Rpb25CdXlJbhAKEhoKFlBsYXllckFjdGlvbkRp",
+            "c2Nvbm5lY3QQCyq5AgoJR2FtZVN0YXRlEhsKF0dhbWVTdGF0ZVdhaXRpbmdQ",
+            "bGF5ZXJzEAASGQoVR2FtZVN0YXRlSW5pdGlhbGl6aW5nEAESGQoVR2FtZVN0",
+            "YXRlUmVhZHlUb1N0YXJ0EAISHgoaR2FtZVN0YXRlUGxheWluZ1NtYWxsQmxp",
+            "bmQQAxIcChhHYW1lU3RhdGVQbGF5aW5nQmlnQmxpbmQQBBIbChdHYW1lU3Rh",
+            "dGVQbGF5aW5nUHJlRmxvcBAFEhgKFEdhbWVTdGF0ZVBsYXlpbmdGbG9wEAYS",
+            "GAoUR2FtZVN0YXRlUGxheWluZ1R1cm4QBxIZChVHYW1lU3RhdGVQbGF5aW5n",
+            "Uml2ZXIQCBIYChRHYW1lU3RhdGVQbGF5aW5nRG9uZRAJEhUKEUdhbWVTdGF0",
+            "ZUZpbmlzaGVkEAoqdgoLUGxheWVyU3RhdGUSFgoSUGxheWVyU3RhdGVEZWZh",
+            "dWx0EAASGQoVUGxheWVyU3RhdGVTdGFja0VtcHR5EAESGAoUUGxheWVyU3Rh",
+            "dGVCYW5rRW1wdHkQAhIaChZQbGF5ZXJTdGF0ZUN1cnJlbnRUdXJuEAMqNwoI",
+            "Q2FyZFN1aXQSCQoFU3BhZGUQABIICgRDbHViEAESCwoHRGlhbW9uZBACEgkK",
+            "BUhlYXJ0EAMqjAEKCENhcmRSYW5rEgcKA1R3bxAAEgkKBVRocmVlEAESCAoE",
+            "Rm91chACEggKBEZpdmUQAxIHCgNTaXgQBBIJCgVTZXZlbhAFEgkKBUVpZ2h0",
+            "EAYSCAoETmluZRAHEgcKA1RlbhAIEggKBEphY2sQCRIJCgVRdWVlbhAKEggK",
+            "BEtpbmcQCxIHCgNBY2UQDDK9AgoLUG9rZXJTZXJ2ZXISPQoIQWNrVG9rZW4S",
+            "Fi5wb2tlci5BY2tUb2tlblJlcXVlc3QaFy5wb2tlci5BY2tUb2tlblJlc3Bv",
+            "bnNlIgASQAoJSm9pblRhYmxlEhcucG9rZXIuSm9pblRhYmxlUmVxdWVzdBoY",
+            "LnBva2VyLkpvaW5UYWJsZVJlc3BvbnNlIgASLwoEUGxheRISLnBva2VyLlBs",
+            "YXlSZXF1ZXN0Gg8ucG9rZXIuR2FtZURhdGEiADABEj0KCFJlZ2lzdGVyEhYu",
+            "cG9rZXIuUmVnaXN0ZXJSZXF1ZXN0GhcucG9rZXIuUmVnaXN0ZXJSZXNwb25z",
+            "ZSIAEj0KCFRha2VUdXJuEhYucG9rZXIuVGFrZVR1cm5SZXF1ZXN0GhcucG9r",
+            "ZXIuVGFrZVR1cm5SZXNwb25zZSIAQi1aK2dpdGh1Yi5jb20vRGFuVHVvdnNr",
+            "eS9wZXBwZXItcG9rZXItdjIvcHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Poker.JoinTableStatus), typeof(global::Poker.Action), typeof(global::Poker.CardSuit), typeof(global::Poker.CardRank), typeof(global::Poker.PlayerState), typeof(global::Poker.TableStatus), typeof(global::Poker.RoundStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.SayHelloRequest), global::Poker.SayHelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.SayHelloResponse), global::Poker.SayHelloResponse.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ListTablesRequest), global::Poker.ListTablesRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Table), global::Poker.Table.Parser, new[]{ "Id", "Name", "NumPlayers", "MaxPlayers", "MinPlayers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ListTablesResponse), global::Poker.ListTablesResponse.Parser, new[]{ "Tables" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.CreateTableRequest), global::Poker.CreateTableRequest.Parser, new[]{ "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.CreateTableResponse), global::Poker.CreateTableResponse.Parser, new[]{ "TableID", "TableName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.JoinTableRequest), global::Poker.JoinTableRequest.Parser, new[]{ "TableID", "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.JoinTableResponse), global::Poker.JoinTableResponse.Parser, new[]{ "Status", "TableID", "Position" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.StartHandRequest), global::Poker.StartHandRequest.Parser, new[]{ "PlayerID", "TableID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.StartHandResponse), global::Poker.StartHandResponse.Parser, new[]{ "RoundID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ActionOpts), global::Poker.ActionOpts.Parser, new[]{ "BetAmount", "Name", "Token" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayerActionRequest), global::Poker.PlayerActionRequest.Parser, new[]{ "PlayerID", "TableID", "RoundID", "Action", "Opts" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayerActionResponse), global::Poker.PlayerActionResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Card), global::Poker.Card.Parser, new[]{ "Suite", "Rank" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayerMoney), global::Poker.PlayerMoney.Parser, new[]{ "Bank", "Stack", "Pot", "MinBetThisRound", "BetThisRound", "BetThisHand", "Winnings" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Poker.PlayerAction), typeof(global::Poker.GameState), typeof(global::Poker.PlayerState), typeof(global::Poker.CardSuit), typeof(global::Poker.CardRank), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.AckTokenRequest), global::Poker.AckTokenRequest.Parser, new[]{ "ClientInfo", "Token" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.AckTokenResponse), global::Poker.AckTokenResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ActionOpts), global::Poker.ActionOpts.Parser, new[]{ "BetAmount", "AckToken" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.RegisterRequest), global::Poker.RegisterRequest.Parser, new[]{ "ClientInfo", "PlayerAction" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.RegisterResponse), global::Poker.RegisterResponse.Parser, new[]{ "PlayerID", "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.JoinTableRequest), global::Poker.JoinTableRequest.Parser, new[]{ "ClientInfo", "PlayerAction", "TableID" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.JoinTableResponse), global::Poker.JoinTableResponse.Parser, new[]{ "TableID", "Position", "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.TakeTurnRequest), global::Poker.TakeTurnRequest.Parser, new[]{ "ClientInfo", "PlayerAction", "ActionOpts" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.TakeTurnResponse), global::Poker.TakeTurnResponse.Parser, new[]{ "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.DisconnectResponse), global::Poker.DisconnectResponse.Parser, new[]{ "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayRequest), global::Poker.PlayRequest.Parser, new[]{ "ClientInfo", "PlayerAction" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ClientInfo), global::Poker.ClientInfo.Parser, new[]{ "PlayerID", "PlayerName", "PlayerUsername", "TableID", "Password" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "Players", "Winners" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameData), global::Poker.GameData.Parser, new[]{ "Info", "WaitTurnID", "WaitTurnName", "WaitTurnNum", "PlayerID", "Player" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Player), global::Poker.Player.Parser, new[]{ "Name", "Id", "Position", "Money", "State", "Card", "Hand", "Combo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayerMoney), global::Poker.PlayerMoney.Parser, new[]{ "Bank", "Stack", "Pot", "MinBetThisRound", "BetThisRound", "BetThisHand", "Winnings" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.CommunityCards), global::Poker.CommunityCards.Parser, new[]{ "Card" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Turn), global::Poker.Turn.Parser, new[]{ "PlayerName", "PlayerID", "Action", "Result" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.TurnLog), global::Poker.TurnLog.Parser, new[]{ "Turns" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.TableInfo), global::Poker.TableInfo.Parser, new[]{ "Player", "NextPlayer", "TurnTimeLeftSeconds", "GameStartsInSeconds", "TurnID", "Winners", "CommunityCards", "TableStatus", "RoundStatus", "TableID", "TableName", "RoundID", "SmallBlind", "BigBlind", "Token", "StartTime", "EndTime", "TurnLog" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GetInfoRequest), global::Poker.GetInfoRequest.Parser, new[]{ "TableID", "RoundID", "PlayerID" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GetInfoResponse), global::Poker.GetInfoResponse.Parser, new[]{ "Info" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Card), global::Poker.Card.Parser, new[]{ "Suite", "Rank" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Enums
-  public enum JoinTableStatus {
-    [pbr::OriginalName("UNKNOWN")] Unknown = 0,
-    [pbr::OriginalName("SUCCESS")] Success = 1,
-    [pbr::OriginalName("NO_AVAILABLE_TABLES")] NoAvailableTables = 2,
-    [pbr::OriginalName("ERROR")] Error = 3,
+  public enum PlayerAction {
+    [pbr::OriginalName("PlayerActionNone")] None = 0,
+    [pbr::OriginalName("PlayerActionRegister")] Register = 1,
+    [pbr::OriginalName("PlayerActionJoinTable")] JoinTable = 2,
+    [pbr::OriginalName("PlayerActionPlay")] Play = 3,
+    [pbr::OriginalName("PlayerActionCall")] Call = 4,
+    [pbr::OriginalName("PlayerActionCheck")] Check = 5,
+    [pbr::OriginalName("PlayerActionBet")] Bet = 6,
+    [pbr::OriginalName("PlayerActionFold")] Fold = 7,
+    [pbr::OriginalName("PlayerActionAckToken")] AckToken = 8,
+    [pbr::OriginalName("PlayerActionAllIn")] AllIn = 9,
+    [pbr::OriginalName("PlayerActionBuyIn")] BuyIn = 10,
+    [pbr::OriginalName("PlayerActionDisconnect")] Disconnect = 11,
   }
 
-  public enum Action {
-    [pbr::OriginalName("ActionFold")] Fold = 0,
-    [pbr::OriginalName("ActionCheck")] Check = 1,
-    [pbr::OriginalName("ActionBet")] Bet = 2,
-    [pbr::OriginalName("ActionAllIn")] AllIn = 3,
-    [pbr::OriginalName("ActionCall")] Call = 4,
-    [pbr::OriginalName("ActionSayHello")] SayHello = 5,
-    [pbr::OriginalName("ActionJoinTable")] JoinTable = 6,
-    [pbr::OriginalName("ActionGetInfo")] GetInfo = 7,
-    [pbr::OriginalName("ActionAck")] Ack = 8,
-    [pbr::OriginalName("ActionListTables")] ListTables = 9,
-    [pbr::OriginalName("ActionCreateTable")] CreateTable = 10,
+  public enum GameState {
+    [pbr::OriginalName("GameStateWaitingPlayers")] WaitingPlayers = 0,
+    [pbr::OriginalName("GameStateInitializing")] Initializing = 1,
+    [pbr::OriginalName("GameStateReadyToStart")] ReadyToStart = 2,
+    [pbr::OriginalName("GameStatePlayingSmallBlind")] PlayingSmallBlind = 3,
+    [pbr::OriginalName("GameStatePlayingBigBlind")] PlayingBigBlind = 4,
+    [pbr::OriginalName("GameStatePlayingPreFlop")] PlayingPreFlop = 5,
+    [pbr::OriginalName("GameStatePlayingFlop")] PlayingFlop = 6,
+    [pbr::OriginalName("GameStatePlayingTurn")] PlayingTurn = 7,
+    [pbr::OriginalName("GameStatePlayingRiver")] PlayingRiver = 8,
+    [pbr::OriginalName("GameStatePlayingDone")] PlayingDone = 9,
+    [pbr::OriginalName("GameStateFinished")] Finished = 10,
+  }
+
+  /// <summary>
+  /// PlayerState is the player state according to the server
+  /// </summary>
+  public enum PlayerState {
+    [pbr::OriginalName("PlayerStateDefault")] Default = 0,
+    /// <summary>
+    /// PlayerStateStackEmpty means the player has run out of money in the stack
+    /// </summary>
+    [pbr::OriginalName("PlayerStateStackEmpty")] StackEmpty = 1,
+    /// <summary>
+    /// PlayerStateBankEmpty means the player has run out of money in the bank
+    /// </summary>
+    [pbr::OriginalName("PlayerStateBankEmpty")] BankEmpty = 2,
+    /// <summary>
+    /// PlayerStateCurrentTurn marks this player's turn
+    /// </summary>
+    [pbr::OriginalName("PlayerStateCurrentTurn")] CurrentTurn = 3,
   }
 
   public enum CardSuit {
@@ -181,45 +193,18 @@ namespace Poker {
     [pbr::OriginalName("Ace")] Ace = 12,
   }
 
-  public enum PlayerState {
-    [pbr::OriginalName("PlayerStateUnknown")] Unknown = 0,
-    [pbr::OriginalName("PlayerStateReady")] Ready = 1,
-    [pbr::OriginalName("PlayerStatePlaying")] Playing = 2,
-    [pbr::OriginalName("PlayerStateFolded")] Folded = 3,
-  }
-
-  public enum TableStatus {
-    [pbr::OriginalName("TableStatusUnknown")] Unknown = 0,
-    [pbr::OriginalName("TableStatusInitializing")] Initializing = 1,
-    [pbr::OriginalName("TableStatusWaitingPlayers")] WaitingPlayers = 2,
-    [pbr::OriginalName("TableStatusGameReadyToStart")] GameReadyToStart = 3,
-    [pbr::OriginalName("TableStatusGamePlaying")] GamePlaying = 4,
-    [pbr::OriginalName("TableStatusGameFinished")] GameFinished = 5,
-  }
-
-  public enum RoundStatus {
-    [pbr::OriginalName("RoundStatusInitializing")] Initializing = 0,
-    [pbr::OriginalName("RoundStatusSmallBlind")] SmallBlind = 1,
-    [pbr::OriginalName("RoundStatusBigBlind")] BigBlind = 2,
-    [pbr::OriginalName("RoundStatusPreFlop")] PreFlop = 3,
-    [pbr::OriginalName("RoundStatusFlop")] Flop = 4,
-    [pbr::OriginalName("RoundStatusTurn")] Turn = 5,
-    [pbr::OriginalName("RoundStatusRiver")] River = 6,
-    [pbr::OriginalName("RoundStatusDone")] Done = 7,
-  }
-
   #endregion
 
   #region Messages
-  public sealed partial class SayHelloRequest : pb::IMessage<SayHelloRequest>
+  public sealed partial class AckTokenRequest : pb::IMessage<AckTokenRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SayHelloRequest> _parser = new pb::MessageParser<SayHelloRequest>(() => new SayHelloRequest());
+    private static readonly pb::MessageParser<AckTokenRequest> _parser = new pb::MessageParser<AckTokenRequest>(() => new AckTokenRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SayHelloRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<AckTokenRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -232,55 +217,69 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SayHelloRequest() {
+    public AckTokenRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SayHelloRequest(SayHelloRequest other) : this() {
-      name_ = other.name_;
+    public AckTokenRequest(AckTokenRequest other) : this() {
+      clientInfo_ = other.clientInfo_ != null ? other.clientInfo_.Clone() : null;
+      token_ = other.token_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SayHelloRequest Clone() {
-      return new SayHelloRequest(this);
+    public AckTokenRequest Clone() {
+      return new AckTokenRequest(this);
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 10;
-    private string name_ = "";
+    /// <summary>Field number for the "clientInfo" field.</summary>
+    public const int ClientInfoFieldNumber = 10;
+    private global::Poker.ClientInfo clientInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
+    public global::Poker.ClientInfo ClientInfo {
+      get { return clientInfo_; }
       set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        clientInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 20;
+    private string token_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Token {
+      get { return token_; }
+      set {
+        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as SayHelloRequest);
+      return Equals(other as AckTokenRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SayHelloRequest other) {
+    public bool Equals(AckTokenRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Name != other.Name) return false;
+      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (Token != other.Token) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (clientInfo_ != null) hash ^= ClientInfo.GetHashCode();
+      if (Token.Length != 0) hash ^= Token.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -297,9 +296,13 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Name.Length != 0) {
+      if (clientInfo_ != null) {
         output.WriteRawTag(82);
-        output.WriteString(Name);
+        output.WriteMessage(ClientInfo);
+      }
+      if (Token.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Token);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -310,9 +313,13 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
+      if (clientInfo_ != null) {
         output.WriteRawTag(82);
-        output.WriteString(Name);
+        output.WriteMessage(ClientInfo);
+      }
+      if (Token.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Token);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -323,8 +330,11 @@ namespace Poker {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      if (clientInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ClientInfo);
+      }
+      if (Token.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -333,12 +343,18 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SayHelloRequest other) {
+    public void MergeFrom(AckTokenRequest other) {
       if (other == null) {
         return;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
+      if (other.clientInfo_ != null) {
+        if (clientInfo_ == null) {
+          ClientInfo = new global::Poker.ClientInfo();
+        }
+        ClientInfo.MergeFrom(other.ClientInfo);
+      }
+      if (other.Token.Length != 0) {
+        Token = other.Token;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -355,7 +371,14 @@ namespace Poker {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 82: {
-            Name = input.ReadString();
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 162: {
+            Token = input.ReadString();
             break;
           }
         }
@@ -373,7 +396,14 @@ namespace Poker {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 82: {
-            Name = input.ReadString();
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 162: {
+            Token = input.ReadString();
             break;
           }
         }
@@ -383,15 +413,15 @@ namespace Poker {
 
   }
 
-  public sealed partial class SayHelloResponse : pb::IMessage<SayHelloResponse>
+  public sealed partial class AckTokenResponse : pb::IMessage<AckTokenResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<SayHelloResponse> _parser = new pb::MessageParser<SayHelloResponse>(() => new SayHelloResponse());
+    private static readonly pb::MessageParser<AckTokenResponse> _parser = new pb::MessageParser<AckTokenResponse>(() => new AckTokenResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<SayHelloResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<AckTokenResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -404,201 +434,29 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SayHelloResponse() {
+    public AckTokenResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SayHelloResponse(SayHelloResponse other) : this() {
-      playerID_ = other.playerID_;
+    public AckTokenResponse(AckTokenResponse other) : this() {
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public SayHelloResponse Clone() {
-      return new SayHelloResponse(this);
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 10;
-    private string playerID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
+    public AckTokenResponse Clone() {
+      return new AckTokenResponse(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as SayHelloResponse);
+      return Equals(other as AckTokenResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(SayHelloResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PlayerID != other.PlayerID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (PlayerID.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(SayHelloResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.PlayerID.Length != 0) {
-        PlayerID = other.PlayerID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class ListTablesRequest : pb::IMessage<ListTablesRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<ListTablesRequest> _parser = new pb::MessageParser<ListTablesRequest>(() => new ListTablesRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ListTablesRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListTablesRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListTablesRequest(ListTablesRequest other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListTablesRequest Clone() {
-      return new ListTablesRequest(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ListTablesRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ListTablesRequest other) {
+    public bool Equals(AckTokenResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -652,7 +510,7 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ListTablesRequest other) {
+    public void MergeFrom(AckTokenResponse other) {
       if (other == null) {
         return;
       }
@@ -684,1695 +542,6 @@ namespace Poker {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class Table : pb::IMessage<Table>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<Table> _parser = new pb::MessageParser<Table>(() => new Table());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Table> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[3]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Table() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Table(Table other) : this() {
-      id_ = other.id_;
-      name_ = other.name_;
-      numPlayers_ = other.numPlayers_;
-      maxPlayers_ = other.maxPlayers_;
-      minPlayers_ = other.minPlayers_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Table Clone() {
-      return new Table(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 10;
-    private string id_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
-      get { return id_; }
-      set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 20;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "num_players" field.</summary>
-    public const int NumPlayersFieldNumber = 30;
-    private long numPlayers_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long NumPlayers {
-      get { return numPlayers_; }
-      set {
-        numPlayers_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "max_players" field.</summary>
-    public const int MaxPlayersFieldNumber = 40;
-    private long maxPlayers_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long MaxPlayers {
-      get { return maxPlayers_; }
-      set {
-        maxPlayers_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "min_players" field.</summary>
-    public const int MinPlayersFieldNumber = 50;
-    private long minPlayers_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long MinPlayers {
-      get { return minPlayers_; }
-      set {
-        minPlayers_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as Table);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Table other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Id != other.Id) return false;
-      if (Name != other.Name) return false;
-      if (NumPlayers != other.NumPlayers) return false;
-      if (MaxPlayers != other.MaxPlayers) return false;
-      if (MinPlayers != other.MinPlayers) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (NumPlayers != 0L) hash ^= NumPlayers.GetHashCode();
-      if (MaxPlayers != 0L) hash ^= MaxPlayers.GetHashCode();
-      if (MinPlayers != 0L) hash ^= MinPlayers.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Id.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(Id);
-      }
-      if (Name.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(Name);
-      }
-      if (NumPlayers != 0L) {
-        output.WriteRawTag(240, 1);
-        output.WriteInt64(NumPlayers);
-      }
-      if (MaxPlayers != 0L) {
-        output.WriteRawTag(192, 2);
-        output.WriteInt64(MaxPlayers);
-      }
-      if (MinPlayers != 0L) {
-        output.WriteRawTag(144, 3);
-        output.WriteInt64(MinPlayers);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(Id);
-      }
-      if (Name.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(Name);
-      }
-      if (NumPlayers != 0L) {
-        output.WriteRawTag(240, 1);
-        output.WriteInt64(NumPlayers);
-      }
-      if (MaxPlayers != 0L) {
-        output.WriteRawTag(192, 2);
-        output.WriteInt64(MaxPlayers);
-      }
-      if (MinPlayers != 0L) {
-        output.WriteRawTag(144, 3);
-        output.WriteInt64(MinPlayers);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
-      }
-      if (Name.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (NumPlayers != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(NumPlayers);
-      }
-      if (MaxPlayers != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(MaxPlayers);
-      }
-      if (MinPlayers != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(MinPlayers);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Table other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.NumPlayers != 0L) {
-        NumPlayers = other.NumPlayers;
-      }
-      if (other.MaxPlayers != 0L) {
-        MaxPlayers = other.MaxPlayers;
-      }
-      if (other.MinPlayers != 0L) {
-        MinPlayers = other.MinPlayers;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            Id = input.ReadString();
-            break;
-          }
-          case 162: {
-            Name = input.ReadString();
-            break;
-          }
-          case 240: {
-            NumPlayers = input.ReadInt64();
-            break;
-          }
-          case 320: {
-            MaxPlayers = input.ReadInt64();
-            break;
-          }
-          case 400: {
-            MinPlayers = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            Id = input.ReadString();
-            break;
-          }
-          case 162: {
-            Name = input.ReadString();
-            break;
-          }
-          case 240: {
-            NumPlayers = input.ReadInt64();
-            break;
-          }
-          case 320: {
-            MaxPlayers = input.ReadInt64();
-            break;
-          }
-          case 400: {
-            MinPlayers = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class ListTablesResponse : pb::IMessage<ListTablesResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<ListTablesResponse> _parser = new pb::MessageParser<ListTablesResponse>(() => new ListTablesResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ListTablesResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListTablesResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListTablesResponse(ListTablesResponse other) : this() {
-      tables_ = other.tables_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListTablesResponse Clone() {
-      return new ListTablesResponse(this);
-    }
-
-    /// <summary>Field number for the "tables" field.</summary>
-    public const int TablesFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::Poker.Table> _repeated_tables_codec
-        = pb::FieldCodec.ForMessage(82, global::Poker.Table.Parser);
-    private readonly pbc::RepeatedField<global::Poker.Table> tables_ = new pbc::RepeatedField<global::Poker.Table>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Poker.Table> Tables {
-      get { return tables_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ListTablesResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ListTablesResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!tables_.Equals(other.tables_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= tables_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      tables_.WriteTo(output, _repeated_tables_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      tables_.WriteTo(ref output, _repeated_tables_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += tables_.CalculateSize(_repeated_tables_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ListTablesResponse other) {
-      if (other == null) {
-        return;
-      }
-      tables_.Add(other.tables_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            tables_.AddEntriesFrom(input, _repeated_tables_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            tables_.AddEntriesFrom(ref input, _repeated_tables_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CreateTableRequest : pb::IMessage<CreateTableRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CreateTableRequest> _parser = new pb::MessageParser<CreateTableRequest>(() => new CreateTableRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateTableRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateTableRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateTableRequest(CreateTableRequest other) : this() {
-      playerID_ = other.playerID_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateTableRequest Clone() {
-      return new CreateTableRequest(this);
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 20;
-    private string playerID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CreateTableRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateTableRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PlayerID != other.PlayerID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (PlayerID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateTableRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.PlayerID.Length != 0) {
-        PlayerID = other.PlayerID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 162: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 162: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CreateTableResponse : pb::IMessage<CreateTableResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CreateTableResponse> _parser = new pb::MessageParser<CreateTableResponse>(() => new CreateTableResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateTableResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[6]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateTableResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateTableResponse(CreateTableResponse other) : this() {
-      tableID_ = other.tableID_;
-      tableName_ = other.tableName_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateTableResponse Clone() {
-      return new CreateTableResponse(this);
-    }
-
-    /// <summary>Field number for the "tableID" field.</summary>
-    public const int TableIDFieldNumber = 20;
-    private string tableID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableID {
-      get { return tableID_; }
-      set {
-        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "tableName" field.</summary>
-    public const int TableNameFieldNumber = 30;
-    private string tableName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableName {
-      get { return tableName_; }
-      set {
-        tableName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CreateTableResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateTableResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (TableID != other.TableID) return false;
-      if (TableName != other.TableName) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (TableName.Length != 0) hash ^= TableName.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (TableID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(TableID);
-      }
-      if (TableName.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(TableName);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (TableID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(TableID);
-      }
-      if (TableName.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(TableName);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (TableID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
-      }
-      if (TableName.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableName);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateTableResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.TableID.Length != 0) {
-        TableID = other.TableID;
-      }
-      if (other.TableName.Length != 0) {
-        TableName = other.TableName;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 162: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 242: {
-            TableName = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 162: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 242: {
-            TableName = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class JoinTableRequest : pb::IMessage<JoinTableRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<JoinTableRequest> _parser = new pb::MessageParser<JoinTableRequest>(() => new JoinTableRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<JoinTableRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JoinTableRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JoinTableRequest(JoinTableRequest other) : this() {
-      tableID_ = other.tableID_;
-      playerID_ = other.playerID_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JoinTableRequest Clone() {
-      return new JoinTableRequest(this);
-    }
-
-    /// <summary>Field number for the "tableID" field.</summary>
-    public const int TableIDFieldNumber = 10;
-    private string tableID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableID {
-      get { return tableID_; }
-      set {
-        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 20;
-    private string playerID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as JoinTableRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(JoinTableRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (TableID != other.TableID) return false;
-      if (PlayerID != other.PlayerID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (TableID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(TableID);
-      }
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (TableID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(TableID);
-      }
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (TableID.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(TableID);
-      }
-      if (PlayerID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(JoinTableRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.TableID.Length != 0) {
-        TableID = other.TableID;
-      }
-      if (other.PlayerID.Length != 0) {
-        PlayerID = other.PlayerID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 162: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 162: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class JoinTableResponse : pb::IMessage<JoinTableResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<JoinTableResponse> _parser = new pb::MessageParser<JoinTableResponse>(() => new JoinTableResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<JoinTableResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JoinTableResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JoinTableResponse(JoinTableResponse other) : this() {
-      status_ = other.status_;
-      tableID_ = other.tableID_;
-      position_ = other.position_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public JoinTableResponse Clone() {
-      return new JoinTableResponse(this);
-    }
-
-    /// <summary>Field number for the "status" field.</summary>
-    public const int StatusFieldNumber = 20;
-    private global::Poker.JoinTableStatus status_ = global::Poker.JoinTableStatus.Unknown;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.JoinTableStatus Status {
-      get { return status_; }
-      set {
-        status_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "tableID" field.</summary>
-    public const int TableIDFieldNumber = 30;
-    private string tableID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableID {
-      get { return tableID_; }
-      set {
-        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "position" field.</summary>
-    public const int PositionFieldNumber = 40;
-    private long position_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Position {
-      get { return position_; }
-      set {
-        position_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as JoinTableResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(JoinTableResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Status != other.Status) return false;
-      if (TableID != other.TableID) return false;
-      if (Position != other.Position) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Status != global::Poker.JoinTableStatus.Unknown) hash ^= Status.GetHashCode();
-      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (Position != 0L) hash ^= Position.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Status != global::Poker.JoinTableStatus.Unknown) {
-        output.WriteRawTag(160, 1);
-        output.WriteEnum((int) Status);
-      }
-      if (TableID.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(TableID);
-      }
-      if (Position != 0L) {
-        output.WriteRawTag(192, 2);
-        output.WriteInt64(Position);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Status != global::Poker.JoinTableStatus.Unknown) {
-        output.WriteRawTag(160, 1);
-        output.WriteEnum((int) Status);
-      }
-      if (TableID.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(TableID);
-      }
-      if (Position != 0L) {
-        output.WriteRawTag(192, 2);
-        output.WriteInt64(Position);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Status != global::Poker.JoinTableStatus.Unknown) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
-      }
-      if (TableID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
-      }
-      if (Position != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(Position);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(JoinTableResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Status != global::Poker.JoinTableStatus.Unknown) {
-        Status = other.Status;
-      }
-      if (other.TableID.Length != 0) {
-        TableID = other.TableID;
-      }
-      if (other.Position != 0L) {
-        Position = other.Position;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 160: {
-            Status = (global::Poker.JoinTableStatus) input.ReadEnum();
-            break;
-          }
-          case 242: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 320: {
-            Position = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 160: {
-            Status = (global::Poker.JoinTableStatus) input.ReadEnum();
-            break;
-          }
-          case 242: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 320: {
-            Position = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class StartHandRequest : pb::IMessage<StartHandRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<StartHandRequest> _parser = new pb::MessageParser<StartHandRequest>(() => new StartHandRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<StartHandRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[9]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public StartHandRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public StartHandRequest(StartHandRequest other) : this() {
-      playerID_ = other.playerID_;
-      tableID_ = other.tableID_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public StartHandRequest Clone() {
-      return new StartHandRequest(this);
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 10;
-    private string playerID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "tableID" field.</summary>
-    public const int TableIDFieldNumber = 20;
-    private string tableID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableID {
-      get { return tableID_; }
-      set {
-        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as StartHandRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(StartHandRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PlayerID != other.PlayerID) return false;
-      if (TableID != other.TableID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
-      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(PlayerID);
-      }
-      if (TableID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(TableID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(PlayerID);
-      }
-      if (TableID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(TableID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (PlayerID.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
-      }
-      if (TableID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(StartHandRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.PlayerID.Length != 0) {
-        PlayerID = other.PlayerID;
-      }
-      if (other.TableID.Length != 0) {
-        TableID = other.TableID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            PlayerID = input.ReadString();
-            break;
-          }
-          case 162: {
-            TableID = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            PlayerID = input.ReadString();
-            break;
-          }
-          case 162: {
-            TableID = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class StartHandResponse : pb::IMessage<StartHandResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<StartHandResponse> _parser = new pb::MessageParser<StartHandResponse>(() => new StartHandResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<StartHandResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[10]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public StartHandResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public StartHandResponse(StartHandResponse other) : this() {
-      roundID_ = other.roundID_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public StartHandResponse Clone() {
-      return new StartHandResponse(this);
-    }
-
-    /// <summary>Field number for the "roundID" field.</summary>
-    public const int RoundIDFieldNumber = 10;
-    private string roundID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string RoundID {
-      get { return roundID_; }
-      set {
-        roundID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as StartHandResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(StartHandResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (RoundID != other.RoundID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (RoundID.Length != 0) hash ^= RoundID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(RoundID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(RoundID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (RoundID.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoundID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(StartHandResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.RoundID.Length != 0) {
-        RoundID = other.RoundID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            RoundID = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            RoundID = input.ReadString();
-            break;
-          }
         }
       }
     }
@@ -2392,7 +561,7 @@ namespace Poker {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2410,8 +579,7 @@ namespace Poker {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ActionOpts(ActionOpts other) : this() {
       betAmount_ = other.betAmount_;
-      name_ = other.name_;
-      token_ = other.token_;
+      ackToken_ = other.ackToken_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2434,31 +602,17 @@ namespace Poker {
       }
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 20;
-    private string name_ = "";
-    /// <summary>
-    /// SayHello options
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "token" field.</summary>
-    public const int TokenFieldNumber = 30;
-    private string token_ = "";
+    /// <summary>Field number for the "ackToken" field.</summary>
+    public const int AckTokenFieldNumber = 20;
+    private string ackToken_ = "";
     /// <summary>
     /// Ack options
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Token {
-      get { return token_; }
+    public string AckToken {
+      get { return ackToken_; }
       set {
-        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        ackToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -2476,8 +630,7 @@ namespace Poker {
         return true;
       }
       if (BetAmount != other.BetAmount) return false;
-      if (Name != other.Name) return false;
-      if (Token != other.Token) return false;
+      if (AckToken != other.AckToken) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2485,8 +638,7 @@ namespace Poker {
     public override int GetHashCode() {
       int hash = 1;
       if (BetAmount != 0L) hash ^= BetAmount.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (AckToken.Length != 0) hash ^= AckToken.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2507,13 +659,9 @@ namespace Poker {
         output.WriteRawTag(80);
         output.WriteInt64(BetAmount);
       }
-      if (Name.Length != 0) {
+      if (AckToken.Length != 0) {
         output.WriteRawTag(162, 1);
-        output.WriteString(Name);
-      }
-      if (Token.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(Token);
+        output.WriteString(AckToken);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2528,13 +676,9 @@ namespace Poker {
         output.WriteRawTag(80);
         output.WriteInt64(BetAmount);
       }
-      if (Name.Length != 0) {
+      if (AckToken.Length != 0) {
         output.WriteRawTag(162, 1);
-        output.WriteString(Name);
-      }
-      if (Token.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(Token);
+        output.WriteString(AckToken);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2548,11 +692,8 @@ namespace Poker {
       if (BetAmount != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(BetAmount);
       }
-      if (Name.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Token.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Token);
+      if (AckToken.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(AckToken);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2568,11 +709,8 @@ namespace Poker {
       if (other.BetAmount != 0L) {
         BetAmount = other.BetAmount;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.Token.Length != 0) {
-        Token = other.Token;
+      if (other.AckToken.Length != 0) {
+        AckToken = other.AckToken;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2593,11 +731,7 @@ namespace Poker {
             break;
           }
           case 162: {
-            Name = input.ReadString();
-            break;
-          }
-          case 242: {
-            Token = input.ReadString();
+            AckToken = input.ReadString();
             break;
           }
         }
@@ -2619,11 +753,7 @@ namespace Poker {
             break;
           }
           case 162: {
-            Name = input.ReadString();
-            break;
-          }
-          case 242: {
-            Token = input.ReadString();
+            AckToken = input.ReadString();
             break;
           }
         }
@@ -2633,15 +763,2086 @@ namespace Poker {
 
   }
 
-  public sealed partial class PlayerActionRequest : pb::IMessage<PlayerActionRequest>
+  public sealed partial class RegisterRequest : pb::IMessage<RegisterRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<PlayerActionRequest> _parser = new pb::MessageParser<PlayerActionRequest>(() => new PlayerActionRequest());
+    private static readonly pb::MessageParser<RegisterRequest> _parser = new pb::MessageParser<RegisterRequest>(() => new RegisterRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PlayerActionRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<RegisterRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RegisterRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RegisterRequest(RegisterRequest other) : this() {
+      clientInfo_ = other.clientInfo_ != null ? other.clientInfo_.Clone() : null;
+      playerAction_ = other.playerAction_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RegisterRequest Clone() {
+      return new RegisterRequest(this);
+    }
+
+    /// <summary>Field number for the "clientInfo" field.</summary>
+    public const int ClientInfoFieldNumber = 10;
+    private global::Poker.ClientInfo clientInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.ClientInfo ClientInfo {
+      get { return clientInfo_; }
+      set {
+        clientInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "playerAction" field.</summary>
+    public const int PlayerActionFieldNumber = 20;
+    private global::Poker.PlayerAction playerAction_ = global::Poker.PlayerAction.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.PlayerAction PlayerAction {
+      get { return playerAction_; }
+      set {
+        playerAction_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as RegisterRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(RegisterRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (PlayerAction != other.PlayerAction) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (clientInfo_ != null) hash ^= ClientInfo.GetHashCode();
+      if (PlayerAction != global::Poker.PlayerAction.None) hash ^= PlayerAction.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (clientInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PlayerAction);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(RegisterRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.clientInfo_ != null) {
+        if (clientInfo_ == null) {
+          ClientInfo = new global::Poker.ClientInfo();
+        }
+        ClientInfo.MergeFrom(other.ClientInfo);
+      }
+      if (other.PlayerAction != global::Poker.PlayerAction.None) {
+        PlayerAction = other.PlayerAction;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 160: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 160: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class RegisterResponse : pb::IMessage<RegisterResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<RegisterResponse> _parser = new pb::MessageParser<RegisterResponse>(() => new RegisterResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<RegisterResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RegisterResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RegisterResponse(RegisterResponse other) : this() {
+      playerID_ = other.playerID_;
+      message_ = other.message_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public RegisterResponse Clone() {
+      return new RegisterResponse(this);
+    }
+
+    /// <summary>Field number for the "playerID" field.</summary>
+    public const int PlayerIDFieldNumber = 10;
+    private string playerID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PlayerID {
+      get { return playerID_; }
+      set {
+        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 20;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as RegisterResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(RegisterResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PlayerID != other.PlayerID) return false;
+      if (Message != other.Message) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (PlayerID.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(PlayerID);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (PlayerID.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(PlayerID);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PlayerID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
+      }
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(RegisterResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PlayerID.Length != 0) {
+        PlayerID = other.PlayerID;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            PlayerID = input.ReadString();
+            break;
+          }
+          case 162: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            PlayerID = input.ReadString();
+            break;
+          }
+          case 162: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class JoinTableRequest : pb::IMessage<JoinTableRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<JoinTableRequest> _parser = new pb::MessageParser<JoinTableRequest>(() => new JoinTableRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<JoinTableRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinTableRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinTableRequest(JoinTableRequest other) : this() {
+      clientInfo_ = other.clientInfo_ != null ? other.clientInfo_.Clone() : null;
+      playerAction_ = other.playerAction_;
+      tableID_ = other.tableID_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinTableRequest Clone() {
+      return new JoinTableRequest(this);
+    }
+
+    /// <summary>Field number for the "clientInfo" field.</summary>
+    public const int ClientInfoFieldNumber = 10;
+    private global::Poker.ClientInfo clientInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.ClientInfo ClientInfo {
+      get { return clientInfo_; }
+      set {
+        clientInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "playerAction" field.</summary>
+    public const int PlayerActionFieldNumber = 20;
+    private global::Poker.PlayerAction playerAction_ = global::Poker.PlayerAction.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.PlayerAction PlayerAction {
+      get { return playerAction_; }
+      set {
+        playerAction_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tableID" field.</summary>
+    public const int TableIDFieldNumber = 30;
+    private string tableID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string TableID {
+      get { return tableID_; }
+      set {
+        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as JoinTableRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(JoinTableRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (PlayerAction != other.PlayerAction) return false;
+      if (TableID != other.TableID) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (clientInfo_ != null) hash ^= ClientInfo.GetHashCode();
+      if (PlayerAction != global::Poker.PlayerAction.None) hash ^= PlayerAction.GetHashCode();
+      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (TableID.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(TableID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (TableID.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(TableID);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (clientInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PlayerAction);
+      }
+      if (TableID.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(JoinTableRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.clientInfo_ != null) {
+        if (clientInfo_ == null) {
+          ClientInfo = new global::Poker.ClientInfo();
+        }
+        ClientInfo.MergeFrom(other.ClientInfo);
+      }
+      if (other.PlayerAction != global::Poker.PlayerAction.None) {
+        PlayerAction = other.PlayerAction;
+      }
+      if (other.TableID.Length != 0) {
+        TableID = other.TableID;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 160: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+          case 242: {
+            TableID = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 160: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+          case 242: {
+            TableID = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class JoinTableResponse : pb::IMessage<JoinTableResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<JoinTableResponse> _parser = new pb::MessageParser<JoinTableResponse>(() => new JoinTableResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<JoinTableResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinTableResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinTableResponse(JoinTableResponse other) : this() {
+      tableID_ = other.tableID_;
+      position_ = other.position_;
+      message_ = other.message_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinTableResponse Clone() {
+      return new JoinTableResponse(this);
+    }
+
+    /// <summary>Field number for the "tableID" field.</summary>
+    public const int TableIDFieldNumber = 10;
+    private string tableID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string TableID {
+      get { return tableID_; }
+      set {
+        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "position" field.</summary>
+    public const int PositionFieldNumber = 20;
+    private long position_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Position {
+      get { return position_; }
+      set {
+        position_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 30;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as JoinTableResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(JoinTableResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TableID != other.TableID) return false;
+      if (Position != other.Position) return false;
+      if (Message != other.Message) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
+      if (Position != 0L) hash ^= Position.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (TableID.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(TableID);
+      }
+      if (Position != 0L) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt64(Position);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (TableID.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(TableID);
+      }
+      if (Position != 0L) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt64(Position);
+      }
+      if (Message.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (TableID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TableID);
+      }
+      if (Position != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(Position);
+      }
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(JoinTableResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TableID.Length != 0) {
+        TableID = other.TableID;
+      }
+      if (other.Position != 0L) {
+        Position = other.Position;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            TableID = input.ReadString();
+            break;
+          }
+          case 160: {
+            Position = input.ReadInt64();
+            break;
+          }
+          case 242: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            TableID = input.ReadString();
+            break;
+          }
+          case 160: {
+            Position = input.ReadInt64();
+            break;
+          }
+          case 242: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class TakeTurnRequest : pb::IMessage<TakeTurnRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<TakeTurnRequest> _parser = new pb::MessageParser<TakeTurnRequest>(() => new TakeTurnRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TakeTurnRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TakeTurnRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TakeTurnRequest(TakeTurnRequest other) : this() {
+      clientInfo_ = other.clientInfo_ != null ? other.clientInfo_.Clone() : null;
+      playerAction_ = other.playerAction_;
+      actionOpts_ = other.actionOpts_ != null ? other.actionOpts_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TakeTurnRequest Clone() {
+      return new TakeTurnRequest(this);
+    }
+
+    /// <summary>Field number for the "clientInfo" field.</summary>
+    public const int ClientInfoFieldNumber = 10;
+    private global::Poker.ClientInfo clientInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.ClientInfo ClientInfo {
+      get { return clientInfo_; }
+      set {
+        clientInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "playerAction" field.</summary>
+    public const int PlayerActionFieldNumber = 20;
+    private global::Poker.PlayerAction playerAction_ = global::Poker.PlayerAction.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.PlayerAction PlayerAction {
+      get { return playerAction_; }
+      set {
+        playerAction_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "actionOpts" field.</summary>
+    public const int ActionOptsFieldNumber = 30;
+    private global::Poker.ActionOpts actionOpts_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.ActionOpts ActionOpts {
+      get { return actionOpts_; }
+      set {
+        actionOpts_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TakeTurnRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TakeTurnRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (PlayerAction != other.PlayerAction) return false;
+      if (!object.Equals(ActionOpts, other.ActionOpts)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (clientInfo_ != null) hash ^= ClientInfo.GetHashCode();
+      if (PlayerAction != global::Poker.PlayerAction.None) hash ^= PlayerAction.GetHashCode();
+      if (actionOpts_ != null) hash ^= ActionOpts.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (actionOpts_ != null) {
+        output.WriteRawTag(242, 1);
+        output.WriteMessage(ActionOpts);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (actionOpts_ != null) {
+        output.WriteRawTag(242, 1);
+        output.WriteMessage(ActionOpts);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (clientInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PlayerAction);
+      }
+      if (actionOpts_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ActionOpts);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TakeTurnRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.clientInfo_ != null) {
+        if (clientInfo_ == null) {
+          ClientInfo = new global::Poker.ClientInfo();
+        }
+        ClientInfo.MergeFrom(other.ClientInfo);
+      }
+      if (other.PlayerAction != global::Poker.PlayerAction.None) {
+        PlayerAction = other.PlayerAction;
+      }
+      if (other.actionOpts_ != null) {
+        if (actionOpts_ == null) {
+          ActionOpts = new global::Poker.ActionOpts();
+        }
+        ActionOpts.MergeFrom(other.ActionOpts);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 160: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+          case 242: {
+            if (actionOpts_ == null) {
+              ActionOpts = new global::Poker.ActionOpts();
+            }
+            input.ReadMessage(ActionOpts);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 160: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+          case 242: {
+            if (actionOpts_ == null) {
+              ActionOpts = new global::Poker.ActionOpts();
+            }
+            input.ReadMessage(ActionOpts);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class TakeTurnResponse : pb::IMessage<TakeTurnResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<TakeTurnResponse> _parser = new pb::MessageParser<TakeTurnResponse>(() => new TakeTurnResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TakeTurnResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TakeTurnResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TakeTurnResponse(TakeTurnResponse other) : this() {
+      message_ = other.message_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TakeTurnResponse Clone() {
+      return new TakeTurnResponse(this);
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 20;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TakeTurnResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TakeTurnResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Message != other.Message) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Message.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Message.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TakeTurnResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 162: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 162: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class DisconnectResponse : pb::IMessage<DisconnectResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<DisconnectResponse> _parser = new pb::MessageParser<DisconnectResponse>(() => new DisconnectResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<DisconnectResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DisconnectResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DisconnectResponse(DisconnectResponse other) : this() {
+      message_ = other.message_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public DisconnectResponse Clone() {
+      return new DisconnectResponse(this);
+    }
+
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 20;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as DisconnectResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(DisconnectResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Message != other.Message) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Message.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Message.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Message.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(DisconnectResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 162: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 162: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// PlayRequest is sent to register for the GameData streaming response
+  /// </summary>
+  public sealed partial class PlayRequest : pb::IMessage<PlayRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PlayRequest> _parser = new pb::MessageParser<PlayRequest>(() => new PlayRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<PlayRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayRequest(PlayRequest other) : this() {
+      clientInfo_ = other.clientInfo_ != null ? other.clientInfo_.Clone() : null;
+      playerAction_ = other.playerAction_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public PlayRequest Clone() {
+      return new PlayRequest(this);
+    }
+
+    /// <summary>Field number for the "clientInfo" field.</summary>
+    public const int ClientInfoFieldNumber = 10;
+    private global::Poker.ClientInfo clientInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.ClientInfo ClientInfo {
+      get { return clientInfo_; }
+      set {
+        clientInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "playerAction" field.</summary>
+    public const int PlayerActionFieldNumber = 50;
+    private global::Poker.PlayerAction playerAction_ = global::Poker.PlayerAction.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.PlayerAction PlayerAction {
+      get { return playerAction_; }
+      set {
+        playerAction_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as PlayRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(PlayRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (PlayerAction != other.PlayerAction) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (clientInfo_ != null) hash ^= ClientInfo.GetHashCode();
+      if (PlayerAction != global::Poker.PlayerAction.None) hash ^= PlayerAction.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(144, 3);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (clientInfo_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(144, 3);
+        output.WriteEnum((int) PlayerAction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (clientInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ClientInfo);
+      }
+      if (PlayerAction != global::Poker.PlayerAction.None) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) PlayerAction);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(PlayRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.clientInfo_ != null) {
+        if (clientInfo_ == null) {
+          ClientInfo = new global::Poker.ClientInfo();
+        }
+        ClientInfo.MergeFrom(other.ClientInfo);
+      }
+      if (other.PlayerAction != global::Poker.PlayerAction.None) {
+        PlayerAction = other.PlayerAction;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 400: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            if (clientInfo_ == null) {
+              ClientInfo = new global::Poker.ClientInfo();
+            }
+            input.ReadMessage(ClientInfo);
+            break;
+          }
+          case 400: {
+            PlayerAction = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// ClientInfo is sent to the server with every RPC request, contains common data
+  /// Not all fields are filled in for all requests
+  /// </summary>
+  public sealed partial class ClientInfo : pb::IMessage<ClientInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ClientInfo> _parser = new pb::MessageParser<ClientInfo>(() => new ClientInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<ClientInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ClientInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ClientInfo(ClientInfo other) : this() {
+      playerID_ = other.playerID_;
+      playerName_ = other.playerName_;
+      playerUsername_ = other.playerUsername_;
+      tableID_ = other.tableID_;
+      password_ = other.password_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ClientInfo Clone() {
+      return new ClientInfo(this);
+    }
+
+    /// <summary>Field number for the "playerID" field.</summary>
+    public const int PlayerIDFieldNumber = 10;
+    private string playerID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PlayerID {
+      get { return playerID_; }
+      set {
+        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "playerName" field.</summary>
+    public const int PlayerNameFieldNumber = 20;
+    private string playerName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PlayerName {
+      get { return playerName_; }
+      set {
+        playerName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "playerUsername" field.</summary>
+    public const int PlayerUsernameFieldNumber = 30;
+    private string playerUsername_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PlayerUsername {
+      get { return playerUsername_; }
+      set {
+        playerUsername_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "tableID" field.</summary>
+    public const int TableIDFieldNumber = 40;
+    private string tableID_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string TableID {
+      get { return tableID_; }
+      set {
+        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "password" field.</summary>
+    public const int PasswordFieldNumber = 50;
+    private string password_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Password {
+      get { return password_; }
+      set {
+        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as ClientInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(ClientInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (PlayerID != other.PlayerID) return false;
+      if (PlayerName != other.PlayerName) return false;
+      if (PlayerUsername != other.PlayerUsername) return false;
+      if (TableID != other.TableID) return false;
+      if (Password != other.Password) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
+      if (PlayerName.Length != 0) hash ^= PlayerName.GetHashCode();
+      if (PlayerUsername.Length != 0) hash ^= PlayerUsername.GetHashCode();
+      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
+      if (Password.Length != 0) hash ^= Password.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (PlayerID.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(PlayerID);
+      }
+      if (PlayerName.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(PlayerName);
+      }
+      if (PlayerUsername.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(PlayerUsername);
+      }
+      if (TableID.Length != 0) {
+        output.WriteRawTag(194, 2);
+        output.WriteString(TableID);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(146, 3);
+        output.WriteString(Password);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (PlayerID.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(PlayerID);
+      }
+      if (PlayerName.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(PlayerName);
+      }
+      if (PlayerUsername.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(PlayerUsername);
+      }
+      if (TableID.Length != 0) {
+        output.WriteRawTag(194, 2);
+        output.WriteString(TableID);
+      }
+      if (Password.Length != 0) {
+        output.WriteRawTag(146, 3);
+        output.WriteString(Password);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (PlayerID.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
+      }
+      if (PlayerName.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(PlayerName);
+      }
+      if (PlayerUsername.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(PlayerUsername);
+      }
+      if (TableID.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
+      }
+      if (Password.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Password);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(ClientInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.PlayerID.Length != 0) {
+        PlayerID = other.PlayerID;
+      }
+      if (other.PlayerName.Length != 0) {
+        PlayerName = other.PlayerName;
+      }
+      if (other.PlayerUsername.Length != 0) {
+        PlayerUsername = other.PlayerUsername;
+      }
+      if (other.TableID.Length != 0) {
+        TableID = other.TableID;
+      }
+      if (other.Password.Length != 0) {
+        Password = other.Password;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            PlayerID = input.ReadString();
+            break;
+          }
+          case 162: {
+            PlayerName = input.ReadString();
+            break;
+          }
+          case 242: {
+            PlayerUsername = input.ReadString();
+            break;
+          }
+          case 322: {
+            TableID = input.ReadString();
+            break;
+          }
+          case 402: {
+            Password = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            PlayerID = input.ReadString();
+            break;
+          }
+          case 162: {
+            PlayerName = input.ReadString();
+            break;
+          }
+          case 242: {
+            PlayerUsername = input.ReadString();
+            break;
+          }
+          case 322: {
+            TableID = input.ReadString();
+            break;
+          }
+          case 402: {
+            Password = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// GameInfo contains all the game info
+  /// </summary>
+  public sealed partial class GameInfo : pb::IMessage<GameInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GameInfo> _parser = new pb::MessageParser<GameInfo>(() => new GameInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<GameInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2654,35 +2855,43 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerActionRequest() {
+    public GameInfo() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerActionRequest(PlayerActionRequest other) : this() {
-      playerID_ = other.playerID_;
+    public GameInfo(GameInfo other) : this() {
+      tableName_ = other.tableName_;
       tableID_ = other.tableID_;
-      roundID_ = other.roundID_;
-      action_ = other.action_;
-      opts_ = other.opts_ != null ? other.opts_.Clone() : null;
+      gameState_ = other.gameState_;
+      gameStartsInSec_ = other.gameStartsInSec_;
+      ackToken_ = other.ackToken_;
+      communityCards_ = other.communityCards_ != null ? other.communityCards_.Clone() : null;
+      maxPlayers_ = other.maxPlayers_;
+      minPlayers_ = other.minPlayers_;
+      bigBlind_ = other.bigBlind_;
+      smallBlind_ = other.smallBlind_;
+      buyin_ = other.buyin_;
+      players_ = other.players_.Clone();
+      winners_ = other.winners_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerActionRequest Clone() {
-      return new PlayerActionRequest(this);
+    public GameInfo Clone() {
+      return new GameInfo(this);
     }
 
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 10;
-    private string playerID_ = "";
+    /// <summary>Field number for the "tableName" field.</summary>
+    public const int TableNameFieldNumber = 10;
+    private string tableName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerID {
-      get { return playerID_; }
+    public string TableName {
+      get { return tableName_; }
       set {
-        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        tableName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -2697,68 +2906,173 @@ namespace Poker {
       }
     }
 
-    /// <summary>Field number for the "roundID" field.</summary>
-    public const int RoundIDFieldNumber = 30;
-    private string roundID_ = "";
+    /// <summary>Field number for the "gameState" field.</summary>
+    public const int GameStateFieldNumber = 30;
+    private global::Poker.GameState gameState_ = global::Poker.GameState.WaitingPlayers;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string RoundID {
-      get { return roundID_; }
+    public global::Poker.GameState GameState {
+      get { return gameState_; }
       set {
-        roundID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        gameState_ = value;
       }
     }
 
-    /// <summary>Field number for the "action" field.</summary>
-    public const int ActionFieldNumber = 40;
-    private global::Poker.Action action_ = global::Poker.Action.Fold;
+    /// <summary>Field number for the "gameStartsInSec" field.</summary>
+    public const int GameStartsInSecFieldNumber = 40;
+    private long gameStartsInSec_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.Action Action {
-      get { return action_; }
+    public long GameStartsInSec {
+      get { return gameStartsInSec_; }
       set {
-        action_ = value;
+        gameStartsInSec_ = value;
       }
     }
 
-    /// <summary>Field number for the "opts" field.</summary>
-    public const int OptsFieldNumber = 50;
-    private global::Poker.ActionOpts opts_;
+    /// <summary>Field number for the "ackToken" field.</summary>
+    public const int AckTokenFieldNumber = 50;
+    private string ackToken_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.ActionOpts Opts {
-      get { return opts_; }
+    public string AckToken {
+      get { return ackToken_; }
       set {
-        opts_ = value;
+        ackToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
+    }
+
+    /// <summary>Field number for the "CommunityCards" field.</summary>
+    public const int CommunityCardsFieldNumber = 60;
+    private global::Poker.CommunityCards communityCards_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.CommunityCards CommunityCards {
+      get { return communityCards_; }
+      set {
+        communityCards_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "maxPlayers" field.</summary>
+    public const int MaxPlayersFieldNumber = 100;
+    private long maxPlayers_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long MaxPlayers {
+      get { return maxPlayers_; }
+      set {
+        maxPlayers_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "minPlayers" field.</summary>
+    public const int MinPlayersFieldNumber = 110;
+    private long minPlayers_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long MinPlayers {
+      get { return minPlayers_; }
+      set {
+        minPlayers_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bigBlind" field.</summary>
+    public const int BigBlindFieldNumber = 120;
+    private long bigBlind_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long BigBlind {
+      get { return bigBlind_; }
+      set {
+        bigBlind_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "smallBlind" field.</summary>
+    public const int SmallBlindFieldNumber = 125;
+    private long smallBlind_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long SmallBlind {
+      get { return smallBlind_; }
+      set {
+        smallBlind_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buyin" field.</summary>
+    public const int BuyinFieldNumber = 130;
+    private long buyin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Buyin {
+      get { return buyin_; }
+      set {
+        buyin_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "players" field.</summary>
+    public const int PlayersFieldNumber = 140;
+    private static readonly pb::FieldCodec<global::Poker.Player> _repeated_players_codec
+        = pb::FieldCodec.ForMessage(1122, global::Poker.Player.Parser);
+    private readonly pbc::RepeatedField<global::Poker.Player> players_ = new pbc::RepeatedField<global::Poker.Player>();
+    /// <summary>
+    /// All players, no confidential info
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Poker.Player> Players {
+      get { return players_; }
+    }
+
+    /// <summary>Field number for the "winners" field.</summary>
+    public const int WinnersFieldNumber = 150;
+    private static readonly pb::FieldCodec<string> _repeated_winners_codec
+        = pb::FieldCodec.ForString(1202);
+    private readonly pbc::RepeatedField<string> winners_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Winners {
+      get { return winners_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as PlayerActionRequest);
+      return Equals(other as GameInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PlayerActionRequest other) {
+    public bool Equals(GameInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (PlayerID != other.PlayerID) return false;
+      if (TableName != other.TableName) return false;
       if (TableID != other.TableID) return false;
-      if (RoundID != other.RoundID) return false;
-      if (Action != other.Action) return false;
-      if (!object.Equals(Opts, other.Opts)) return false;
+      if (GameState != other.GameState) return false;
+      if (GameStartsInSec != other.GameStartsInSec) return false;
+      if (AckToken != other.AckToken) return false;
+      if (!object.Equals(CommunityCards, other.CommunityCards)) return false;
+      if (MaxPlayers != other.MaxPlayers) return false;
+      if (MinPlayers != other.MinPlayers) return false;
+      if (BigBlind != other.BigBlind) return false;
+      if (SmallBlind != other.SmallBlind) return false;
+      if (Buyin != other.Buyin) return false;
+      if(!players_.Equals(other.players_)) return false;
+      if(!winners_.Equals(other.winners_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
+      if (TableName.Length != 0) hash ^= TableName.GetHashCode();
       if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (RoundID.Length != 0) hash ^= RoundID.GetHashCode();
-      if (Action != global::Poker.Action.Fold) hash ^= Action.GetHashCode();
-      if (opts_ != null) hash ^= Opts.GetHashCode();
+      if (GameState != global::Poker.GameState.WaitingPlayers) hash ^= GameState.GetHashCode();
+      if (GameStartsInSec != 0L) hash ^= GameStartsInSec.GetHashCode();
+      if (AckToken.Length != 0) hash ^= AckToken.GetHashCode();
+      if (communityCards_ != null) hash ^= CommunityCards.GetHashCode();
+      if (MaxPlayers != 0L) hash ^= MaxPlayers.GetHashCode();
+      if (MinPlayers != 0L) hash ^= MinPlayers.GetHashCode();
+      if (BigBlind != 0L) hash ^= BigBlind.GetHashCode();
+      if (SmallBlind != 0L) hash ^= SmallBlind.GetHashCode();
+      if (Buyin != 0L) hash ^= Buyin.GetHashCode();
+      hash ^= players_.GetHashCode();
+      hash ^= winners_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2775,26 +3089,52 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (PlayerID.Length != 0) {
+      if (TableName.Length != 0) {
         output.WriteRawTag(82);
-        output.WriteString(PlayerID);
+        output.WriteString(TableName);
       }
       if (TableID.Length != 0) {
         output.WriteRawTag(162, 1);
         output.WriteString(TableID);
       }
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(RoundID);
+      if (GameState != global::Poker.GameState.WaitingPlayers) {
+        output.WriteRawTag(240, 1);
+        output.WriteEnum((int) GameState);
       }
-      if (Action != global::Poker.Action.Fold) {
+      if (GameStartsInSec != 0L) {
         output.WriteRawTag(192, 2);
-        output.WriteEnum((int) Action);
+        output.WriteInt64(GameStartsInSec);
       }
-      if (opts_ != null) {
+      if (AckToken.Length != 0) {
         output.WriteRawTag(146, 3);
-        output.WriteMessage(Opts);
+        output.WriteString(AckToken);
       }
+      if (communityCards_ != null) {
+        output.WriteRawTag(226, 3);
+        output.WriteMessage(CommunityCards);
+      }
+      if (MaxPlayers != 0L) {
+        output.WriteRawTag(160, 6);
+        output.WriteInt64(MaxPlayers);
+      }
+      if (MinPlayers != 0L) {
+        output.WriteRawTag(240, 6);
+        output.WriteInt64(MinPlayers);
+      }
+      if (BigBlind != 0L) {
+        output.WriteRawTag(192, 7);
+        output.WriteInt64(BigBlind);
+      }
+      if (SmallBlind != 0L) {
+        output.WriteRawTag(232, 7);
+        output.WriteInt64(SmallBlind);
+      }
+      if (Buyin != 0L) {
+        output.WriteRawTag(144, 8);
+        output.WriteInt64(Buyin);
+      }
+      players_.WriteTo(output, _repeated_players_codec);
+      winners_.WriteTo(output, _repeated_winners_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2804,26 +3144,52 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PlayerID.Length != 0) {
+      if (TableName.Length != 0) {
         output.WriteRawTag(82);
-        output.WriteString(PlayerID);
+        output.WriteString(TableName);
       }
       if (TableID.Length != 0) {
         output.WriteRawTag(162, 1);
         output.WriteString(TableID);
       }
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(RoundID);
+      if (GameState != global::Poker.GameState.WaitingPlayers) {
+        output.WriteRawTag(240, 1);
+        output.WriteEnum((int) GameState);
       }
-      if (Action != global::Poker.Action.Fold) {
+      if (GameStartsInSec != 0L) {
         output.WriteRawTag(192, 2);
-        output.WriteEnum((int) Action);
+        output.WriteInt64(GameStartsInSec);
       }
-      if (opts_ != null) {
+      if (AckToken.Length != 0) {
         output.WriteRawTag(146, 3);
-        output.WriteMessage(Opts);
+        output.WriteString(AckToken);
       }
+      if (communityCards_ != null) {
+        output.WriteRawTag(226, 3);
+        output.WriteMessage(CommunityCards);
+      }
+      if (MaxPlayers != 0L) {
+        output.WriteRawTag(160, 6);
+        output.WriteInt64(MaxPlayers);
+      }
+      if (MinPlayers != 0L) {
+        output.WriteRawTag(240, 6);
+        output.WriteInt64(MinPlayers);
+      }
+      if (BigBlind != 0L) {
+        output.WriteRawTag(192, 7);
+        output.WriteInt64(BigBlind);
+      }
+      if (SmallBlind != 0L) {
+        output.WriteRawTag(232, 7);
+        output.WriteInt64(SmallBlind);
+      }
+      if (Buyin != 0L) {
+        output.WriteRawTag(144, 8);
+        output.WriteInt64(Buyin);
+      }
+      players_.WriteTo(ref output, _repeated_players_codec);
+      winners_.WriteTo(ref output, _repeated_winners_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2833,21 +3199,41 @@ namespace Poker {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (PlayerID.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
+      if (TableName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TableName);
       }
       if (TableID.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
       }
-      if (RoundID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(RoundID);
+      if (GameState != global::Poker.GameState.WaitingPlayers) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) GameState);
       }
-      if (Action != global::Poker.Action.Fold) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Action);
+      if (GameStartsInSec != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(GameStartsInSec);
       }
-      if (opts_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Opts);
+      if (AckToken.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(AckToken);
       }
+      if (communityCards_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(CommunityCards);
+      }
+      if (MaxPlayers != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(MaxPlayers);
+      }
+      if (MinPlayers != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(MinPlayers);
+      }
+      if (BigBlind != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(BigBlind);
+      }
+      if (SmallBlind != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(SmallBlind);
+      }
+      if (Buyin != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(Buyin);
+      }
+      size += players_.CalculateSize(_repeated_players_codec);
+      size += winners_.CalculateSize(_repeated_winners_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2855,28 +3241,48 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PlayerActionRequest other) {
+    public void MergeFrom(GameInfo other) {
       if (other == null) {
         return;
       }
-      if (other.PlayerID.Length != 0) {
-        PlayerID = other.PlayerID;
+      if (other.TableName.Length != 0) {
+        TableName = other.TableName;
       }
       if (other.TableID.Length != 0) {
         TableID = other.TableID;
       }
-      if (other.RoundID.Length != 0) {
-        RoundID = other.RoundID;
+      if (other.GameState != global::Poker.GameState.WaitingPlayers) {
+        GameState = other.GameState;
       }
-      if (other.Action != global::Poker.Action.Fold) {
-        Action = other.Action;
+      if (other.GameStartsInSec != 0L) {
+        GameStartsInSec = other.GameStartsInSec;
       }
-      if (other.opts_ != null) {
-        if (opts_ == null) {
-          Opts = new global::Poker.ActionOpts();
+      if (other.AckToken.Length != 0) {
+        AckToken = other.AckToken;
+      }
+      if (other.communityCards_ != null) {
+        if (communityCards_ == null) {
+          CommunityCards = new global::Poker.CommunityCards();
         }
-        Opts.MergeFrom(other.Opts);
+        CommunityCards.MergeFrom(other.CommunityCards);
       }
+      if (other.MaxPlayers != 0L) {
+        MaxPlayers = other.MaxPlayers;
+      }
+      if (other.MinPlayers != 0L) {
+        MinPlayers = other.MinPlayers;
+      }
+      if (other.BigBlind != 0L) {
+        BigBlind = other.BigBlind;
+      }
+      if (other.SmallBlind != 0L) {
+        SmallBlind = other.SmallBlind;
+      }
+      if (other.Buyin != 0L) {
+        Buyin = other.Buyin;
+      }
+      players_.Add(other.players_);
+      winners_.Add(other.winners_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2892,26 +3298,58 @@ namespace Poker {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 82: {
-            PlayerID = input.ReadString();
+            TableName = input.ReadString();
             break;
           }
           case 162: {
             TableID = input.ReadString();
             break;
           }
-          case 242: {
-            RoundID = input.ReadString();
+          case 240: {
+            GameState = (global::Poker.GameState) input.ReadEnum();
             break;
           }
           case 320: {
-            Action = (global::Poker.Action) input.ReadEnum();
+            GameStartsInSec = input.ReadInt64();
             break;
           }
           case 402: {
-            if (opts_ == null) {
-              Opts = new global::Poker.ActionOpts();
+            AckToken = input.ReadString();
+            break;
+          }
+          case 482: {
+            if (communityCards_ == null) {
+              CommunityCards = new global::Poker.CommunityCards();
             }
-            input.ReadMessage(Opts);
+            input.ReadMessage(CommunityCards);
+            break;
+          }
+          case 800: {
+            MaxPlayers = input.ReadInt64();
+            break;
+          }
+          case 880: {
+            MinPlayers = input.ReadInt64();
+            break;
+          }
+          case 960: {
+            BigBlind = input.ReadInt64();
+            break;
+          }
+          case 1000: {
+            SmallBlind = input.ReadInt64();
+            break;
+          }
+          case 1040: {
+            Buyin = input.ReadInt64();
+            break;
+          }
+          case 1122: {
+            players_.AddEntriesFrom(input, _repeated_players_codec);
+            break;
+          }
+          case 1202: {
+            winners_.AddEntriesFrom(input, _repeated_winners_codec);
             break;
           }
         }
@@ -2929,26 +3367,58 @@ namespace Poker {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 82: {
-            PlayerID = input.ReadString();
+            TableName = input.ReadString();
             break;
           }
           case 162: {
             TableID = input.ReadString();
             break;
           }
-          case 242: {
-            RoundID = input.ReadString();
+          case 240: {
+            GameState = (global::Poker.GameState) input.ReadEnum();
             break;
           }
           case 320: {
-            Action = (global::Poker.Action) input.ReadEnum();
+            GameStartsInSec = input.ReadInt64();
             break;
           }
           case 402: {
-            if (opts_ == null) {
-              Opts = new global::Poker.ActionOpts();
+            AckToken = input.ReadString();
+            break;
+          }
+          case 482: {
+            if (communityCards_ == null) {
+              CommunityCards = new global::Poker.CommunityCards();
             }
-            input.ReadMessage(Opts);
+            input.ReadMessage(CommunityCards);
+            break;
+          }
+          case 800: {
+            MaxPlayers = input.ReadInt64();
+            break;
+          }
+          case 880: {
+            MinPlayers = input.ReadInt64();
+            break;
+          }
+          case 960: {
+            BigBlind = input.ReadInt64();
+            break;
+          }
+          case 1000: {
+            SmallBlind = input.ReadInt64();
+            break;
+          }
+          case 1040: {
+            Buyin = input.ReadInt64();
+            break;
+          }
+          case 1122: {
+            players_.AddEntriesFrom(ref input, _repeated_players_codec);
+            break;
+          }
+          case 1202: {
+            winners_.AddEntriesFrom(ref input, _repeated_winners_codec);
             break;
           }
         }
@@ -2958,15 +3428,19 @@ namespace Poker {
 
   }
 
-  public sealed partial class PlayerActionResponse : pb::IMessage<PlayerActionResponse>
+  /// <summary>
+  /// GameData is sent to the client, it tells the client when it's their turn and
+  /// provides the current state
+  /// </summary>
+  public sealed partial class GameData : pb::IMessage<GameData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<PlayerActionResponse> _parser = new pb::MessageParser<PlayerActionResponse>(() => new PlayerActionResponse());
+    private static readonly pb::MessageParser<GameData> _parser = new pb::MessageParser<GameData>(() => new GameData());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<PlayerActionResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<GameData> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -2979,41 +3453,140 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerActionResponse() {
+    public GameData() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerActionResponse(PlayerActionResponse other) : this() {
+    public GameData(GameData other) : this() {
+      info_ = other.info_ != null ? other.info_.Clone() : null;
+      waitTurnID_ = other.waitTurnID_;
+      waitTurnName_ = other.waitTurnName_;
+      waitTurnNum_ = other.waitTurnNum_;
+      playerID_ = other.playerID_;
+      player_ = other.player_ != null ? other.player_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public PlayerActionResponse Clone() {
-      return new PlayerActionResponse(this);
+    public GameData Clone() {
+      return new GameData(this);
+    }
+
+    /// <summary>Field number for the "info" field.</summary>
+    public const int InfoFieldNumber = 10;
+    private global::Poker.GameInfo info_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.GameInfo Info {
+      get { return info_; }
+      set {
+        info_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "waitTurnID" field.</summary>
+    public const int WaitTurnIDFieldNumber = 20;
+    private string waitTurnID_ = "";
+    /// <summary>
+    /// the ID of the player whose turn it is
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string WaitTurnID {
+      get { return waitTurnID_; }
+      set {
+        waitTurnID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "waitTurnName" field.</summary>
+    public const int WaitTurnNameFieldNumber = 30;
+    private string waitTurnName_ = "";
+    /// <summary>
+    /// the name of the player whose turn it is
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string WaitTurnName {
+      get { return waitTurnName_; }
+      set {
+        waitTurnName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "waitTurnNum" field.</summary>
+    public const int WaitTurnNumFieldNumber = 35;
+    private long waitTurnNum_;
+    /// <summary>
+    /// the turn count of the player whose turn it is
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long WaitTurnNum {
+      get { return waitTurnNum_; }
+      set {
+        waitTurnNum_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "playerID" field.</summary>
+    public const int PlayerIDFieldNumber = 40;
+    private string playerID_ = "";
+    /// <summary>
+    /// the ID of the calling player
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PlayerID {
+      get { return playerID_; }
+      set {
+        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "player" field.</summary>
+    public const int PlayerFieldNumber = 50;
+    private global::Poker.Player player_;
+    /// <summary>
+    /// calling player, includes confidential info
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.Player Player {
+      get { return player_; }
+      set {
+        player_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as PlayerActionResponse);
+      return Equals(other as GameData);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(PlayerActionResponse other) {
+    public bool Equals(GameData other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(Info, other.Info)) return false;
+      if (WaitTurnID != other.WaitTurnID) return false;
+      if (WaitTurnName != other.WaitTurnName) return false;
+      if (WaitTurnNum != other.WaitTurnNum) return false;
+      if (PlayerID != other.PlayerID) return false;
+      if (!object.Equals(Player, other.Player)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (info_ != null) hash ^= Info.GetHashCode();
+      if (WaitTurnID.Length != 0) hash ^= WaitTurnID.GetHashCode();
+      if (WaitTurnName.Length != 0) hash ^= WaitTurnName.GetHashCode();
+      if (WaitTurnNum != 0L) hash ^= WaitTurnNum.GetHashCode();
+      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
+      if (player_ != null) hash ^= Player.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3030,6 +3603,30 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (info_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(Info);
+      }
+      if (WaitTurnID.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(WaitTurnID);
+      }
+      if (WaitTurnName.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(WaitTurnName);
+      }
+      if (WaitTurnNum != 0L) {
+        output.WriteRawTag(152, 2);
+        output.WriteInt64(WaitTurnNum);
+      }
+      if (PlayerID.Length != 0) {
+        output.WriteRawTag(194, 2);
+        output.WriteString(PlayerID);
+      }
+      if (player_ != null) {
+        output.WriteRawTag(146, 3);
+        output.WriteMessage(Player);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3039,6 +3636,30 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (info_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(Info);
+      }
+      if (WaitTurnID.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(WaitTurnID);
+      }
+      if (WaitTurnName.Length != 0) {
+        output.WriteRawTag(242, 1);
+        output.WriteString(WaitTurnName);
+      }
+      if (WaitTurnNum != 0L) {
+        output.WriteRawTag(152, 2);
+        output.WriteInt64(WaitTurnNum);
+      }
+      if (PlayerID.Length != 0) {
+        output.WriteRawTag(194, 2);
+        output.WriteString(PlayerID);
+      }
+      if (player_ != null) {
+        output.WriteRawTag(146, 3);
+        output.WriteMessage(Player);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3048,6 +3669,24 @@ namespace Poker {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (info_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Info);
+      }
+      if (WaitTurnID.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(WaitTurnID);
+      }
+      if (WaitTurnName.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(WaitTurnName);
+      }
+      if (WaitTurnNum != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(WaitTurnNum);
+      }
+      if (PlayerID.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
+      }
+      if (player_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Player);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3055,9 +3694,33 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(PlayerActionResponse other) {
+    public void MergeFrom(GameData other) {
       if (other == null) {
         return;
+      }
+      if (other.info_ != null) {
+        if (info_ == null) {
+          Info = new global::Poker.GameInfo();
+        }
+        Info.MergeFrom(other.Info);
+      }
+      if (other.WaitTurnID.Length != 0) {
+        WaitTurnID = other.WaitTurnID;
+      }
+      if (other.WaitTurnName.Length != 0) {
+        WaitTurnName = other.WaitTurnName;
+      }
+      if (other.WaitTurnNum != 0L) {
+        WaitTurnNum = other.WaitTurnNum;
+      }
+      if (other.PlayerID.Length != 0) {
+        PlayerID = other.PlayerID;
+      }
+      if (other.player_ != null) {
+        if (player_ == null) {
+          Player = new global::Poker.Player();
+        }
+        Player.MergeFrom(other.Player);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3073,6 +3736,36 @@ namespace Poker {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 82: {
+            if (info_ == null) {
+              Info = new global::Poker.GameInfo();
+            }
+            input.ReadMessage(Info);
+            break;
+          }
+          case 162: {
+            WaitTurnID = input.ReadString();
+            break;
+          }
+          case 242: {
+            WaitTurnName = input.ReadString();
+            break;
+          }
+          case 280: {
+            WaitTurnNum = input.ReadInt64();
+            break;
+          }
+          case 322: {
+            PlayerID = input.ReadString();
+            break;
+          }
+          case 402: {
+            if (player_ == null) {
+              Player = new global::Poker.Player();
+            }
+            input.ReadMessage(Player);
+            break;
+          }
         }
       }
     #endif
@@ -3087,6 +3780,36 @@ namespace Poker {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 82: {
+            if (info_ == null) {
+              Info = new global::Poker.GameInfo();
+            }
+            input.ReadMessage(Info);
+            break;
+          }
+          case 162: {
+            WaitTurnID = input.ReadString();
+            break;
+          }
+          case 242: {
+            WaitTurnName = input.ReadString();
+            break;
+          }
+          case 280: {
+            WaitTurnNum = input.ReadInt64();
+            break;
+          }
+          case 322: {
+            PlayerID = input.ReadString();
+            break;
+          }
+          case 402: {
+            if (player_ == null) {
+              Player = new global::Poker.Player();
+            }
+            input.ReadMessage(Player);
+            break;
+          }
         }
       }
     }
@@ -3094,15 +3817,15 @@ namespace Poker {
 
   }
 
-  public sealed partial class Card : pb::IMessage<Card>
+  public sealed partial class Player : pb::IMessage<Player>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Card> _parser = new pb::MessageParser<Card>(() => new Card());
+    private static readonly pb::MessageParser<Player> _parser = new pb::MessageParser<Player>(() => new Player());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Card> Parser { get { return _parser; } }
+    public static pb::MessageParser<Player> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -3115,69 +3838,164 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Card() {
+    public Player() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Card(Card other) : this() {
-      suite_ = other.suite_;
-      rank_ = other.rank_;
+    public Player(Player other) : this() {
+      name_ = other.name_;
+      id_ = other.id_;
+      position_ = other.position_;
+      money_ = other.money_ != null ? other.money_.Clone() : null;
+      state_ = other.state_;
+      card_ = other.card_.Clone();
+      hand_ = other.hand_.Clone();
+      combo_ = other.combo_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Card Clone() {
-      return new Card(this);
+    public Player Clone() {
+      return new Player(this);
     }
 
-    /// <summary>Field number for the "suite" field.</summary>
-    public const int SuiteFieldNumber = 10;
-    private global::Poker.CardSuit suite_ = global::Poker.CardSuit.Spade;
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 10;
+    private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.CardSuit Suite {
-      get { return suite_; }
+    public string Name {
+      get { return name_; }
       set {
-        suite_ = value;
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
-    /// <summary>Field number for the "rank" field.</summary>
-    public const int RankFieldNumber = 20;
-    private global::Poker.CardRank rank_ = global::Poker.CardRank.Two;
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 15;
+    private string id_ = "";
+    /// <summary>
+    /// only filled in for the player that matches the requesting player
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.CardRank Rank {
-      get { return rank_; }
+    public string Id {
+      get { return id_; }
       set {
-        rank_ = value;
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "position" field.</summary>
+    public const int PositionFieldNumber = 20;
+    private long position_;
+    /// <summary>
+    /// position around the table
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Position {
+      get { return position_; }
+      set {
+        position_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "money" field.</summary>
+    public const int MoneyFieldNumber = 30;
+    private global::Poker.PlayerMoney money_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.PlayerMoney Money {
+      get { return money_; }
+      set {
+        money_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "state" field.</summary>
+    public const int StateFieldNumber = 50;
+    private global::Poker.PlayerState state_ = global::Poker.PlayerState.Default;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.PlayerState State {
+      get { return state_; }
+      set {
+        state_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "card" field.</summary>
+    public const int CardFieldNumber = 60;
+    private static readonly pb::FieldCodec<global::Poker.Card> _repeated_card_codec
+        = pb::FieldCodec.ForMessage(482, global::Poker.Card.Parser);
+    private readonly pbc::RepeatedField<global::Poker.Card> card_ = new pbc::RepeatedField<global::Poker.Card>();
+    /// <summary>
+    /// only filled in for the player that matches the requesting player except at
+    /// the end
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Poker.Card> Card {
+      get { return card_; }
+    }
+
+    /// <summary>Field number for the "hand" field.</summary>
+    public const int HandFieldNumber = 70;
+    private static readonly pb::FieldCodec<global::Poker.Card> _repeated_hand_codec
+        = pb::FieldCodec.ForMessage(562, global::Poker.Card.Parser);
+    private readonly pbc::RepeatedField<global::Poker.Card> hand_ = new pbc::RepeatedField<global::Poker.Card>();
+    /// <summary>
+    /// Final hand of the player
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Poker.Card> Hand {
+      get { return hand_; }
+    }
+
+    /// <summary>Field number for the "combo" field.</summary>
+    public const int ComboFieldNumber = 80;
+    private string combo_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Combo {
+      get { return combo_; }
+      set {
+        combo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Card);
+      return Equals(other as Player);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Card other) {
+    public bool Equals(Player other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Suite != other.Suite) return false;
-      if (Rank != other.Rank) return false;
+      if (Name != other.Name) return false;
+      if (Id != other.Id) return false;
+      if (Position != other.Position) return false;
+      if (!object.Equals(Money, other.Money)) return false;
+      if (State != other.State) return false;
+      if(!card_.Equals(other.card_)) return false;
+      if(!hand_.Equals(other.hand_)) return false;
+      if (Combo != other.Combo) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Suite != global::Poker.CardSuit.Spade) hash ^= Suite.GetHashCode();
-      if (Rank != global::Poker.CardRank.Two) hash ^= Rank.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Position != 0L) hash ^= Position.GetHashCode();
+      if (money_ != null) hash ^= Money.GetHashCode();
+      if (State != global::Poker.PlayerState.Default) hash ^= State.GetHashCode();
+      hash ^= card_.GetHashCode();
+      hash ^= hand_.GetHashCode();
+      if (Combo.Length != 0) hash ^= Combo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3194,13 +4012,31 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Suite != global::Poker.CardSuit.Spade) {
-        output.WriteRawTag(80);
-        output.WriteEnum((int) Suite);
+      if (Name.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Name);
       }
-      if (Rank != global::Poker.CardRank.Two) {
+      if (Id.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(Id);
+      }
+      if (Position != 0L) {
         output.WriteRawTag(160, 1);
-        output.WriteEnum((int) Rank);
+        output.WriteInt64(Position);
+      }
+      if (money_ != null) {
+        output.WriteRawTag(242, 1);
+        output.WriteMessage(Money);
+      }
+      if (State != global::Poker.PlayerState.Default) {
+        output.WriteRawTag(144, 3);
+        output.WriteEnum((int) State);
+      }
+      card_.WriteTo(output, _repeated_card_codec);
+      hand_.WriteTo(output, _repeated_hand_codec);
+      if (Combo.Length != 0) {
+        output.WriteRawTag(130, 5);
+        output.WriteString(Combo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3211,13 +4047,31 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Suite != global::Poker.CardSuit.Spade) {
-        output.WriteRawTag(80);
-        output.WriteEnum((int) Suite);
+      if (Name.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(Name);
       }
-      if (Rank != global::Poker.CardRank.Two) {
+      if (Id.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(Id);
+      }
+      if (Position != 0L) {
         output.WriteRawTag(160, 1);
-        output.WriteEnum((int) Rank);
+        output.WriteInt64(Position);
+      }
+      if (money_ != null) {
+        output.WriteRawTag(242, 1);
+        output.WriteMessage(Money);
+      }
+      if (State != global::Poker.PlayerState.Default) {
+        output.WriteRawTag(144, 3);
+        output.WriteEnum((int) State);
+      }
+      card_.WriteTo(ref output, _repeated_card_codec);
+      hand_.WriteTo(ref output, _repeated_hand_codec);
+      if (Combo.Length != 0) {
+        output.WriteRawTag(130, 5);
+        output.WriteString(Combo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -3228,11 +4082,25 @@ namespace Poker {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Suite != global::Poker.CardSuit.Spade) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Suite);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Rank != global::Poker.CardRank.Two) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Rank);
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      }
+      if (Position != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(Position);
+      }
+      if (money_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Money);
+      }
+      if (State != global::Poker.PlayerState.Default) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) State);
+      }
+      size += card_.CalculateSize(_repeated_card_codec);
+      size += hand_.CalculateSize(_repeated_hand_codec);
+      if (Combo.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Combo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3241,15 +4109,32 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Card other) {
+    public void MergeFrom(Player other) {
       if (other == null) {
         return;
       }
-      if (other.Suite != global::Poker.CardSuit.Spade) {
-        Suite = other.Suite;
+      if (other.Name.Length != 0) {
+        Name = other.Name;
       }
-      if (other.Rank != global::Poker.CardRank.Two) {
-        Rank = other.Rank;
+      if (other.Id.Length != 0) {
+        Id = other.Id;
+      }
+      if (other.Position != 0L) {
+        Position = other.Position;
+      }
+      if (other.money_ != null) {
+        if (money_ == null) {
+          Money = new global::Poker.PlayerMoney();
+        }
+        Money.MergeFrom(other.Money);
+      }
+      if (other.State != global::Poker.PlayerState.Default) {
+        State = other.State;
+      }
+      card_.Add(other.card_);
+      hand_.Add(other.hand_);
+      if (other.Combo.Length != 0) {
+        Combo = other.Combo;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3265,12 +4150,39 @@ namespace Poker {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 80: {
-            Suite = (global::Poker.CardSuit) input.ReadEnum();
+          case 82: {
+            Name = input.ReadString();
+            break;
+          }
+          case 122: {
+            Id = input.ReadString();
             break;
           }
           case 160: {
-            Rank = (global::Poker.CardRank) input.ReadEnum();
+            Position = input.ReadInt64();
+            break;
+          }
+          case 242: {
+            if (money_ == null) {
+              Money = new global::Poker.PlayerMoney();
+            }
+            input.ReadMessage(Money);
+            break;
+          }
+          case 400: {
+            State = (global::Poker.PlayerState) input.ReadEnum();
+            break;
+          }
+          case 482: {
+            card_.AddEntriesFrom(input, _repeated_card_codec);
+            break;
+          }
+          case 562: {
+            hand_.AddEntriesFrom(input, _repeated_hand_codec);
+            break;
+          }
+          case 642: {
+            Combo = input.ReadString();
             break;
           }
         }
@@ -3287,12 +4199,39 @@ namespace Poker {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 80: {
-            Suite = (global::Poker.CardSuit) input.ReadEnum();
+          case 82: {
+            Name = input.ReadString();
+            break;
+          }
+          case 122: {
+            Id = input.ReadString();
             break;
           }
           case 160: {
-            Rank = (global::Poker.CardRank) input.ReadEnum();
+            Position = input.ReadInt64();
+            break;
+          }
+          case 242: {
+            if (money_ == null) {
+              Money = new global::Poker.PlayerMoney();
+            }
+            input.ReadMessage(Money);
+            break;
+          }
+          case 400: {
+            State = (global::Poker.PlayerState) input.ReadEnum();
+            break;
+          }
+          case 482: {
+            card_.AddEntriesFrom(ref input, _repeated_card_codec);
+            break;
+          }
+          case 562: {
+            hand_.AddEntriesFrom(ref input, _repeated_hand_codec);
+            break;
+          }
+          case 642: {
+            Combo = input.ReadString();
             break;
           }
         }
@@ -3711,430 +4650,9 @@ namespace Poker {
 
   }
 
-  public sealed partial class Player : pb::IMessage<Player>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<Player> _parser = new pb::MessageParser<Player>(() => new Player());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Player> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[16]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Player() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Player(Player other) : this() {
-      name_ = other.name_;
-      id_ = other.id_;
-      position_ = other.position_;
-      money_ = other.money_ != null ? other.money_.Clone() : null;
-      state_ = other.state_;
-      card_ = other.card_.Clone();
-      hand_ = other.hand_.Clone();
-      combo_ = other.combo_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Player Clone() {
-      return new Player(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 10;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 15;
-    private string id_ = "";
-    /// <summary>
-    /// only filled in for the player that matches the requesting player
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
-      get { return id_; }
-      set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "position" field.</summary>
-    public const int PositionFieldNumber = 20;
-    private long position_;
-    /// <summary>
-    /// position around the table
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Position {
-      get { return position_; }
-      set {
-        position_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "money" field.</summary>
-    public const int MoneyFieldNumber = 30;
-    private global::Poker.PlayerMoney money_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.PlayerMoney Money {
-      get { return money_; }
-      set {
-        money_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "state" field.</summary>
-    public const int StateFieldNumber = 50;
-    private global::Poker.PlayerState state_ = global::Poker.PlayerState.Unknown;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.PlayerState State {
-      get { return state_; }
-      set {
-        state_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "card" field.</summary>
-    public const int CardFieldNumber = 60;
-    private static readonly pb::FieldCodec<global::Poker.Card> _repeated_card_codec
-        = pb::FieldCodec.ForMessage(482, global::Poker.Card.Parser);
-    private readonly pbc::RepeatedField<global::Poker.Card> card_ = new pbc::RepeatedField<global::Poker.Card>();
-    /// <summary>
-    /// only filled in for the player that matches the requesting player except at
-    /// the end
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Poker.Card> Card {
-      get { return card_; }
-    }
-
-    /// <summary>Field number for the "hand" field.</summary>
-    public const int HandFieldNumber = 70;
-    private static readonly pb::FieldCodec<global::Poker.Card> _repeated_hand_codec
-        = pb::FieldCodec.ForMessage(562, global::Poker.Card.Parser);
-    private readonly pbc::RepeatedField<global::Poker.Card> hand_ = new pbc::RepeatedField<global::Poker.Card>();
-    /// <summary>
-    /// Final hand of the player
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Poker.Card> Hand {
-      get { return hand_; }
-    }
-
-    /// <summary>Field number for the "combo" field.</summary>
-    public const int ComboFieldNumber = 80;
-    private string combo_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Combo {
-      get { return combo_; }
-      set {
-        combo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as Player);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Player other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      if (Id != other.Id) return false;
-      if (Position != other.Position) return false;
-      if (!object.Equals(Money, other.Money)) return false;
-      if (State != other.State) return false;
-      if(!card_.Equals(other.card_)) return false;
-      if(!hand_.Equals(other.hand_)) return false;
-      if (Combo != other.Combo) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (Position != 0L) hash ^= Position.GetHashCode();
-      if (money_ != null) hash ^= Money.GetHashCode();
-      if (State != global::Poker.PlayerState.Unknown) hash ^= State.GetHashCode();
-      hash ^= card_.GetHashCode();
-      hash ^= hand_.GetHashCode();
-      if (Combo.Length != 0) hash ^= Combo.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Name.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(Name);
-      }
-      if (Id.Length != 0) {
-        output.WriteRawTag(122);
-        output.WriteString(Id);
-      }
-      if (Position != 0L) {
-        output.WriteRawTag(160, 1);
-        output.WriteInt64(Position);
-      }
-      if (money_ != null) {
-        output.WriteRawTag(242, 1);
-        output.WriteMessage(Money);
-      }
-      if (State != global::Poker.PlayerState.Unknown) {
-        output.WriteRawTag(144, 3);
-        output.WriteEnum((int) State);
-      }
-      card_.WriteTo(output, _repeated_card_codec);
-      hand_.WriteTo(output, _repeated_hand_codec);
-      if (Combo.Length != 0) {
-        output.WriteRawTag(130, 5);
-        output.WriteString(Combo);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(Name);
-      }
-      if (Id.Length != 0) {
-        output.WriteRawTag(122);
-        output.WriteString(Id);
-      }
-      if (Position != 0L) {
-        output.WriteRawTag(160, 1);
-        output.WriteInt64(Position);
-      }
-      if (money_ != null) {
-        output.WriteRawTag(242, 1);
-        output.WriteMessage(Money);
-      }
-      if (State != global::Poker.PlayerState.Unknown) {
-        output.WriteRawTag(144, 3);
-        output.WriteEnum((int) State);
-      }
-      card_.WriteTo(ref output, _repeated_card_codec);
-      hand_.WriteTo(ref output, _repeated_hand_codec);
-      if (Combo.Length != 0) {
-        output.WriteRawTag(130, 5);
-        output.WriteString(Combo);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
-      }
-      if (Position != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(Position);
-      }
-      if (money_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Money);
-      }
-      if (State != global::Poker.PlayerState.Unknown) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) State);
-      }
-      size += card_.CalculateSize(_repeated_card_codec);
-      size += hand_.CalculateSize(_repeated_hand_codec);
-      if (Combo.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Combo);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Player other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
-      }
-      if (other.Position != 0L) {
-        Position = other.Position;
-      }
-      if (other.money_ != null) {
-        if (money_ == null) {
-          Money = new global::Poker.PlayerMoney();
-        }
-        Money.MergeFrom(other.Money);
-      }
-      if (other.State != global::Poker.PlayerState.Unknown) {
-        State = other.State;
-      }
-      card_.Add(other.card_);
-      hand_.Add(other.hand_);
-      if (other.Combo.Length != 0) {
-        Combo = other.Combo;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            Name = input.ReadString();
-            break;
-          }
-          case 122: {
-            Id = input.ReadString();
-            break;
-          }
-          case 160: {
-            Position = input.ReadInt64();
-            break;
-          }
-          case 242: {
-            if (money_ == null) {
-              Money = new global::Poker.PlayerMoney();
-            }
-            input.ReadMessage(Money);
-            break;
-          }
-          case 400: {
-            State = (global::Poker.PlayerState) input.ReadEnum();
-            break;
-          }
-          case 482: {
-            card_.AddEntriesFrom(input, _repeated_card_codec);
-            break;
-          }
-          case 562: {
-            hand_.AddEntriesFrom(input, _repeated_hand_codec);
-            break;
-          }
-          case 642: {
-            Combo = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            Name = input.ReadString();
-            break;
-          }
-          case 122: {
-            Id = input.ReadString();
-            break;
-          }
-          case 160: {
-            Position = input.ReadInt64();
-            break;
-          }
-          case 242: {
-            if (money_ == null) {
-              Money = new global::Poker.PlayerMoney();
-            }
-            input.ReadMessage(Money);
-            break;
-          }
-          case 400: {
-            State = (global::Poker.PlayerState) input.ReadEnum();
-            break;
-          }
-          case 482: {
-            card_.AddEntriesFrom(ref input, _repeated_card_codec);
-            break;
-          }
-          case 562: {
-            hand_.AddEntriesFrom(ref input, _repeated_hand_codec);
-            break;
-          }
-          case 642: {
-            Combo = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
+  /// <summary>
+  /// Cards
+  /// </summary>
   public sealed partial class CommunityCards : pb::IMessage<CommunityCards>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4147,7 +4665,7 @@ namespace Poker {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4296,22 +4814,19 @@ namespace Poker {
 
   }
 
-  /// <summary>
-  /// This is the state of the game immediately after playerName took their turn
-  /// </summary>
-  public sealed partial class Turn : pb::IMessage<Turn>
+  public sealed partial class Card : pb::IMessage<Card>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Turn> _parser = new pb::MessageParser<Turn>(() => new Turn());
+    private static readonly pb::MessageParser<Card> _parser = new pb::MessageParser<Card>(() => new Card());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Turn> Parser { get { return _parser; } }
+    public static pb::MessageParser<Card> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4320,97 +4835,69 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Turn() {
+    public Card() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Turn(Turn other) : this() {
-      playerName_ = other.playerName_;
-      playerID_ = other.playerID_;
-      action_ = other.action_ != null ? other.action_.Clone() : null;
-      result_ = other.result_ != null ? other.result_.Clone() : null;
+    public Card(Card other) : this() {
+      suite_ = other.suite_;
+      rank_ = other.rank_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Turn Clone() {
-      return new Turn(this);
+    public Card Clone() {
+      return new Card(this);
     }
 
-    /// <summary>Field number for the "playerName" field.</summary>
-    public const int PlayerNameFieldNumber = 10;
-    private string playerName_ = "";
+    /// <summary>Field number for the "suite" field.</summary>
+    public const int SuiteFieldNumber = 10;
+    private global::Poker.CardSuit suite_ = global::Poker.CardSuit.Spade;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerName {
-      get { return playerName_; }
+    public global::Poker.CardSuit Suite {
+      get { return suite_; }
       set {
-        playerName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        suite_ = value;
       }
     }
 
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 20;
-    private string playerID_ = "";
+    /// <summary>Field number for the "rank" field.</summary>
+    public const int RankFieldNumber = 20;
+    private global::Poker.CardRank rank_ = global::Poker.CardRank.Two;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerID {
-      get { return playerID_; }
+    public global::Poker.CardRank Rank {
+      get { return rank_; }
       set {
-        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "action" field.</summary>
-    public const int ActionFieldNumber = 30;
-    private global::Poker.PlayerActionRequest action_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.PlayerActionRequest Action {
-      get { return action_; }
-      set {
-        action_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 40;
-    private global::Poker.PlayerActionResponse result_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.PlayerActionResponse Result {
-      get { return result_; }
-      set {
-        result_ = value;
+        rank_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Turn);
+      return Equals(other as Card);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Turn other) {
+    public bool Equals(Card other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (PlayerName != other.PlayerName) return false;
-      if (PlayerID != other.PlayerID) return false;
-      if (!object.Equals(Action, other.Action)) return false;
-      if (!object.Equals(Result, other.Result)) return false;
+      if (Suite != other.Suite) return false;
+      if (Rank != other.Rank) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (PlayerName.Length != 0) hash ^= PlayerName.GetHashCode();
-      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
-      if (action_ != null) hash ^= Action.GetHashCode();
-      if (result_ != null) hash ^= Result.GetHashCode();
+      if (Suite != global::Poker.CardSuit.Spade) hash ^= Suite.GetHashCode();
+      if (Rank != global::Poker.CardRank.Two) hash ^= Rank.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4427,21 +4914,13 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (PlayerName.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(PlayerName);
+      if (Suite != global::Poker.CardSuit.Spade) {
+        output.WriteRawTag(80);
+        output.WriteEnum((int) Suite);
       }
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(PlayerID);
-      }
-      if (action_ != null) {
-        output.WriteRawTag(242, 1);
-        output.WriteMessage(Action);
-      }
-      if (result_ != null) {
-        output.WriteRawTag(194, 2);
-        output.WriteMessage(Result);
+      if (Rank != global::Poker.CardRank.Two) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) Rank);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4452,21 +4931,13 @@ namespace Poker {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (PlayerName.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(PlayerName);
+      if (Suite != global::Poker.CardSuit.Spade) {
+        output.WriteRawTag(80);
+        output.WriteEnum((int) Suite);
       }
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(PlayerID);
-      }
-      if (action_ != null) {
-        output.WriteRawTag(242, 1);
-        output.WriteMessage(Action);
-      }
-      if (result_ != null) {
-        output.WriteRawTag(194, 2);
-        output.WriteMessage(Result);
+      if (Rank != global::Poker.CardRank.Two) {
+        output.WriteRawTag(160, 1);
+        output.WriteEnum((int) Rank);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4477,17 +4948,11 @@ namespace Poker {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (PlayerName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(PlayerName);
+      if (Suite != global::Poker.CardSuit.Spade) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Suite);
       }
-      if (PlayerID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
-      }
-      if (action_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Action);
-      }
-      if (result_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Result);
+      if (Rank != global::Poker.CardRank.Two) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Rank);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4496,27 +4961,15 @@ namespace Poker {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Turn other) {
+    public void MergeFrom(Card other) {
       if (other == null) {
         return;
       }
-      if (other.PlayerName.Length != 0) {
-        PlayerName = other.PlayerName;
+      if (other.Suite != global::Poker.CardSuit.Spade) {
+        Suite = other.Suite;
       }
-      if (other.PlayerID.Length != 0) {
-        PlayerID = other.PlayerID;
-      }
-      if (other.action_ != null) {
-        if (action_ == null) {
-          Action = new global::Poker.PlayerActionRequest();
-        }
-        Action.MergeFrom(other.Action);
-      }
-      if (other.result_ != null) {
-        if (result_ == null) {
-          Result = new global::Poker.PlayerActionResponse();
-        }
-        Result.MergeFrom(other.Result);
+      if (other.Rank != global::Poker.CardRank.Two) {
+        Rank = other.Rank;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4532,26 +4985,12 @@ namespace Poker {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 82: {
-            PlayerName = input.ReadString();
+          case 80: {
+            Suite = (global::Poker.CardSuit) input.ReadEnum();
             break;
           }
-          case 162: {
-            PlayerID = input.ReadString();
-            break;
-          }
-          case 242: {
-            if (action_ == null) {
-              Action = new global::Poker.PlayerActionRequest();
-            }
-            input.ReadMessage(Action);
-            break;
-          }
-          case 322: {
-            if (result_ == null) {
-              Result = new global::Poker.PlayerActionResponse();
-            }
-            input.ReadMessage(Result);
+          case 160: {
+            Rank = (global::Poker.CardRank) input.ReadEnum();
             break;
           }
         }
@@ -4568,1416 +5007,12 @@ namespace Poker {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 82: {
-            PlayerName = input.ReadString();
+          case 80: {
+            Suite = (global::Poker.CardSuit) input.ReadEnum();
             break;
           }
-          case 162: {
-            PlayerID = input.ReadString();
-            break;
-          }
-          case 242: {
-            if (action_ == null) {
-              Action = new global::Poker.PlayerActionRequest();
-            }
-            input.ReadMessage(Action);
-            break;
-          }
-          case 322: {
-            if (result_ == null) {
-              Result = new global::Poker.PlayerActionResponse();
-            }
-            input.ReadMessage(Result);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// A log of all the turns in order
-  /// </summary>
-  public sealed partial class TurnLog : pb::IMessage<TurnLog>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<TurnLog> _parser = new pb::MessageParser<TurnLog>(() => new TurnLog());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TurnLog> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[19]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TurnLog() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TurnLog(TurnLog other) : this() {
-      turns_ = other.turns_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TurnLog Clone() {
-      return new TurnLog(this);
-    }
-
-    /// <summary>Field number for the "turns" field.</summary>
-    public const int TurnsFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::Poker.Turn> _repeated_turns_codec
-        = pb::FieldCodec.ForMessage(82, global::Poker.Turn.Parser);
-    private readonly pbc::RepeatedField<global::Poker.Turn> turns_ = new pbc::RepeatedField<global::Poker.Turn>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Poker.Turn> Turns {
-      get { return turns_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as TurnLog);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TurnLog other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!turns_.Equals(other.turns_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= turns_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      turns_.WriteTo(output, _repeated_turns_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      turns_.WriteTo(ref output, _repeated_turns_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += turns_.CalculateSize(_repeated_turns_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TurnLog other) {
-      if (other == null) {
-        return;
-      }
-      turns_.Add(other.turns_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            turns_.AddEntriesFrom(input, _repeated_turns_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            turns_.AddEntriesFrom(ref input, _repeated_turns_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class TableInfo : pb::IMessage<TableInfo>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<TableInfo> _parser = new pb::MessageParser<TableInfo>(() => new TableInfo());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TableInfo> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[20]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TableInfo() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TableInfo(TableInfo other) : this() {
-      player_ = other.player_.Clone();
-      nextPlayer_ = other.nextPlayer_ != null ? other.nextPlayer_.Clone() : null;
-      turnTimeLeftSeconds_ = other.turnTimeLeftSeconds_;
-      gameStartsInSeconds_ = other.gameStartsInSeconds_;
-      turnID_ = other.turnID_;
-      winners_ = other.winners_.Clone();
-      communityCards_ = other.communityCards_ != null ? other.communityCards_.Clone() : null;
-      tableStatus_ = other.tableStatus_;
-      roundStatus_ = other.roundStatus_;
-      tableID_ = other.tableID_;
-      tableName_ = other.tableName_;
-      roundID_ = other.roundID_;
-      smallBlind_ = other.smallBlind_;
-      bigBlind_ = other.bigBlind_;
-      token_ = other.token_;
-      startTime_ = other.startTime_;
-      endTime_ = other.endTime_;
-      turnLog_ = other.turnLog_ != null ? other.turnLog_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TableInfo Clone() {
-      return new TableInfo(this);
-    }
-
-    /// <summary>Field number for the "player" field.</summary>
-    public const int PlayerFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::Poker.Player> _repeated_player_codec
-        = pb::FieldCodec.ForMessage(82, global::Poker.Player.Parser);
-    private readonly pbc::RepeatedField<global::Poker.Player> player_ = new pbc::RepeatedField<global::Poker.Player>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Poker.Player> Player {
-      get { return player_; }
-    }
-
-    /// <summary>Field number for the "nextPlayer" field.</summary>
-    public const int NextPlayerFieldNumber = 20;
-    private global::Poker.Player nextPlayer_;
-    /// <summary>
-    /// player whose turn it is
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.Player NextPlayer {
-      get { return nextPlayer_; }
-      set {
-        nextPlayer_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "turnTimeLeftSeconds" field.</summary>
-    public const int TurnTimeLeftSecondsFieldNumber = 150;
-    private long turnTimeLeftSeconds_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long TurnTimeLeftSeconds {
-      get { return turnTimeLeftSeconds_; }
-      set {
-        turnTimeLeftSeconds_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "gameStartsInSeconds" field.</summary>
-    public const int GameStartsInSecondsFieldNumber = 170;
-    private long gameStartsInSeconds_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long GameStartsInSeconds {
-      get { return gameStartsInSeconds_; }
-      set {
-        gameStartsInSeconds_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "turnID" field.</summary>
-    public const int TurnIDFieldNumber = 160;
-    private long turnID_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long TurnID {
-      get { return turnID_; }
-      set {
-        turnID_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "winners" field.</summary>
-    public const int WinnersFieldNumber = 30;
-    private static readonly pb::FieldCodec<global::Poker.Player> _repeated_winners_codec
-        = pb::FieldCodec.ForMessage(242, global::Poker.Player.Parser);
-    private readonly pbc::RepeatedField<global::Poker.Player> winners_ = new pbc::RepeatedField<global::Poker.Player>();
-    /// <summary>
-    ///  Winners
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Poker.Player> Winners {
-      get { return winners_; }
-    }
-
-    /// <summary>Field number for the "community_cards" field.</summary>
-    public const int CommunityCardsFieldNumber = 50;
-    private global::Poker.CommunityCards communityCards_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.CommunityCards CommunityCards {
-      get { return communityCards_; }
-      set {
-        communityCards_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "tableStatus" field.</summary>
-    public const int TableStatusFieldNumber = 60;
-    private global::Poker.TableStatus tableStatus_ = global::Poker.TableStatus.Unknown;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.TableStatus TableStatus {
-      get { return tableStatus_; }
-      set {
-        tableStatus_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "roundStatus" field.</summary>
-    public const int RoundStatusFieldNumber = 70;
-    private global::Poker.RoundStatus roundStatus_ = global::Poker.RoundStatus.Initializing;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.RoundStatus RoundStatus {
-      get { return roundStatus_; }
-      set {
-        roundStatus_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "tableID" field.</summary>
-    public const int TableIDFieldNumber = 80;
-    private string tableID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableID {
-      get { return tableID_; }
-      set {
-        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "tableName" field.</summary>
-    public const int TableNameFieldNumber = 180;
-    private string tableName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableName {
-      get { return tableName_; }
-      set {
-        tableName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "roundID" field.</summary>
-    public const int RoundIDFieldNumber = 90;
-    private string roundID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string RoundID {
-      get { return roundID_; }
-      set {
-        roundID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "smallBlind" field.</summary>
-    public const int SmallBlindFieldNumber = 100;
-    private long smallBlind_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long SmallBlind {
-      get { return smallBlind_; }
-      set {
-        smallBlind_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "bigBlind" field.</summary>
-    public const int BigBlindFieldNumber = 110;
-    private long bigBlind_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long BigBlind {
-      get { return bigBlind_; }
-      set {
-        bigBlind_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "token" field.</summary>
-    public const int TokenFieldNumber = 120;
-    private string token_ = "";
-    /// <summary>
-    /// ack token
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Token {
-      get { return token_; }
-      set {
-        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "startTime" field.</summary>
-    public const int StartTimeFieldNumber = 130;
-    private long startTime_;
-    /// <summary>
-    /// start and end of the round
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long StartTime {
-      get { return startTime_; }
-      set {
-        startTime_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "endTime" field.</summary>
-    public const int EndTimeFieldNumber = 140;
-    private long endTime_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long EndTime {
-      get { return endTime_; }
-      set {
-        endTime_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "turnLog" field.</summary>
-    public const int TurnLogFieldNumber = 190;
-    private global::Poker.TurnLog turnLog_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.TurnLog TurnLog {
-      get { return turnLog_; }
-      set {
-        turnLog_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as TableInfo);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TableInfo other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!player_.Equals(other.player_)) return false;
-      if (!object.Equals(NextPlayer, other.NextPlayer)) return false;
-      if (TurnTimeLeftSeconds != other.TurnTimeLeftSeconds) return false;
-      if (GameStartsInSeconds != other.GameStartsInSeconds) return false;
-      if (TurnID != other.TurnID) return false;
-      if(!winners_.Equals(other.winners_)) return false;
-      if (!object.Equals(CommunityCards, other.CommunityCards)) return false;
-      if (TableStatus != other.TableStatus) return false;
-      if (RoundStatus != other.RoundStatus) return false;
-      if (TableID != other.TableID) return false;
-      if (TableName != other.TableName) return false;
-      if (RoundID != other.RoundID) return false;
-      if (SmallBlind != other.SmallBlind) return false;
-      if (BigBlind != other.BigBlind) return false;
-      if (Token != other.Token) return false;
-      if (StartTime != other.StartTime) return false;
-      if (EndTime != other.EndTime) return false;
-      if (!object.Equals(TurnLog, other.TurnLog)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= player_.GetHashCode();
-      if (nextPlayer_ != null) hash ^= NextPlayer.GetHashCode();
-      if (TurnTimeLeftSeconds != 0L) hash ^= TurnTimeLeftSeconds.GetHashCode();
-      if (GameStartsInSeconds != 0L) hash ^= GameStartsInSeconds.GetHashCode();
-      if (TurnID != 0L) hash ^= TurnID.GetHashCode();
-      hash ^= winners_.GetHashCode();
-      if (communityCards_ != null) hash ^= CommunityCards.GetHashCode();
-      if (TableStatus != global::Poker.TableStatus.Unknown) hash ^= TableStatus.GetHashCode();
-      if (RoundStatus != global::Poker.RoundStatus.Initializing) hash ^= RoundStatus.GetHashCode();
-      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (TableName.Length != 0) hash ^= TableName.GetHashCode();
-      if (RoundID.Length != 0) hash ^= RoundID.GetHashCode();
-      if (SmallBlind != 0L) hash ^= SmallBlind.GetHashCode();
-      if (BigBlind != 0L) hash ^= BigBlind.GetHashCode();
-      if (Token.Length != 0) hash ^= Token.GetHashCode();
-      if (StartTime != 0L) hash ^= StartTime.GetHashCode();
-      if (EndTime != 0L) hash ^= EndTime.GetHashCode();
-      if (turnLog_ != null) hash ^= TurnLog.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      player_.WriteTo(output, _repeated_player_codec);
-      if (nextPlayer_ != null) {
-        output.WriteRawTag(162, 1);
-        output.WriteMessage(NextPlayer);
-      }
-      winners_.WriteTo(output, _repeated_winners_codec);
-      if (communityCards_ != null) {
-        output.WriteRawTag(146, 3);
-        output.WriteMessage(CommunityCards);
-      }
-      if (TableStatus != global::Poker.TableStatus.Unknown) {
-        output.WriteRawTag(224, 3);
-        output.WriteEnum((int) TableStatus);
-      }
-      if (RoundStatus != global::Poker.RoundStatus.Initializing) {
-        output.WriteRawTag(176, 4);
-        output.WriteEnum((int) RoundStatus);
-      }
-      if (TableID.Length != 0) {
-        output.WriteRawTag(130, 5);
-        output.WriteString(TableID);
-      }
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(210, 5);
-        output.WriteString(RoundID);
-      }
-      if (SmallBlind != 0L) {
-        output.WriteRawTag(160, 6);
-        output.WriteInt64(SmallBlind);
-      }
-      if (BigBlind != 0L) {
-        output.WriteRawTag(240, 6);
-        output.WriteInt64(BigBlind);
-      }
-      if (Token.Length != 0) {
-        output.WriteRawTag(194, 7);
-        output.WriteString(Token);
-      }
-      if (StartTime != 0L) {
-        output.WriteRawTag(144, 8);
-        output.WriteInt64(StartTime);
-      }
-      if (EndTime != 0L) {
-        output.WriteRawTag(224, 8);
-        output.WriteInt64(EndTime);
-      }
-      if (TurnTimeLeftSeconds != 0L) {
-        output.WriteRawTag(176, 9);
-        output.WriteInt64(TurnTimeLeftSeconds);
-      }
-      if (TurnID != 0L) {
-        output.WriteRawTag(128, 10);
-        output.WriteInt64(TurnID);
-      }
-      if (GameStartsInSeconds != 0L) {
-        output.WriteRawTag(208, 10);
-        output.WriteInt64(GameStartsInSeconds);
-      }
-      if (TableName.Length != 0) {
-        output.WriteRawTag(162, 11);
-        output.WriteString(TableName);
-      }
-      if (turnLog_ != null) {
-        output.WriteRawTag(242, 11);
-        output.WriteMessage(TurnLog);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      player_.WriteTo(ref output, _repeated_player_codec);
-      if (nextPlayer_ != null) {
-        output.WriteRawTag(162, 1);
-        output.WriteMessage(NextPlayer);
-      }
-      winners_.WriteTo(ref output, _repeated_winners_codec);
-      if (communityCards_ != null) {
-        output.WriteRawTag(146, 3);
-        output.WriteMessage(CommunityCards);
-      }
-      if (TableStatus != global::Poker.TableStatus.Unknown) {
-        output.WriteRawTag(224, 3);
-        output.WriteEnum((int) TableStatus);
-      }
-      if (RoundStatus != global::Poker.RoundStatus.Initializing) {
-        output.WriteRawTag(176, 4);
-        output.WriteEnum((int) RoundStatus);
-      }
-      if (TableID.Length != 0) {
-        output.WriteRawTag(130, 5);
-        output.WriteString(TableID);
-      }
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(210, 5);
-        output.WriteString(RoundID);
-      }
-      if (SmallBlind != 0L) {
-        output.WriteRawTag(160, 6);
-        output.WriteInt64(SmallBlind);
-      }
-      if (BigBlind != 0L) {
-        output.WriteRawTag(240, 6);
-        output.WriteInt64(BigBlind);
-      }
-      if (Token.Length != 0) {
-        output.WriteRawTag(194, 7);
-        output.WriteString(Token);
-      }
-      if (StartTime != 0L) {
-        output.WriteRawTag(144, 8);
-        output.WriteInt64(StartTime);
-      }
-      if (EndTime != 0L) {
-        output.WriteRawTag(224, 8);
-        output.WriteInt64(EndTime);
-      }
-      if (TurnTimeLeftSeconds != 0L) {
-        output.WriteRawTag(176, 9);
-        output.WriteInt64(TurnTimeLeftSeconds);
-      }
-      if (TurnID != 0L) {
-        output.WriteRawTag(128, 10);
-        output.WriteInt64(TurnID);
-      }
-      if (GameStartsInSeconds != 0L) {
-        output.WriteRawTag(208, 10);
-        output.WriteInt64(GameStartsInSeconds);
-      }
-      if (TableName.Length != 0) {
-        output.WriteRawTag(162, 11);
-        output.WriteString(TableName);
-      }
-      if (turnLog_ != null) {
-        output.WriteRawTag(242, 11);
-        output.WriteMessage(TurnLog);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      size += player_.CalculateSize(_repeated_player_codec);
-      if (nextPlayer_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(NextPlayer);
-      }
-      if (TurnTimeLeftSeconds != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(TurnTimeLeftSeconds);
-      }
-      if (GameStartsInSeconds != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(GameStartsInSeconds);
-      }
-      if (TurnID != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(TurnID);
-      }
-      size += winners_.CalculateSize(_repeated_winners_codec);
-      if (communityCards_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(CommunityCards);
-      }
-      if (TableStatus != global::Poker.TableStatus.Unknown) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) TableStatus);
-      }
-      if (RoundStatus != global::Poker.RoundStatus.Initializing) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) RoundStatus);
-      }
-      if (TableID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
-      }
-      if (TableName.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(TableName);
-      }
-      if (RoundID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(RoundID);
-      }
-      if (SmallBlind != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(SmallBlind);
-      }
-      if (BigBlind != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(BigBlind);
-      }
-      if (Token.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Token);
-      }
-      if (StartTime != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(StartTime);
-      }
-      if (EndTime != 0L) {
-        size += 2 + pb::CodedOutputStream.ComputeInt64Size(EndTime);
-      }
-      if (turnLog_ != null) {
-        size += 2 + pb::CodedOutputStream.ComputeMessageSize(TurnLog);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TableInfo other) {
-      if (other == null) {
-        return;
-      }
-      player_.Add(other.player_);
-      if (other.nextPlayer_ != null) {
-        if (nextPlayer_ == null) {
-          NextPlayer = new global::Poker.Player();
-        }
-        NextPlayer.MergeFrom(other.NextPlayer);
-      }
-      if (other.TurnTimeLeftSeconds != 0L) {
-        TurnTimeLeftSeconds = other.TurnTimeLeftSeconds;
-      }
-      if (other.GameStartsInSeconds != 0L) {
-        GameStartsInSeconds = other.GameStartsInSeconds;
-      }
-      if (other.TurnID != 0L) {
-        TurnID = other.TurnID;
-      }
-      winners_.Add(other.winners_);
-      if (other.communityCards_ != null) {
-        if (communityCards_ == null) {
-          CommunityCards = new global::Poker.CommunityCards();
-        }
-        CommunityCards.MergeFrom(other.CommunityCards);
-      }
-      if (other.TableStatus != global::Poker.TableStatus.Unknown) {
-        TableStatus = other.TableStatus;
-      }
-      if (other.RoundStatus != global::Poker.RoundStatus.Initializing) {
-        RoundStatus = other.RoundStatus;
-      }
-      if (other.TableID.Length != 0) {
-        TableID = other.TableID;
-      }
-      if (other.TableName.Length != 0) {
-        TableName = other.TableName;
-      }
-      if (other.RoundID.Length != 0) {
-        RoundID = other.RoundID;
-      }
-      if (other.SmallBlind != 0L) {
-        SmallBlind = other.SmallBlind;
-      }
-      if (other.BigBlind != 0L) {
-        BigBlind = other.BigBlind;
-      }
-      if (other.Token.Length != 0) {
-        Token = other.Token;
-      }
-      if (other.StartTime != 0L) {
-        StartTime = other.StartTime;
-      }
-      if (other.EndTime != 0L) {
-        EndTime = other.EndTime;
-      }
-      if (other.turnLog_ != null) {
-        if (turnLog_ == null) {
-          TurnLog = new global::Poker.TurnLog();
-        }
-        TurnLog.MergeFrom(other.TurnLog);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            player_.AddEntriesFrom(input, _repeated_player_codec);
-            break;
-          }
-          case 162: {
-            if (nextPlayer_ == null) {
-              NextPlayer = new global::Poker.Player();
-            }
-            input.ReadMessage(NextPlayer);
-            break;
-          }
-          case 242: {
-            winners_.AddEntriesFrom(input, _repeated_winners_codec);
-            break;
-          }
-          case 402: {
-            if (communityCards_ == null) {
-              CommunityCards = new global::Poker.CommunityCards();
-            }
-            input.ReadMessage(CommunityCards);
-            break;
-          }
-          case 480: {
-            TableStatus = (global::Poker.TableStatus) input.ReadEnum();
-            break;
-          }
-          case 560: {
-            RoundStatus = (global::Poker.RoundStatus) input.ReadEnum();
-            break;
-          }
-          case 642: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 722: {
-            RoundID = input.ReadString();
-            break;
-          }
-          case 800: {
-            SmallBlind = input.ReadInt64();
-            break;
-          }
-          case 880: {
-            BigBlind = input.ReadInt64();
-            break;
-          }
-          case 962: {
-            Token = input.ReadString();
-            break;
-          }
-          case 1040: {
-            StartTime = input.ReadInt64();
-            break;
-          }
-          case 1120: {
-            EndTime = input.ReadInt64();
-            break;
-          }
-          case 1200: {
-            TurnTimeLeftSeconds = input.ReadInt64();
-            break;
-          }
-          case 1280: {
-            TurnID = input.ReadInt64();
-            break;
-          }
-          case 1360: {
-            GameStartsInSeconds = input.ReadInt64();
-            break;
-          }
-          case 1442: {
-            TableName = input.ReadString();
-            break;
-          }
-          case 1522: {
-            if (turnLog_ == null) {
-              TurnLog = new global::Poker.TurnLog();
-            }
-            input.ReadMessage(TurnLog);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            player_.AddEntriesFrom(ref input, _repeated_player_codec);
-            break;
-          }
-          case 162: {
-            if (nextPlayer_ == null) {
-              NextPlayer = new global::Poker.Player();
-            }
-            input.ReadMessage(NextPlayer);
-            break;
-          }
-          case 242: {
-            winners_.AddEntriesFrom(ref input, _repeated_winners_codec);
-            break;
-          }
-          case 402: {
-            if (communityCards_ == null) {
-              CommunityCards = new global::Poker.CommunityCards();
-            }
-            input.ReadMessage(CommunityCards);
-            break;
-          }
-          case 480: {
-            TableStatus = (global::Poker.TableStatus) input.ReadEnum();
-            break;
-          }
-          case 560: {
-            RoundStatus = (global::Poker.RoundStatus) input.ReadEnum();
-            break;
-          }
-          case 642: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 722: {
-            RoundID = input.ReadString();
-            break;
-          }
-          case 800: {
-            SmallBlind = input.ReadInt64();
-            break;
-          }
-          case 880: {
-            BigBlind = input.ReadInt64();
-            break;
-          }
-          case 962: {
-            Token = input.ReadString();
-            break;
-          }
-          case 1040: {
-            StartTime = input.ReadInt64();
-            break;
-          }
-          case 1120: {
-            EndTime = input.ReadInt64();
-            break;
-          }
-          case 1200: {
-            TurnTimeLeftSeconds = input.ReadInt64();
-            break;
-          }
-          case 1280: {
-            TurnID = input.ReadInt64();
-            break;
-          }
-          case 1360: {
-            GameStartsInSeconds = input.ReadInt64();
-            break;
-          }
-          case 1442: {
-            TableName = input.ReadString();
-            break;
-          }
-          case 1522: {
-            if (turnLog_ == null) {
-              TurnLog = new global::Poker.TurnLog();
-            }
-            input.ReadMessage(TurnLog);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class GetInfoRequest : pb::IMessage<GetInfoRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<GetInfoRequest> _parser = new pb::MessageParser<GetInfoRequest>(() => new GetInfoRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<GetInfoRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[21]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetInfoRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetInfoRequest(GetInfoRequest other) : this() {
-      tableID_ = other.tableID_;
-      roundID_ = other.roundID_;
-      playerID_ = other.playerID_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetInfoRequest Clone() {
-      return new GetInfoRequest(this);
-    }
-
-    /// <summary>Field number for the "tableID" field.</summary>
-    public const int TableIDFieldNumber = 10;
-    private string tableID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string TableID {
-      get { return tableID_; }
-      set {
-        tableID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "roundID" field.</summary>
-    public const int RoundIDFieldNumber = 20;
-    private string roundID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string RoundID {
-      get { return roundID_; }
-      set {
-        roundID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "playerID" field.</summary>
-    public const int PlayerIDFieldNumber = 30;
-    private string playerID_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string PlayerID {
-      get { return playerID_; }
-      set {
-        playerID_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as GetInfoRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(GetInfoRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (TableID != other.TableID) return false;
-      if (RoundID != other.RoundID) return false;
-      if (PlayerID != other.PlayerID) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (RoundID.Length != 0) hash ^= RoundID.GetHashCode();
-      if (PlayerID.Length != 0) hash ^= PlayerID.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (TableID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(TableID);
-      }
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(RoundID);
-      }
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (TableID.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(TableID);
-      }
-      if (RoundID.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(RoundID);
-      }
-      if (PlayerID.Length != 0) {
-        output.WriteRawTag(242, 1);
-        output.WriteString(PlayerID);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (TableID.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(TableID);
-      }
-      if (RoundID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(RoundID);
-      }
-      if (PlayerID.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(PlayerID);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(GetInfoRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.TableID.Length != 0) {
-        TableID = other.TableID;
-      }
-      if (other.RoundID.Length != 0) {
-        RoundID = other.RoundID;
-      }
-      if (other.PlayerID.Length != 0) {
-        PlayerID = other.PlayerID;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 162: {
-            RoundID = input.ReadString();
-            break;
-          }
-          case 242: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            TableID = input.ReadString();
-            break;
-          }
-          case 162: {
-            RoundID = input.ReadString();
-            break;
-          }
-          case 242: {
-            PlayerID = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class GetInfoResponse : pb::IMessage<GetInfoResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<GetInfoResponse> _parser = new pb::MessageParser<GetInfoResponse>(() => new GetInfoResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<GetInfoResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[22]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetInfoResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetInfoResponse(GetInfoResponse other) : this() {
-      info_ = other.info_ != null ? other.info_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public GetInfoResponse Clone() {
-      return new GetInfoResponse(this);
-    }
-
-    /// <summary>Field number for the "info" field.</summary>
-    public const int InfoFieldNumber = 10;
-    private global::Poker.TableInfo info_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.TableInfo Info {
-      get { return info_; }
-      set {
-        info_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as GetInfoResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(GetInfoResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Info, other.Info)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (info_ != null) hash ^= Info.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (info_ != null) {
-        output.WriteRawTag(82);
-        output.WriteMessage(Info);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (info_ != null) {
-        output.WriteRawTag(82);
-        output.WriteMessage(Info);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (info_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Info);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(GetInfoResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.info_ != null) {
-        if (info_ == null) {
-          Info = new global::Poker.TableInfo();
-        }
-        Info.MergeFrom(other.Info);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 82: {
-            if (info_ == null) {
-              Info = new global::Poker.TableInfo();
-            }
-            input.ReadMessage(Info);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 82: {
-            if (info_ == null) {
-              Info = new global::Poker.TableInfo();
-            }
-            input.ReadMessage(Info);
+          case 160: {
+            Rank = (global::Poker.CardRank) input.ReadEnum();
             break;
           }
         }

@@ -42,41 +42,23 @@ namespace Poker {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
-    static readonly grpc::Marshaller<global::Poker.SayHelloRequest> __Marshaller_poker_SayHelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.SayHelloRequest.Parser));
-    static readonly grpc::Marshaller<global::Poker.SayHelloResponse> __Marshaller_poker_SayHelloResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.SayHelloResponse.Parser));
-    static readonly grpc::Marshaller<global::Poker.ListTablesRequest> __Marshaller_poker_ListTablesRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.ListTablesRequest.Parser));
-    static readonly grpc::Marshaller<global::Poker.ListTablesResponse> __Marshaller_poker_ListTablesResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.ListTablesResponse.Parser));
-    static readonly grpc::Marshaller<global::Poker.CreateTableRequest> __Marshaller_poker_CreateTableRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.CreateTableRequest.Parser));
-    static readonly grpc::Marshaller<global::Poker.CreateTableResponse> __Marshaller_poker_CreateTableResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.CreateTableResponse.Parser));
+    static readonly grpc::Marshaller<global::Poker.AckTokenRequest> __Marshaller_poker_AckTokenRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.AckTokenRequest.Parser));
+    static readonly grpc::Marshaller<global::Poker.AckTokenResponse> __Marshaller_poker_AckTokenResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.AckTokenResponse.Parser));
     static readonly grpc::Marshaller<global::Poker.JoinTableRequest> __Marshaller_poker_JoinTableRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.JoinTableRequest.Parser));
     static readonly grpc::Marshaller<global::Poker.JoinTableResponse> __Marshaller_poker_JoinTableResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.JoinTableResponse.Parser));
-    static readonly grpc::Marshaller<global::Poker.PlayerActionRequest> __Marshaller_poker_PlayerActionRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.PlayerActionRequest.Parser));
-    static readonly grpc::Marshaller<global::Poker.PlayerActionResponse> __Marshaller_poker_PlayerActionResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.PlayerActionResponse.Parser));
-    static readonly grpc::Marshaller<global::Poker.GetInfoRequest> __Marshaller_poker_GetInfoRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.GetInfoRequest.Parser));
-    static readonly grpc::Marshaller<global::Poker.TableInfo> __Marshaller_poker_TableInfo = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.TableInfo.Parser));
-    static readonly grpc::Marshaller<global::Poker.StartHandRequest> __Marshaller_poker_StartHandRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.StartHandRequest.Parser));
-    static readonly grpc::Marshaller<global::Poker.StartHandResponse> __Marshaller_poker_StartHandResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.StartHandResponse.Parser));
+    static readonly grpc::Marshaller<global::Poker.PlayRequest> __Marshaller_poker_PlayRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.PlayRequest.Parser));
+    static readonly grpc::Marshaller<global::Poker.GameData> __Marshaller_poker_GameData = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.GameData.Parser));
+    static readonly grpc::Marshaller<global::Poker.RegisterRequest> __Marshaller_poker_RegisterRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.RegisterRequest.Parser));
+    static readonly grpc::Marshaller<global::Poker.RegisterResponse> __Marshaller_poker_RegisterResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.RegisterResponse.Parser));
+    static readonly grpc::Marshaller<global::Poker.TakeTurnRequest> __Marshaller_poker_TakeTurnRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.TakeTurnRequest.Parser));
+    static readonly grpc::Marshaller<global::Poker.TakeTurnResponse> __Marshaller_poker_TakeTurnResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Poker.TakeTurnResponse.Parser));
 
-    static readonly grpc::Method<global::Poker.SayHelloRequest, global::Poker.SayHelloResponse> __Method_SayHello = new grpc::Method<global::Poker.SayHelloRequest, global::Poker.SayHelloResponse>(
+    static readonly grpc::Method<global::Poker.AckTokenRequest, global::Poker.AckTokenResponse> __Method_AckToken = new grpc::Method<global::Poker.AckTokenRequest, global::Poker.AckTokenResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "SayHello",
-        __Marshaller_poker_SayHelloRequest,
-        __Marshaller_poker_SayHelloResponse);
-
-    static readonly grpc::Method<global::Poker.ListTablesRequest, global::Poker.ListTablesResponse> __Method_ListTables = new grpc::Method<global::Poker.ListTablesRequest, global::Poker.ListTablesResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ListTables",
-        __Marshaller_poker_ListTablesRequest,
-        __Marshaller_poker_ListTablesResponse);
-
-    static readonly grpc::Method<global::Poker.CreateTableRequest, global::Poker.CreateTableResponse> __Method_CreateTable = new grpc::Method<global::Poker.CreateTableRequest, global::Poker.CreateTableResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "CreateTable",
-        __Marshaller_poker_CreateTableRequest,
-        __Marshaller_poker_CreateTableResponse);
+        "AckToken",
+        __Marshaller_poker_AckTokenRequest,
+        __Marshaller_poker_AckTokenResponse);
 
     static readonly grpc::Method<global::Poker.JoinTableRequest, global::Poker.JoinTableResponse> __Method_JoinTable = new grpc::Method<global::Poker.JoinTableRequest, global::Poker.JoinTableResponse>(
         grpc::MethodType.Unary,
@@ -85,26 +67,26 @@ namespace Poker {
         __Marshaller_poker_JoinTableRequest,
         __Marshaller_poker_JoinTableResponse);
 
-    static readonly grpc::Method<global::Poker.PlayerActionRequest, global::Poker.PlayerActionResponse> __Method_TakeTurn = new grpc::Method<global::Poker.PlayerActionRequest, global::Poker.PlayerActionResponse>(
+    static readonly grpc::Method<global::Poker.PlayRequest, global::Poker.GameData> __Method_Play = new grpc::Method<global::Poker.PlayRequest, global::Poker.GameData>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "Play",
+        __Marshaller_poker_PlayRequest,
+        __Marshaller_poker_GameData);
+
+    static readonly grpc::Method<global::Poker.RegisterRequest, global::Poker.RegisterResponse> __Method_Register = new grpc::Method<global::Poker.RegisterRequest, global::Poker.RegisterResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Register",
+        __Marshaller_poker_RegisterRequest,
+        __Marshaller_poker_RegisterResponse);
+
+    static readonly grpc::Method<global::Poker.TakeTurnRequest, global::Poker.TakeTurnResponse> __Method_TakeTurn = new grpc::Method<global::Poker.TakeTurnRequest, global::Poker.TakeTurnResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "TakeTurn",
-        __Marshaller_poker_PlayerActionRequest,
-        __Marshaller_poker_PlayerActionResponse);
-
-    static readonly grpc::Method<global::Poker.GetInfoRequest, global::Poker.TableInfo> __Method_GetGameInfo = new grpc::Method<global::Poker.GetInfoRequest, global::Poker.TableInfo>(
-        grpc::MethodType.DuplexStreaming,
-        __ServiceName,
-        "GetGameInfo",
-        __Marshaller_poker_GetInfoRequest,
-        __Marshaller_poker_TableInfo);
-
-    static readonly grpc::Method<global::Poker.StartHandRequest, global::Poker.StartHandResponse> __Method_StartHand = new grpc::Method<global::Poker.StartHandRequest, global::Poker.StartHandResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "StartHand",
-        __Marshaller_poker_StartHandRequest,
-        __Marshaller_poker_StartHandResponse);
+        __Marshaller_poker_TakeTurnRequest,
+        __Marshaller_poker_TakeTurnResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -116,37 +98,58 @@ namespace Poker {
     [grpc::BindServiceMethod(typeof(PokerServer), "BindService")]
     public abstract partial class PokerServerBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Poker.SayHelloResponse> SayHello(global::Poker.SayHelloRequest request, grpc::ServerCallContext context)
+      /// <summary>
+      /// AckToken acks an ack token
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::Poker.AckTokenResponse> AckToken(global::Poker.AckTokenRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Poker.ListTablesResponse> ListTables(global::Poker.ListTablesRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Poker.CreateTableResponse> CreateTable(global::Poker.CreateTableRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
+      /// <summary>
+      /// JoinTable joins a table once authenticated
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::Poker.JoinTableResponse> JoinTable(global::Poker.JoinTableRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Poker.PlayerActionResponse> TakeTurn(global::Poker.PlayerActionRequest request, grpc::ServerCallContext context)
+      /// <summary>
+      /// Play subscribes the client to updates after joining a table
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      public virtual global::System.Threading.Tasks.Task Play(global::Poker.PlayRequest request, grpc::IServerStreamWriter<global::Poker.GameData> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task GetGameInfo(grpc::IAsyncStreamReader<global::Poker.GetInfoRequest> requestStream, grpc::IServerStreamWriter<global::Poker.TableInfo> responseStream, grpc::ServerCallContext context)
+      /// <summary>
+      /// Register registers with the server
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::Poker.RegisterResponse> Register(global::Poker.RegisterRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Poker.StartHandResponse> StartHand(global::Poker.StartHandRequest request, grpc::ServerCallContext context)
+      /// <summary>
+      /// TakeTurn sends a Poker game turn request
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      public virtual global::System.Threading.Tasks.Task<global::Poker.TakeTurnResponse> TakeTurn(global::Poker.TakeTurnRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -176,109 +179,203 @@ namespace Poker {
       {
       }
 
-      public virtual global::Poker.SayHelloResponse SayHello(global::Poker.SayHelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      /// <summary>
+      /// AckToken acks an ack token
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Poker.AckTokenResponse AckToken(global::Poker.AckTokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SayHello(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return AckToken(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Poker.SayHelloResponse SayHello(global::Poker.SayHelloRequest request, grpc::CallOptions options)
+      /// <summary>
+      /// AckToken acks an ack token
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Poker.AckTokenResponse AckToken(global::Poker.AckTokenRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_AckToken, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Poker.SayHelloResponse> SayHelloAsync(global::Poker.SayHelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      /// <summary>
+      /// AckToken acks an ack token
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Poker.AckTokenResponse> AckTokenAsync(global::Poker.AckTokenRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SayHelloAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return AckTokenAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Poker.SayHelloResponse> SayHelloAsync(global::Poker.SayHelloRequest request, grpc::CallOptions options)
+      /// <summary>
+      /// AckToken acks an ack token
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Poker.AckTokenResponse> AckTokenAsync(global::Poker.AckTokenRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_AckToken, null, options, request);
       }
-      public virtual global::Poker.ListTablesResponse ListTables(global::Poker.ListTablesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ListTables(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Poker.ListTablesResponse ListTables(global::Poker.ListTablesRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_ListTables, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Poker.ListTablesResponse> ListTablesAsync(global::Poker.ListTablesRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ListTablesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Poker.ListTablesResponse> ListTablesAsync(global::Poker.ListTablesRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_ListTables, null, options, request);
-      }
-      public virtual global::Poker.CreateTableResponse CreateTable(global::Poker.CreateTableRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CreateTable(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Poker.CreateTableResponse CreateTable(global::Poker.CreateTableRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_CreateTable, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Poker.CreateTableResponse> CreateTableAsync(global::Poker.CreateTableRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return CreateTableAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Poker.CreateTableResponse> CreateTableAsync(global::Poker.CreateTableRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_CreateTable, null, options, request);
-      }
+      /// <summary>
+      /// JoinTable joins a table once authenticated
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Poker.JoinTableResponse JoinTable(global::Poker.JoinTableRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return JoinTable(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// JoinTable joins a table once authenticated
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::Poker.JoinTableResponse JoinTable(global::Poker.JoinTableRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_JoinTable, null, options, request);
       }
+      /// <summary>
+      /// JoinTable joins a table once authenticated
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Poker.JoinTableResponse> JoinTableAsync(global::Poker.JoinTableRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return JoinTableAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      /// JoinTable joins a table once authenticated
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::Poker.JoinTableResponse> JoinTableAsync(global::Poker.JoinTableRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_JoinTable, null, options, request);
       }
-      public virtual global::Poker.PlayerActionResponse TakeTurn(global::Poker.PlayerActionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      /// <summary>
+      /// Play subscribes the client to updates after joining a table
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::Poker.GameData> Play(global::Poker.PlayRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Play(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Play subscribes the client to updates after joining a table
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::Poker.GameData> Play(global::Poker.PlayRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_Play, null, options, request);
+      }
+      /// <summary>
+      /// Register registers with the server
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Poker.RegisterResponse Register(global::Poker.RegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Register(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Register registers with the server
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Poker.RegisterResponse Register(global::Poker.RegisterRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Register, null, options, request);
+      }
+      /// <summary>
+      /// Register registers with the server
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Poker.RegisterResponse> RegisterAsync(global::Poker.RegisterRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return RegisterAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Register registers with the server
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Poker.RegisterResponse> RegisterAsync(global::Poker.RegisterRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Register, null, options, request);
+      }
+      /// <summary>
+      /// TakeTurn sends a Poker game turn request
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Poker.TakeTurnResponse TakeTurn(global::Poker.TakeTurnRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return TakeTurn(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Poker.PlayerActionResponse TakeTurn(global::Poker.PlayerActionRequest request, grpc::CallOptions options)
+      /// <summary>
+      /// TakeTurn sends a Poker game turn request
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      public virtual global::Poker.TakeTurnResponse TakeTurn(global::Poker.TakeTurnRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_TakeTurn, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Poker.PlayerActionResponse> TakeTurnAsync(global::Poker.PlayerActionRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      /// <summary>
+      /// TakeTurn sends a Poker game turn request
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Poker.TakeTurnResponse> TakeTurnAsync(global::Poker.TakeTurnRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return TakeTurnAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Poker.PlayerActionResponse> TakeTurnAsync(global::Poker.PlayerActionRequest request, grpc::CallOptions options)
+      /// <summary>
+      /// TakeTurn sends a Poker game turn request
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncUnaryCall<global::Poker.TakeTurnResponse> TakeTurnAsync(global::Poker.TakeTurnRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_TakeTurn, null, options, request);
-      }
-      public virtual grpc::AsyncDuplexStreamingCall<global::Poker.GetInfoRequest, global::Poker.TableInfo> GetGameInfo(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetGameInfo(new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncDuplexStreamingCall<global::Poker.GetInfoRequest, global::Poker.TableInfo> GetGameInfo(grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncDuplexStreamingCall(__Method_GetGameInfo, null, options);
-      }
-      public virtual global::Poker.StartHandResponse StartHand(global::Poker.StartHandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return StartHand(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Poker.StartHandResponse StartHand(global::Poker.StartHandRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_StartHand, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Poker.StartHandResponse> StartHandAsync(global::Poker.StartHandRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return StartHandAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Poker.StartHandResponse> StartHandAsync(global::Poker.StartHandRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_StartHand, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override PokerServerClient NewInstance(ClientBaseConfiguration configuration)
@@ -292,13 +389,11 @@ namespace Poker {
     public static grpc::ServerServiceDefinition BindService(PokerServerBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello)
-          .AddMethod(__Method_ListTables, serviceImpl.ListTables)
-          .AddMethod(__Method_CreateTable, serviceImpl.CreateTable)
+          .AddMethod(__Method_AckToken, serviceImpl.AckToken)
           .AddMethod(__Method_JoinTable, serviceImpl.JoinTable)
-          .AddMethod(__Method_TakeTurn, serviceImpl.TakeTurn)
-          .AddMethod(__Method_GetGameInfo, serviceImpl.GetGameInfo)
-          .AddMethod(__Method_StartHand, serviceImpl.StartHand).Build();
+          .AddMethod(__Method_Play, serviceImpl.Play)
+          .AddMethod(__Method_Register, serviceImpl.Register)
+          .AddMethod(__Method_TakeTurn, serviceImpl.TakeTurn).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -307,13 +402,11 @@ namespace Poker {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, PokerServerBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.SayHelloRequest, global::Poker.SayHelloResponse>(serviceImpl.SayHello));
-      serviceBinder.AddMethod(__Method_ListTables, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.ListTablesRequest, global::Poker.ListTablesResponse>(serviceImpl.ListTables));
-      serviceBinder.AddMethod(__Method_CreateTable, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.CreateTableRequest, global::Poker.CreateTableResponse>(serviceImpl.CreateTable));
+      serviceBinder.AddMethod(__Method_AckToken, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.AckTokenRequest, global::Poker.AckTokenResponse>(serviceImpl.AckToken));
       serviceBinder.AddMethod(__Method_JoinTable, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.JoinTableRequest, global::Poker.JoinTableResponse>(serviceImpl.JoinTable));
-      serviceBinder.AddMethod(__Method_TakeTurn, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.PlayerActionRequest, global::Poker.PlayerActionResponse>(serviceImpl.TakeTurn));
-      serviceBinder.AddMethod(__Method_GetGameInfo, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::Poker.GetInfoRequest, global::Poker.TableInfo>(serviceImpl.GetGameInfo));
-      serviceBinder.AddMethod(__Method_StartHand, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.StartHandRequest, global::Poker.StartHandResponse>(serviceImpl.StartHand));
+      serviceBinder.AddMethod(__Method_Play, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Poker.PlayRequest, global::Poker.GameData>(serviceImpl.Play));
+      serviceBinder.AddMethod(__Method_Register, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.RegisterRequest, global::Poker.RegisterResponse>(serviceImpl.Register));
+      serviceBinder.AddMethod(__Method_TakeTurn, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Poker.TakeTurnRequest, global::Poker.TakeTurnResponse>(serviceImpl.TakeTurn));
     }
 
   }

@@ -6,15 +6,17 @@ using System.IO;
 using UnityEngine;
 using TMPro;
 using Humanizer;
+using Poker;
 using QuantumTek.QuantumUI;
+using UnityEngine.Serialization;
+using Object = UnityEngine.Object;
 
 public class UI : MonoBehaviour {
 
     [Header("Text Fields")]
-    public TMP_Text playerNameDisplay;
+    public TMP_Text playerUsernameDisplay;
     public TMP_Text blindsDisplay;
     public TMP_Text tableStatusDisplay;
-    public TMP_Text roundStatusDisplay;
     public TMP_Text gameStartsTime;
 
     [Header("Money Text Fields")]
@@ -26,44 +28,44 @@ public class UI : MonoBehaviour {
     public TMP_Text betAmount;
 
     [Header("Input Fields")]
-    public TMP_InputField playerNameInput;
+    public TMP_InputField playerUsernameInput;
+    public TMP_InputField playerPasswordInput;
     public TMP_InputField minBetAmount;
 
 
-    [Header("Table Game Objects")]
-    public GameObject GameStartsInfo;
-    public GameObject GameStartsRadialBar;
-    public GameObject CommunityCardLocation;
+    [FormerlySerializedAs("GameStartsInfo")] [Header("Table Game Objects")]
+    public GameObject gameStartsInfo;
+     public GameObject gameStartsRadialBar;
+     public GameObject communityCardLocation;
     public List<GameObject> tablePositions;
 
     private UnityEngine.Object cardBlankPrefab;
 
 
-    // Update updates the UI based on tableInfo
-    public void UpdateUI(TableInfo tableInfo, string playerID) {
+    // Update updates the UI based on gameData
+    public void UpdateUI(GameData gameData, string playerID) {
 
-        Poker.TableInfo current = tableInfo.GetCopy();
-        string blinds = $"${current?.SmallBlind} / ${current?.BigBlind}";
+        Poker.GameData current = gameData.GetCopy();
+        string blinds = $"${current?.Info.SmallBlind} / ${current?.Info.BigBlind}";
         blindsDisplay.SetText(blinds);
 
         // Table and round status
-        tableStatusDisplay.SetText(current?.TableStatus.ToString());
-        roundStatusDisplay.SetText(current?.RoundStatus.ToString());
+        tableStatusDisplay.SetText(current?.Info.GameState.ToString());
 
         // Time to game start
-        TimeSpan startsIn = tableInfo.GameStartsIn();
+        TimeSpan startsIn = gameData.GameStartsIn();
         if (startsIn.Seconds > 0) {
-            GameStartsInfo.SetActiveRecursivelyExt(true);
+            gameStartsInfo.SetActiveRecursivelyExt(true);
             gameStartsTime.SetText(startsIn.Humanize());
 
-            QUI_Bar bar = GameStartsRadialBar.GetComponent<QUI_Bar>();
+            QUI_Bar bar = gameStartsRadialBar.GetComponent<QUI_Bar>();
             float fillAmount = 1 - (float)startsIn.Seconds / 100;
             bar.SetFill(fillAmount);
         } else {
-            GameStartsInfo.SetActiveRecursivelyExt(false);
+            gameStartsInfo.SetActiveRecursivelyExt(false);
         }
 
-        Poker.Player player = this.MyInfo(current, playerID);
+        Player player = MyInfo(current, playerID);
         if (player is null) { return; }
 
         // Stack
@@ -74,7 +76,7 @@ public class UI : MonoBehaviour {
         string totalBetThisHand = $"${player?.Money?.BetThisHand.ToString()}";
         totalBetThisHandAmount.SetText(totalBetThisHand);
 
-        // Currnt bet
+        // Current bet
         string currentBet = $"${player?.Money?.BetThisRound.ToString()}";
         currentBetAmount.SetText(currentBet);
 
@@ -83,34 +85,30 @@ public class UI : MonoBehaviour {
         potAmount.SetText(pot);
 
         // Next player
-        Poker.Player nextPlayer = current.NextPlayer;
+        Player nextPlayer = gameData.PlayerFromID(current?.WaitTurnID);
         string nextName = nextPlayer?.Name;
         string nextID = nextPlayer?.Id;
         nextPlayerName.SetText(nextName);
 
-        ShowCommunityCards(current.CommunityCards);
+        ShowCommunityCards(current?.Info.CommunityCards);
 
-        int turnTimeLeftSec = Convert.ToInt32(current.TurnTimeLeftSeconds);
-        TimeSpan turnTimeLeft = TimeSpan.FromSeconds(turnTimeLeftSec);
+        // int turnTimeLeftSec = Convert.ToInt32(current?.Info.turnTimeLeft);
+        // TimeSpan turnTimeLeft = TimeSpan.FromSeconds(turnTimeLeftSec);
 
         // Per player settings
-        foreach (var pi in current.Player) {
+        foreach (Player pi in current?.Info.Players) {
             int pos = Convert.ToInt32(pi.Position);
 
             // Name
-            var nameObject = tablePositions[pos].transform.Find("Name").gameObject;
-            nameObject.GetComponent<TMP_Text>().SetText($"{pi.Name} ({turnTimeLeft.Humanize()})");
+            GameObject nameObject = tablePositions[pos].transform.Find("Name").gameObject;
+            // nameObject.GetComponent<TMP_Text>().SetText($"{pi.Name} ({turnTimeLeft.Humanize()})");
 
-            var chipObject = tablePositions[pos].transform.Find("Chip").gameObject;
-            var chipOutline = chipObject.GetComponent<Outline>();
+            GameObject chipObject = tablePositions[pos].transform.Find("Chip").gameObject;
+            Outline chipOutline = chipObject.GetComponent<Outline>();
             chipOutline.OutlineWidth = 150;
             chipOutline.OutlineColor = Color.cyan;
 
-            if (pi.Id == nextID) {
-                chipOutline.enabled = true;
-            } else {
-                chipOutline.enabled = false;
-            }
+            chipOutline.enabled = pi.Id == nextID;
 
             if (pi.Id == playerID) {
                 CardsAtPosition(pi.Card, pos);
@@ -121,31 +119,28 @@ public class UI : MonoBehaviour {
     }
 
     // myInfo returns the info for the current player
-    private Poker.Player MyInfo(Poker.TableInfo tableInfo, string playerID) {
-        foreach (var p in tableInfo.Player) {
-            if (p.Id != playerID) continue;
-            return p;
-        }
-        return null;
-    }
+    private Player MyInfo(Poker.GameData gameData, string playerID)
+    {
+        return gameData.Player;
+   }
 
     private void ShowCommunityCards(Poker.CommunityCards cc) {
 
-        var offset = 180; // cards next to each other
-        var parent = CommunityCardLocation;
+        int offset = 180; // cards next to each other
+        GameObject parent = communityCardLocation;
         RemoveChildren(parent);
 
-        for (var i = 0; i < cc?.Card.Count; i++) {
-            var file = Cards.FileForCard(cc.Card[i]);
-            var cardPrefab = Resources.Load(file);
+        for (int i = 0; i < cc?.Card.Count; i++) {
+            string file = Cards.FileForCard(cc.Card[i]);
+            Object cardPrefab = Resources.Load(file);
             if (cardPrefab == null) {
                 throw new FileNotFoundException(file + " not file found - please check the configuration");
             }
 
-            var cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+            GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
-            var position = parent.transform.position;
+            Vector3 position = parent.transform.position;
             cardObject.transform.position = new Vector3(
                 position.x + i * offset, position.y, position.z);
             cardObject.transform.localScale = new Vector3(12, 12, 12);
@@ -155,21 +150,21 @@ public class UI : MonoBehaviour {
     // CardsAtPosition puts face up cards at the given position
     private void CardsAtPosition(RepeatedField<Poker.Card> hole, int pos) {
 
-        var offset = 180;
-        var parent = tablePositions[pos].transform.Find("Cards").gameObject;
+        int offset = 180;
+        GameObject parent = tablePositions[pos].transform.Find("Cards").gameObject;
         RemoveChildren(parent);
 
-        for (var i = 0; i < hole.Count; i++) {
-            var file = Cards.FileForCard(hole[i]);
-            var cardPrefab = Resources.Load(file);
+        for (int i = 0; i < hole.Count; i++) {
+            string file = Cards.FileForCard(hole[i]);
+            Object cardPrefab = Resources.Load(file);
             if (cardPrefab == null) {
                 throw new FileNotFoundException(file + " not file found - please check the configuration");
             }
 
-            var cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+            GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
-            var position = parent.transform.position;
+            Vector3 position = parent.transform.position;
             cardObject.transform.position = new Vector3(
                 position.x + i * offset, position.y, position.z);
             cardObject.transform.localScale = new Vector3(12, 12, 12);
@@ -178,16 +173,16 @@ public class UI : MonoBehaviour {
 
     // FaceDownCardAtPosition places 2 face down cards the given position
     private void FaceDownCardsAtPosition(int pos) {
-        var offset = 100; // cards overlapping
+        int offset = 100; // cards overlapping
 
-        var parent = tablePositions[pos].transform.Find("Cards").gameObject;
+        GameObject parent = tablePositions[pos].transform.Find("Cards").gameObject;
         RemoveChildren(parent);
 
         for (int i = 0; i < 2; i++) {
-            var cardObject = Instantiate(cardBlankPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+            GameObject cardObject = Instantiate(cardBlankPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 180, 0));
-            var position = parent.transform.position;
+            Vector3 position = parent.transform.position;
             cardObject.transform.position = new Vector3(
                 position.x + i * offset, position.y, position.z);
             cardObject.transform.localScale = new Vector3(12, 12, 12);
@@ -196,12 +191,12 @@ public class UI : MonoBehaviour {
 
     private void RemoveChildren(GameObject parent) {
         for (int i = parent.transform.childCount - 1; i >= 0; i--) {
-            var child = parent.transform.GetChild(i).gameObject;
+            GameObject child = parent.transform.GetChild(i).gameObject;
             child.SetActive(false); // hide right away
         }
 
         for (int i = parent.transform.childCount - 1; i >= 0; i--) {
-            var child = parent.transform.GetChild(i).gameObject;
+            GameObject child = parent.transform.GetChild(i).gameObject;
             Destroy(child);
         }
     }
@@ -213,7 +208,7 @@ public class UI : MonoBehaviour {
             throw new FileNotFoundException(Cards.BlankCard() + " not file found - please check the configuration");
         }
 
-        GameStartsInfo.SetActiveRecursivelyExt(false);
+        gameStartsInfo.SetActiveRecursivelyExt(false);
     }
 
     // Update is called once per frame

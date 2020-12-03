@@ -1,57 +1,45 @@
 ﻿using System;
-using UnityEngine;
+using Poker;
 
-public class TableInfo {
-    // the current instance of TableInfo
-    private Poker.TableInfo current = new Poker.TableInfo { };
+public class GameData {
+    // the current instance of GameData
+    private Poker.GameData current = new Poker.GameData { };
     private readonly object locker = new object();
 
 
-    // Set a new instance of TableInfo
-    public void Set(Poker.TableInfo newTableInfo) {
+    // Set a new instance of GameData
+    public void Set(Poker.GameData newGameData) {
         lock (locker) {
-            current = newTableInfo;
+            current = newGameData;
         }
     }
 
     // GetCopy returns a copy of tableInfo (to be used in UIs)
-    public Poker.TableInfo GetCopy() {
+    public Poker.GameData GetCopy() {
         lock (locker) {
             return current?.Clone();
         }
     }
 
-    // RoundID returns the roundID
-    public string RoundID() {
-        lock (locker) {
-            return current?.RoundID ?? "";
-        }
-    }
 
     // GameFinished returns true when the game is over
-    public bool GameFinished() {
-        return current.TableStatus == Poker.TableStatus.GameFinished;
+    public bool GameFinished()
+    {
+        return current.Info.GameState == Poker.GameState.PlayingDone;
     }
 
-    // TurnID returns the turnID
-    public long TurnID() {
+    // WaitTurnNum returns the WaitTurnNum
+    public long WaitTurnNum() {
         lock (locker) {
-            return current?.TurnID ?? -1;
+            return current?.WaitTurnNum ?? -1;
         }
     }
 
-    // NextTurn returns the Player whose turn it is
-    public Poker.Player NextTurn() {
-        lock (locker) {
-            return current?.NextPlayer;
-        }
-    }
 
-    // NextTurn returns the Player whose turn it is
     public TimeSpan GameStartsIn() {
         int t = 0;
         lock (locker) {
-            t = Convert.ToInt32(current?.GameStartsInSeconds);
+            t = Convert.ToInt32(current?.Info.GameStartsInSec);
         }
         return TimeSpan.FromSeconds(t);
     }
@@ -59,21 +47,21 @@ public class TableInfo {
     // IsMyTurn returns true if it's my turn
     public bool IsMyTurn(string playerID, long lastTurnID) {
         lock (locker) {
-            return current?.NextPlayer?.Id == playerID && lastTurnID < current?.TurnID;
+            return current?.WaitTurnID == playerID && lastTurnID < current?.WaitTurnNum;
         }
 
     }
 
     // myInfo returns a copy of the info for the current player
-    public Poker.Player PlayerFromID(string playerID) {
+    public Player PlayerFromID(string playerID) {
         lock (locker) {
-            foreach (var p in current.Player) {
+            foreach (Player p in current.Info.Players) {
                 if (p.Id != playerID) continue;
                 return p;
             }
         }
 
-        throw new PlayerNotFoundException($"Player {0} not found!");
+        throw new PlayerNotFoundException($"Player {playerID} not found!");
     }
 
     public long PlayerStack(Poker.Player player) {
