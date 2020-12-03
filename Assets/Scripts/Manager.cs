@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
@@ -13,14 +12,13 @@ public class Manager : MonoBehaviour
     private PokerClient pokerClient;
     private long playerPosition;
     private long lastTurnID = -1;
+    private string lastAckToken = "";
     private Player player;
     
     private ClientInfo clientInfo = new ClientInfo();
+    private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
     private readonly GameData gameData = new GameData();
-
-    // Post-round start cancellation token
-    private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
     // server streaming for GameData from server
     private AsyncServerStreamingCall<Poker.GameData> stream;
@@ -50,7 +48,15 @@ public class Manager : MonoBehaviour
 
         clientInfo.PlayerUsername = ui.playerUsernameInput.text;
         clientInfo.Password = ui.playerPasswordInput.text;
-        clientInfo.PlayerID = pokerClient.Register(clientInfo);
+
+        try
+        {
+            clientInfo.PlayerID = pokerClient.Register(clientInfo);
+        }
+        catch (RpcException ex)
+        {
+           return; 
+        }
 
         ui.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
 
@@ -60,7 +66,19 @@ public class Manager : MonoBehaviour
     private void JoinTable()
     {
         Debug.Log("Joining table...");
-        (string id, long position) = pokerClient.JoinTable(clientInfo);
+
+        string id;
+        long position;
+        
+        try
+        {
+            (id, position) = pokerClient.JoinTable(clientInfo);
+        }
+        catch (RpcException ex)
+        {
+            return;
+        }
+
         clientInfo.TableID = id;
         playerPosition = position;
 
@@ -188,7 +206,6 @@ public class Manager : MonoBehaviour
             while (await stream.ResponseStream.MoveNext())
             {
                 Debug.Log("got data");
-                // Exit if application is stopped
                 tokenSource.Token.ThrowIfCancellationRequested();
 
                 Poker.GameData gd = stream.ResponseStream.Current;
@@ -196,6 +213,8 @@ public class Manager : MonoBehaviour
 
                 Debug.Log($"> {gd}");
                 ui.UpdateUI(gameData, clientInfo.PlayerID);
+
+                AckIfNeeded(gd.Info.AckToken);
             }
         }
         catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
@@ -217,7 +236,6 @@ public class Manager : MonoBehaviour
         }
 
         Debug.Log("Exiting server info thread...");
-        tokenSource.Cancel();
         return null;
     }
 
@@ -228,6 +246,23 @@ public class Manager : MonoBehaviour
 
     }
 
+    private void AckIfNeeded(string token)
+    {
+       if (lastAckToken == token)
+       {
+           return;
+       } 
+       
+       try
+       {
+           pokerClient.ActionAckToken(clientInfo, token);
+       }
+       catch (RpcException ex)
+       {
+           Debug.Log(ex.ToString());
+       }
+    }
+    
     private void OnApplicationQuit()
     {
         tokenSource.Cancel();

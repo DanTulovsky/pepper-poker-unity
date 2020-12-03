@@ -1,10 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Grpc.Core;
 using Poker;
-using System.IO;
 using UnityEngine;
-using System.Collections.Generic;
-
 
 public class PokerClient {
     private readonly PokerServer.PokerServerClient client;
@@ -24,12 +23,13 @@ public class PokerClient {
     // Register registers with the server and gets back a PlayerID
     internal string Register(ClientInfo clientInfo) {
         RegisterRequest req = new RegisterRequest { ClientInfo = clientInfo };
-        RegisterResponse res = new RegisterResponse { };
+        RegisterResponse res = new RegisterResponse();
 
         try {
             res = client.Register(req);
         } catch (RpcException ex) {
             Debug.Log(ex.ToString());
+            throw;
         }
 
         return res.PlayerID;
@@ -40,12 +40,13 @@ public class PokerClient {
         JoinTableRequest req = new JoinTableRequest {
             ClientInfo = clientInfo,
         };
-        JoinTableResponse res = new JoinTableResponse { };
+        JoinTableResponse res = new JoinTableResponse();
 
         try {
             res = client.JoinTable(req);
         } catch (RpcException ex) {
             Debug.Log(ex.ToString());
+            throw;
         }
 
         return (res.TableID, res.Position);
@@ -63,9 +64,8 @@ public class PokerClient {
             return stream;
         } catch (RpcException ex) {
             Debug.Log(ex.ToString());
+            throw;
         }
-
-        return null;
     }
 
     // ActionBet used for Raise, AllIn
@@ -82,11 +82,24 @@ public class PokerClient {
         try {
             res = client.TakeTurn(req);
         } catch (RpcException ex) {
-            Debug.Log(ex.ToString());
+            throw new InvalidTurnException(ex.ToString());
         }
     }
 
-    // ActionCall calls
+    // ActionAckToken acks a token
+    internal void ActionAckToken(ClientInfo clientInfo, string token) {
+        Debug.Log("Calling ActionAck");
+        AckTokenRequest req = new AckTokenRequest
+        {
+            ClientInfo = clientInfo,
+            Token = token,
+        };
+        AckTokenResponse res;
+
+        res = client.AckToken(req);
+    }
+    
+    // ActionCall call
     internal void ActionCall(ClientInfo clientInfo) {
         Debug.Log("Calling ActionCall");
         TakeTurnRequest req = new TakeTurnRequest
@@ -99,7 +112,7 @@ public class PokerClient {
         try {
             res = client.TakeTurn(req);
         } catch (RpcException ex) {
-            Debug.Log(ex.ToString());
+            throw new InvalidTurnException(ex.ToString());
         }
     }
 
@@ -115,7 +128,7 @@ public class PokerClient {
         try {
             res = client.TakeTurn(req);
         } catch (RpcException ex) {
-            Debug.Log(ex.ToString());
+            throw new InvalidTurnException(ex.ToString());
         }
     }
 
@@ -131,7 +144,7 @@ public class PokerClient {
         try {
             res = client.TakeTurn(req);
         } catch (RpcException ex) {
-            Debug.Log(ex.ToString());
+            throw new InvalidTurnException(ex.ToString());
         }
     }
 }

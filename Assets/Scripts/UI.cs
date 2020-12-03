@@ -1,13 +1,12 @@
-﻿using Google.Protobuf.Collections;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
-using TMPro;
+using Google.Protobuf.Collections;
 using Humanizer;
 using Poker;
 using QuantumTek.QuantumUI;
+using TMPro;
+using UnityEngine;
 using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
@@ -22,6 +21,7 @@ public class UI : MonoBehaviour {
     [Header("Money Text Fields")]
     public TMP_Text stackAmount;
     public TMP_Text totalBetThisHandAmount;
+    public TMP_Text minBetThisRoundAmount;
     public TMP_Text currentBetAmount;
     public TMP_Text potAmount;
     public TMP_Text nextPlayerName;
@@ -35,11 +35,11 @@ public class UI : MonoBehaviour {
 
     [FormerlySerializedAs("GameStartsInfo")] [Header("Table Game Objects")]
     public GameObject gameStartsInfo;
-     public GameObject gameStartsRadialBar;
-     public GameObject communityCardLocation;
+    public GameObject gameStartsRadialBar;
+    public GameObject communityCardLocation;
     public List<GameObject> tablePositions;
 
-    private UnityEngine.Object cardBlankPrefab;
+    private Object cardBlankPrefab;
 
 
     // Update updates the UI based on gameData
@@ -80,6 +80,10 @@ public class UI : MonoBehaviour {
         string currentBet = $"${player?.Money?.BetThisRound.ToString()}";
         currentBetAmount.SetText(currentBet);
 
+        // Minimum bet this round
+        string minBetThisRound = $"${player?.Money?.MinBetThisRound.ToString()}";
+        minBetThisRoundAmount.SetText(minBetThisRound);
+        
         // Pot
         string pot = $"${player?.Money?.Pot.ToString()}";
         potAmount.SetText(pot);
@@ -124,7 +128,7 @@ public class UI : MonoBehaviour {
         return gameData.Player;
    }
 
-    private void ShowCommunityCards(Poker.CommunityCards cc) {
+    private void ShowCommunityCards(CommunityCards cc) {
 
         int offset = 180; // cards next to each other
         GameObject parent = communityCardLocation;
@@ -148,7 +152,7 @@ public class UI : MonoBehaviour {
     }
 
     // CardsAtPosition puts face up cards at the given position
-    private void CardsAtPosition(RepeatedField<Poker.Card> hole, int pos) {
+    private void CardsAtPosition(RepeatedField<Card> hole, int pos) {
 
         int offset = 180;
         GameObject parent = tablePositions[pos].transform.Find("Cards").gameObject;
@@ -197,7 +201,7 @@ public class UI : MonoBehaviour {
 
         for (int i = parent.transform.childCount - 1; i >= 0; i--) {
             GameObject child = parent.transform.GetChild(i).gameObject;
-            Destroy(child);
+            DestroyImmediate(child);
         }
     }
 

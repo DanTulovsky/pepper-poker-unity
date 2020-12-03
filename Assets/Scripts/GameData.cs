@@ -3,7 +3,7 @@ using Poker;
 
 public class GameData {
     // the current instance of GameData
-    private Poker.GameData current = new Poker.GameData { };
+    private Poker.GameData current = new Poker.GameData();
     private readonly object locker = new object();
 
 
@@ -25,7 +25,7 @@ public class GameData {
     // GameFinished returns true when the game is over
     public bool GameFinished()
     {
-        return current.Info.GameState == Poker.GameState.PlayingDone;
+        return current.Info.GameState == GameState.PlayingDone;
     }
 
     // WaitTurnNum returns the WaitTurnNum
@@ -55,34 +55,31 @@ public class GameData {
     // myInfo returns a copy of the info for the current player
     public Player PlayerFromID(string playerID) {
         lock (locker) {
-            foreach (Player p in current.Info.Players) {
-                if (p.Id != playerID) continue;
-                return p;
-            }
+            return current.Player;
         }
 
         throw new PlayerNotFoundException($"Player {playerID} not found!");
     }
 
-    public long PlayerStack(Poker.Player player) {
+    public long PlayerStack(Player player) {
         lock (locker) {
             return player?.Money?.Stack ?? 0;
         }
     }
 
-    public long PlayerTotalBetThisHand(Poker.Player player) {
+    public long PlayerTotalBetThisHand(Player player) {
         lock (locker) {
             return player?.Money?.BetThisHand ?? 0;
         }
     }
 
-    public long PlayerCurrentBet(Poker.Player player) {
+    public long PlayerCurrentBet(Player player) {
         lock (locker) {
             return player?.Money?.BetThisHand ?? 0;
         }
     }
 
-    public long Pot(Poker.Player player) {
+    public long Pot(Player player) {
         lock (locker) {
             return player?.Money?.Pot ?? 0;
         }

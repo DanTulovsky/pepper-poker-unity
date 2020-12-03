@@ -1,11 +1,11 @@
 ﻿
-using UnityEngine;
+using Poker;
 
 public static class Cards {
 
     // fileForCard returns the filename for the given card
     // This is specific to the PlayingCards plugin we are using.
-    public static string FileForCard(Poker.Card card) {
+    public static string FileForCard(Card card) {
         string prefix = "Prefab/BackColor_Red/Red_PlayingCards_";
         string fmt = "00.##";
 

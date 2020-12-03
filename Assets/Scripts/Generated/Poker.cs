@@ -270,7 +270,7 @@ namespace Poker {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (!Equals(ClientInfo, other.ClientInfo)) return false;
       if (Token != other.Token) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -837,7 +837,7 @@ namespace Poker {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (!Equals(ClientInfo, other.ClientInfo)) return false;
       if (PlayerAction != other.PlayerAction) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1274,7 +1274,7 @@ namespace Poker {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (!Equals(ClientInfo, other.ClientInfo)) return false;
       if (PlayerAction != other.PlayerAction) return false;
       if (TableID != other.TableID) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1771,9 +1771,9 @@ namespace Poker {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (!Equals(ClientInfo, other.ClientInfo)) return false;
       if (PlayerAction != other.PlayerAction) return false;
-      if (!object.Equals(ActionOpts, other.ActionOpts)) return false;
+      if (!Equals(ActionOpts, other.ActionOpts)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2368,7 +2368,7 @@ namespace Poker {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(ClientInfo, other.ClientInfo)) return false;
+      if (!Equals(ClientInfo, other.ClientInfo)) return false;
       if (PlayerAction != other.PlayerAction) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3046,7 +3046,7 @@ namespace Poker {
       if (GameState != other.GameState) return false;
       if (GameStartsInSec != other.GameStartsInSec) return false;
       if (AckToken != other.AckToken) return false;
-      if (!object.Equals(CommunityCards, other.CommunityCards)) return false;
+      if (!Equals(CommunityCards, other.CommunityCards)) return false;
       if (MaxPlayers != other.MaxPlayers) return false;
       if (MinPlayers != other.MinPlayers) return false;
       if (BigBlind != other.BigBlind) return false;
@@ -3569,12 +3569,12 @@ namespace Poker {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Info, other.Info)) return false;
+      if (!Equals(Info, other.Info)) return false;
       if (WaitTurnID != other.WaitTurnID) return false;
       if (WaitTurnName != other.WaitTurnName) return false;
       if (WaitTurnNum != other.WaitTurnNum) return false;
       if (PlayerID != other.PlayerID) return false;
-      if (!object.Equals(Player, other.Player)) return false;
+      if (!Equals(Player, other.Player)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3977,7 +3977,7 @@ namespace Poker {
       if (Name != other.Name) return false;
       if (Id != other.Id) return false;
       if (Position != other.Position) return false;
-      if (!object.Equals(Money, other.Money)) return false;
+      if (!Equals(Money, other.Money)) return false;
       if (State != other.State) return false;
       if(!card_.Equals(other.card_)) return false;
       if(!hand_.Equals(other.hand_)) return false;
