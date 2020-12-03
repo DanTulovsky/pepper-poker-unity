@@ -91,7 +91,7 @@ public class Manager : MonoBehaviour
 
     private Player Player(string id)
     {
-        player = player ?? gameData.PlayerFromID(id);
+        player = player ?? gameData.PlayerFromID();
         return player;
     }
 

@@ -8,6 +8,7 @@ using QuantumTek.QuantumUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Debug = System.Diagnostics.Debug;
 using Object = UnityEngine.Object;
 
 public class UI : MonoBehaviour {
@@ -45,6 +46,8 @@ public class UI : MonoBehaviour {
     // Update updates the UI based on gameData
     public void UpdateUI(GameData gameData, string playerID) {
 
+        if (gameData == null) {return; }
+        
         Poker.GameData current = gameData.GetCopy();
         string blinds = $"${current?.Info.SmallBlind} / ${current?.Info.BigBlind}";
         blindsDisplay.SetText(blinds);
@@ -65,31 +68,31 @@ public class UI : MonoBehaviour {
             gameStartsInfo.SetActiveRecursivelyExt(false);
         }
 
-        Player player = MyInfo(current, playerID);
+        Player player = MyInfo(current);
         if (player is null) { return; }
 
         // Stack
-        string stack = $"${player?.Money?.Stack.ToString()}";
+        string stack = $"${player.Money?.Stack.ToString()}";
         stackAmount.SetText(stack);
 
         // Total bet this hand
-        string totalBetThisHand = $"${player?.Money?.BetThisHand.ToString()}";
+        string totalBetThisHand = $"${player.Money?.BetThisHand.ToString()}";
         totalBetThisHandAmount.SetText(totalBetThisHand);
 
         // Current bet
-        string currentBet = $"${player?.Money?.BetThisRound.ToString()}";
+        string currentBet = $"${player.Money?.BetThisRound.ToString()}";
         currentBetAmount.SetText(currentBet);
 
         // Minimum bet this round
-        string minBetThisRound = $"${player?.Money?.MinBetThisRound.ToString()}";
+        string minBetThisRound = $"${player.Money?.MinBetThisRound.ToString()}";
         minBetThisRoundAmount.SetText(minBetThisRound);
         
         // Pot
-        string pot = $"${player?.Money?.Pot.ToString()}";
+        string pot = $"${player.Money?.Pot.ToString()}";
         potAmount.SetText(pot);
 
         // Next player
-        Player nextPlayer = gameData.PlayerFromID(current?.WaitTurnID);
+        Player nextPlayer = gameData.PlayerFromID();
         string nextName = nextPlayer?.Name;
         string nextID = nextPlayer?.Id;
         nextPlayerName.SetText(nextName);
@@ -100,7 +103,10 @@ public class UI : MonoBehaviour {
         // TimeSpan turnTimeLeft = TimeSpan.FromSeconds(turnTimeLeftSec);
 
         // Per player settings
-        foreach (Player pi in current?.Info.Players) {
+        if (current?.Info.Players == null) return;
+        
+        foreach (Player pi in current.Info.Players)
+        {
             int pos = Convert.ToInt32(pi.Position);
 
             // Name
@@ -114,16 +120,18 @@ public class UI : MonoBehaviour {
 
             chipOutline.enabled = pi.Id == nextID;
 
-            if (pi.Id == playerID) {
+            if (pi.Id == playerID)
+            {
                 CardsAtPosition(pi.Card, pos);
                 continue;
             }
+
             FaceDownCardsAtPosition(pos);
         }
     }
 
     // myInfo returns the info for the current player
-    private Player MyInfo(Poker.GameData gameData, string playerID)
+    private Player MyInfo(Poker.GameData gameData)
     {
         return gameData.Player;
    }
@@ -142,6 +150,9 @@ public class UI : MonoBehaviour {
             }
 
             GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+
+            Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
+            
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
             Vector3 position = parent.transform.position;
@@ -166,6 +177,8 @@ public class UI : MonoBehaviour {
             }
 
             GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+            Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
+            
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
             Vector3 position = parent.transform.position;
@@ -184,13 +197,15 @@ public class UI : MonoBehaviour {
 
         for (int i = 0; i < 2; i++) {
             GameObject cardObject = Instantiate(cardBlankPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+            Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
+            
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 180, 0));
             Vector3 position = parent.transform.position;
             cardObject.transform.position = new Vector3(
                 position.x + i * offset, position.y, position.z);
             cardObject.transform.localScale = new Vector3(12, 12, 12);
-        };
+        }
     }
 
     private void RemoveChildren(GameObject parent) {

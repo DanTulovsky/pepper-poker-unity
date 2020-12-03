@@ -37,7 +37,7 @@ public class GameData {
 
 
     public TimeSpan GameStartsIn() {
-        int t = 0;
+        int t;
         lock (locker) {
             t = Convert.ToInt32(current?.Info.GameStartsInSec);
         }
@@ -53,12 +53,10 @@ public class GameData {
     }
 
     // myInfo returns a copy of the info for the current player
-    public Player PlayerFromID(string playerID) {
+    public Player PlayerFromID() {
         lock (locker) {
             return current.Player;
         }
-
-        throw new PlayerNotFoundException($"Player {playerID} not found!");
     }
 
     public long PlayerStack(Player player) {
