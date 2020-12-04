@@ -8,7 +8,6 @@ using QuantumTek.QuantumUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Debug = System.Diagnostics.Debug;
 using Object = UnityEngine.Object;
 
 public class UI : MonoBehaviour {
@@ -31,7 +30,6 @@ public class UI : MonoBehaviour {
     [Header("Input Fields")]
     public TMP_InputField playerUsernameInput;
     public TMP_InputField playerPasswordInput;
-    public TMP_InputField minBetAmount;
 
 
     [FormerlySerializedAs("GameStartsInfo")] [Header("Table Game Objects")]
@@ -45,15 +43,15 @@ public class UI : MonoBehaviour {
 
     // Update updates the UI based on gameData
     public void UpdateUI(GameData gameData, string playerID) {
-
-        if (gameData == null) {return; }
+        Poker.GameData current = gameData?.GetCopy();
         
-        Poker.GameData current = gameData.GetCopy();
-        string blinds = $"${current?.Info.SmallBlind} / ${current?.Info.BigBlind}";
+        if (current == null) {return; }
+        
+        string blinds = $"${current.Info.SmallBlind} / ${current.Info.BigBlind}";
         blindsDisplay.SetText(blinds);
 
         // Table and round status
-        tableStatusDisplay.SetText(current?.Info.GameState.ToString());
+        tableStatusDisplay.SetText(current.Info.GameState.ToString());
 
         // Time to game start
         TimeSpan startsIn = gameData.GameStartsIn();
@@ -92,42 +90,44 @@ public class UI : MonoBehaviour {
         potAmount.SetText(pot);
 
         // Next player
-        Player nextPlayer = gameData.PlayerFromID();
+        Player nextPlayer = gameData.PlayerFromID(current.WaitTurnID);
         string nextName = nextPlayer?.Name;
         string nextID = nextPlayer?.Id;
         nextPlayerName.SetText(nextName);
 
-        ShowCommunityCards(current?.Info.CommunityCards);
-
-        // int turnTimeLeftSec = Convert.ToInt32(current?.Info.turnTimeLeft);
-        // TimeSpan turnTimeLeft = TimeSpan.FromSeconds(turnTimeLeftSec);
+        ShowCommunityCards(current.Info.CommunityCards);
 
         // Per player settings
-        if (current?.Info.Players == null) return;
+        if (current.Info.Players == null) return;
         
-        foreach (Player pi in current.Info.Players)
+        foreach (Player p in current.Info.Players)
         {
-            int pos = Convert.ToInt32(pi.Position);
+            int pos = Convert.ToInt32(p.Position);
+
+            TimeSpan turnTimeLeft;
+            turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(current.WaitTurnTimeLeftSec) : 0);
 
             // Name
             GameObject nameObject = tablePositions[pos].transform.Find("Name").gameObject;
-            // nameObject.GetComponent<TMP_Text>().SetText($"{pi.Name} ({turnTimeLeft.Humanize()})");
+            nameObject.GetComponent<TMP_Text>().SetText($"{p.Name} ({turnTimeLeft.Humanize(2)})");
 
             GameObject chipObject = tablePositions[pos].transform.Find("Chip").gameObject;
             Outline chipOutline = chipObject.GetComponent<Outline>();
             chipOutline.OutlineWidth = 150;
             chipOutline.OutlineColor = Color.cyan;
 
-            chipOutline.enabled = pi.Id == nextID;
+            chipOutline.enabled = p.Id == nextID;
 
-            if (pi.Id == playerID)
+            if (p.Id == playerID)
             {
-                CardsAtPosition(pi.Card, pos);
+                // Gets set below
                 continue;
             }
-
             FaceDownCardsAtPosition(pos);
         }
+        
+        CardsAtPosition(current.Player.Card, Convert.ToInt32(current.Player.Position));
+        
     }
 
     // myInfo returns the info for the current player

@@ -456,7 +456,6 @@ MonoBehaviour:
   betAmount: {fileID: 1738260172}
   playerUsernameInput: {fileID: 1007303876}
   playerPasswordInput: {fileID: 875667819}
-  minBetAmount: {fileID: 365033453}
   gameStartsInfo: {fileID: 113855205}
   gameStartsRadialBar: {fileID: 1954187109}
   communityCardLocation: {fileID: 1937830853}
@@ -1205,6 +1204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 243524130}
   - component: {fileID: 243524129}
+  - component: {fileID: 243524131}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1239,6 +1239,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243524131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243524128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948c6eac03994cd49bad23b71ceeec7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Manager
+  textList:
+  - s: The human payer should always be in the middle of the table
+    state: 0
+    show: 1
+    deleteQuestion: 0
 --- !u!1001 &290561170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1511,17 +1529,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7957294066811465983, guid: 630b866a7322f7842b910f7d471e03ee, type: 3}
   m_PrefabInstance: {fileID: 328434461}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &365033453 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
-  m_PrefabInstance: {fileID: 1738260170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &365461389
 PrefabInstance:
   m_ObjectHideFlags: 0

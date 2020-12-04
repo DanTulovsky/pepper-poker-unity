@@ -52,8 +52,20 @@ public class GameData {
 
     }
 
-    // myInfo returns a copy of the info for the current player
-    public Player PlayerFromID() {
+    public Player PlayerFromID(string id) {
+        lock (locker) {
+            foreach (var p in current.Info.Players)
+            {
+                if (p.Id == id)
+                {
+                    return p;
+                } 
+            }
+
+            return null;
+        }
+    }
+    public Player MyInfo() {
         lock (locker) {
             return current.Player;
         }

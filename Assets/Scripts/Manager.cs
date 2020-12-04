@@ -41,6 +41,9 @@ public class Manager : MonoBehaviour
         //logger.Debug("GRPC_TRACE = " + Environment.GetEnvironmentVariable("GRPC_TRACE"));
 
         pokerClient = new PokerClient();
+
+        ui.playerUsernameInput.text = "dant";
+        ui.playerPasswordInput.text = "password";
     }
 
     public void Register()
@@ -91,7 +94,7 @@ public class Manager : MonoBehaviour
 
     private Player Player(string id)
     {
-        player = player ?? gameData.PlayerFromID();
+        player = player ?? gameData.PlayerFromID(id);
         return player;
     }
 
