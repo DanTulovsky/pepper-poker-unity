@@ -1,6 +1,9 @@
 ﻿using System;
 using Poker;
 using Google.Protobuf.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.Assertions;
 
 public class GameData
 {
@@ -57,7 +60,7 @@ public class GameData
     // GameFinished returns true when the game is over
     public bool GameFinished()
     {
-        return current?.Info?.GameState == Poker.GameState.PlayingDone;
+        return current?.Info?.GameState == Poker.GameState.Finished;
     }
 
     // WaitTurnNum returns the WaitTurnNum
@@ -147,6 +150,18 @@ public class GameData
         }
     }
 
+    public List<Player> Winners()
+    {
+        List<Player> players = new List<Player>();
+        var winnersList = current?.Info.Winners;
+        Assert.IsNotNull(winnersList);
+        
+        lock (locker)
+        {
+            players.AddRange(Players().Where(p => winnersList.Contains(p.Id)));
+            return players;
+        }
+    }
     public long PlayerStack(Player player)
     {
         lock (locker)

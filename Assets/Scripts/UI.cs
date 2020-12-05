@@ -9,7 +9,6 @@ using QuantumTek.QuantumUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 using Resources = UnityEngine.Resources;
 
@@ -36,10 +35,12 @@ public class UI : MonoBehaviour {
     public TMP_InputField betAmountInput;
 
 
-    [FormerlySerializedAs("GameStartsInfo")] [Header("Table Game Objects")]
+   [Header("Table Game Objects")]
     public GameObject gameStartsInfo;
     public GameObject gameStartsRadialBar;
     public GameObject communityCardLocation;
+    public GameObject winnersWindow;
+    public TMP_Text winnersList;
     public List<GameObject> tablePositions;
 
     private Object cardBlankPrefab;
@@ -68,13 +69,13 @@ public class UI : MonoBehaviour {
         // Time to game start
         TimeSpan startsIn = gameData.GameStartsIn();
         if (startsIn.Seconds > 0) {
-            gameStartsInfo.SetActiveRecursivelyExt(true);
+            ExtensionMethod.SetActiveRecursively(gameStartsInfo, true);
             gameStartsTime.SetText(startsIn.Humanize());
 
             float fillAmount = 1 - (float)startsIn.Seconds / 100;
             radialBar.SetFill(fillAmount);
         } else {
-            gameStartsInfo.SetActiveRecursivelyExt(false);
+            ExtensionMethod.SetActiveRecursively(gameStartsInfo, false);
         }
 
         Player player = gameData.MyInfo();
@@ -141,8 +142,25 @@ public class UI : MonoBehaviour {
         }
         
         CardsAtPosition(gameData.MyInfo().Card, Convert.ToInt32(gameData.MyInfo().Position));
+
+        ShowWinners();
     }
 
+    // ShowWinners displays the winning window
+    private void ShowWinners()
+    {
+        if (!gameData.GameFinished())
+        {
+            ExtensionMethod.SetActiveRecursively(winnersWindow, false);
+            return;
+        }
+        
+        ExtensionMethod.SetActiveRecursively(winnersWindow, true);
+        
+        var winners = gameData.Winners();
+        winnersList.SetText(string.Join("\n", winners));
+    }
+    
     private void ShowCommunityCards(CommunityCards cc) {
 
         int offset = 180; // cards next to each other
@@ -235,7 +253,8 @@ public class UI : MonoBehaviour {
         Assert.IsNotNull(gameData);
         clientInfo = Manager.Instance.ClientInfo;
         Assert.IsNotNull(clientInfo);
-        
+
+        winnersWindow.SetActive(false);
         radialBar = gameStartsRadialBar.GetComponent<QUI_Bar>();
 
        for (int i = 0; i < tablePositions.Count; i++)
@@ -250,7 +269,7 @@ public class UI : MonoBehaviour {
             throw new FileNotFoundException(Cards.BlankCard() + " no file found - please check the configuration");
         }
 
-        gameStartsInfo.SetActiveRecursivelyExt(false);
+        ExtensionMethod.SetActiveRecursively(gameStartsInfo, false);
     }
 
     // Update is called once per frame
@@ -261,10 +280,10 @@ public class UI : MonoBehaviour {
 }
 
 public static class ExtensionMethod {
-    public static void SetActiveRecursivelyExt(this GameObject obj, bool state) {
+    public static void SetActiveRecursively(this GameObject obj, bool state) {
         obj.SetActive(state);
         foreach (Transform child in obj.transform) {
-            SetActiveRecursivelyExt(child.gameObject, state);
+            SetActiveRecursively(child.gameObject, state);
         }
     }
 }

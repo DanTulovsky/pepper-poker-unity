@@ -23,7 +23,7 @@ public class PokerClient {
     // Register registers with the server and gets back a PlayerID
     internal string Register(ClientInfo clientInfo) {
         RegisterRequest req = new RegisterRequest { ClientInfo = clientInfo };
-        RegisterResponse res = new RegisterResponse();
+        RegisterResponse res;
 
         try {
             res = client.Register(req);
@@ -40,7 +40,7 @@ public class PokerClient {
         JoinTableRequest req = new JoinTableRequest {
             ClientInfo = clientInfo,
         };
-        JoinTableResponse res = new JoinTableResponse();
+        JoinTableResponse res;
 
         try {
             res = client.JoinTable(req);
@@ -77,10 +77,9 @@ public class PokerClient {
             PlayerAction = PlayerAction.Bet,
             ActionOpts = new ActionOpts { BetAmount = amount}
         };
-        TakeTurnResponse res;
 
         try {
-            res = client.TakeTurn(req);
+            client.TakeTurn(req);
         } catch (RpcException ex) {
             throw new InvalidTurnException(ex.ToString());
         }
@@ -94,9 +93,15 @@ public class PokerClient {
             ClientInfo = clientInfo,
             Token = token,
         };
-        AckTokenResponse res;
 
-        res = client.AckToken(req);
+        try
+        {
+            client.AckToken(req);
+        }
+        catch (RpcException ex)
+        {
+            throw new InvalidTurnException(ex.ToString());
+        }
     }
     
     // ActionCall call
@@ -107,10 +112,9 @@ public class PokerClient {
             ClientInfo = clientInfo,
             PlayerAction = PlayerAction.Call,
         };
-        TakeTurnResponse res;
 
         try {
-            res = client.TakeTurn(req);
+            client.TakeTurn(req);
         } catch (RpcException ex) {
             throw new InvalidTurnException(ex.ToString());
         }
@@ -123,10 +127,9 @@ public class PokerClient {
             ClientInfo = clientInfo,
             PlayerAction = PlayerAction.Check,
         };
-        TakeTurnResponse res;
 
         try {
-            res = client.TakeTurn(req);
+            client.TakeTurn(req);
         } catch (RpcException ex) {
             throw new InvalidTurnException(ex.ToString());
         }
@@ -139,10 +142,9 @@ public class PokerClient {
             ClientInfo = clientInfo,
             PlayerAction = PlayerAction.Fold,
         };
-        TakeTurnResponse res;
 
         try {
-            res = client.TakeTurn(req);
+            client.TakeTurn(req);
         } catch (RpcException ex) {
             throw new InvalidTurnException(ex.ToString());
         }

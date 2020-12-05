@@ -251,7 +251,7 @@ public class Manager : Singleton<Manager>
 
     private void AckIfNeeded(string token)
     {
-       if (lastAckToken == token)
+       if (lastAckToken == token || token == "")
        {
            return;
        } 
