@@ -47,10 +47,11 @@ public class UI : MonoBehaviour {
     private GameData gameData;
     private ClientInfo clientInfo;
 
-    private QUI_Bar radialBar;
+    private QUI_Bar radialBarGameStart;
     
     private readonly Dictionary<int,TMP_Text> positionNames = new Dictionary<int, TMP_Text>();
     private readonly Dictionary<int, Outline> positionChips = new Dictionary<int, Outline>();
+    private readonly Dictionary<int, QUI_Bar> radialBars = new Dictionary<int, QUI_Bar>();
     private readonly Dictionary<int, GameObject> positionCards = new Dictionary<int, GameObject>();
 
 
@@ -73,7 +74,7 @@ public class UI : MonoBehaviour {
             gameStartsTime.SetText(startsIn.Humanize());
 
             float fillAmount = 1 - (float)startsIn.Seconds / 100;
-            radialBar.SetFill(fillAmount);
+            radialBarGameStart.SetFill(fillAmount);
         } else {
             gameStartsInfo.SetActive(false);
         }
@@ -127,11 +128,19 @@ public class UI : MonoBehaviour {
             turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(gameData.WaitTurnTimeLeftSec()) : 0);
 
             // Name
-            positionNames[pos].SetText($"{p.Name} ({turnTimeLeft.Humanize(2, minUnit: TimeUnit.Second, maxUnit: TimeUnit.Second)})");
+            positionNames[pos].SetText($"{p.Name}");
 
-            positionChips[pos].OutlineWidth = 150;
-            positionChips[pos].OutlineColor = Color.cyan;
-            positionChips[pos].enabled = p.Id == nextID;
+            // positionChips[pos].OutlineWidth = 150;
+            // positionChips[pos].OutlineColor = Color.cyan;
+            // positionChips[pos].enabled = p.Id == nextID;
+            radialBars[pos].gameObject.SetActive(false);
+            
+            if (p.Id == nextID)
+            {
+                radialBars[pos].gameObject.SetActive(true);
+                float fillAmount = turnTimeLeft.Seconds / (float)gameData.WaitTurnTimeMaxSec();
+                radialBars[pos].SetFill(fillAmount);
+            }
 
             if (p.Id == clientInfo.PlayerID)
             {
@@ -254,12 +263,14 @@ public class UI : MonoBehaviour {
         clientInfo = Manager.Instance.ClientInfo;
         Assert.IsNotNull(clientInfo);
 
-        radialBar = gameStartsRadialBar.GetComponent<QUI_Bar>();
+        radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
 
        for (int i = 0; i < tablePositions.Count; i++)
         {
             positionNames[i] = tablePositions[i].transform.Find("Name").gameObject.GetComponent<TMP_Text>();
-            positionChips[i] = tablePositions[i].transform.Find("Chip").gameObject.GetComponent<Outline>();
+            // positionChips[i] = tablePositions[i].transform.Find("Chip").gameObject.GetComponent<Outline>();
+            radialBars[i] = tablePositions[i].transform.Find("Radial Bar").gameObject.GetComponent<QUI_Bar>();
+            radialBars[i].gameObject.SetActive(false);
             positionCards[i] = tablePositions[i].transform.Find("Cards").gameObject;
         }
             

@@ -142,6 +142,7 @@ message GameData {
   string waitTurnName = 30; // the name of the player whose turn it is
   int64 waitTurnNum = 35;   // the turn count of the player whose turn it is
   int64 waitTurnTimeLeftSec = 40; // turn time left for player
+  int64 waitTurnTimeMax = 45;
   string playerID = 50;           // the ID of the calling player
 
   // calling player, includes confidential info

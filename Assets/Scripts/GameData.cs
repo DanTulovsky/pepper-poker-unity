@@ -72,6 +72,14 @@ public class GameData
         }
     }
 
+    // WaitTurnTimeMaxSec returns WaitTurnTimeMaxSec
+    public long WaitTurnTimeMaxSec()
+    {
+        lock (locker)
+        {
+            return current.WaitTurnTimeMaxSec;
+        }
+    }
     // WaitTurnTimeLeftSec returns WaitTurnTimeLeftSec
     public long? WaitTurnTimeLeftSec()
     {
