@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Google.Protobuf.Collections;
 using Humanizer;
+using Humanizer.Localisation;
 using Poker;
 using QuantumTek.QuantumUI;
 using TMPro;
@@ -10,6 +11,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
+using Resources = UnityEngine.Resources;
 
 public class UI : MonoBehaviour {
 
@@ -27,11 +29,11 @@ public class UI : MonoBehaviour {
     public TMP_Text currentBetAmount;
     public TMP_Text potAmount;
     public TMP_Text nextPlayerName;
-    public TMP_Text betAmount;
 
     [Header("Input Fields")]
     public TMP_InputField playerUsernameInput;
     public TMP_InputField playerPasswordInput;
+    public TMP_InputField betAmountInput;
 
 
     [FormerlySerializedAs("GameStartsInfo")] [Header("Table Game Objects")]
@@ -124,13 +126,10 @@ public class UI : MonoBehaviour {
             turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(gameData.WaitTurnTimeLeftSec()) : 0);
 
             // Name
-            positionNames[pos].SetText($"{p.Name} ({turnTimeLeft.Humanize(2)})");
+            positionNames[pos].SetText($"{p.Name} ({turnTimeLeft.Humanize(2, minUnit: TimeUnit.Second, maxUnit: TimeUnit.Second)})");
 
             positionChips[pos].OutlineWidth = 150;
             positionChips[pos].OutlineColor = Color.cyan;
-            Debug.Log($"p.id: {p.Id}");
-            Debug.Log($"nextID: {nextID}");
-            Debug.Log("");
             positionChips[pos].enabled = p.Id == nextID;
 
             if (p.Id == clientInfo.PlayerID)

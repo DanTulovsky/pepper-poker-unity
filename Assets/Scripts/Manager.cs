@@ -168,14 +168,14 @@ public class Manager : Singleton<Manager>
     {
         if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
         long amount;
-        string input = ui.betAmount.text;
+        string input = ui.betAmountInput.text;
         try
         {
             amount = Convert.ToInt64(input);
         }
         catch (FormatException ex)
         {
-            Debug.Log(ex.ToString());
+            Debug.Log($"({input}) {ex}");
             return;
         }
 

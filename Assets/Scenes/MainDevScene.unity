@@ -454,9 +454,9 @@ MonoBehaviour:
   currentBetAmount: {fileID: 1691396669}
   potAmount: {fileID: 1263641941}
   nextPlayerName: {fileID: 140280764}
-  betAmount: {fileID: 1738260172}
   playerUsernameInput: {fileID: 1007303876}
   playerPasswordInput: {fileID: 875667819}
+  betAmountInput: {fileID: 1259554987}
   gameStartsInfo: {fileID: 113855205}
   gameStartsRadialBar: {fileID: 1954187109}
   communityCardLocation: {fileID: 1937830853}
@@ -4762,6 +4762,17 @@ RectTransform:
   m_AnchoredPosition: {x: -595, y: 112}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1259554987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
+  m_PrefabInstance: {fileID: 1738260170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1263641941 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1297959611246878865, guid: 14a9e06947ddf416ab7c504ac90e5545, type: 3}
@@ -7291,17 +7302,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3550596507039424724, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
   m_PrefabInstance: {fileID: 1738260170}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1738260172 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8908306527016688383, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
-  m_PrefabInstance: {fileID: 1738260170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1772707296
 GameObject:
   m_ObjectHideFlags: 0

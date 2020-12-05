@@ -589,7 +589,7 @@ namespace Poker {
       return new ActionOpts(this);
     }
 
-    /// <summary>Field number for the "betAmount" field.</summary>
+    /// <summary>Field number for the "betAmountInput" field.</summary>
     public const int BetAmountFieldNumber = 10;
     private long betAmount_;
     /// <summary>
