@@ -60,7 +60,7 @@ public class GameData
     // GameFinished returns true when the game is over
     public bool GameFinished()
     {
-        return current?.Info?.GameState == Poker.GameState.Finished;
+        return current?.Info?.GameState >= Poker.GameState.Finished;
     }
 
     // WaitTurnNum returns the WaitTurnNum

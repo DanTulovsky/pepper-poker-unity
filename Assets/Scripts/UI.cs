@@ -36,10 +36,10 @@ public class UI : MonoBehaviour {
 
 
    [Header("Table Game Objects")]
-    public GameObject gameStartsInfo;
+    public QUI_Window gameStartsInfo;
     public GameObject gameStartsRadialBar;
     public GameObject communityCardLocation;
-    public GameObject winnersWindow;
+    public QUI_Window winnersWindow;
     public TMP_Text winnersList;
     public List<GameObject> tablePositions;
 
@@ -69,13 +69,13 @@ public class UI : MonoBehaviour {
         // Time to game start
         TimeSpan startsIn = gameData.GameStartsIn();
         if (startsIn.Seconds > 0) {
-            ExtensionMethod.SetActiveRecursively(gameStartsInfo, true);
+            gameStartsInfo.SetActive(true);
             gameStartsTime.SetText(startsIn.Humanize());
 
             float fillAmount = 1 - (float)startsIn.Seconds / 100;
             radialBar.SetFill(fillAmount);
         } else {
-            ExtensionMethod.SetActiveRecursively(gameStartsInfo, false);
+            gameStartsInfo.SetActive(false);
         }
 
         Player player = gameData.MyInfo();
@@ -151,11 +151,11 @@ public class UI : MonoBehaviour {
     {
         if (!gameData.GameFinished())
         {
-            ExtensionMethod.SetActiveRecursively(winnersWindow, false);
+            winnersWindow.SetActive(false);
             return;
         }
         
-        ExtensionMethod.SetActiveRecursively(winnersWindow, true);
+        winnersWindow.SetActive(true);
         
         var winners = gameData.Winners();
         winnersList.SetText(string.Join("\n", winners));
@@ -217,7 +217,7 @@ public class UI : MonoBehaviour {
 
     // FaceDownCardAtPosition places 2 face down cards the given position
     private void FaceDownCardsAtPosition(int pos) {
-        int offset = 100; // cards overlapping
+        const int offset = 100; // cards overlapping
 
         GameObject parent = positionCards[pos];
         RemoveChildren(parent);
@@ -254,7 +254,6 @@ public class UI : MonoBehaviour {
         clientInfo = Manager.Instance.ClientInfo;
         Assert.IsNotNull(clientInfo);
 
-        winnersWindow.SetActive(false);
         radialBar = gameStartsRadialBar.GetComponent<QUI_Bar>();
 
        for (int i = 0; i < tablePositions.Count; i++)
@@ -269,7 +268,8 @@ public class UI : MonoBehaviour {
             throw new FileNotFoundException(Cards.BlankCard() + " no file found - please check the configuration");
         }
 
-        ExtensionMethod.SetActiveRecursively(gameStartsInfo, false);
+        // winnersWindow.SetActive(false);
+        // gameStartsInfo.SetActive(false);
     }
 
     // Update is called once per frame
@@ -280,10 +280,10 @@ public class UI : MonoBehaviour {
 }
 
 public static class ExtensionMethod {
-    public static void SetActiveRecursively(this GameObject obj, bool state) {
-        obj.SetActive(state);
+    public static void SetActiveRecursivelyExt(this GameObject obj, bool state) {
         foreach (Transform child in obj.transform) {
-            SetActiveRecursively(child.gameObject, state);
+            child.gameObject.SetActiveRecursivelyExt(state);
         }
+        obj.SetActive(state);
     }
 }
