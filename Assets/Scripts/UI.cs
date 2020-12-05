@@ -7,6 +7,7 @@ using Poker;
 using QuantumTek.QuantumUI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
@@ -20,6 +21,7 @@ public class UI : MonoBehaviour {
 
     [Header("Money Text Fields")]
     public TMP_Text stackAmount;
+    public TMP_Text bankAmount;
     public TMP_Text totalBetThisHandAmount;
     public TMP_Text minBetThisRoundAmount;
     public TMP_Text currentBetAmount;
@@ -39,19 +41,27 @@ public class UI : MonoBehaviour {
     public List<GameObject> tablePositions;
 
     private Object cardBlankPrefab;
+    private GameData gameData;
+    private ClientInfo clientInfo;
+
+    private QUI_Bar radialBar;
+    
+    private readonly Dictionary<int,TMP_Text> positionNames = new Dictionary<int, TMP_Text>();
+    private readonly Dictionary<int, Outline> positionChips = new Dictionary<int, Outline>();
+    private readonly Dictionary<int, GameObject> positionCards = new Dictionary<int, GameObject>();
 
 
     // Update updates the UI based on gameData
-    public void UpdateUI(GameData gameData, string playerID) {
-        Poker.GameData current = gameData?.GetCopy();
+    private void UpdateUI() {
+        if (gameData == null) {
+            return;
+        }
         
-        if (current == null) {return; }
-        
-        string blinds = $"${current.Info.SmallBlind} / ${current.Info.BigBlind}";
+        string blinds = $"${gameData.SmallBlind()} / ${gameData.BigBlind()}";
         blindsDisplay.SetText(blinds);
 
         // Table and round status
-        tableStatusDisplay.SetText(current.Info.GameState.ToString());
+        tableStatusDisplay.SetText(gameData.GameState().ToString());
 
         // Time to game start
         TimeSpan startsIn = gameData.GameStartsIn();
@@ -59,20 +69,23 @@ public class UI : MonoBehaviour {
             gameStartsInfo.SetActiveRecursivelyExt(true);
             gameStartsTime.SetText(startsIn.Humanize());
 
-            QUI_Bar bar = gameStartsRadialBar.GetComponent<QUI_Bar>();
             float fillAmount = 1 - (float)startsIn.Seconds / 100;
-            bar.SetFill(fillAmount);
+            radialBar.SetFill(fillAmount);
         } else {
             gameStartsInfo.SetActiveRecursivelyExt(false);
         }
 
-        Player player = MyInfo(current);
+        Player player = gameData.MyInfo();
         if (player is null) { return; }
 
         // Stack
         string stack = $"${player.Money?.Stack.ToString()}";
         stackAmount.SetText(stack);
 
+        // Bank
+        string bank = $"${player.Money?.Bank.ToString()}";
+        bankAmount.SetText(bank);
+        
         // Total bet this hand
         string totalBetThisHand = $"${player.Money?.BetThisHand.ToString()}";
         totalBetThisHandAmount.SetText(totalBetThisHand);
@@ -90,35 +103,37 @@ public class UI : MonoBehaviour {
         potAmount.SetText(pot);
 
         // Next player
-        Player nextPlayer = gameData.PlayerFromID(current.WaitTurnID);
+        Player nextPlayer = gameData.PlayerFromID(gameData.WaitTurnID());
         string nextName = nextPlayer?.Name;
         string nextID = nextPlayer?.Id;
         nextPlayerName.SetText(nextName);
 
-        ShowCommunityCards(current.Info.CommunityCards);
+        ShowCommunityCards(gameData.CommunityCards());
 
         // Per player settings
-        if (current.Info.Players == null) return;
+        if (gameData.Players() == null) return;
         
-        foreach (Player p in current.Info.Players)
+        int pos = Convert.ToInt32(gameData.MyInfo().Position);
+        positionNames[pos].SetText($"{gameData.MyInfo().Name}");
+            
+        foreach (Player p in gameData.Players())
         {
-            int pos = Convert.ToInt32(p.Position);
+            pos = Convert.ToInt32(p.Position);
 
             TimeSpan turnTimeLeft;
-            turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(current.WaitTurnTimeLeftSec) : 0);
+            turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(gameData.WaitTurnTimeLeftSec()) : 0);
 
             // Name
-            GameObject nameObject = tablePositions[pos].transform.Find("Name").gameObject;
-            nameObject.GetComponent<TMP_Text>().SetText($"{p.Name} ({turnTimeLeft.Humanize(2)})");
+            positionNames[pos].SetText($"{p.Name} ({turnTimeLeft.Humanize(2)})");
 
-            GameObject chipObject = tablePositions[pos].transform.Find("Chip").gameObject;
-            Outline chipOutline = chipObject.GetComponent<Outline>();
-            chipOutline.OutlineWidth = 150;
-            chipOutline.OutlineColor = Color.cyan;
+            positionChips[pos].OutlineWidth = 150;
+            positionChips[pos].OutlineColor = Color.cyan;
+            Debug.Log($"p.id: {p.Id}");
+            Debug.Log($"nextID: {nextID}");
+            Debug.Log("");
+            positionChips[pos].enabled = p.Id == nextID;
 
-            chipOutline.enabled = p.Id == nextID;
-
-            if (p.Id == playerID)
+            if (p.Id == clientInfo.PlayerID)
             {
                 // Gets set below
                 continue;
@@ -126,15 +141,8 @@ public class UI : MonoBehaviour {
             FaceDownCardsAtPosition(pos);
         }
         
-        CardsAtPosition(current.Player.Card, Convert.ToInt32(current.Player.Position));
-        
+        CardsAtPosition(gameData.MyInfo().Card, Convert.ToInt32(gameData.MyInfo().Position));
     }
-
-    // myInfo returns the info for the current player
-    private Player MyInfo(Poker.GameData gameData)
-    {
-        return gameData.Player;
-   }
 
     private void ShowCommunityCards(CommunityCards cc) {
 
@@ -150,8 +158,9 @@ public class UI : MonoBehaviour {
             }
 
             GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+            Assert.IsNotNull(cardObject);
 
-            Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
+            // Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
             
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
@@ -165,8 +174,8 @@ public class UI : MonoBehaviour {
     // CardsAtPosition puts face up cards at the given position
     private void CardsAtPosition(RepeatedField<Card> hole, int pos) {
 
-        int offset = 180;
-        GameObject parent = tablePositions[pos].transform.Find("Cards").gameObject;
+        const int offset = 180;
+        GameObject parent = positionCards[pos];
         RemoveChildren(parent);
 
         for (int i = 0; i < hole.Count; i++) {
@@ -177,7 +186,8 @@ public class UI : MonoBehaviour {
             }
 
             GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
-            Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
+            Assert.IsNotNull(cardObject);
+            // Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
             
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
@@ -192,7 +202,7 @@ public class UI : MonoBehaviour {
     private void FaceDownCardsAtPosition(int pos) {
         int offset = 100; // cards overlapping
 
-        GameObject parent = tablePositions[pos].transform.Find("Cards").gameObject;
+        GameObject parent = positionCards[pos];
         RemoveChildren(parent);
 
         for (int i = 0; i < 2; i++) {
@@ -208,7 +218,7 @@ public class UI : MonoBehaviour {
         }
     }
 
-    private void RemoveChildren(GameObject parent) {
+    private static void RemoveChildren(GameObject parent) {
         for (int i = parent.transform.childCount - 1; i >= 0; i--) {
             GameObject child = parent.transform.GetChild(i).gameObject;
             child.SetActive(false); // hide right away
@@ -221,22 +231,37 @@ public class UI : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
+        gameData = Manager.Instance.GameData;
+        Assert.IsNotNull(gameData);
+        clientInfo = Manager.Instance.ClientInfo;
+        Assert.IsNotNull(clientInfo);
+        
+        radialBar = gameStartsRadialBar.GetComponent<QUI_Bar>();
+
+       for (int i = 0; i < tablePositions.Count; i++)
+        {
+            positionNames[i] = tablePositions[i].transform.Find("Name").gameObject.GetComponent<TMP_Text>();
+            positionChips[i] = tablePositions[i].transform.Find("Chip").gameObject.GetComponent<Outline>();
+            positionCards[i] = tablePositions[i].transform.Find("Cards").gameObject;
+        }
+            
         cardBlankPrefab = Resources.Load(Cards.BlankCard());
         if (cardBlankPrefab == null) {
-            throw new FileNotFoundException(Cards.BlankCard() + " not file found - please check the configuration");
+            throw new FileNotFoundException(Cards.BlankCard() + " no file found - please check the configuration");
         }
 
         gameStartsInfo.SetActiveRecursivelyExt(false);
     }
 
     // Update is called once per frame
-    void Update() {
-
+    private void Update()
+    {
+        UpdateUI();
     }
 }
 
-public static class ExtentionMethod {
+public static class ExtensionMethod {
     public static void SetActiveRecursivelyExt(this GameObject obj, bool state) {
         obj.SetActive(state);
         foreach (Transform child in obj.transform) {

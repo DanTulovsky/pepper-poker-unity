@@ -4,27 +4,25 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Poker;
 using UnityEngine;
+using UnityEngine.Assertions;
 
-public class Manager : MonoBehaviour
+public class Manager : Singleton<Manager>
 {
-    public UI ui;
-
+    private UI ui;
     private PokerClient pokerClient;
     private long playerPosition;
     private long lastTurnID = -1;
     private string lastAckToken = "";
     private Player player;
     
-    private ClientInfo clientInfo = new ClientInfo();
+    public readonly ClientInfo ClientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
-    private readonly GameData gameData = new GameData();
+    public readonly GameData GameData = new GameData();
 
     // server streaming for GameData from server
     private AsyncServerStreamingCall<Poker.GameData> stream;
-
     //private Grpc.Core.Logging.LogLevelFilterLogger logger;
-
 
     // Start is called before the first frame update
     private void Start()
@@ -42,6 +40,9 @@ public class Manager : MonoBehaviour
 
         pokerClient = new PokerClient();
 
+        ui = GameObject.Find("UI").GetComponent<UI>();
+        Assert.IsNotNull(ui);
+        
         ui.playerUsernameInput.text = "dant";
         ui.playerPasswordInput.text = "password";
     }
@@ -49,19 +50,19 @@ public class Manager : MonoBehaviour
     public void Register()
     {
 
-        clientInfo.PlayerUsername = ui.playerUsernameInput.text;
-        clientInfo.Password = ui.playerPasswordInput.text;
+        ClientInfo.PlayerUsername = ui.playerUsernameInput.text;
+        ClientInfo.Password = ui.playerPasswordInput.text;
 
         try
         {
-            clientInfo.PlayerID = pokerClient.Register(clientInfo);
+            ClientInfo.PlayerID = pokerClient.Register(ClientInfo);
         }
-        catch (RpcException ex)
+        catch (RpcException)
         {
            return; 
         }
 
-        ui.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
+        ui.playerUsernameDisplay.SetText(ClientInfo.PlayerUsername);
 
         JoinTable();
     }
@@ -75,97 +76,97 @@ public class Manager : MonoBehaviour
         
         try
         {
-            (id, position) = pokerClient.JoinTable(clientInfo);
+            (id, position) = pokerClient.JoinTable(ClientInfo);
         }
-        catch (RpcException ex)
+        catch (RpcException)
         {
             return;
         }
 
-        clientInfo.TableID = id;
+        ClientInfo.TableID = id;
         playerPosition = position;
 
-        Debug.Log("Table ID: " + clientInfo.TableID);
+        Debug.Log("Table ID: " + ClientInfo.TableID);
         Debug.Log("Player Position: " + playerPosition);
 
-        // Kick off background refresh thread for gameData
+        // Kick off background refresh thread for GameData
         StartInfoStream();
     }
 
     private Player Player(string id)
     {
-        player = player ?? gameData.PlayerFromID(id);
+        player = player ?? GameData.PlayerFromID(id);
         return player;
     }
 
     public void ActionAllIn()
     {
-        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
-        long amount = Player(clientInfo.PlayerID).Money.Stack;
+        long amount = Player(ClientInfo.PlayerID).Money.Stack;
         try
         {
-            pokerClient.ActionBet(clientInfo, amount);
+            pokerClient.ActionBet(ClientInfo, amount);
         }
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = gameData.WaitTurnNum();
+        lastTurnID = GameData.WaitTurnNum();
     }
 
     public void ActionCheck()
     {
-        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
-            pokerClient.ActionCheck(clientInfo);
+            pokerClient.ActionCheck(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = gameData.WaitTurnNum();
+        lastTurnID = GameData.WaitTurnNum();
     }
 
     public void ActionCall()
     {
-        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
-            pokerClient.ActionCall(clientInfo);
+            pokerClient.ActionCall(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = gameData.WaitTurnNum();
+        lastTurnID = GameData.WaitTurnNum();
     }
 
     public void ActionFold()
     {
-        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
-            pokerClient.ActionFold(clientInfo);
+            pokerClient.ActionFold(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = gameData.WaitTurnNum();
+        lastTurnID = GameData.WaitTurnNum();
     }
 
     public void ActionBet()
     {
-        if (!gameData.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
         long amount;
         string input = ui.betAmount.text;
         try
@@ -180,19 +181,19 @@ public class Manager : MonoBehaviour
 
         try
         {
-            pokerClient.ActionBet(clientInfo, amount);
+            pokerClient.ActionBet(ClientInfo, amount);
         }
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = gameData.WaitTurnNum();
+        lastTurnID = GameData.WaitTurnNum();
     }
 
     private void StartInfoStream()
     {
-        stream = pokerClient.GetGameDataStreaming(clientInfo);
+        stream = pokerClient.GetGameDataStreaming(ClientInfo);
 
         Debug.Log("Starting server stream listener...");
         StartCoroutine(nameof(StartServerStream));
@@ -212,10 +213,9 @@ public class Manager : MonoBehaviour
                 tokenSource.Token.ThrowIfCancellationRequested();
 
                 Poker.GameData gd = stream.ResponseStream.Current;
-                gameData.Set(gd);
+                GameData.Set(gd);
 
                 Debug.Log($"> {gd}");
-                ui.UpdateUI(gameData, clientInfo.PlayerID);
 
                 AckIfNeeded(gd.Info.AckToken);
             }
@@ -258,12 +258,14 @@ public class Manager : MonoBehaviour
        
        try
        {
-           pokerClient.ActionAckToken(clientInfo, token);
+           pokerClient.ActionAckToken(ClientInfo, token);
        }
        catch (RpcException ex)
        {
            Debug.Log(ex.ToString());
        }
+       
+       lastAckToken = token;
     }
     
     private void OnApplicationQuit()
