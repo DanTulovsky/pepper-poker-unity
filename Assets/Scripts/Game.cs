@@ -163,7 +163,7 @@ public class Game
         }
     }
 
-    public IEnumerable<IEnumerable<Player>> WinningPlayers()
+    public IEnumerable<List<Player>> WinningPlayers()
     {
         var levels = new List<List<Player>>();
         

@@ -38,11 +38,32 @@ namespace Tests
                   },
                   Combo = "TwoPair",
                 },
+                
+                new Player
+                {
+                  Name = "player2",
+                  Id = "player2ID",
+                  Position = 1,
+                  Money = new PlayerMoney
+                  {
+                      Bank = 4000,
+                      Stack = 1100,
+                      Winnings = 10,
+                  },
+                  Card = { new RepeatedField<Card> 
+                      {
+                          new Card { Suite = Heart, Rank = Eight},
+                          new Card { Suite = Spade, Rank = Six},
+                      } 
+                  },
+                  Combo = "TwoPair",
+                },
             };
 
             var winners = new RepeatedField<Winners>
             {
                 new Winners { Ids = { "player1ID"} },  // level0
+                new Winners { Ids = { "player2ID"} },  // level2
             };
         
             GameData info = new GameData
@@ -65,7 +86,6 @@ namespace Tests
                     
                     Players = { players },
                     WinningIds = { winners },
-                    
                 }
             };
 
@@ -80,8 +100,10 @@ namespace Tests
         {
             Game game = TestGameData();
 
-            var response = game.WinningPlayers();
-            Assert.AreEqual(1, response.Count());
+            var response = game.WinningPlayers().ToList();
+            Assert.AreEqual(2, response.Count);
+            Assert.AreEqual("player1ID", response[0][0].Id);
+            Assert.AreEqual("player2ID", response[1][0].Id);
         }
     }
 }
