@@ -13,14 +13,13 @@ public class Manager : Singleton<Manager>
     private long playerPosition;
     private long lastTurnID = -1;
     private string lastAckToken = "";
-    private Player player;
     
     public readonly ClientInfo ClientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
-    public readonly GameData GameData = new GameData();
+    public readonly Game Game = new Game();
 
-    // server streaming for GameData from server
+    // server streaming for Game from server
     private AsyncServerStreamingCall<Poker.GameData> stream;
     //private Grpc.Core.Logging.LogLevelFilterLogger logger;
 
@@ -47,7 +46,13 @@ public class Manager : Singleton<Manager>
         ui.playerPasswordInput.text = "password";
     }
 
+
     public void Register()
+    {
+        StartCoroutine(nameof(_register));
+    }
+    
+    private void _register()
     {
 
         ClientInfo.PlayerUsername = ui.playerUsernameInput.text;
@@ -64,10 +69,10 @@ public class Manager : Singleton<Manager>
 
         ui.playerUsernameDisplay.SetText(ClientInfo.PlayerUsername);
 
-        JoinTable();
+        _joinTable();
     }
 
-    private void JoinTable()
+    private void _joinTable()
     {
         Debug.Log("Joining table...");
 
@@ -89,36 +94,44 @@ public class Manager : Singleton<Manager>
         Debug.Log("Table ID: " + ClientInfo.TableID);
         Debug.Log("Player Position: " + playerPosition);
 
-        // Kick off background refresh thread for GameData
+        // Kick off background refresh thread for Game
         StartInfoStream();
-    }
-
-    private Player Player(string id)
-    {
-        player = player ?? GameData.PlayerFromID(id);
-        return player;
     }
 
     public void ActionAllIn()
     {
-        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
-        long amount = Player(ClientInfo.PlayerID).Money.Stack;
         try
         {
-            pokerClient.ActionBet(ClientInfo, amount);
+            pokerClient.ActionAllIn(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
             return;
         }
-        lastTurnID = GameData.WaitTurnNum();
+        lastTurnID = Game.WaitTurnNum();
     }
 
+    public void ActionBuyIn()
+    {
+        // if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
+
+        try
+        {
+            pokerClient.ActionBuyIn(ClientInfo);
+        }
+        catch (InvalidTurnException ex)
+        {
+            Debug.Log(ex);
+            return;
+        }
+        lastTurnID = Game.WaitTurnNum();
+    }
     public void ActionCheck()
     {
-        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
@@ -129,12 +142,12 @@ public class Manager : Singleton<Manager>
             Debug.Log(ex);
             return;
         }
-        lastTurnID = GameData.WaitTurnNum();
+        lastTurnID = Game.WaitTurnNum();
     }
 
     public void ActionCall()
     {
-        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
@@ -145,12 +158,12 @@ public class Manager : Singleton<Manager>
             Debug.Log(ex);
             return;
         }
-        lastTurnID = GameData.WaitTurnNum();
+        lastTurnID = Game.WaitTurnNum();
     }
 
     public void ActionFold()
     {
-        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
@@ -161,12 +174,12 @@ public class Manager : Singleton<Manager>
             Debug.Log(ex);
             return;
         }
-        lastTurnID = GameData.WaitTurnNum();
+        lastTurnID = Game.WaitTurnNum();
     }
 
     public void ActionBet()
     {
-        if (!GameData.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
         long amount;
         string input = ui.betAmountInput.text;
         try
@@ -188,7 +201,7 @@ public class Manager : Singleton<Manager>
             Debug.Log(ex);
             return;
         }
-        lastTurnID = GameData.WaitTurnNum();
+        lastTurnID = Game.WaitTurnNum();
     }
 
     private void StartInfoStream()
@@ -213,7 +226,7 @@ public class Manager : Singleton<Manager>
                 tokenSource.Token.ThrowIfCancellationRequested();
 
                 Poker.GameData gd = stream.ResponseStream.Current;
-                GameData.Set(gd);
+                Game.Set(gd);
 
                 Debug.Log($"> {gd}");
 

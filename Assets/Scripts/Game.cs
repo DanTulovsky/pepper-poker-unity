@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Assertions;
 
-public class GameData
+public class Game
 {
-    // the current instance of GameData
+    // the current instance of Game
     private Poker.GameData current = new Poker.GameData
     {
         Info = new GameInfo(),
     };
     private readonly object locker = new object();
 
-    // Set a new instance of GameData
+    // Set a new instance of Game
     public void Set(Poker.GameData newGameData)
     {
         lock (locker)
@@ -130,15 +130,7 @@ public class GameData
     {
         lock (locker)
         {
-            foreach (var p in current.Info.Players)
-            {
-                if (p.Id == id)
-                {
-                    return p;
-                }
-            }
-
-            return null;
+            return current.Info.Players.FirstOrDefault(p => p.Id == id);
         }
     }
 
@@ -158,7 +150,7 @@ public class GameData
         }
     }
 
-    public List<Player> Winners()
+    public IEnumerable<Player> Winners()
     {
         List<Player> players = new List<Player>();
         var winnersList = current?.Info.Winners;
@@ -170,6 +162,19 @@ public class GameData
             return players;
         }
     }
+
+    public IEnumerable<IEnumerable<Player>> WinningPlayers()
+    {
+        var levels = new List<List<Player>>();
+        
+        lock (locker)
+        {
+            levels.AddRange(current.Info.WinningIds.Select(l1 => l1.Ids.Select(PlayerFromID).ToList()));
+        }
+        
+        return levels;
+    }
+    
     public long PlayerStack(Player player)
     {
         lock (locker)

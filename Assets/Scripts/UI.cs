@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using Google.Protobuf.Collections;
 using Humanizer;
-using Humanizer.Localisation;
 using Poker;
 using QuantumTek.QuantumUI;
 using TMPro;
@@ -44,31 +43,32 @@ public class UI : MonoBehaviour {
     public List<GameObject> tablePositions;
 
     private Object cardBlankPrefab;
-    private GameData gameData;
+    private Game game;
     private ClientInfo clientInfo;
 
     private QUI_Bar radialBarGameStart;
     
     private readonly Dictionary<int,TMP_Text> positionNames = new Dictionary<int, TMP_Text>();
-    private readonly Dictionary<int, Outline> positionChips = new Dictionary<int, Outline>();
+    private readonly Dictionary<int,TMP_Text> lastActions = new Dictionary<int, TMP_Text>();
+    private readonly Dictionary<int,TMP_Text> stacks = new Dictionary<int, TMP_Text>();
     private readonly Dictionary<int, QUI_Bar> radialBars = new Dictionary<int, QUI_Bar>();
     private readonly Dictionary<int, GameObject> positionCards = new Dictionary<int, GameObject>();
 
 
-    // Update updates the UI based on gameData
+    // Update updates the UI based on game
     private void UpdateUI() {
-        if (gameData == null) {
+        if (game == null) {
             return;
         }
         
-        string blinds = $"${gameData.SmallBlind()} / ${gameData.BigBlind()}";
+        string blinds = $"${game.SmallBlind()} / ${game.BigBlind()}";
         blindsDisplay.SetText(blinds);
 
         // Table and round status
-        tableStatusDisplay.SetText(gameData.GameState().ToString());
+        tableStatusDisplay.SetText(game.GameState().ToString());
 
         // Time to game start
-        TimeSpan startsIn = gameData.GameStartsIn();
+        TimeSpan startsIn = game.GameStartsIn();
         if (startsIn.Seconds > 0) {
             gameStartsInfo.SetActive(true);
             gameStartsTime.SetText(startsIn.Humanize());
@@ -79,7 +79,7 @@ public class UI : MonoBehaviour {
             gameStartsInfo.SetActive(false);
         }
 
-        Player player = gameData.MyInfo();
+        Player player = game.MyInfo();
         if (player is null) { return; }
 
         // Stack
@@ -87,78 +87,88 @@ public class UI : MonoBehaviour {
         stackAmount.SetText(stack);
 
         // Bank
-        string bank = $"${player.Money?.Bank.ToString()}";
-        bankAmount.SetText(bank);
+        string bank = $"${player.Money?.Bank.ToString().Humanize()}";
+        bankAmount.SetText(bank.Humanize());
         
         // Total bet this hand
-        string totalBetThisHand = $"${player.Money?.BetThisHand.ToString()}";
+        string totalBetThisHand = $"${player.Money?.BetThisHand.ToString().Humanize()}";
         totalBetThisHandAmount.SetText(totalBetThisHand);
 
         // Current bet
-        string currentBet = $"${player.Money?.BetThisRound.ToString()}";
+        string currentBet = $"${player.Money?.BetThisRound.ToString().Humanize()}";
         currentBetAmount.SetText(currentBet);
 
         // Minimum bet this round
-        string minBetThisRound = $"${player.Money?.MinBetThisRound.ToString()}";
+        string minBetThisRound = $"${player.Money?.MinBetThisRound.ToString().Humanize()}";
         minBetThisRoundAmount.SetText(minBetThisRound);
         
         // Pot
-        string pot = $"${player.Money?.Pot.ToString()}";
+        string pot = $"${player.Money?.Pot.ToString().Humanize()}";
         potAmount.SetText(pot);
 
         // Next player
-        Player nextPlayer = gameData.PlayerFromID(gameData.WaitTurnID());
+        Player nextPlayer = game.PlayerFromID(game.WaitTurnID());
         string nextName = nextPlayer?.Name;
         string nextID = nextPlayer?.Id;
         nextPlayerName.SetText(nextName);
 
-        ShowCommunityCards(gameData.CommunityCards());
+        ShowCommunityCards(game.CommunityCards());
 
         // Per player settings
-        if (gameData.Players() == null) return;
+        if (game.Players() == null) return;
         
-        int pos = Convert.ToInt32(gameData.MyInfo().Position);
-        positionNames[pos].SetText($"{gameData.MyInfo().Name}");
+        int pos = Convert.ToInt32(game.MyInfo().Position);
+        positionNames[pos].SetText($"{game.MyInfo().Name}");
             
-        foreach (Player p in gameData.Players())
+        foreach (Player p in game.Players())
         {
             pos = Convert.ToInt32(p.Position);
 
             TimeSpan turnTimeLeft;
-            turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(gameData.WaitTurnTimeLeftSec()) : 0);
+            turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(game.WaitTurnTimeLeftSec()) : 0);
 
             // Name
             positionNames[pos].SetText($"{p.Name}");
 
+            // LastAction
+            string lastAction = p.LastAction.Action == PlayerAction.None ? "" : p.LastAction.Action.ToString();
+            lastActions[pos]
+                .SetText(p.LastAction.Amount > 0 ? $"{lastAction} (${p.LastAction.Amount})" : $"{lastAction}");
+
+            // Stacks
+            stacks[pos].SetText($"${p.Money.Stack}");
+            
             // positionChips[pos].OutlineWidth = 150;
             // positionChips[pos].OutlineColor = Color.cyan;
             // positionChips[pos].enabled = p.Id == nextID;
+            
+            // Turn timeout bars
             radialBars[pos].gameObject.SetActive(false);
             
+            // Player whose turn it is
             if (p.Id == nextID)
             {
                 radialBars[pos].gameObject.SetActive(true);
-                float fillAmount = turnTimeLeft.Seconds / (float)gameData.WaitTurnTimeMaxSec();
+                float fillAmount = turnTimeLeft.Seconds / (float)game.WaitTurnTimeMaxSec();
                 radialBars[pos].SetFill(fillAmount);
             }
 
             if (p.Id == clientInfo.PlayerID)
             {
-                // Gets set below
-                continue;
+                CardsAtPosition(game.MyInfo().Card, Convert.ToInt32(game.MyInfo().Position));
             }
-            FaceDownCardsAtPosition(pos);
+            else
+            {
+                FaceDownCardsAtPosition(pos);
+            }
         }
-        
-        CardsAtPosition(gameData.MyInfo().Card, Convert.ToInt32(gameData.MyInfo().Position));
-
         ShowWinners();
     }
 
     // ShowWinners displays the winning window
     private void ShowWinners()
     {
-        if (!gameData.GameFinished())
+        if (!game.GameFinished())
         {
             winnersWindow.SetActive(false);
             return;
@@ -166,8 +176,11 @@ public class UI : MonoBehaviour {
         
         winnersWindow.SetActive(true);
         
-        var winners = gameData.Winners();
+        var winners = game.Winners();
         winnersList.SetText(string.Join("\n", winners));
+
+        var winningPlayers = game.WinningPlayers();
+        Debug.Log(winningPlayers.Humanize());
     }
     
     private void ShowCommunityCards(CommunityCards cc) {
@@ -258,8 +271,8 @@ public class UI : MonoBehaviour {
 
     // Start is called before the first frame update
     private void Start() {
-        gameData = Manager.Instance.GameData;
-        Assert.IsNotNull(gameData);
+        game = Manager.Instance.Game;
+        Assert.IsNotNull(game);
         clientInfo = Manager.Instance.ClientInfo;
         Assert.IsNotNull(clientInfo);
 
@@ -268,9 +281,18 @@ public class UI : MonoBehaviour {
        for (int i = 0; i < tablePositions.Count; i++)
         {
             positionNames[i] = tablePositions[i].transform.Find("Name").gameObject.GetComponent<TMP_Text>();
+            positionNames[i].SetText("");
+            
+            lastActions[i] = tablePositions[i].transform.Find("LastAction").gameObject.GetComponent<TMP_Text>();
+            lastActions[i].SetText("");
+            
+            stacks[i] = tablePositions[i].transform.Find("Stack").gameObject.GetComponent<TMP_Text>();
+            stacks[i].SetText("");
+            
             // positionChips[i] = tablePositions[i].transform.Find("Chip").gameObject.GetComponent<Outline>();
             radialBars[i] = tablePositions[i].transform.Find("Radial Bar").gameObject.GetComponent<QUI_Bar>();
             radialBars[i].gameObject.SetActive(false);
+            
             positionCards[i] = tablePositions[i].transform.Find("Cards").gameObject;
         }
             

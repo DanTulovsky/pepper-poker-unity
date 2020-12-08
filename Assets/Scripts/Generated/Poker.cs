@@ -44,58 +44,62 @@ namespace Poker {
             "ES5wb2tlci5DbGllbnRJbmZvEikKDHBsYXllckFjdGlvbhgyIAEoDjITLnBv",
             "a2VyLlBsYXllckFjdGlvbiJtCgpDbGllbnRJbmZvEhAKCHBsYXllcklEGAog",
             "ASgJEhIKCnBsYXllck5hbWUYFCABKAkSFgoOcGxheWVyVXNlcm5hbWUYHiAB",
-            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSK+AgoIR2Ft",
+            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSLkAgoIR2Ft",
             "ZUluZm8SEQoJdGFibGVOYW1lGAogASgJEg8KB3RhYmxlSUQYFCABKAkSIwoJ",
             "Z2FtZVN0YXRlGB4gASgOMhAucG9rZXIuR2FtZVN0YXRlEhcKD2dhbWVTdGFy",
             "dHNJblNlYxgoIAEoAxIQCghhY2tUb2tlbhgyIAEoCRItCg5Db21tdW5pdHlD",
             "YXJkcxg8IAEoCzIVLnBva2VyLkNvbW11bml0eUNhcmRzEhIKCm1heFBsYXll",
             "cnMYZCABKAMSEgoKbWluUGxheWVycxhuIAEoAxIQCghiaWdCbGluZBh4IAEo",
             "AxISCgpzbWFsbEJsaW5kGH0gASgDEg4KBWJ1eWluGIIBIAEoAxIfCgdwbGF5",
-            "ZXJzGIwBIAMoCzINLnBva2VyLlBsYXllchIQCgd3aW5uZXJzGJYBIAMoCSLS",
-            "AQoIR2FtZURhdGESHQoEaW5mbxgKIAEoCzIPLnBva2VyLkdhbWVJbmZvEhIK",
-            "CndhaXRUdXJuSUQYFCABKAkSFAoMd2FpdFR1cm5OYW1lGB4gASgJEhMKC3dh",
-            "aXRUdXJuTnVtGCMgASgDEhsKE3dhaXRUdXJuVGltZUxlZnRTZWMYKCABKAMS",
-            "GgoSd2FpdFR1cm5UaW1lTWF4U2VjGC0gASgDEhAKCHBsYXllcklEGDIgASgJ",
-            "Eh0KBnBsYXllchg8IAEoCzINLnBva2VyLlBsYXllciK/AQoGUGxheWVyEgwK",
-            "BG5hbWUYCiABKAkSCgoCaWQYDyABKAkSEAoIcG9zaXRpb24YFCABKAMSIQoF",
-            "bW9uZXkYHiABKAsyEi5wb2tlci5QbGF5ZXJNb25leRIhCgVzdGF0ZRgyIAEo",
-            "DjISLnBva2VyLlBsYXllclN0YXRlEhkKBGNhcmQYPCADKAsyCy5wb2tlci5D",
-            "YXJkEhkKBGhhbmQYRiADKAsyCy5wb2tlci5DYXJkEg0KBWNvbWJvGFAgASgJ",
-            "Io0BCgtQbGF5ZXJNb25leRIMCgRiYW5rGAogASgDEg0KBXN0YWNrGBQgASgD",
-            "EgsKA3BvdBgeIAEoAxIXCg9taW5CZXRUaGlzUm91bmQYKCABKAMSFAoMYmV0",
-            "VGhpc1JvdW5kGDIgASgDEhMKC2JldFRoaXNIYW5kGDwgASgDEhAKCHdpbm5p",
-            "bmdzGEYgASgDIisKDkNvbW11bml0eUNhcmRzEhkKBGNhcmQYCiADKAsyCy5w",
-            "b2tlci5DYXJkIkUKBENhcmQSHgoFc3VpdGUYCiABKA4yDy5wb2tlci5DYXJk",
-            "U3VpdBIdCgRyYW5rGBQgASgOMg8ucG9rZXIuQ2FyZFJhbmsqqwIKDFBsYXll",
-            "ckFjdGlvbhIUChBQbGF5ZXJBY3Rpb25Ob25lEAASGAoUUGxheWVyQWN0aW9u",
-            "UmVnaXN0ZXIQARIZChVQbGF5ZXJBY3Rpb25Kb2luVGFibGUQAhIUChBQbGF5",
-            "ZXJBY3Rpb25QbGF5EAMSFAoQUGxheWVyQWN0aW9uQ2FsbBAEEhUKEVBsYXll",
-            "ckFjdGlvbkNoZWNrEAUSEwoPUGxheWVyQWN0aW9uQmV0EAYSFAoQUGxheWVy",
-            "QWN0aW9uRm9sZBAHEhgKFFBsYXllckFjdGlvbkFja1Rva2VuEAgSFQoRUGxh",
-            "eWVyQWN0aW9uQWxsSW4QCRIVChFQbGF5ZXJBY3Rpb25CdXlJbhAKEhoKFlBs",
-            "YXllckFjdGlvbkRpc2Nvbm5lY3QQCyq5AgoJR2FtZVN0YXRlEhsKF0dhbWVT",
-            "dGF0ZVdhaXRpbmdQbGF5ZXJzEAASGQoVR2FtZVN0YXRlSW5pdGlhbGl6aW5n",
-            "EAESGQoVR2FtZVN0YXRlUmVhZHlUb1N0YXJ0EAISHgoaR2FtZVN0YXRlUGxh",
-            "eWluZ1NtYWxsQmxpbmQQAxIcChhHYW1lU3RhdGVQbGF5aW5nQmlnQmxpbmQQ",
-            "BBIbChdHYW1lU3RhdGVQbGF5aW5nUHJlRmxvcBAFEhgKFEdhbWVTdGF0ZVBs",
-            "YXlpbmdGbG9wEAYSGAoUR2FtZVN0YXRlUGxheWluZ1R1cm4QBxIZChVHYW1l",
-            "U3RhdGVQbGF5aW5nUml2ZXIQCBIYChRHYW1lU3RhdGVQbGF5aW5nRG9uZRAJ",
-            "EhUKEUdhbWVTdGF0ZUZpbmlzaGVkEAoqdgoLUGxheWVyU3RhdGUSFgoSUGxh",
-            "eWVyU3RhdGVEZWZhdWx0EAASGQoVUGxheWVyU3RhdGVTdGFja0VtcHR5EAES",
-            "GAoUUGxheWVyU3RhdGVCYW5rRW1wdHkQAhIaChZQbGF5ZXJTdGF0ZUN1cnJl",
-            "bnRUdXJuEAMqNwoIQ2FyZFN1aXQSCQoFU3BhZGUQABIICgRDbHViEAESCwoH",
-            "RGlhbW9uZBACEgkKBUhlYXJ0EAMqjAEKCENhcmRSYW5rEgcKA1R3bxAAEgkK",
-            "BVRocmVlEAESCAoERm91chACEggKBEZpdmUQAxIHCgNTaXgQBBIJCgVTZXZl",
-            "bhAFEgkKBUVpZ2h0EAYSCAoETmluZRAHEgcKA1RlbhAIEggKBEphY2sQCRIJ",
-            "CgVRdWVlbhAKEggKBEtpbmcQCxIHCgNBY2UQDDK9AgoLUG9rZXJTZXJ2ZXIS",
-            "PQoIQWNrVG9rZW4SFi5wb2tlci5BY2tUb2tlblJlcXVlc3QaFy5wb2tlci5B",
-            "Y2tUb2tlblJlc3BvbnNlIgASQAoJSm9pblRhYmxlEhcucG9rZXIuSm9pblRh",
-            "YmxlUmVxdWVzdBoYLnBva2VyLkpvaW5UYWJsZVJlc3BvbnNlIgASLwoEUGxh",
-            "eRISLnBva2VyLlBsYXlSZXF1ZXN0Gg8ucG9rZXIuR2FtZURhdGEiADABEj0K",
-            "CFJlZ2lzdGVyEhYucG9rZXIuUmVnaXN0ZXJSZXF1ZXN0GhcucG9rZXIuUmVn",
-            "aXN0ZXJSZXNwb25zZSIAEj0KCFRha2VUdXJuEhYucG9rZXIuVGFrZVR1cm5S",
-            "ZXF1ZXN0GhcucG9rZXIuVGFrZVR1cm5SZXNwb25zZSIAQi1aK2dpdGh1Yi5j",
-            "b20vRGFuVHVvdnNreS9wZXBwZXItcG9rZXItdjIvcHJvdG9iBnByb3RvMw=="));
+            "ZXJzGIwBIAMoCzINLnBva2VyLlBsYXllchIQCgd3aW5uZXJzGJYBIAMoCRIk",
+            "Cgt3aW5uaW5nX2lkcxigASADKAsyDi5wb2tlci5XaW5uZXJzIhYKB1dpbm5l",
+            "cnMSCwoDaWRzGAogAygJItIBCghHYW1lRGF0YRIdCgRpbmZvGAogASgLMg8u",
+            "cG9rZXIuR2FtZUluZm8SEgoKd2FpdFR1cm5JRBgUIAEoCRIUCgx3YWl0VHVy",
+            "bk5hbWUYHiABKAkSEwoLd2FpdFR1cm5OdW0YIyABKAMSGwoTd2FpdFR1cm5U",
+            "aW1lTGVmdFNlYxgoIAEoAxIaChJ3YWl0VHVyblRpbWVNYXhTZWMYLSABKAMS",
+            "EAoIcGxheWVySUQYMiABKAkSHQoGcGxheWVyGDwgASgLMg0ucG9rZXIuUGxh",
+            "eWVyIuYBCgZQbGF5ZXISDAoEbmFtZRgKIAEoCRIKCgJpZBgPIAEoCRIQCghw",
+            "b3NpdGlvbhgUIAEoAxIhCgVtb25leRgeIAEoCzISLnBva2VyLlBsYXllck1v",
+            "bmV5EiEKBXN0YXRlGDIgASgOMhIucG9rZXIuUGxheWVyU3RhdGUSGQoEY2Fy",
+            "ZBg8IAMoCzILLnBva2VyLkNhcmQSGQoEaGFuZBhGIAMoCzILLnBva2VyLkNh",
+            "cmQSDQoFY29tYm8YUCABKAkSJQoKbGFzdEFjdGlvbhhaIAEoCzIRLnBva2Vy",
+            "Lkxhc3RBY3Rpb24iQQoKTGFzdEFjdGlvbhIjCgZhY3Rpb24YCiABKA4yEy5w",
+            "b2tlci5QbGF5ZXJBY3Rpb24SDgoGYW1vdW50GBQgASgDIo0BCgtQbGF5ZXJN",
+            "b25leRIMCgRiYW5rGAogASgDEg0KBXN0YWNrGBQgASgDEgsKA3BvdBgeIAEo",
+            "AxIXCg9taW5CZXRUaGlzUm91bmQYKCABKAMSFAoMYmV0VGhpc1JvdW5kGDIg",
+            "ASgDEhMKC2JldFRoaXNIYW5kGDwgASgDEhAKCHdpbm5pbmdzGEYgASgDIisK",
+            "DkNvbW11bml0eUNhcmRzEhkKBGNhcmQYCiADKAsyCy5wb2tlci5DYXJkIkUK",
+            "BENhcmQSHgoFc3VpdGUYCiABKA4yDy5wb2tlci5DYXJkU3VpdBIdCgRyYW5r",
+            "GBQgASgOMg8ucG9rZXIuQ2FyZFJhbmsqqwIKDFBsYXllckFjdGlvbhIUChBQ",
+            "bGF5ZXJBY3Rpb25Ob25lEAASGAoUUGxheWVyQWN0aW9uUmVnaXN0ZXIQARIZ",
+            "ChVQbGF5ZXJBY3Rpb25Kb2luVGFibGUQAhIUChBQbGF5ZXJBY3Rpb25QbGF5",
+            "EAMSFAoQUGxheWVyQWN0aW9uQ2FsbBAEEhUKEVBsYXllckFjdGlvbkNoZWNr",
+            "EAUSEwoPUGxheWVyQWN0aW9uQmV0EAYSFAoQUGxheWVyQWN0aW9uRm9sZBAH",
+            "EhgKFFBsYXllckFjdGlvbkFja1Rva2VuEAgSFQoRUGxheWVyQWN0aW9uQWxs",
+            "SW4QCRIVChFQbGF5ZXJBY3Rpb25CdXlJbhAKEhoKFlBsYXllckFjdGlvbkRp",
+            "c2Nvbm5lY3QQCyq5AgoJR2FtZVN0YXRlEhsKF0dhbWVTdGF0ZVdhaXRpbmdQ",
+            "bGF5ZXJzEAASGQoVR2FtZVN0YXRlSW5pdGlhbGl6aW5nEAESGQoVR2FtZVN0",
+            "YXRlUmVhZHlUb1N0YXJ0EAISHgoaR2FtZVN0YXRlUGxheWluZ1NtYWxsQmxp",
+            "bmQQAxIcChhHYW1lU3RhdGVQbGF5aW5nQmlnQmxpbmQQBBIbChdHYW1lU3Rh",
+            "dGVQbGF5aW5nUHJlRmxvcBAFEhgKFEdhbWVTdGF0ZVBsYXlpbmdGbG9wEAYS",
+            "GAoUR2FtZVN0YXRlUGxheWluZ1R1cm4QBxIZChVHYW1lU3RhdGVQbGF5aW5n",
+            "Uml2ZXIQCBIYChRHYW1lU3RhdGVQbGF5aW5nRG9uZRAJEhUKEUdhbWVTdGF0",
+            "ZUZpbmlzaGVkEAoqdgoLUGxheWVyU3RhdGUSFgoSUGxheWVyU3RhdGVEZWZh",
+            "dWx0EAASGQoVUGxheWVyU3RhdGVTdGFja0VtcHR5EAESGAoUUGxheWVyU3Rh",
+            "dGVCYW5rRW1wdHkQAhIaChZQbGF5ZXJTdGF0ZUN1cnJlbnRUdXJuEAMqNwoI",
+            "Q2FyZFN1aXQSCQoFU3BhZGUQABIICgRDbHViEAESCwoHRGlhbW9uZBACEgkK",
+            "BUhlYXJ0EAMqjAEKCENhcmRSYW5rEgcKA1R3bxAAEgkKBVRocmVlEAESCAoE",
+            "Rm91chACEggKBEZpdmUQAxIHCgNTaXgQBBIJCgVTZXZlbhAFEgkKBUVpZ2h0",
+            "EAYSCAoETmluZRAHEgcKA1RlbhAIEggKBEphY2sQCRIJCgVRdWVlbhAKEggK",
+            "BEtpbmcQCxIHCgNBY2UQDDK9AgoLUG9rZXJTZXJ2ZXISPQoIQWNrVG9rZW4S",
+            "Fi5wb2tlci5BY2tUb2tlblJlcXVlc3QaFy5wb2tlci5BY2tUb2tlblJlc3Bv",
+            "bnNlIgASQAoJSm9pblRhYmxlEhcucG9rZXIuSm9pblRhYmxlUmVxdWVzdBoY",
+            "LnBva2VyLkpvaW5UYWJsZVJlc3BvbnNlIgASLwoEUGxheRISLnBva2VyLlBs",
+            "YXlSZXF1ZXN0Gg8ucG9rZXIuR2FtZURhdGEiADABEj0KCFJlZ2lzdGVyEhYu",
+            "cG9rZXIuUmVnaXN0ZXJSZXF1ZXN0GhcucG9rZXIuUmVnaXN0ZXJSZXNwb25z",
+            "ZSIAEj0KCFRha2VUdXJuEhYucG9rZXIuVGFrZVR1cm5SZXF1ZXN0GhcucG9r",
+            "ZXIuVGFrZVR1cm5SZXNwb25zZSIAQi1aK2dpdGh1Yi5jb20vRGFuVHVvdnNr",
+            "eS9wZXBwZXItcG9rZXItdjIvcHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Poker.PlayerAction), typeof(global::Poker.GameState), typeof(global::Poker.PlayerState), typeof(global::Poker.CardSuit), typeof(global::Poker.CardRank), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -111,9 +115,11 @@ namespace Poker {
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.DisconnectResponse), global::Poker.DisconnectResponse.Parser, new[]{ "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayRequest), global::Poker.PlayRequest.Parser, new[]{ "ClientInfo", "PlayerAction" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ClientInfo), global::Poker.ClientInfo.Parser, new[]{ "PlayerID", "PlayerName", "PlayerUsername", "TableID", "Password" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "Players", "Winners" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "Players", "Winners", "WinningIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Winners), global::Poker.Winners.Parser, new[]{ "Ids" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameData), global::Poker.GameData.Parser, new[]{ "Info", "WaitTurnID", "WaitTurnName", "WaitTurnNum", "WaitTurnTimeLeftSec", "WaitTurnTimeMaxSec", "PlayerID", "Player" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Player), global::Poker.Player.Parser, new[]{ "Name", "Id", "Position", "Money", "State", "Card", "Hand", "Combo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Player), global::Poker.Player.Parser, new[]{ "Name", "Id", "Position", "Money", "State", "Card", "Hand", "Combo", "LastAction" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.LastAction), global::Poker.LastAction.Parser, new[]{ "Action", "Amount" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayerMoney), global::Poker.PlayerMoney.Parser, new[]{ "Bank", "Stack", "Pot", "MinBetThisRound", "BetThisRound", "BetThisHand", "Winnings" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.CommunityCards), global::Poker.CommunityCards.Parser, new[]{ "Card" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Card), global::Poker.Card.Parser, new[]{ "Suite", "Rank" }, null, null, null, null)
@@ -2877,6 +2883,7 @@ namespace Poker {
       buyin_ = other.buyin_;
       players_ = other.players_.Clone();
       winners_ = other.winners_.Clone();
+      winningIds_ = other.winningIds_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3029,6 +3036,16 @@ namespace Poker {
       get { return winners_; }
     }
 
+    /// <summary>Field number for the "winning_ids" field.</summary>
+    public const int WinningIdsFieldNumber = 160;
+    private static readonly pb::FieldCodec<global::Poker.Winners> _repeated_winningIds_codec
+        = pb::FieldCodec.ForMessage(1282, global::Poker.Winners.Parser);
+    private readonly pbc::RepeatedField<global::Poker.Winners> winningIds_ = new pbc::RepeatedField<global::Poker.Winners>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Poker.Winners> WinningIds {
+      get { return winningIds_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GameInfo);
@@ -3055,6 +3072,7 @@ namespace Poker {
       if (Buyin != other.Buyin) return false;
       if(!players_.Equals(other.players_)) return false;
       if(!winners_.Equals(other.winners_)) return false;
+      if(!winningIds_.Equals(other.winningIds_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3074,6 +3092,7 @@ namespace Poker {
       if (Buyin != 0L) hash ^= Buyin.GetHashCode();
       hash ^= players_.GetHashCode();
       hash ^= winners_.GetHashCode();
+      hash ^= winningIds_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3136,6 +3155,7 @@ namespace Poker {
       }
       players_.WriteTo(output, _repeated_players_codec);
       winners_.WriteTo(output, _repeated_winners_codec);
+      winningIds_.WriteTo(output, _repeated_winningIds_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3191,6 +3211,7 @@ namespace Poker {
       }
       players_.WriteTo(ref output, _repeated_players_codec);
       winners_.WriteTo(ref output, _repeated_winners_codec);
+      winningIds_.WriteTo(ref output, _repeated_winningIds_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3235,6 +3256,7 @@ namespace Poker {
       }
       size += players_.CalculateSize(_repeated_players_codec);
       size += winners_.CalculateSize(_repeated_winners_codec);
+      size += winningIds_.CalculateSize(_repeated_winningIds_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3284,6 +3306,7 @@ namespace Poker {
       }
       players_.Add(other.players_);
       winners_.Add(other.winners_);
+      winningIds_.Add(other.winningIds_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3351,6 +3374,10 @@ namespace Poker {
           }
           case 1202: {
             winners_.AddEntriesFrom(input, _repeated_winners_codec);
+            break;
+          }
+          case 1282: {
+            winningIds_.AddEntriesFrom(input, _repeated_winningIds_codec);
             break;
           }
         }
@@ -3422,6 +3449,171 @@ namespace Poker {
             winners_.AddEntriesFrom(ref input, _repeated_winners_codec);
             break;
           }
+          case 1282: {
+            winningIds_.AddEntriesFrom(ref input, _repeated_winningIds_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Winners : pb::IMessage<Winners>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Winners> _parser = new pb::MessageParser<Winners>(() => new Winners());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Winners> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Winners() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Winners(Winners other) : this() {
+      ids_ = other.ids_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Winners Clone() {
+      return new Winners(this);
+    }
+
+    /// <summary>Field number for the "ids" field.</summary>
+    public const int IdsFieldNumber = 10;
+    private static readonly pb::FieldCodec<string> _repeated_ids_codec
+        = pb::FieldCodec.ForString(82);
+    private readonly pbc::RepeatedField<string> ids_ = new pbc::RepeatedField<string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<string> Ids {
+      get { return ids_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Winners);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Winners other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!ids_.Equals(other.ids_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= ids_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      ids_.WriteTo(output, _repeated_ids_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      ids_.WriteTo(ref output, _repeated_ids_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      size += ids_.CalculateSize(_repeated_ids_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Winners other) {
+      if (other == null) {
+        return;
+      }
+      ids_.Add(other.ids_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 82: {
+            ids_.AddEntriesFrom(input, _repeated_ids_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 82: {
+            ids_.AddEntriesFrom(ref input, _repeated_ids_codec);
+            break;
+          }
         }
       }
     }
@@ -3445,7 +3637,7 @@ namespace Poker {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3905,7 +4097,7 @@ namespace Poker {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3930,6 +4122,7 @@ namespace Poker {
       card_ = other.card_.Clone();
       hand_ = other.hand_.Clone();
       combo_ = other.combo_;
+      lastAction_ = other.lastAction_ != null ? other.lastAction_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4037,6 +4230,17 @@ namespace Poker {
       }
     }
 
+    /// <summary>Field number for the "lastAction" field.</summary>
+    public const int LastActionFieldNumber = 90;
+    private global::Poker.LastAction lastAction_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.LastAction LastAction {
+      get { return lastAction_; }
+      set {
+        lastAction_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Player);
@@ -4058,6 +4262,7 @@ namespace Poker {
       if(!card_.Equals(other.card_)) return false;
       if(!hand_.Equals(other.hand_)) return false;
       if (Combo != other.Combo) return false;
+      if (!object.Equals(LastAction, other.LastAction)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4072,6 +4277,7 @@ namespace Poker {
       hash ^= card_.GetHashCode();
       hash ^= hand_.GetHashCode();
       if (Combo.Length != 0) hash ^= Combo.GetHashCode();
+      if (lastAction_ != null) hash ^= LastAction.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4114,6 +4320,10 @@ namespace Poker {
         output.WriteRawTag(130, 5);
         output.WriteString(Combo);
       }
+      if (lastAction_ != null) {
+        output.WriteRawTag(210, 5);
+        output.WriteMessage(LastAction);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4149,6 +4359,10 @@ namespace Poker {
         output.WriteRawTag(130, 5);
         output.WriteString(Combo);
       }
+      if (lastAction_ != null) {
+        output.WriteRawTag(210, 5);
+        output.WriteMessage(LastAction);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4177,6 +4391,9 @@ namespace Poker {
       size += hand_.CalculateSize(_repeated_hand_codec);
       if (Combo.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Combo);
+      }
+      if (lastAction_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(LastAction);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4211,6 +4428,12 @@ namespace Poker {
       hand_.Add(other.hand_);
       if (other.Combo.Length != 0) {
         Combo = other.Combo;
+      }
+      if (other.lastAction_ != null) {
+        if (lastAction_ == null) {
+          LastAction = new global::Poker.LastAction();
+        }
+        LastAction.MergeFrom(other.LastAction);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4259,6 +4482,13 @@ namespace Poker {
           }
           case 642: {
             Combo = input.ReadString();
+            break;
+          }
+          case 722: {
+            if (lastAction_ == null) {
+              LastAction = new global::Poker.LastAction();
+            }
+            input.ReadMessage(LastAction);
             break;
           }
         }
@@ -4310,6 +4540,221 @@ namespace Poker {
             Combo = input.ReadString();
             break;
           }
+          case 722: {
+            if (lastAction_ == null) {
+              LastAction = new global::Poker.LastAction();
+            }
+            input.ReadMessage(LastAction);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class LastAction : pb::IMessage<LastAction>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<LastAction> _parser = new pb::MessageParser<LastAction>(() => new LastAction());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<LastAction> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LastAction() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LastAction(LastAction other) : this() {
+      action_ = other.action_;
+      amount_ = other.amount_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public LastAction Clone() {
+      return new LastAction(this);
+    }
+
+    /// <summary>Field number for the "action" field.</summary>
+    public const int ActionFieldNumber = 10;
+    private global::Poker.PlayerAction action_ = global::Poker.PlayerAction.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Poker.PlayerAction Action {
+      get { return action_; }
+      set {
+        action_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "amount" field.</summary>
+    public const int AmountFieldNumber = 20;
+    private long amount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Amount {
+      get { return amount_; }
+      set {
+        amount_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as LastAction);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(LastAction other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Action != other.Action) return false;
+      if (Amount != other.Amount) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Action != global::Poker.PlayerAction.None) hash ^= Action.GetHashCode();
+      if (Amount != 0L) hash ^= Amount.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Action != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(80);
+        output.WriteEnum((int) Action);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt64(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Action != global::Poker.PlayerAction.None) {
+        output.WriteRawTag(80);
+        output.WriteEnum((int) Action);
+      }
+      if (Amount != 0L) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt64(Amount);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Action != global::Poker.PlayerAction.None) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Action);
+      }
+      if (Amount != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(Amount);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(LastAction other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Action != global::Poker.PlayerAction.None) {
+        Action = other.Action;
+      }
+      if (other.Amount != 0L) {
+        Amount = other.Amount;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 80: {
+            Action = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+          case 160: {
+            Amount = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 80: {
+            Action = (global::Poker.PlayerAction) input.ReadEnum();
+            break;
+          }
+          case 160: {
+            Amount = input.ReadInt64();
+            break;
+          }
         }
       }
     }
@@ -4329,7 +4774,7 @@ namespace Poker {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4741,7 +5186,7 @@ namespace Poker {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4902,7 +5347,7 @@ namespace Poker {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Poker.PokerReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

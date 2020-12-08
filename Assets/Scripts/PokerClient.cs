@@ -68,7 +68,7 @@ public class PokerClient {
         }
     }
 
-    // ActionBet used for Raise, AllIn
+    // ActionBet used for Raise
     internal void ActionBet(ClientInfo clientInfo, long amount) {
         Debug.Log("Calling ActionBet: " + amount);
         TakeTurnRequest req = new TakeTurnRequest
@@ -100,6 +100,39 @@ public class PokerClient {
         }
         catch (RpcException ex)
         {
+            throw new InvalidTurnException(ex.ToString());
+        }
+    }
+    
+    // ActionAllIn goes all in
+    internal void ActionAllIn(ClientInfo clientInfo) {
+        Debug.Log("Calling ActionAllIn");
+        TakeTurnRequest req = new TakeTurnRequest
+        {
+            ClientInfo = clientInfo,
+            PlayerAction = PlayerAction.AllIn,
+        };
+
+        try {
+            client.TakeTurn(req);
+        } catch (RpcException ex) {
+            throw new InvalidTurnException(ex.ToString());
+        }
+    }
+    
+    
+    // ActionBuyIn adds more money to the stack
+    internal void ActionBuyIn(ClientInfo clientInfo) {
+        Debug.Log("Calling ActionBuyIn");
+        TakeTurnRequest req = new TakeTurnRequest
+        {
+            ClientInfo = clientInfo,
+            PlayerAction = PlayerAction.BuyIn,
+        };
+
+        try {
+            client.TakeTurn(req);
+        } catch (RpcException ex) {
             throw new InvalidTurnException(ex.ToString());
         }
     }
