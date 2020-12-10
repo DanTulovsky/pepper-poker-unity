@@ -3,19 +3,19 @@ using Poker;
 using Google.Protobuf.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Assertions;
 
 public class Game
 {
     // the current instance of Game
-    private Poker.GameData current = new Poker.GameData
+    private GameData current = new GameData
     {
         Info = new GameInfo(),
     };
+
     private readonly object locker = new object();
 
     // Set a new instance of Game
-    public void Set(Poker.GameData newGameData)
+    public void Set(GameData newGameData)
     {
         lock (locker)
         {
@@ -24,7 +24,7 @@ public class Game
     }
 
     // GetCopy returns a copy of tableInfo (to be used in UIs)
-    public Poker.GameData Copy
+    public GameData Copy
     {
         get
         {
@@ -91,6 +91,7 @@ public class Game
             return current.WaitTurnTimeMaxSec;
         }
     }
+
     // WaitTurnTimeLeftSec returns WaitTurnTimeLeftSec
     public long? WaitTurnTimeLeftSec()
     {
@@ -99,6 +100,7 @@ public class Game
             return current?.WaitTurnTimeLeftSec;
         }
     }
+
     // CommunityCards returns the community cards
     public CommunityCards CommunityCards()
     {
@@ -138,7 +140,7 @@ public class Game
 
         return TimeSpan.FromSeconds(t);
     }
-    
+
     // IsMyTurn returns true if it's my turn
     public bool IsMyTurn(string playerID, long lastTurnID)
     {
@@ -172,18 +174,6 @@ public class Game
         }
     }
 
-    public IEnumerable<Player> Winners()
-    {
-        List<Player> players = new List<Player>();
-        var winnersList = current?.Info.Winners;
-        Assert.IsNotNull(winnersList);
-
-        lock (locker)
-        {
-            players.AddRange(Players().Where(p => winnersList.Contains(p.Id)));
-            return players;
-        }
-    }
 
     public List<List<Player>> WinningPlayers()
     {

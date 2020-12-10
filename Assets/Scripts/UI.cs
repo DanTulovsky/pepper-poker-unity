@@ -69,7 +69,7 @@ public class UI : MonoBehaviour
             gameStartsInfo.SetActive(true);
             gameStartsTime.SetText($"{startsIn.Humanize()}");
 
-            float fillAmount = 1 - (float) startsIn.Seconds / (float)startsInMax.Seconds;
+            float fillAmount = 1 - startsIn.Seconds / (float)startsInMax.Seconds;
             radialBarGameStart.SetFill(fillAmount);
         }
         else

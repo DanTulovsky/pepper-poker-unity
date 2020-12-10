@@ -53,7 +53,7 @@ public class PokerClient {
     }
 
     // Stream version
-    internal AsyncServerStreamingCall<Poker.GameData> GetGameDataStreaming(ClientInfo clientInfo) {
+    internal AsyncServerStreamingCall<GameData> GetGameDataStreaming(ClientInfo clientInfo) {
         try
         {
             PlayRequest req = new PlayRequest
