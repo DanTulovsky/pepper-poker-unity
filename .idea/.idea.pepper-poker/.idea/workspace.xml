@@ -21,6 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +42,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/2b/737336de/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/0d/7fdb5081/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/e7/b6e80f28/Convert.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/dant/Unity Local/Projects/pepper-poker/Assets/Scripts/Game.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/0/IAsyncStreamReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/7/AsyncStreamReaderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/ff/883d7d5b/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/dant/Unity Local/Projects/pepper-poker/Assets/Scenes/MainDevScene.unity" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -54,15 +57,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" />
         <option value="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Position.cs" />
-        <option value="$PROJECT_DIR$/Assets/Proto/poker.proto" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
         <option value="$PROJECT_DIR$/.git/info/exclude" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
+        <option value="$PROJECT_DIR$/Assets/Proto/poker.proto" />
       </list>
     </option>
   </component>
@@ -72,6 +76,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -87,10 +92,38 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
     <property name="nodejs.cucumber.cucumber_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080/resources" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="All in rest-api" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -109,6 +142,11 @@
       </option>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.All in rest-api" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -130,7 +168,8 @@
       <workItem from="1607535023479" duration="101000" />
       <workItem from="1607539179099" duration="657000" />
       <workItem from="1607540293313" duration="7399000" />
-      <workItem from="1607562905494" duration="3442000" />
+      <workItem from="1607562905494" duration="5009000" />
+      <workItem from="1607627794146" duration="325000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -237,13 +276,68 @@
       <option name="project" value="LOCAL" />
       <updated>1607567773851</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="updates">
+      <created>1607567976862</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1607567976862</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="150" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="290" />
+    <coverage-tree-state>
+      <expand>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CardsTestScript 0% 18/18" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CardsTestScript 0% 18/18" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="CardsTestScriptWithEnumeratorPasses() 0% 3/3" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PokerTestScript 0% 16/16" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+      </expand>
+      <select />
+    </coverage-tree-state>
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -290,22 +384,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1110" y="595" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.25.2560.1415@0.25.2560.1415" timestamp="1606966619544" />
-    <state width="2377" height="244" key="GridCell.Tab.0.bottom" timestamp="1607196929936">
+    <state width="2217" height="336" key="GridCell.Tab.0.bottom" timestamp="1607627511201">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2377" height="244" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1607196929936" />
-    <state width="2377" height="244" key="GridCell.Tab.0.center" timestamp="1607196929935">
+    <state width="2217" height="336" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1607627511201" />
+    <state width="2217" height="336" key="GridCell.Tab.0.center" timestamp="1607627511201">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2377" height="244" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1607196929935" />
-    <state width="2377" height="244" key="GridCell.Tab.0.left" timestamp="1607196929935">
+    <state width="2217" height="336" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1607627511201" />
+    <state width="2217" height="336" key="GridCell.Tab.0.left" timestamp="1607627511200">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2377" height="244" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1607196929935" />
-    <state width="2377" height="244" key="GridCell.Tab.0.right" timestamp="1607196929936">
+    <state width="2217" height="336" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1607627511200" />
+    <state width="2217" height="336" key="GridCell.Tab.0.right" timestamp="1607627511201">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2377" height="244" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607196929936" />
+    <state width="2217" height="336" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607627511201" />
     <state width="2377" height="244" key="GridCell.Tab.1.bottom" timestamp="1607196929937">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -354,18 +448,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state width="2377" height="244" key="GridCell.Tab.3.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607196929938" />
-    <state x="716" y="321" width="1391" height="859" key="SettingsEditor" timestamp="1607564918533">
+    <state x="1174" y="449" key="RiderGenerateDialog" timestamp="1607611635508">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="716" y="321" width="1391" height="859" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1607564918533" />
+    <state x="1174" y="449" key="RiderGenerateDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607611635508" />
+    <state x="716" y="321" width="1391" height="859" key="SettingsEditor" timestamp="1607611966046">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="716" y="321" width="1391" height="859" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1607611966046" />
     <state x="1223" y="557" key="SimpleOpenTaskDialog" timestamp="1605739546401">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1223" y="557" key="SimpleOpenTaskDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1605739546401" />
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2" timestamp="1607567775584">
+    <state x="950" y="458" key="Vcs.Push.Dialog.v2" timestamp="1607568012888">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607567775584" />
+    <state x="950" y="458" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607568012888" />
     <state width="1209" height="696" key="XDebugger.FullValuePopup" timestamp="1607134031496">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -374,9 +472,13 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1152" y="639" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607540507719" />
-    <state x="1013" y="342" width="672" height="678" key="search.everywhere.popup" timestamp="1607567769093">
+    <state x="1095" y="339" width="670" height="675" key="run.anything.popup" timestamp="1607611370919">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="1013" y="342" width="672" height="678" key="search.everywhere.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1607567769093" />
+    <state x="1095" y="339" width="670" height="675" key="run.anything.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1607611370919" />
+    <state x="1013" y="342" width="672" height="678" key="search.everywhere.popup" timestamp="1607611958253">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="1013" y="342" width="672" height="678" key="search.everywhere.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1607611958253" />
   </component>
 </project>
