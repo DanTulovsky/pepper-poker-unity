@@ -24,36 +24,47 @@ public class Game
     }
 
     // GetCopy returns a copy of tableInfo (to be used in UIs)
-    public Poker.GameData GetCopy()
+    public Poker.GameData Copy
     {
-        lock (locker)
+        get
         {
-            return current?.Clone();
+            lock (locker)
+            {
+                return current?.Clone();
+            }
         }
     }
 
-    public long? SmallBlind()
+    public long? SmallBlind
     {
-        lock (locker)
+        get
         {
-            return current?.Info?.SmallBlind;
+            lock (locker)
+            {
+                return current?.Info?.SmallBlind;
+            }
         }
     }
 
-
-    public long BigBlind()
+    public long BigBlind
     {
-        lock (locker)
+        get
         {
-            return current.Info.BigBlind;
+            lock (locker)
+            {
+                return current.Info.BigBlind;
+            }
         }
     }
 
-    public GameState? GameState()
+    public GameState? GameState
     {
-        lock (locker)
+        get
         {
-            return current?.Info?.GameState;
+            lock (locker)
+            {
+                return current?.Info?.GameState;
+            }
         }
     }
 
@@ -155,7 +166,7 @@ public class Game
         List<Player> players = new List<Player>();
         var winnersList = current?.Info.Winners;
         Assert.IsNotNull(winnersList);
-        
+
         lock (locker)
         {
             players.AddRange(Players().Where(p => winnersList.Contains(p.Id)));
@@ -163,18 +174,18 @@ public class Game
         }
     }
 
-    public IEnumerable<List<Player>> WinningPlayers()
+    public List<List<Player>> WinningPlayers()
     {
         var levels = new List<List<Player>>();
-        
+
         lock (locker)
         {
             levels.AddRange(current.Info.WinningIds.Select(l1 => l1.Ids.Select(PlayerFromID).ToList()));
         }
-        
+
         return levels;
     }
-    
+
     public long PlayerStack(Player player)
     {
         lock (locker)

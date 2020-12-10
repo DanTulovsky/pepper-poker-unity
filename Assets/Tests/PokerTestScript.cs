@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Google.Protobuf.Collections;
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
 using Poker;
 using static Poker.CardRank;
 using static Poker.CardSuit;
@@ -36,9 +31,17 @@ namespace Tests
                           new Card { Suite = Club, Rank = Seven},
                       } 
                   },
-                  Combo = "TwoPair",
+                  Hand ={ new RepeatedField<Card>
+                      {
+                          new Card { Suite = Club, Rank = Jack},
+                          new Card { Suite = Spade, Rank = Ten},
+                          new Card { Suite = Diamond, Rank = Five},
+                          new Card { Suite = Club, Rank = Eight},
+                          new Card { Suite = Club, Rank = Seven},
+                      }
+                  },
+                  Combo = "HighCard",
                 },
-                
                 new Player
                 {
                   Name = "player2",
@@ -56,13 +59,50 @@ namespace Tests
                           new Card { Suite = Spade, Rank = Six},
                       } 
                   },
-                  Combo = "TwoPair",
+                  Hand ={ new RepeatedField<Card>
+                      {
+                          new Card { Suite = Club, Rank = Jack},
+                          new Card { Suite = Spade, Rank = Ten},
+                          new Card { Suite = Diamond, Rank = Five},
+                          new Card { Suite = Heart, Rank = Eight},
+                          new Card { Suite = Spade, Rank = Six},
+                      }
+                  },
+                  Combo = "HighCard",
+                },
+                new Player
+                {
+                  Name = "player3",
+                  Id = "player3ID",
+                  Position = 0,
+                  Money = new PlayerMoney
+                  {
+                      Bank = 3000,
+                      Stack = 6000,
+                      Winnings = 800,
+                  },
+                  Card = { new RepeatedField<Card> 
+                      {
+                          new Card { Suite = Spade, Rank = Eight},
+                          new Card { Suite = Heart, Rank = Seven},
+                      } 
+                  },
+                  Hand ={ new RepeatedField<Card>
+                      {
+                          new Card { Suite = Club, Rank = Jack},
+                          new Card { Suite = Spade, Rank = Ten},
+                          new Card { Suite = Spade, Rank = Eight},
+                          new Card { Suite = Heart, Rank = Seven},
+                          new Card { Suite = Diamond, Rank = Five},
+                      }
+                  },
+                  Combo = "HighCard",
                 },
             };
 
             var winners = new RepeatedField<Winners>
             {
-                new Winners { Ids = { "player1ID"} },  // level0
+                new Winners { Ids = { "player1ID", "player3ID"} },  // level0
                 new Winners { Ids = { "player2ID"} },  // level2
             };
         
@@ -76,7 +116,17 @@ namespace Tests
                     GameStartsInSec = 0,
                     AckToken = "",
                     
-                    CommunityCards = new CommunityCards(),
+                    CommunityCards = new CommunityCards
+                    {
+                        Card =
+                        {
+                            new Card { Suite = Club, Rank = Two},
+                            new Card { Suite = Heart, Rank = Three},
+                            new Card { Suite = Diamond, Rank = Five},
+                            new Card { Suite = Club, Rank = Jack},
+                            new Card { Suite = Spade, Rank = Ten},
+                        }
+                    },
                     
                     MaxPlayers = 5,
                     MinPlayers = 2,
@@ -103,6 +153,7 @@ namespace Tests
             var response = game.WinningPlayers().ToList();
             Assert.AreEqual(2, response.Count);
             Assert.AreEqual("player1ID", response[0][0].Id);
+            Assert.AreEqual("player3ID", response[0][1].Id);
             Assert.AreEqual("player2ID", response[1][0].Id);
         }
     }

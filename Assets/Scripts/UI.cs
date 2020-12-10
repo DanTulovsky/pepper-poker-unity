@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Google.Protobuf.Collections;
 using Humanizer;
 using Poker;
@@ -11,16 +13,14 @@ using UnityEngine.Assertions;
 using Object = UnityEngine.Object;
 using Resources = UnityEngine.Resources;
 
-public class UI : MonoBehaviour {
-
-    [Header("Text Fields")]
-    public TMP_Text playerUsernameDisplay;
+public class UI : MonoBehaviour
+{
+    [Header("Text Fields")] public TMP_Text playerUsernameDisplay;
     public TMP_Text blindsDisplay;
     public TMP_Text tableStatusDisplay;
     public TMP_Text gameStartsTime;
 
-    [Header("Money Text Fields")]
-    public TMP_Text stackAmount;
+    [Header("Money Text Fields")] public TMP_Text stackAmount;
     public TMP_Text bankAmount;
     public TMP_Text totalBetThisHandAmount;
     public TMP_Text minBetThisRoundAmount;
@@ -28,59 +28,61 @@ public class UI : MonoBehaviour {
     public TMP_Text potAmount;
     public TMP_Text nextPlayerName;
 
-    [Header("Input Fields")]
-    public TMP_InputField playerUsernameInput;
+    [Header("Input Fields")] public TMP_InputField playerUsernameInput;
     public TMP_InputField playerPasswordInput;
     public TMP_InputField betAmountInput;
 
 
-   [Header("Table Game Objects")]
-    public QUI_Window gameStartsInfo;
+    [Header("Table Game Objects")] public QUI_Window gameStartsInfo;
     public GameObject gameStartsRadialBar;
     public GameObject communityCardLocation;
     public QUI_Window winnersWindow;
-    public TMP_Text winnersList;
-    public List<GameObject> tablePositions;
+    public TMP_Text winnersWindowHeading;
+    public List<TablePosition> tablePositions;
 
     private Object cardBlankPrefab;
     private Game game;
+    private GameState lastGameState;
     private ClientInfo clientInfo;
 
     private QUI_Bar radialBarGameStart;
-    
-    private readonly Dictionary<int,TMP_Text> positionNames = new Dictionary<int, TMP_Text>();
-    private readonly Dictionary<int,TMP_Text> lastActions = new Dictionary<int, TMP_Text>();
-    private readonly Dictionary<int,TMP_Text> stacks = new Dictionary<int, TMP_Text>();
-    private readonly Dictionary<int, QUI_Bar> radialBars = new Dictionary<int, QUI_Bar>();
-    private readonly Dictionary<int, GameObject> positionCards = new Dictionary<int, GameObject>();
 
 
     // Update updates the UI based on game
-    private void UpdateUI() {
-        if (game == null) {
+    private void UpdateUI()
+    {
+        if (game == null)
+        {
             return;
         }
-        
-        string blinds = $"${game.SmallBlind()} / ${game.BigBlind()}";
+
+
+        string blinds = $"${game.SmallBlind} / ${game.BigBlind}";
         blindsDisplay.SetText(blinds);
 
         // Table and round status
-        tableStatusDisplay.SetText(game.GameState().ToString());
+        tableStatusDisplay.SetText(game.GameState.ToString());
 
         // Time to game start
         TimeSpan startsIn = game.GameStartsIn();
-        if (startsIn.Seconds > 0) {
+        if (startsIn.Seconds > 0)
+        {
             gameStartsInfo.SetActive(true);
             gameStartsTime.SetText(startsIn.Humanize());
 
-            float fillAmount = 1 - (float)startsIn.Seconds / 100;
+            float fillAmount = 1 - (float) startsIn.Seconds / 100;
             radialBarGameStart.SetFill(fillAmount);
-        } else {
+        }
+        else
+        {
             gameStartsInfo.SetActive(false);
         }
 
         Player player = game.MyInfo();
-        if (player is null) { return; }
+        if (player is null)
+        {
+            return;
+        }
 
         // Stack
         string stack = $"${player.Money?.Stack.ToString()}";
@@ -89,7 +91,7 @@ public class UI : MonoBehaviour {
         // Bank
         string bank = $"${player.Money?.Bank.ToString().Humanize()}";
         bankAmount.SetText(bank.Humanize());
-        
+
         // Total bet this hand
         string totalBetThisHand = $"${player.Money?.BetThisHand.ToString().Humanize()}";
         totalBetThisHandAmount.SetText(totalBetThisHand);
@@ -101,7 +103,7 @@ public class UI : MonoBehaviour {
         // Minimum bet this round
         string minBetThisRound = $"${player.Money?.MinBetThisRound.ToString().Humanize()}";
         minBetThisRoundAmount.SetText(minBetThisRound);
-        
+
         // Pot
         string pot = $"${player.Money?.Pot.ToString().Humanize()}";
         potAmount.SetText(pot);
@@ -116,10 +118,10 @@ public class UI : MonoBehaviour {
 
         // Per player settings
         if (game.Players() == null) return;
-        
+
         int pos = Convert.ToInt32(game.MyInfo().Position);
-        positionNames[pos].SetText($"{game.MyInfo().Name}");
-            
+        tablePositions[pos].nameText.SetText($"{game.MyInfo().Name}");
+
         foreach (Player p in game.Players())
         {
             pos = Convert.ToInt32(p.Position);
@@ -128,30 +130,47 @@ public class UI : MonoBehaviour {
             turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(game.WaitTurnTimeLeftSec()) : 0);
 
             // Name
-            positionNames[pos].SetText($"{p.Name}");
+            tablePositions[pos].nameText.SetText($"{p.Name}");
 
             // LastAction
             string lastAction = p.LastAction.Action == PlayerAction.None ? "" : p.LastAction.Action.ToString();
-            lastActions[pos]
+            tablePositions[pos].lastActionText
                 .SetText(p.LastAction.Amount > 0 ? $"{lastAction} (${p.LastAction.Amount})" : $"{lastAction}");
 
             // Stacks
-            stacks[pos].SetText($"${p.Money.Stack}");
-            
-            // positionChips[pos].OutlineWidth = 150;
-            // positionChips[pos].OutlineColor = Color.cyan;
-            // positionChips[pos].enabled = p.Id == nextID;
-            
+            tablePositions[pos].stackText.SetText($"${p.Money.Stack}");
+
             // Turn timeout bars
-            radialBars[pos].gameObject.SetActive(false);
-            
+            tablePositions[pos].radialBar.gameObject.SetActive(false);
+
             // Player whose turn it is
             if (p.Id == nextID)
             {
-                radialBars[pos].gameObject.SetActive(true);
-                float fillAmount = turnTimeLeft.Seconds / (float)game.WaitTurnTimeMaxSec();
-                radialBars[pos].SetFill(fillAmount);
+                tablePositions[pos].radialBar.gameObject.SetActive(true);
+                float fillAmount = turnTimeLeft.Seconds / (float) game.WaitTurnTimeMaxSec();
+                tablePositions[pos].radialBar.SetFill(fillAmount);
             }
+        }
+
+        if (game.GameFinished())
+        {
+            ShowWinners();
+        }
+        else
+        {
+            winnersWindow.SetActive(false);
+            winnersWindowHeading.SetText("");
+            ShowCards();
+        }
+
+        lastGameState = game.GameState.GetValueOrDefault();
+    }
+
+    private void ShowCards()
+    {
+        foreach (Player p in game.Players())
+        {
+            var pos = Convert.ToInt32(p.Position);
 
             if (p.Id == clientInfo.PlayerID)
             {
@@ -162,37 +181,53 @@ public class UI : MonoBehaviour {
                 FaceDownCardsAtPosition(pos);
             }
         }
-        ShowWinners();
     }
 
     // ShowWinners displays the winning window
     private void ShowWinners()
     {
-        if (!game.GameFinished())
-        {
-            winnersWindow.SetActive(false);
-            return;
-        }
-        
+        // Only run this once per finished game
+        if (lastGameState == GameState.Finished) return;
+
         winnersWindow.SetActive(true);
-        
-        var winners = game.Winners();
-        winnersList.SetText(string.Join("\n", winners));
 
         var winningPlayers = game.WinningPlayers();
-        Debug.Log(winningPlayers.Humanize());
-    }
-    
-    private void ShowCommunityCards(CommunityCards cc) {
 
+        for (int j = 0; j < winningPlayers.Count; j++)
+        {
+            var level = winningPlayers[j];
+
+            for (int i = 0; i < level.Count; i++)
+            {
+                Player player = level[i];
+                int pos = Convert.ToInt32(player.Position);
+                TimeSpan delay = TimeSpan.FromSeconds(i * j * 5);
+
+                if (player.Money.Winnings > 0)
+                {
+                    StartCoroutine(tablePositions[pos].PlayWinnerParticles(delay));
+
+                    winnersWindowHeading.SetText(player.Combo);
+                }
+
+                CardsAtPosition(player.Card, pos);
+            }
+        }
+    }
+
+
+    private void ShowCommunityCards(CommunityCards cc)
+    {
         int offset = 180; // cards next to each other
         GameObject parent = communityCardLocation;
         RemoveChildren(parent);
 
-        for (int i = 0; i < cc?.Card.Count; i++) {
+        for (int i = 0; i < cc?.Card.Count; i++)
+        {
             string file = Cards.FileForCard(cc.Card[i]);
             Object cardPrefab = Resources.Load(file);
-            if (cardPrefab == null) {
+            if (cardPrefab == null)
+            {
                 throw new FileNotFoundException(file + " not file found - please check the configuration");
             }
 
@@ -200,7 +235,7 @@ public class UI : MonoBehaviour {
             Assert.IsNotNull(cardObject);
 
             // Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
-            
+
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
             Vector3 position = parent.transform.position;
@@ -211,23 +246,25 @@ public class UI : MonoBehaviour {
     }
 
     // CardsAtPosition puts face up cards at the given position
-    private void CardsAtPosition(RepeatedField<Card> hole, int pos) {
-
+    private void CardsAtPosition(RepeatedField<Card> hole, int pos)
+    {
         const int offset = 180;
-        GameObject parent = positionCards[pos];
+        GameObject parent = tablePositions[pos].cards;
         RemoveChildren(parent);
 
-        for (int i = 0; i < hole.Count; i++) {
+        for (int i = 0; i < hole.Count; i++)
+        {
             string file = Cards.FileForCard(hole[i]);
             Object cardPrefab = Resources.Load(file);
-            if (cardPrefab == null) {
+            if (cardPrefab == null)
+            {
                 throw new FileNotFoundException(file + " not file found - please check the configuration");
             }
 
             GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
             Assert.IsNotNull(cardObject);
             // Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
-            
+
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 0, 0));
             Vector3 position = parent.transform.position;
@@ -238,16 +275,19 @@ public class UI : MonoBehaviour {
     }
 
     // FaceDownCardAtPosition places 2 face down cards the given position
-    private void FaceDownCardsAtPosition(int pos) {
+    private void FaceDownCardsAtPosition(int pos)
+    {
         const int offset = 100; // cards overlapping
 
-        GameObject parent = positionCards[pos];
+        GameObject parent = tablePositions[pos].cards;
         RemoveChildren(parent);
 
-        for (int i = 0; i < 2; i++) {
-            GameObject cardObject = Instantiate(cardBlankPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject cardObject =
+                Instantiate(cardBlankPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
             Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
-            
+
             cardObject.transform.parent = parent.transform;
             cardObject.transform.Rotate(new Vector3(-90, 180, 0));
             Vector3 position = parent.transform.position;
@@ -257,20 +297,24 @@ public class UI : MonoBehaviour {
         }
     }
 
-    private static void RemoveChildren(GameObject parent) {
-        for (int i = parent.transform.childCount - 1; i >= 0; i--) {
+    private static void RemoveChildren(GameObject parent)
+    {
+        for (int i = parent.transform.childCount - 1; i >= 0; i--)
+        {
             GameObject child = parent.transform.GetChild(i).gameObject;
             child.SetActive(false); // hide right away
         }
 
-        for (int i = parent.transform.childCount - 1; i >= 0; i--) {
+        for (int i = parent.transform.childCount - 1; i >= 0; i--)
+        {
             GameObject child = parent.transform.GetChild(i).gameObject;
             DestroyImmediate(child);
         }
     }
 
     // Start is called before the first frame update
-    private void Start() {
+    public void Start()
+    {
         game = Manager.Instance.Game;
         Assert.IsNotNull(game);
         clientInfo = Manager.Instance.ClientInfo;
@@ -278,26 +322,17 @@ public class UI : MonoBehaviour {
 
         radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
 
-       for (int i = 0; i < tablePositions.Count; i++)
+        foreach (TablePosition t in tablePositions)
         {
-            positionNames[i] = tablePositions[i].transform.Find("Name").gameObject.GetComponent<TMP_Text>();
-            positionNames[i].SetText("");
-            
-            lastActions[i] = tablePositions[i].transform.Find("LastAction").gameObject.GetComponent<TMP_Text>();
-            lastActions[i].SetText("");
-            
-            stacks[i] = tablePositions[i].transform.Find("Stack").gameObject.GetComponent<TMP_Text>();
-            stacks[i].SetText("");
-            
-            // positionChips[i] = tablePositions[i].transform.Find("Chip").gameObject.GetComponent<Outline>();
-            radialBars[i] = tablePositions[i].transform.Find("Radial Bar").gameObject.GetComponent<QUI_Bar>();
-            radialBars[i].gameObject.SetActive(false);
-            
-            positionCards[i] = tablePositions[i].transform.Find("Cards").gameObject;
+            t.nameText.SetText("");
+            t.lastActionText.SetText("");
+            t.stackText.SetText("");
+            t.radialBar.gameObject.SetActive(false);
         }
-            
+
         cardBlankPrefab = Resources.Load(Cards.BlankCard());
-        if (cardBlankPrefab == null) {
+        if (cardBlankPrefab == null)
+        {
             throw new FileNotFoundException(Cards.BlankCard() + " no file found - please check the configuration");
         }
 
@@ -306,17 +341,21 @@ public class UI : MonoBehaviour {
     }
 
     // Update is called once per frame
-    private void Update()
+    public void Update()
     {
         UpdateUI();
     }
 }
 
-public static class ExtensionMethod {
-    public static void SetActiveRecursivelyExt(this GameObject obj, bool state) {
-        foreach (Transform child in obj.transform) {
+public static class ExtensionMethod
+{
+    public static void SetActiveRecursivelyExt(this GameObject obj, bool state)
+    {
+        foreach (Transform child in obj.transform)
+        {
             child.gameObject.SetActiveRecursivelyExt(state);
         }
+
         obj.SetActive(state);
     }
 }

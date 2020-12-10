@@ -13,14 +13,14 @@ public class Manager : Singleton<Manager>
     private long playerPosition;
     private long lastTurnID = -1;
     private string lastAckToken = "";
-    
+
     public readonly ClientInfo ClientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
     public readonly Game Game = new Game();
 
     // server streaming for Game from server
-    private AsyncServerStreamingCall<Poker.GameData> stream;
+    private AsyncServerStreamingCall<GameData> stream;
     //private Grpc.Core.Logging.LogLevelFilterLogger logger;
 
     // Start is called before the first frame update
@@ -41,18 +41,22 @@ public class Manager : Singleton<Manager>
 
         ui = GameObject.Find("UI").GetComponent<UI>();
         Assert.IsNotNull(ui);
-        
+
         ui.playerUsernameInput.text = "dant";
         ui.playerPasswordInput.text = "password";
     }
 
 
+    public void JoinTable()
+    {
+        StartCoroutine(nameof(DoJoinTable));
+    }
     public void Register()
     {
-        StartCoroutine(nameof(_register));
+        StartCoroutine(nameof(DoRegister));
     }
-    
-    private void _register()
+
+    private void DoRegister()
     {
 
         ClientInfo.PlayerUsername = ui.playerUsernameInput.text;
@@ -64,21 +68,19 @@ public class Manager : Singleton<Manager>
         }
         catch (RpcException)
         {
-           return; 
+            return;
         }
 
         ui.playerUsernameDisplay.SetText(ClientInfo.PlayerUsername);
-
-        _joinTable();
     }
 
-    private void _joinTable()
+    private void DoJoinTable()
     {
         Debug.Log("Joining table...");
 
         string id;
         long position;
-        
+
         try
         {
             (id, position) = pokerClient.JoinTable(ClientInfo);
@@ -216,7 +218,7 @@ public class Manager : Singleton<Manager>
 
     // StartServerStream starts a background task listening to server responses
     // https://github.com/grpc/grpc/issues/21734#issuecomment-578519701
-    private async Task<AsyncServerStreamingCall<Poker.GameData>> StartServerStream()
+    private async Task<AsyncServerStreamingCall<GameData>> StartServerStream()
     {
         try
         {
@@ -225,7 +227,7 @@ public class Manager : Singleton<Manager>
                 Debug.Log("got data");
                 tokenSource.Token.ThrowIfCancellationRequested();
 
-                Poker.GameData gd = stream.ResponseStream.Current;
+                GameData gd = stream.ResponseStream.Current;
                 Game.Set(gd);
 
                 Debug.Log($"> {gd}");
@@ -264,23 +266,23 @@ public class Manager : Singleton<Manager>
 
     private void AckIfNeeded(string token)
     {
-       if (lastAckToken == token || token == "")
-       {
-           return;
-       } 
-       
-       try
-       {
-           pokerClient.ActionAckToken(ClientInfo, token);
-       }
-       catch (RpcException ex)
-       {
-           Debug.Log(ex.ToString());
-       }
-       
-       lastAckToken = token;
+        if (lastAckToken == token || token == "")
+        {
+            return;
+        }
+
+        try
+        {
+            pokerClient.ActionAckToken(ClientInfo, token);
+        }
+        catch (RpcException ex)
+        {
+            Debug.Log(ex.ToString());
+        }
+
+        lastAckToken = token;
     }
-    
+
     private void OnApplicationQuit()
     {
         tokenSource.Cancel();
