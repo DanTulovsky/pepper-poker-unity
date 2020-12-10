@@ -128,6 +128,17 @@ public class Game
         return TimeSpan.FromSeconds(t);
     }
 
+    public TimeSpan GameStartsInMax()
+    {
+        int t;
+        lock (locker)
+        {
+            t = Convert.ToInt32(current?.Info?.GameStartsInMaxSec);
+        }
+
+        return TimeSpan.FromSeconds(t);
+    }
+    
     // IsMyTurn returns true if it's my turn
     public bool IsMyTurn(string playerID, long lastTurnID)
     {

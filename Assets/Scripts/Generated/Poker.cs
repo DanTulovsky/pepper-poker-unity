@@ -44,62 +44,63 @@ namespace Poker {
             "ES5wb2tlci5DbGllbnRJbmZvEikKDHBsYXllckFjdGlvbhgyIAEoDjITLnBv",
             "a2VyLlBsYXllckFjdGlvbiJtCgpDbGllbnRJbmZvEhAKCHBsYXllcklEGAog",
             "ASgJEhIKCnBsYXllck5hbWUYFCABKAkSFgoOcGxheWVyVXNlcm5hbWUYHiAB",
-            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSLkAgoIR2Ft",
+            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSKAAwoIR2Ft",
             "ZUluZm8SEQoJdGFibGVOYW1lGAogASgJEg8KB3RhYmxlSUQYFCABKAkSIwoJ",
             "Z2FtZVN0YXRlGB4gASgOMhAucG9rZXIuR2FtZVN0YXRlEhcKD2dhbWVTdGFy",
-            "dHNJblNlYxgoIAEoAxIQCghhY2tUb2tlbhgyIAEoCRItCg5Db21tdW5pdHlD",
-            "YXJkcxg8IAEoCzIVLnBva2VyLkNvbW11bml0eUNhcmRzEhIKCm1heFBsYXll",
-            "cnMYZCABKAMSEgoKbWluUGxheWVycxhuIAEoAxIQCghiaWdCbGluZBh4IAEo",
-            "AxISCgpzbWFsbEJsaW5kGH0gASgDEg4KBWJ1eWluGIIBIAEoAxIfCgdwbGF5",
-            "ZXJzGIwBIAMoCzINLnBva2VyLlBsYXllchIQCgd3aW5uZXJzGJYBIAMoCRIk",
-            "Cgt3aW5uaW5nX2lkcxigASADKAsyDi5wb2tlci5XaW5uZXJzIhYKB1dpbm5l",
-            "cnMSCwoDaWRzGAogAygJItIBCghHYW1lRGF0YRIdCgRpbmZvGAogASgLMg8u",
-            "cG9rZXIuR2FtZUluZm8SEgoKd2FpdFR1cm5JRBgUIAEoCRIUCgx3YWl0VHVy",
-            "bk5hbWUYHiABKAkSEwoLd2FpdFR1cm5OdW0YIyABKAMSGwoTd2FpdFR1cm5U",
-            "aW1lTGVmdFNlYxgoIAEoAxIaChJ3YWl0VHVyblRpbWVNYXhTZWMYLSABKAMS",
-            "EAoIcGxheWVySUQYMiABKAkSHQoGcGxheWVyGDwgASgLMg0ucG9rZXIuUGxh",
-            "eWVyIuYBCgZQbGF5ZXISDAoEbmFtZRgKIAEoCRIKCgJpZBgPIAEoCRIQCghw",
-            "b3NpdGlvbhgUIAEoAxIhCgVtb25leRgeIAEoCzISLnBva2VyLlBsYXllck1v",
-            "bmV5EiEKBXN0YXRlGDIgASgOMhIucG9rZXIuUGxheWVyU3RhdGUSGQoEY2Fy",
-            "ZBg8IAMoCzILLnBva2VyLkNhcmQSGQoEaGFuZBhGIAMoCzILLnBva2VyLkNh",
-            "cmQSDQoFY29tYm8YUCABKAkSJQoKbGFzdEFjdGlvbhhaIAEoCzIRLnBva2Vy",
-            "Lkxhc3RBY3Rpb24iQQoKTGFzdEFjdGlvbhIjCgZhY3Rpb24YCiABKA4yEy5w",
-            "b2tlci5QbGF5ZXJBY3Rpb24SDgoGYW1vdW50GBQgASgDIo0BCgtQbGF5ZXJN",
-            "b25leRIMCgRiYW5rGAogASgDEg0KBXN0YWNrGBQgASgDEgsKA3BvdBgeIAEo",
-            "AxIXCg9taW5CZXRUaGlzUm91bmQYKCABKAMSFAoMYmV0VGhpc1JvdW5kGDIg",
-            "ASgDEhMKC2JldFRoaXNIYW5kGDwgASgDEhAKCHdpbm5pbmdzGEYgASgDIisK",
-            "DkNvbW11bml0eUNhcmRzEhkKBGNhcmQYCiADKAsyCy5wb2tlci5DYXJkIkUK",
-            "BENhcmQSHgoFc3VpdGUYCiABKA4yDy5wb2tlci5DYXJkU3VpdBIdCgRyYW5r",
-            "GBQgASgOMg8ucG9rZXIuQ2FyZFJhbmsqqwIKDFBsYXllckFjdGlvbhIUChBQ",
-            "bGF5ZXJBY3Rpb25Ob25lEAASGAoUUGxheWVyQWN0aW9uUmVnaXN0ZXIQARIZ",
-            "ChVQbGF5ZXJBY3Rpb25Kb2luVGFibGUQAhIUChBQbGF5ZXJBY3Rpb25QbGF5",
-            "EAMSFAoQUGxheWVyQWN0aW9uQ2FsbBAEEhUKEVBsYXllckFjdGlvbkNoZWNr",
-            "EAUSEwoPUGxheWVyQWN0aW9uQmV0EAYSFAoQUGxheWVyQWN0aW9uRm9sZBAH",
-            "EhgKFFBsYXllckFjdGlvbkFja1Rva2VuEAgSFQoRUGxheWVyQWN0aW9uQWxs",
-            "SW4QCRIVChFQbGF5ZXJBY3Rpb25CdXlJbhAKEhoKFlBsYXllckFjdGlvbkRp",
-            "c2Nvbm5lY3QQCyq5AgoJR2FtZVN0YXRlEhsKF0dhbWVTdGF0ZVdhaXRpbmdQ",
-            "bGF5ZXJzEAASGQoVR2FtZVN0YXRlSW5pdGlhbGl6aW5nEAESGQoVR2FtZVN0",
-            "YXRlUmVhZHlUb1N0YXJ0EAISHgoaR2FtZVN0YXRlUGxheWluZ1NtYWxsQmxp",
-            "bmQQAxIcChhHYW1lU3RhdGVQbGF5aW5nQmlnQmxpbmQQBBIbChdHYW1lU3Rh",
-            "dGVQbGF5aW5nUHJlRmxvcBAFEhgKFEdhbWVTdGF0ZVBsYXlpbmdGbG9wEAYS",
-            "GAoUR2FtZVN0YXRlUGxheWluZ1R1cm4QBxIZChVHYW1lU3RhdGVQbGF5aW5n",
-            "Uml2ZXIQCBIYChRHYW1lU3RhdGVQbGF5aW5nRG9uZRAJEhUKEUdhbWVTdGF0",
-            "ZUZpbmlzaGVkEAoqdgoLUGxheWVyU3RhdGUSFgoSUGxheWVyU3RhdGVEZWZh",
-            "dWx0EAASGQoVUGxheWVyU3RhdGVTdGFja0VtcHR5EAESGAoUUGxheWVyU3Rh",
-            "dGVCYW5rRW1wdHkQAhIaChZQbGF5ZXJTdGF0ZUN1cnJlbnRUdXJuEAMqNwoI",
-            "Q2FyZFN1aXQSCQoFU3BhZGUQABIICgRDbHViEAESCwoHRGlhbW9uZBACEgkK",
-            "BUhlYXJ0EAMqjAEKCENhcmRSYW5rEgcKA1R3bxAAEgkKBVRocmVlEAESCAoE",
-            "Rm91chACEggKBEZpdmUQAxIHCgNTaXgQBBIJCgVTZXZlbhAFEgkKBUVpZ2h0",
-            "EAYSCAoETmluZRAHEgcKA1RlbhAIEggKBEphY2sQCRIJCgVRdWVlbhAKEggK",
-            "BEtpbmcQCxIHCgNBY2UQDDK9AgoLUG9rZXJTZXJ2ZXISPQoIQWNrVG9rZW4S",
-            "Fi5wb2tlci5BY2tUb2tlblJlcXVlc3QaFy5wb2tlci5BY2tUb2tlblJlc3Bv",
-            "bnNlIgASQAoJSm9pblRhYmxlEhcucG9rZXIuSm9pblRhYmxlUmVxdWVzdBoY",
-            "LnBva2VyLkpvaW5UYWJsZVJlc3BvbnNlIgASLwoEUGxheRISLnBva2VyLlBs",
-            "YXlSZXF1ZXN0Gg8ucG9rZXIuR2FtZURhdGEiADABEj0KCFJlZ2lzdGVyEhYu",
-            "cG9rZXIuUmVnaXN0ZXJSZXF1ZXN0GhcucG9rZXIuUmVnaXN0ZXJSZXNwb25z",
-            "ZSIAEj0KCFRha2VUdXJuEhYucG9rZXIuVGFrZVR1cm5SZXF1ZXN0GhcucG9r",
-            "ZXIuVGFrZVR1cm5SZXNwb25zZSIAQi1aK2dpdGh1Yi5jb20vRGFuVHVvdnNr",
-            "eS9wZXBwZXItcG9rZXItdjIvcHJvdG9iBnByb3RvMw=="));
+            "dHNJblNlYxgoIAEoAxIaChJnYW1lU3RhcnRzSW5NYXhTZWMYLSABKAMSEAoI",
+            "YWNrVG9rZW4YMiABKAkSLQoOQ29tbXVuaXR5Q2FyZHMYPCABKAsyFS5wb2tl",
+            "ci5Db21tdW5pdHlDYXJkcxISCgptYXhQbGF5ZXJzGGQgASgDEhIKCm1pblBs",
+            "YXllcnMYbiABKAMSEAoIYmlnQmxpbmQYeCABKAMSEgoKc21hbGxCbGluZBh9",
+            "IAEoAxIOCgVidXlpbhiCASABKAMSHwoHcGxheWVycxiMASADKAsyDS5wb2tl",
+            "ci5QbGF5ZXISEAoHd2lubmVycxiWASADKAkSJAoLd2lubmluZ19pZHMYoAEg",
+            "AygLMg4ucG9rZXIuV2lubmVycyIWCgdXaW5uZXJzEgsKA2lkcxgKIAMoCSLS",
+            "AQoIR2FtZURhdGESHQoEaW5mbxgKIAEoCzIPLnBva2VyLkdhbWVJbmZvEhIK",
+            "CndhaXRUdXJuSUQYFCABKAkSFAoMd2FpdFR1cm5OYW1lGB4gASgJEhMKC3dh",
+            "aXRUdXJuTnVtGCMgASgDEhsKE3dhaXRUdXJuVGltZUxlZnRTZWMYKCABKAMS",
+            "GgoSd2FpdFR1cm5UaW1lTWF4U2VjGC0gASgDEhAKCHBsYXllcklEGDIgASgJ",
+            "Eh0KBnBsYXllchg8IAEoCzINLnBva2VyLlBsYXllciLmAQoGUGxheWVyEgwK",
+            "BG5hbWUYCiABKAkSCgoCaWQYDyABKAkSEAoIcG9zaXRpb24YFCABKAMSIQoF",
+            "bW9uZXkYHiABKAsyEi5wb2tlci5QbGF5ZXJNb25leRIhCgVzdGF0ZRgyIAEo",
+            "DjISLnBva2VyLlBsYXllclN0YXRlEhkKBGNhcmQYPCADKAsyCy5wb2tlci5D",
+            "YXJkEhkKBGhhbmQYRiADKAsyCy5wb2tlci5DYXJkEg0KBWNvbWJvGFAgASgJ",
+            "EiUKCmxhc3RBY3Rpb24YWiABKAsyES5wb2tlci5MYXN0QWN0aW9uIkEKCkxh",
+            "c3RBY3Rpb24SIwoGYWN0aW9uGAogASgOMhMucG9rZXIuUGxheWVyQWN0aW9u",
+            "Eg4KBmFtb3VudBgUIAEoAyKNAQoLUGxheWVyTW9uZXkSDAoEYmFuaxgKIAEo",
+            "AxINCgVzdGFjaxgUIAEoAxILCgNwb3QYHiABKAMSFwoPbWluQmV0VGhpc1Jv",
+            "dW5kGCggASgDEhQKDGJldFRoaXNSb3VuZBgyIAEoAxITCgtiZXRUaGlzSGFu",
+            "ZBg8IAEoAxIQCgh3aW5uaW5ncxhGIAEoAyIrCg5Db21tdW5pdHlDYXJkcxIZ",
+            "CgRjYXJkGAogAygLMgsucG9rZXIuQ2FyZCJFCgRDYXJkEh4KBXN1aXRlGAog",
+            "ASgOMg8ucG9rZXIuQ2FyZFN1aXQSHQoEcmFuaxgUIAEoDjIPLnBva2VyLkNh",
+            "cmRSYW5rKqsCCgxQbGF5ZXJBY3Rpb24SFAoQUGxheWVyQWN0aW9uTm9uZRAA",
+            "EhgKFFBsYXllckFjdGlvblJlZ2lzdGVyEAESGQoVUGxheWVyQWN0aW9uSm9p",
+            "blRhYmxlEAISFAoQUGxheWVyQWN0aW9uUGxheRADEhQKEFBsYXllckFjdGlv",
+            "bkNhbGwQBBIVChFQbGF5ZXJBY3Rpb25DaGVjaxAFEhMKD1BsYXllckFjdGlv",
+            "bkJldBAGEhQKEFBsYXllckFjdGlvbkZvbGQQBxIYChRQbGF5ZXJBY3Rpb25B",
+            "Y2tUb2tlbhAIEhUKEVBsYXllckFjdGlvbkFsbEluEAkSFQoRUGxheWVyQWN0",
+            "aW9uQnV5SW4QChIaChZQbGF5ZXJBY3Rpb25EaXNjb25uZWN0EAsquQIKCUdh",
+            "bWVTdGF0ZRIbChdHYW1lU3RhdGVXYWl0aW5nUGxheWVycxAAEhkKFUdhbWVT",
+            "dGF0ZUluaXRpYWxpemluZxABEhkKFUdhbWVTdGF0ZVJlYWR5VG9TdGFydBAC",
+            "Eh4KGkdhbWVTdGF0ZVBsYXlpbmdTbWFsbEJsaW5kEAMSHAoYR2FtZVN0YXRl",
+            "UGxheWluZ0JpZ0JsaW5kEAQSGwoXR2FtZVN0YXRlUGxheWluZ1ByZUZsb3AQ",
+            "BRIYChRHYW1lU3RhdGVQbGF5aW5nRmxvcBAGEhgKFEdhbWVTdGF0ZVBsYXlp",
+            "bmdUdXJuEAcSGQoVR2FtZVN0YXRlUGxheWluZ1JpdmVyEAgSGAoUR2FtZVN0",
+            "YXRlUGxheWluZ0RvbmUQCRIVChFHYW1lU3RhdGVGaW5pc2hlZBAKKnYKC1Bs",
+            "YXllclN0YXRlEhYKElBsYXllclN0YXRlRGVmYXVsdBAAEhkKFVBsYXllclN0",
+            "YXRlU3RhY2tFbXB0eRABEhgKFFBsYXllclN0YXRlQmFua0VtcHR5EAISGgoW",
+            "UGxheWVyU3RhdGVDdXJyZW50VHVybhADKjcKCENhcmRTdWl0EgkKBVNwYWRl",
+            "EAASCAoEQ2x1YhABEgsKB0RpYW1vbmQQAhIJCgVIZWFydBADKowBCghDYXJk",
+            "UmFuaxIHCgNUd28QABIJCgVUaHJlZRABEggKBEZvdXIQAhIICgRGaXZlEAMS",
+            "BwoDU2l4EAQSCQoFU2V2ZW4QBRIJCgVFaWdodBAGEggKBE5pbmUQBxIHCgNU",
+            "ZW4QCBIICgRKYWNrEAkSCQoFUXVlZW4QChIICgRLaW5nEAsSBwoDQWNlEAwy",
+            "vQIKC1Bva2VyU2VydmVyEj0KCEFja1Rva2VuEhYucG9rZXIuQWNrVG9rZW5S",
+            "ZXF1ZXN0GhcucG9rZXIuQWNrVG9rZW5SZXNwb25zZSIAEkAKCUpvaW5UYWJs",
+            "ZRIXLnBva2VyLkpvaW5UYWJsZVJlcXVlc3QaGC5wb2tlci5Kb2luVGFibGVS",
+            "ZXNwb25zZSIAEi8KBFBsYXkSEi5wb2tlci5QbGF5UmVxdWVzdBoPLnBva2Vy",
+            "LkdhbWVEYXRhIgAwARI9CghSZWdpc3RlchIWLnBva2VyLlJlZ2lzdGVyUmVx",
+            "dWVzdBoXLnBva2VyLlJlZ2lzdGVyUmVzcG9uc2UiABI9CghUYWtlVHVybhIW",
+            "LnBva2VyLlRha2VUdXJuUmVxdWVzdBoXLnBva2VyLlRha2VUdXJuUmVzcG9u",
+            "c2UiAEItWitnaXRodWIuY29tL0RhblR1b3Zza3kvcGVwcGVyLXBva2VyLXYy",
+            "L3Byb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Poker.PlayerAction), typeof(global::Poker.GameState), typeof(global::Poker.PlayerState), typeof(global::Poker.CardSuit), typeof(global::Poker.CardRank), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -115,7 +116,7 @@ namespace Poker {
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.DisconnectResponse), global::Poker.DisconnectResponse.Parser, new[]{ "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayRequest), global::Poker.PlayRequest.Parser, new[]{ "ClientInfo", "PlayerAction" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ClientInfo), global::Poker.ClientInfo.Parser, new[]{ "PlayerID", "PlayerName", "PlayerUsername", "TableID", "Password" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "Players", "Winners", "WinningIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "GameStartsInMaxSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "Players", "Winners", "WinningIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Winners), global::Poker.Winners.Parser, new[]{ "Ids" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameData), global::Poker.GameData.Parser, new[]{ "Info", "WaitTurnID", "WaitTurnName", "WaitTurnNum", "WaitTurnTimeLeftSec", "WaitTurnTimeMaxSec", "PlayerID", "Player" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Player), global::Poker.Player.Parser, new[]{ "Name", "Id", "Position", "Money", "State", "Card", "Hand", "Combo", "LastAction" }, null, null, null, null),
@@ -2874,6 +2875,7 @@ namespace Poker {
       tableID_ = other.tableID_;
       gameState_ = other.gameState_;
       gameStartsInSec_ = other.gameStartsInSec_;
+      gameStartsInMaxSec_ = other.gameStartsInMaxSec_;
       ackToken_ = other.ackToken_;
       communityCards_ = other.communityCards_ != null ? other.communityCards_.Clone() : null;
       maxPlayers_ = other.maxPlayers_;
@@ -2933,6 +2935,17 @@ namespace Poker {
       get { return gameStartsInSec_; }
       set {
         gameStartsInSec_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "gameStartsInMaxSec" field.</summary>
+    public const int GameStartsInMaxSecFieldNumber = 45;
+    private long gameStartsInMaxSec_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long GameStartsInMaxSec {
+      get { return gameStartsInMaxSec_; }
+      set {
+        gameStartsInMaxSec_ = value;
       }
     }
 
@@ -3063,6 +3076,7 @@ namespace Poker {
       if (TableID != other.TableID) return false;
       if (GameState != other.GameState) return false;
       if (GameStartsInSec != other.GameStartsInSec) return false;
+      if (GameStartsInMaxSec != other.GameStartsInMaxSec) return false;
       if (AckToken != other.AckToken) return false;
       if (!object.Equals(CommunityCards, other.CommunityCards)) return false;
       if (MaxPlayers != other.MaxPlayers) return false;
@@ -3083,6 +3097,7 @@ namespace Poker {
       if (TableID.Length != 0) hash ^= TableID.GetHashCode();
       if (GameState != global::Poker.GameState.WaitingPlayers) hash ^= GameState.GetHashCode();
       if (GameStartsInSec != 0L) hash ^= GameStartsInSec.GetHashCode();
+      if (GameStartsInMaxSec != 0L) hash ^= GameStartsInMaxSec.GetHashCode();
       if (AckToken.Length != 0) hash ^= AckToken.GetHashCode();
       if (communityCards_ != null) hash ^= CommunityCards.GetHashCode();
       if (MaxPlayers != 0L) hash ^= MaxPlayers.GetHashCode();
@@ -3124,6 +3139,10 @@ namespace Poker {
       if (GameStartsInSec != 0L) {
         output.WriteRawTag(192, 2);
         output.WriteInt64(GameStartsInSec);
+      }
+      if (GameStartsInMaxSec != 0L) {
+        output.WriteRawTag(232, 2);
+        output.WriteInt64(GameStartsInMaxSec);
       }
       if (AckToken.Length != 0) {
         output.WriteRawTag(146, 3);
@@ -3181,6 +3200,10 @@ namespace Poker {
         output.WriteRawTag(192, 2);
         output.WriteInt64(GameStartsInSec);
       }
+      if (GameStartsInMaxSec != 0L) {
+        output.WriteRawTag(232, 2);
+        output.WriteInt64(GameStartsInMaxSec);
+      }
       if (AckToken.Length != 0) {
         output.WriteRawTag(146, 3);
         output.WriteString(AckToken);
@@ -3233,6 +3256,9 @@ namespace Poker {
       if (GameStartsInSec != 0L) {
         size += 2 + pb::CodedOutputStream.ComputeInt64Size(GameStartsInSec);
       }
+      if (GameStartsInMaxSec != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(GameStartsInMaxSec);
+      }
       if (AckToken.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(AckToken);
       }
@@ -3279,6 +3305,9 @@ namespace Poker {
       }
       if (other.GameStartsInSec != 0L) {
         GameStartsInSec = other.GameStartsInSec;
+      }
+      if (other.GameStartsInMaxSec != 0L) {
+        GameStartsInMaxSec = other.GameStartsInMaxSec;
       }
       if (other.AckToken.Length != 0) {
         AckToken = other.AckToken;
@@ -3335,6 +3364,10 @@ namespace Poker {
           }
           case 320: {
             GameStartsInSec = input.ReadInt64();
+            break;
+          }
+          case 360: {
+            GameStartsInMaxSec = input.ReadInt64();
             break;
           }
           case 402: {
@@ -3408,6 +3441,10 @@ namespace Poker {
           }
           case 320: {
             GameStartsInSec = input.ReadInt64();
+            break;
+          }
+          case 360: {
+            GameStartsInMaxSec = input.ReadInt64();
             break;
           }
           case 402: {

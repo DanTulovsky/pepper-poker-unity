@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Google.Protobuf.Collections;
 using Humanizer;
 using Poker;
@@ -56,7 +54,6 @@ public class UI : MonoBehaviour
             return;
         }
 
-
         string blinds = $"${game.SmallBlind} / ${game.BigBlind}";
         blindsDisplay.SetText(blinds);
 
@@ -65,12 +62,14 @@ public class UI : MonoBehaviour
 
         // Time to game start
         TimeSpan startsIn = game.GameStartsIn();
+        TimeSpan startsInMax = game.GameStartsInMax();
+        
         if (startsIn.Seconds > 0)
         {
             gameStartsInfo.SetActive(true);
-            gameStartsTime.SetText(startsIn.Humanize());
+            gameStartsTime.SetText($"{startsIn.Humanize()}");
 
-            float fillAmount = 1 - (float) startsIn.Seconds / 100;
+            float fillAmount = 1 - (float) startsIn.Seconds / (float)startsInMax.Seconds;
             radialBarGameStart.SetFill(fillAmount);
         }
         else
@@ -335,9 +334,6 @@ public class UI : MonoBehaviour
         {
             throw new FileNotFoundException(Cards.BlankCard() + " no file found - please check the configuration");
         }
-
-        // winnersWindow.SetActive(false);
-        // gameStartsInfo.SetActive(false);
     }
 
     // Update is called once per frame
