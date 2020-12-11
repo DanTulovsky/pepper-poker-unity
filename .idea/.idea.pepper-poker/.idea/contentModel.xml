@@ -336,6 +336,7 @@
         </e>
         <e p="Tests" t="Include">
           <e p="CardsTestScript.cs" t="Include" />
+          <e p="GameTestScript.cs" t="Include" />
           <e p="PokerTestScript.cs" t="Include" />
           <e p="Tests.asmdef" t="Include" />
         </e>

@@ -18,7 +18,7 @@ public class TablePosition : MonoBehaviour
     public TMP_Text nameText;
     
     // Start is called before the first frame update
-    void Start()
+    public void Awake()
     {
         playerName = gameObject.transform.Find("Name").gameObject;
         lastActionText = gameObject.transform.Find("LastAction").gameObject.GetComponent<TMP_Text>();
@@ -31,7 +31,7 @@ public class TablePosition : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

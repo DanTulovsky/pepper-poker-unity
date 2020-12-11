@@ -63,13 +63,13 @@ public class UI : MonoBehaviour
         // Time to game start
         TimeSpan startsIn = game.GameStartsIn();
         TimeSpan startsInMax = game.GameStartsInMax();
-        
+
         if (startsIn.Seconds > 0)
         {
             gameStartsInfo.SetActive(true);
             gameStartsTime.SetText($"{startsIn.Humanize()}");
 
-            float fillAmount = 1 - startsIn.Seconds / (float)startsInMax.Seconds;
+            float fillAmount = 1 - startsIn.Seconds / (float) startsInMax.Seconds;
             radialBarGameStart.SetFill(fillAmount);
         }
         else
@@ -118,12 +118,12 @@ public class UI : MonoBehaviour
         // Per player settings
         if (game.Players() == null) return;
 
-        int pos = Convert.ToInt32(game.MyInfo().Position);
+        int pos = game.TablePosition(game.MyInfo());
         tablePositions[pos].nameText.SetText($"{game.MyInfo().Name}");
 
         foreach (Player p in game.Players())
         {
-            pos = Convert.ToInt32(p.Position);
+            pos = game.TablePosition(p);
 
             TimeSpan turnTimeLeft;
             turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(game.WaitTurnTimeLeftSec()) : 0);
@@ -169,11 +169,11 @@ public class UI : MonoBehaviour
     {
         foreach (Player p in game.Players())
         {
-            var pos = Convert.ToInt32(p.Position);
+            int pos = game.TablePosition(p);
 
             if (p.Id == clientInfo.PlayerID)
             {
-                CardsAtPosition(game.MyInfo().Card, Convert.ToInt32(game.MyInfo().Position));
+                CardsAtPosition(game.MyInfo().Card, game.TablePosition(game.MyInfo()));
             }
             else
             {
@@ -199,7 +199,8 @@ public class UI : MonoBehaviour
             for (int i = 0; i < level.Count; i++)
             {
                 Player player = level[i];
-                int pos = Convert.ToInt32(player.Position);
+
+                int pos = game.TablePosition(player);
                 TimeSpan delay = TimeSpan.FromSeconds(i * j * 5);
 
                 if (player.Money.Winnings > 0)
@@ -316,7 +317,8 @@ public class UI : MonoBehaviour
     {
         game = Manager.Instance.Game;
         Assert.IsNotNull(game);
-        clientInfo = Manager.Instance.ClientInfo;
+        
+        clientInfo = Manager.Instance.clientInfo;
         Assert.IsNotNull(clientInfo);
 
         radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
