@@ -13,7 +13,7 @@ public class Manager : Singleton<Manager>
     private long lastTurnID = -1;
     private string lastAckToken = "";
 
-    public readonly ClientInfo clientInfo = new ClientInfo();
+    public readonly ClientInfo ClientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
     public readonly Game Game = new Game();
@@ -58,19 +58,19 @@ public class Manager : Singleton<Manager>
     private void DoRegister()
     {
 
-        clientInfo.PlayerUsername = ui.playerUsernameInput.text;
-        clientInfo.Password = ui.playerPasswordInput.text;
+        ClientInfo.PlayerUsername = ui.playerUsernameInput.text;
+        ClientInfo.Password = ui.playerPasswordInput.text;
 
         try
         {
-            clientInfo.PlayerID = pokerClient.Register(clientInfo);
+            ClientInfo.PlayerID = pokerClient.Register(ClientInfo);
         }
         catch (RpcException)
         {
             return;
         }
 
-        ui.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
+        ui.playerUsernameDisplay.SetText(ClientInfo.PlayerUsername);
     }
 
     private void DoJoinTable()
@@ -79,14 +79,14 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            (clientInfo.TableID, Game.PlayerPosition) = pokerClient.JoinTable(clientInfo);
+            (ClientInfo.TableID, Game.PlayerPosition) = pokerClient.JoinTable(ClientInfo);
         }
         catch (RpcException)
         {
             return;
         }
 
-        Debug.Log("Table ID: " + clientInfo.TableID);
+        Debug.Log("Table ID: " + ClientInfo.TableID);
         Debug.Log("Player Position: " + Game.PlayerPosition);
 
         // Kick off background refresh thread for Game
@@ -95,11 +95,11 @@ public class Manager : Singleton<Manager>
 
     public void ActionAllIn()
     {
-        if (!Game.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
-            pokerClient.ActionAllIn(clientInfo);
+            pokerClient.ActionAllIn(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -115,7 +115,7 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            pokerClient.ActionBuyIn(clientInfo);
+            pokerClient.ActionBuyIn(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -126,11 +126,11 @@ public class Manager : Singleton<Manager>
     }
     public void ActionCheck()
     {
-        if (!Game.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
-            pokerClient.ActionCheck(clientInfo);
+            pokerClient.ActionCheck(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -142,11 +142,11 @@ public class Manager : Singleton<Manager>
 
     public void ActionCall()
     {
-        if (!Game.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
-            pokerClient.ActionCall(clientInfo);
+            pokerClient.ActionCall(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -158,11 +158,11 @@ public class Manager : Singleton<Manager>
 
     public void ActionFold()
     {
-        if (!Game.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
 
         try
         {
-            pokerClient.ActionFold(clientInfo);
+            pokerClient.ActionFold(ClientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -174,7 +174,7 @@ public class Manager : Singleton<Manager>
 
     public void ActionBet()
     {
-        if (!Game.IsMyTurn(clientInfo.PlayerID, lastTurnID)) { return; }
+        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
         long amount;
         string input = ui.betAmountInput.text;
         try
@@ -189,7 +189,7 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            pokerClient.ActionBet(clientInfo, amount);
+            pokerClient.ActionBet(ClientInfo, amount);
         }
         catch (InvalidTurnException ex)
         {
@@ -201,7 +201,7 @@ public class Manager : Singleton<Manager>
 
     private void StartInfoStream()
     {
-        stream = pokerClient.GetGameDataStreaming(clientInfo);
+        stream = pokerClient.GetGameDataStreaming(ClientInfo);
 
         Debug.Log("Starting server stream listener...");
         StartCoroutine(nameof(StartServerStream));
@@ -267,7 +267,7 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            pokerClient.ActionAckToken(clientInfo, token);
+            pokerClient.ActionAckToken(ClientInfo, token);
         }
         catch (RpcException ex)
         {

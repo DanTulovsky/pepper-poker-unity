@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Google.Protobuf.Collections;
 using Humanizer;
 using Poker;
 using QuantumTek.QuantumUI;
@@ -80,12 +79,36 @@ public class UI : MonoBehaviour
             gameStartsInfo.SetActive(false);
         }
 
+        ShowLocalPlayer();
+        ShowCommunityCards(game.CommunityCards());
+        ShowPlayers();
+
+        if (game.GameFinished())
+        {
+            ShowWinners();
+        }
+        else
+        {
+            winnersWindow.SetActive(false);
+            winnersWindowHeading.SetText("");
+            ShowCards();
+        }
+
+        lastGameState = game.GameState.GetValueOrDefault();
+    }
+
+    private void ShowLocalPlayer()
+    {
         Player localPlayer = game.MyInfo();
         if (localPlayer is null)
         {
             return;
         }
 
+        // local player name
+        int pos = game.TablePosition(game.MyInfo());
+        tablePositions[pos].nameText.SetText($"{game.MyInfo().Name}");
+       
         // Stack
         string stack = $"${localPlayer.Money?.Stack.ToString()}";
         stackAmount.SetText(stack);
@@ -101,7 +124,7 @@ public class UI : MonoBehaviour
         // Current bet
         string currentBet = $"${localPlayer.Money?.BetThisRound.ToString().Humanize()}";
         currentBetAmount.SetText(currentBet);
-
+       
         // Minimum bet this round
         string minBetThisRound = $"${localPlayer.Money?.MinBetThisRound.ToString().Humanize()}";
         minBetThisRoundAmount.SetText(minBetThisRound);
@@ -109,21 +132,19 @@ public class UI : MonoBehaviour
         // Pot
         string pot = $"${localPlayer.Money?.Pot.ToString().Humanize()}";
         potAmount.SetText(pot);
+    }
+    
+    private void ShowPlayers()
+    {
+        // Per player settings
+        if (game.Players() == null) return;
 
         // Next player
         Player nextPlayer = game.PlayerFromID(game.WaitTurnID());
         string nextName = nextPlayer?.Name;
         string nextID = nextPlayer?.Id;
         nextPlayerName.SetText(nextName);
-
-        ShowCommunityCards(game.CommunityCards());
-
-        int pos = game.TablePosition(game.MyInfo());
-        tablePositions[pos].nameText.SetText($"{game.MyInfo().Name}");
-
-        // Per player settings
-        if (game.Players() == null) return;
-
+        
         foreach (Player p in game.Players())
         {
             TablePosition position = tablePositions[game.TablePosition(p)];
@@ -160,21 +181,8 @@ public class UI : MonoBehaviour
                 position.radialBar.SetFill(fillAmount);
             }
         }
-
-        if (game.GameFinished())
-        {
-            ShowWinners();
-        }
-        else
-        {
-            winnersWindow.SetActive(false);
-            winnersWindowHeading.SetText("");
-            ShowCards();
-        }
-
-        lastGameState = game.GameState.GetValueOrDefault();
     }
-
+    
     private void ShowToken(Player p, TablePosition position)
     {
         if (game.IsButton(p)) { ShowTokenButton(position.tokenPosition); }
@@ -374,7 +382,7 @@ public class UI : MonoBehaviour
         game = Manager.Instance.Game;
         Assert.IsNotNull(game);
 
-        clientInfo = Manager.Instance.clientInfo;
+        clientInfo = Manager.Instance.ClientInfo;
         Assert.IsNotNull(clientInfo);
 
         radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
