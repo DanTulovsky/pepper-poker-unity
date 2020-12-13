@@ -20,11 +20,133 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
-      <change afterPath="$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/MouseUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/MouseUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/PathHandle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/PathHandle.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/ScreenSpacePolyLine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/ScreenSpacePolyLine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathCreatorEditor.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathCreatorEditor.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/BezierPath.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/BezierPath.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/EndOfPathInstruction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/EndOfPathInstruction.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/GlobalDisplaySettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/GlobalDisplaySettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/MinMax3D.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/MinMax3D.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreatorData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreatorData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathSpace.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathSpace.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/VertexPath.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/VertexPath.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/PathCreator.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/PathCreator.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/CubicBezierUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/CubicBezierUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/MathUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/MathUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/VertexPathUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/VertexPathUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Settings/GlobalDisplaySettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Core/Settings/GlobalDisplaySettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Documentation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Documentation/Documentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Documentation/Documentation.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Black.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Black.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Blue.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Blue.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Brown.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Brown.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Dark Grey.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Dark Grey.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Green.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Green.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Underside.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Underside.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Cube.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Cube.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Follower.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Follower.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Path.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Path.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Sphere.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Sphere.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Follow Path.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Follow Path.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Generate Path.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Generate Path.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Object Placement.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Object Placement.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Path as Prefab.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Path as Prefab.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Road.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Road.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/Editor/PathSceneToolEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/Editor/PathSceneToolEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/GeneratePathExample.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/GeneratePathExample.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathFollower.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathFollower.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathPlacer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathPlacer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSceneTool.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSceneTool.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSpawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/RoadMeshCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/RoadMeshCreator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProBuilder Data.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProBuilder Data/Default Material Palette.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ProBuilder Data/Default Material Palette.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Materials/tokenBigBlind.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Materials/tokenBigBlind.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Materials/tokenButton.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Materials/tokenButton.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Materials/tokenSmallBlind.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Materials/tokenSmallBlind.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Textures/tokenBigBlind.tiff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Textures/tokenBigBlind.tiff.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Textures/tokenButton.tiff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Textures/tokenButton.tiff.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Textures/tokenSmallBlind.tiff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Textures/tokenSmallBlind.tiff.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI.cs" afterDir="false" />
     </list>
@@ -49,7 +171,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/8B/MissingMethodException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/ff/883d7d5b/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -67,10 +188,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
         <option value="$PROJECT_DIR$/Assets/Proto/poker.proto" />
         <option value="$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
       </list>
     </option>
   </component>
@@ -175,7 +296,7 @@
       <workItem from="1607562905494" duration="5009000" />
       <workItem from="1607627794146" duration="645000" />
       <workItem from="1607642482168" duration="326000" />
-      <workItem from="1607654223251" duration="6934000" />
+      <workItem from="1607654223251" duration="13959000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -296,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607628135653</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="updates">
+      <created>1607715357160</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607715357160</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,10 +589,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state width="2377" height="244" key="GridCell.Tab.3.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607196929938" />
-    <state x="1174" y="449" key="RiderGenerateDialog" timestamp="1607611635508">
+    <state x="1174" y="449" key="RiderGenerateDialog" timestamp="1607788758731">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="1174" y="449" key="RiderGenerateDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607611635508" />
+    <state x="1174" y="449" key="RiderGenerateDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607788758731" />
     <state x="716" y="321" width="1391" height="859" key="SettingsEditor" timestamp="1607654183180">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -473,10 +601,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1223" y="557" key="SimpleOpenTaskDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1605739546401" />
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2" timestamp="1607628149079">
+    <state x="950" y="458" key="Vcs.Push.Dialog.v2" timestamp="1607715361163">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607628149079" />
+    <state x="950" y="458" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607715361163" />
     <state width="1209" height="696" key="XDebugger.FullValuePopup" timestamp="1607134031496">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

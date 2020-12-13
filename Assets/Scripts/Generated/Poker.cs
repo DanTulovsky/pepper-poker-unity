@@ -44,62 +44,65 @@ namespace Poker {
             "ES5wb2tlci5DbGllbnRJbmZvEikKDHBsYXllckFjdGlvbhgyIAEoDjITLnBv",
             "a2VyLlBsYXllckFjdGlvbiJtCgpDbGllbnRJbmZvEhAKCHBsYXllcklEGAog",
             "ASgJEhIKCnBsYXllck5hbWUYFCABKAkSFgoOcGxheWVyVXNlcm5hbWUYHiAB",
-            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSLuAgoIR2Ft",
+            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSK/AwoIR2Ft",
             "ZUluZm8SEQoJdGFibGVOYW1lGAogASgJEg8KB3RhYmxlSUQYFCABKAkSIwoJ",
             "Z2FtZVN0YXRlGB4gASgOMhAucG9rZXIuR2FtZVN0YXRlEhcKD2dhbWVTdGFy",
             "dHNJblNlYxgoIAEoAxIaChJnYW1lU3RhcnRzSW5NYXhTZWMYLSABKAMSEAoI",
             "YWNrVG9rZW4YMiABKAkSLQoOQ29tbXVuaXR5Q2FyZHMYPCABKAsyFS5wb2tl",
             "ci5Db21tdW5pdHlDYXJkcxISCgptYXhQbGF5ZXJzGGQgASgDEhIKCm1pblBs",
             "YXllcnMYbiABKAMSEAoIYmlnQmxpbmQYeCABKAMSEgoKc21hbGxCbGluZBh9",
-            "IAEoAxIOCgVidXlpbhiCASABKAMSHwoHcGxheWVycxiMASADKAsyDS5wb2tl",
-            "ci5QbGF5ZXISJAoLd2lubmluZ19pZHMYoAEgAygLMg4ucG9rZXIuV2lubmVy",
-            "cyIWCgdXaW5uZXJzEgsKA2lkcxgKIAMoCSLSAQoIR2FtZURhdGESHQoEaW5m",
-            "bxgKIAEoCzIPLnBva2VyLkdhbWVJbmZvEhIKCndhaXRUdXJuSUQYFCABKAkS",
-            "FAoMd2FpdFR1cm5OYW1lGB4gASgJEhMKC3dhaXRUdXJuTnVtGCMgASgDEhsK",
-            "E3dhaXRUdXJuVGltZUxlZnRTZWMYKCABKAMSGgoSd2FpdFR1cm5UaW1lTWF4",
-            "U2VjGC0gASgDEhAKCHBsYXllcklEGDIgASgJEh0KBnBsYXllchg8IAEoCzIN",
-            "LnBva2VyLlBsYXllciLmAQoGUGxheWVyEgwKBG5hbWUYCiABKAkSCgoCaWQY",
-            "DyABKAkSEAoIcG9zaXRpb24YFCABKAMSIQoFbW9uZXkYHiABKAsyEi5wb2tl",
-            "ci5QbGF5ZXJNb25leRIhCgVzdGF0ZRgyIAEoDjISLnBva2VyLlBsYXllclN0",
-            "YXRlEhkKBGNhcmQYPCADKAsyCy5wb2tlci5DYXJkEhkKBGhhbmQYRiADKAsy",
-            "Cy5wb2tlci5DYXJkEg0KBWNvbWJvGFAgASgJEiUKCmxhc3RBY3Rpb24YWiAB",
-            "KAsyES5wb2tlci5MYXN0QWN0aW9uIkEKCkxhc3RBY3Rpb24SIwoGYWN0aW9u",
-            "GAogASgOMhMucG9rZXIuUGxheWVyQWN0aW9uEg4KBmFtb3VudBgUIAEoAyKN",
-            "AQoLUGxheWVyTW9uZXkSDAoEYmFuaxgKIAEoAxINCgVzdGFjaxgUIAEoAxIL",
-            "CgNwb3QYHiABKAMSFwoPbWluQmV0VGhpc1JvdW5kGCggASgDEhQKDGJldFRo",
-            "aXNSb3VuZBgyIAEoAxITCgtiZXRUaGlzSGFuZBg8IAEoAxIQCgh3aW5uaW5n",
-            "cxhGIAEoAyIrCg5Db21tdW5pdHlDYXJkcxIZCgRjYXJkGAogAygLMgsucG9r",
-            "ZXIuQ2FyZCJFCgRDYXJkEh4KBXN1aXRlGAogASgOMg8ucG9rZXIuQ2FyZFN1",
-            "aXQSHQoEcmFuaxgUIAEoDjIPLnBva2VyLkNhcmRSYW5rKqsCCgxQbGF5ZXJB",
-            "Y3Rpb24SFAoQUGxheWVyQWN0aW9uTm9uZRAAEhgKFFBsYXllckFjdGlvblJl",
-            "Z2lzdGVyEAESGQoVUGxheWVyQWN0aW9uSm9pblRhYmxlEAISFAoQUGxheWVy",
-            "QWN0aW9uUGxheRADEhQKEFBsYXllckFjdGlvbkNhbGwQBBIVChFQbGF5ZXJB",
-            "Y3Rpb25DaGVjaxAFEhMKD1BsYXllckFjdGlvbkJldBAGEhQKEFBsYXllckFj",
-            "dGlvbkZvbGQQBxIYChRQbGF5ZXJBY3Rpb25BY2tUb2tlbhAIEhUKEVBsYXll",
-            "ckFjdGlvbkFsbEluEAkSFQoRUGxheWVyQWN0aW9uQnV5SW4QChIaChZQbGF5",
-            "ZXJBY3Rpb25EaXNjb25uZWN0EAsquQIKCUdhbWVTdGF0ZRIbChdHYW1lU3Rh",
-            "dGVXYWl0aW5nUGxheWVycxAAEhkKFUdhbWVTdGF0ZUluaXRpYWxpemluZxAB",
-            "EhkKFUdhbWVTdGF0ZVJlYWR5VG9TdGFydBACEh4KGkdhbWVTdGF0ZVBsYXlp",
-            "bmdTbWFsbEJsaW5kEAMSHAoYR2FtZVN0YXRlUGxheWluZ0JpZ0JsaW5kEAQS",
-            "GwoXR2FtZVN0YXRlUGxheWluZ1ByZUZsb3AQBRIYChRHYW1lU3RhdGVQbGF5",
-            "aW5nRmxvcBAGEhgKFEdhbWVTdGF0ZVBsYXlpbmdUdXJuEAcSGQoVR2FtZVN0",
-            "YXRlUGxheWluZ1JpdmVyEAgSGAoUR2FtZVN0YXRlUGxheWluZ0RvbmUQCRIV",
-            "ChFHYW1lU3RhdGVGaW5pc2hlZBAKKnYKC1BsYXllclN0YXRlEhYKElBsYXll",
-            "clN0YXRlRGVmYXVsdBAAEhkKFVBsYXllclN0YXRlU3RhY2tFbXB0eRABEhgK",
-            "FFBsYXllclN0YXRlQmFua0VtcHR5EAISGgoWUGxheWVyU3RhdGVDdXJyZW50",
-            "VHVybhADKjcKCENhcmRTdWl0EgkKBVNwYWRlEAASCAoEQ2x1YhABEgsKB0Rp",
-            "YW1vbmQQAhIJCgVIZWFydBADKowBCghDYXJkUmFuaxIHCgNUd28QABIJCgVU",
-            "aHJlZRABEggKBEZvdXIQAhIICgRGaXZlEAMSBwoDU2l4EAQSCQoFU2V2ZW4Q",
-            "BRIJCgVFaWdodBAGEggKBE5pbmUQBxIHCgNUZW4QCBIICgRKYWNrEAkSCQoF",
-            "UXVlZW4QChIICgRLaW5nEAsSBwoDQWNlEAwyvQIKC1Bva2VyU2VydmVyEj0K",
-            "CEFja1Rva2VuEhYucG9rZXIuQWNrVG9rZW5SZXF1ZXN0GhcucG9rZXIuQWNr",
-            "VG9rZW5SZXNwb25zZSIAEkAKCUpvaW5UYWJsZRIXLnBva2VyLkpvaW5UYWJs",
-            "ZVJlcXVlc3QaGC5wb2tlci5Kb2luVGFibGVSZXNwb25zZSIAEi8KBFBsYXkS",
-            "Ei5wb2tlci5QbGF5UmVxdWVzdBoPLnBva2VyLkdhbWVEYXRhIgAwARI9CghS",
-            "ZWdpc3RlchIWLnBva2VyLlJlZ2lzdGVyUmVxdWVzdBoXLnBva2VyLlJlZ2lz",
-            "dGVyUmVzcG9uc2UiABI9CghUYWtlVHVybhIWLnBva2VyLlRha2VUdXJuUmVx",
-            "dWVzdBoXLnBva2VyLlRha2VUdXJuUmVzcG9uc2UiAEItWitnaXRodWIuY29t",
-            "L0RhblR1b3Zza3kvcGVwcGVyLXBva2VyLXYyL3Byb3RvYgZwcm90bzM="));
+            "IAEoAxIOCgVidXlpbhiCASABKAMSFwoOYnV0dG9uUG9zaXRpb24YjAEgASgD",
+            "EhsKEnNtYWxsQmxpbmRQb3NpdGlvbhiWASABKAMSGQoQYmlnQmxpbmRQb3Np",
+            "dGlvbhigASABKAMSHwoHcGxheWVycxiqASADKAsyDS5wb2tlci5QbGF5ZXIS",
+            "JAoLd2lubmluZ19pZHMYtAEgAygLMg4ucG9rZXIuV2lubmVycyIWCgdXaW5u",
+            "ZXJzEgsKA2lkcxgKIAMoCSLSAQoIR2FtZURhdGESHQoEaW5mbxgKIAEoCzIP",
+            "LnBva2VyLkdhbWVJbmZvEhIKCndhaXRUdXJuSUQYFCABKAkSFAoMd2FpdFR1",
+            "cm5OYW1lGB4gASgJEhMKC3dhaXRUdXJuTnVtGCMgASgDEhsKE3dhaXRUdXJu",
+            "VGltZUxlZnRTZWMYKCABKAMSGgoSd2FpdFR1cm5UaW1lTWF4U2VjGC0gASgD",
+            "EhAKCHBsYXllcklEGDIgASgJEh0KBnBsYXllchhkIAEoCzINLnBva2VyLlBs",
+            "YXllciLmAQoGUGxheWVyEgwKBG5hbWUYCiABKAkSCgoCaWQYDyABKAkSEAoI",
+            "cG9zaXRpb24YFCABKAMSIQoFbW9uZXkYHiABKAsyEi5wb2tlci5QbGF5ZXJN",
+            "b25leRIhCgVzdGF0ZRgyIAMoDjISLnBva2VyLlBsYXllclN0YXRlEhkKBGNh",
+            "cmQYPCADKAsyCy5wb2tlci5DYXJkEhkKBGhhbmQYRiADKAsyCy5wb2tlci5D",
+            "YXJkEg0KBWNvbWJvGFAgASgJEiUKCmxhc3RBY3Rpb24YWiABKAsyES5wb2tl",
+            "ci5MYXN0QWN0aW9uIkEKCkxhc3RBY3Rpb24SIwoGYWN0aW9uGAogASgOMhMu",
+            "cG9rZXIuUGxheWVyQWN0aW9uEg4KBmFtb3VudBgUIAEoAyKNAQoLUGxheWVy",
+            "TW9uZXkSDAoEYmFuaxgKIAEoAxINCgVzdGFjaxgUIAEoAxILCgNwb3QYHiAB",
+            "KAMSFwoPbWluQmV0VGhpc1JvdW5kGCggASgDEhQKDGJldFRoaXNSb3VuZBgy",
+            "IAEoAxITCgtiZXRUaGlzSGFuZBg8IAEoAxIQCgh3aW5uaW5ncxhGIAEoAyIr",
+            "Cg5Db21tdW5pdHlDYXJkcxIZCgRjYXJkGAogAygLMgsucG9rZXIuQ2FyZCJF",
+            "CgRDYXJkEh4KBXN1aXRlGAogASgOMg8ucG9rZXIuQ2FyZFN1aXQSHQoEcmFu",
+            "axgUIAEoDjIPLnBva2VyLkNhcmRSYW5rKqsCCgxQbGF5ZXJBY3Rpb24SFAoQ",
+            "UGxheWVyQWN0aW9uTm9uZRAAEhgKFFBsYXllckFjdGlvblJlZ2lzdGVyEAES",
+            "GQoVUGxheWVyQWN0aW9uSm9pblRhYmxlEAISFAoQUGxheWVyQWN0aW9uUGxh",
+            "eRADEhQKEFBsYXllckFjdGlvbkNhbGwQBBIVChFQbGF5ZXJBY3Rpb25DaGVj",
+            "axAFEhMKD1BsYXllckFjdGlvbkJldBAGEhQKEFBsYXllckFjdGlvbkZvbGQQ",
+            "BxIYChRQbGF5ZXJBY3Rpb25BY2tUb2tlbhAIEhUKEVBsYXllckFjdGlvbkFs",
+            "bEluEAkSFQoRUGxheWVyQWN0aW9uQnV5SW4QChIaChZQbGF5ZXJBY3Rpb25E",
+            "aXNjb25uZWN0EAsquQIKCUdhbWVTdGF0ZRIbChdHYW1lU3RhdGVXYWl0aW5n",
+            "UGxheWVycxAAEhkKFUdhbWVTdGF0ZUluaXRpYWxpemluZxABEhkKFUdhbWVT",
+            "dGF0ZVJlYWR5VG9TdGFydBACEh4KGkdhbWVTdGF0ZVBsYXlpbmdTbWFsbEJs",
+            "aW5kEAMSHAoYR2FtZVN0YXRlUGxheWluZ0JpZ0JsaW5kEAQSGwoXR2FtZVN0",
+            "YXRlUGxheWluZ1ByZUZsb3AQBRIYChRHYW1lU3RhdGVQbGF5aW5nRmxvcBAG",
+            "EhgKFEdhbWVTdGF0ZVBsYXlpbmdUdXJuEAcSGQoVR2FtZVN0YXRlUGxheWlu",
+            "Z1JpdmVyEAgSGAoUR2FtZVN0YXRlUGxheWluZ0RvbmUQCRIVChFHYW1lU3Rh",
+            "dGVGaW5pc2hlZBAKKo0BCgtQbGF5ZXJTdGF0ZRIWChJQbGF5ZXJTdGF0ZURl",
+            "ZmF1bHQQABIVChFQbGF5ZXJTdGF0ZUZvbGRlZBABEhkKFVBsYXllclN0YXRl",
+            "U3RhY2tFbXB0eRACEhgKFFBsYXllclN0YXRlQmFua0VtcHR5EAMSGgoWUGxh",
+            "eWVyU3RhdGVDdXJyZW50VHVybhAEKjcKCENhcmRTdWl0EgkKBVNwYWRlEAAS",
+            "CAoEQ2x1YhABEgsKB0RpYW1vbmQQAhIJCgVIZWFydBADKowBCghDYXJkUmFu",
+            "axIHCgNUd28QABIJCgVUaHJlZRABEggKBEZvdXIQAhIICgRGaXZlEAMSBwoD",
+            "U2l4EAQSCQoFU2V2ZW4QBRIJCgVFaWdodBAGEggKBE5pbmUQBxIHCgNUZW4Q",
+            "CBIICgRKYWNrEAkSCQoFUXVlZW4QChIICgRLaW5nEAsSBwoDQWNlEAwyvQIK",
+            "C1Bva2VyU2VydmVyEj0KCEFja1Rva2VuEhYucG9rZXIuQWNrVG9rZW5SZXF1",
+            "ZXN0GhcucG9rZXIuQWNrVG9rZW5SZXNwb25zZSIAEkAKCUpvaW5UYWJsZRIX",
+            "LnBva2VyLkpvaW5UYWJsZVJlcXVlc3QaGC5wb2tlci5Kb2luVGFibGVSZXNw",
+            "b25zZSIAEi8KBFBsYXkSEi5wb2tlci5QbGF5UmVxdWVzdBoPLnBva2VyLkdh",
+            "bWVEYXRhIgAwARI9CghSZWdpc3RlchIWLnBva2VyLlJlZ2lzdGVyUmVxdWVz",
+            "dBoXLnBva2VyLlJlZ2lzdGVyUmVzcG9uc2UiABI9CghUYWtlVHVybhIWLnBv",
+            "a2VyLlRha2VUdXJuUmVxdWVzdBoXLnBva2VyLlRha2VUdXJuUmVzcG9uc2Ui",
+            "AEItWitnaXRodWIuY29tL0RhblR1b3Zza3kvcGVwcGVyLXBva2VyLXYyL3By",
+            "b3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Poker.PlayerAction), typeof(global::Poker.GameState), typeof(global::Poker.PlayerState), typeof(global::Poker.CardSuit), typeof(global::Poker.CardRank), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -115,7 +118,7 @@ namespace Poker {
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.DisconnectResponse), global::Poker.DisconnectResponse.Parser, new[]{ "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayRequest), global::Poker.PlayRequest.Parser, new[]{ "ClientInfo", "PlayerAction" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ClientInfo), global::Poker.ClientInfo.Parser, new[]{ "PlayerID", "PlayerName", "PlayerUsername", "TableID", "Password" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "GameStartsInMaxSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "Players", "WinningIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "GameStartsInMaxSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "ButtonPosition", "SmallBlindPosition", "BigBlindPosition", "Players", "WinningIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Winners), global::Poker.Winners.Parser, new[]{ "Ids" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameData), global::Poker.GameData.Parser, new[]{ "Info", "WaitTurnID", "WaitTurnName", "WaitTurnNum", "WaitTurnTimeLeftSec", "WaitTurnTimeMaxSec", "PlayerID", "Player" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Player), global::Poker.Player.Parser, new[]{ "Name", "Id", "Position", "Money", "State", "Card", "Hand", "Combo", "LastAction" }, null, null, null, null),
@@ -164,17 +167,21 @@ namespace Poker {
   public enum PlayerState {
     [pbr::OriginalName("PlayerStateDefault")] Default = 0,
     /// <summary>
+    /// PlayerStateFolded denotes a player that folded
+    /// </summary>
+    [pbr::OriginalName("PlayerStateFolded")] Folded = 1,
+    /// <summary>
     /// PlayerStateStackEmpty means the player has run out of money in the stack
     /// </summary>
-    [pbr::OriginalName("PlayerStateStackEmpty")] StackEmpty = 1,
+    [pbr::OriginalName("PlayerStateStackEmpty")] StackEmpty = 2,
     /// <summary>
     /// PlayerStateBankEmpty means the player has run out of money in the bank
     /// </summary>
-    [pbr::OriginalName("PlayerStateBankEmpty")] BankEmpty = 2,
+    [pbr::OriginalName("PlayerStateBankEmpty")] BankEmpty = 3,
     /// <summary>
     /// PlayerStateCurrentTurn marks this player's turn
     /// </summary>
-    [pbr::OriginalName("PlayerStateCurrentTurn")] CurrentTurn = 3,
+    [pbr::OriginalName("PlayerStateCurrentTurn")] CurrentTurn = 4,
   }
 
   public enum CardSuit {
@@ -2882,6 +2889,9 @@ namespace Poker {
       bigBlind_ = other.bigBlind_;
       smallBlind_ = other.smallBlind_;
       buyin_ = other.buyin_;
+      buttonPosition_ = other.buttonPosition_;
+      smallBlindPosition_ = other.smallBlindPosition_;
+      bigBlindPosition_ = other.bigBlindPosition_;
       players_ = other.players_.Clone();
       winningIds_ = other.winningIds_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3024,10 +3034,43 @@ namespace Poker {
       }
     }
 
+    /// <summary>Field number for the "buttonPosition" field.</summary>
+    public const int ButtonPositionFieldNumber = 140;
+    private long buttonPosition_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ButtonPosition {
+      get { return buttonPosition_; }
+      set {
+        buttonPosition_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "smallBlindPosition" field.</summary>
+    public const int SmallBlindPositionFieldNumber = 150;
+    private long smallBlindPosition_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long SmallBlindPosition {
+      get { return smallBlindPosition_; }
+      set {
+        smallBlindPosition_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "bigBlindPosition" field.</summary>
+    public const int BigBlindPositionFieldNumber = 160;
+    private long bigBlindPosition_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long BigBlindPosition {
+      get { return bigBlindPosition_; }
+      set {
+        bigBlindPosition_ = value;
+      }
+    }
+
     /// <summary>Field number for the "players" field.</summary>
-    public const int PlayersFieldNumber = 140;
+    public const int PlayersFieldNumber = 170;
     private static readonly pb::FieldCodec<global::Poker.Player> _repeated_players_codec
-        = pb::FieldCodec.ForMessage(1122, global::Poker.Player.Parser);
+        = pb::FieldCodec.ForMessage(1362, global::Poker.Player.Parser);
     private readonly pbc::RepeatedField<global::Poker.Player> players_ = new pbc::RepeatedField<global::Poker.Player>();
     /// <summary>
     /// All players, no confidential info
@@ -3038,9 +3081,9 @@ namespace Poker {
     }
 
     /// <summary>Field number for the "winning_ids" field.</summary>
-    public const int WinningIdsFieldNumber = 160;
+    public const int WinningIdsFieldNumber = 180;
     private static readonly pb::FieldCodec<global::Poker.Winners> _repeated_winningIds_codec
-        = pb::FieldCodec.ForMessage(1282, global::Poker.Winners.Parser);
+        = pb::FieldCodec.ForMessage(1442, global::Poker.Winners.Parser);
     private readonly pbc::RepeatedField<global::Poker.Winners> winningIds_ = new pbc::RepeatedField<global::Poker.Winners>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Poker.Winners> WinningIds {
@@ -3072,6 +3115,9 @@ namespace Poker {
       if (BigBlind != other.BigBlind) return false;
       if (SmallBlind != other.SmallBlind) return false;
       if (Buyin != other.Buyin) return false;
+      if (ButtonPosition != other.ButtonPosition) return false;
+      if (SmallBlindPosition != other.SmallBlindPosition) return false;
+      if (BigBlindPosition != other.BigBlindPosition) return false;
       if(!players_.Equals(other.players_)) return false;
       if(!winningIds_.Equals(other.winningIds_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3092,6 +3138,9 @@ namespace Poker {
       if (BigBlind != 0L) hash ^= BigBlind.GetHashCode();
       if (SmallBlind != 0L) hash ^= SmallBlind.GetHashCode();
       if (Buyin != 0L) hash ^= Buyin.GetHashCode();
+      if (ButtonPosition != 0L) hash ^= ButtonPosition.GetHashCode();
+      if (SmallBlindPosition != 0L) hash ^= SmallBlindPosition.GetHashCode();
+      if (BigBlindPosition != 0L) hash ^= BigBlindPosition.GetHashCode();
       hash ^= players_.GetHashCode();
       hash ^= winningIds_.GetHashCode();
       if (_unknownFields != null) {
@@ -3158,6 +3207,18 @@ namespace Poker {
         output.WriteRawTag(144, 8);
         output.WriteInt64(Buyin);
       }
+      if (ButtonPosition != 0L) {
+        output.WriteRawTag(224, 8);
+        output.WriteInt64(ButtonPosition);
+      }
+      if (SmallBlindPosition != 0L) {
+        output.WriteRawTag(176, 9);
+        output.WriteInt64(SmallBlindPosition);
+      }
+      if (BigBlindPosition != 0L) {
+        output.WriteRawTag(128, 10);
+        output.WriteInt64(BigBlindPosition);
+      }
       players_.WriteTo(output, _repeated_players_codec);
       winningIds_.WriteTo(output, _repeated_winningIds_codec);
       if (_unknownFields != null) {
@@ -3217,6 +3278,18 @@ namespace Poker {
         output.WriteRawTag(144, 8);
         output.WriteInt64(Buyin);
       }
+      if (ButtonPosition != 0L) {
+        output.WriteRawTag(224, 8);
+        output.WriteInt64(ButtonPosition);
+      }
+      if (SmallBlindPosition != 0L) {
+        output.WriteRawTag(176, 9);
+        output.WriteInt64(SmallBlindPosition);
+      }
+      if (BigBlindPosition != 0L) {
+        output.WriteRawTag(128, 10);
+        output.WriteInt64(BigBlindPosition);
+      }
       players_.WriteTo(ref output, _repeated_players_codec);
       winningIds_.WriteTo(ref output, _repeated_winningIds_codec);
       if (_unknownFields != null) {
@@ -3263,6 +3336,15 @@ namespace Poker {
       }
       if (Buyin != 0L) {
         size += 2 + pb::CodedOutputStream.ComputeInt64Size(Buyin);
+      }
+      if (ButtonPosition != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(ButtonPosition);
+      }
+      if (SmallBlindPosition != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(SmallBlindPosition);
+      }
+      if (BigBlindPosition != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(BigBlindPosition);
       }
       size += players_.CalculateSize(_repeated_players_codec);
       size += winningIds_.CalculateSize(_repeated_winningIds_codec);
@@ -3315,6 +3397,15 @@ namespace Poker {
       }
       if (other.Buyin != 0L) {
         Buyin = other.Buyin;
+      }
+      if (other.ButtonPosition != 0L) {
+        ButtonPosition = other.ButtonPosition;
+      }
+      if (other.SmallBlindPosition != 0L) {
+        SmallBlindPosition = other.SmallBlindPosition;
+      }
+      if (other.BigBlindPosition != 0L) {
+        BigBlindPosition = other.BigBlindPosition;
       }
       players_.Add(other.players_);
       winningIds_.Add(other.winningIds_);
@@ -3383,11 +3474,23 @@ namespace Poker {
             Buyin = input.ReadInt64();
             break;
           }
-          case 1122: {
+          case 1120: {
+            ButtonPosition = input.ReadInt64();
+            break;
+          }
+          case 1200: {
+            SmallBlindPosition = input.ReadInt64();
+            break;
+          }
+          case 1280: {
+            BigBlindPosition = input.ReadInt64();
+            break;
+          }
+          case 1362: {
             players_.AddEntriesFrom(input, _repeated_players_codec);
             break;
           }
-          case 1282: {
+          case 1442: {
             winningIds_.AddEntriesFrom(input, _repeated_winningIds_codec);
             break;
           }
@@ -3456,11 +3559,23 @@ namespace Poker {
             Buyin = input.ReadInt64();
             break;
           }
-          case 1122: {
+          case 1120: {
+            ButtonPosition = input.ReadInt64();
+            break;
+          }
+          case 1200: {
+            SmallBlindPosition = input.ReadInt64();
+            break;
+          }
+          case 1280: {
+            BigBlindPosition = input.ReadInt64();
+            break;
+          }
+          case 1362: {
             players_.AddEntriesFrom(ref input, _repeated_players_codec);
             break;
           }
-          case 1282: {
+          case 1442: {
             winningIds_.AddEntriesFrom(ref input, _repeated_winningIds_codec);
             break;
           }
@@ -3774,7 +3889,7 @@ namespace Poker {
     }
 
     /// <summary>Field number for the "player" field.</summary>
-    public const int PlayerFieldNumber = 60;
+    public const int PlayerFieldNumber = 100;
     private global::Poker.Player player_;
     /// <summary>
     /// calling player, includes confidential info
@@ -3867,7 +3982,7 @@ namespace Poker {
         output.WriteString(PlayerID);
       }
       if (player_ != null) {
-        output.WriteRawTag(226, 3);
+        output.WriteRawTag(162, 6);
         output.WriteMessage(Player);
       }
       if (_unknownFields != null) {
@@ -3908,7 +4023,7 @@ namespace Poker {
         output.WriteString(PlayerID);
       }
       if (player_ != null) {
-        output.WriteRawTag(226, 3);
+        output.WriteRawTag(162, 6);
         output.WriteMessage(Player);
       }
       if (_unknownFields != null) {
@@ -4030,7 +4145,7 @@ namespace Poker {
             PlayerID = input.ReadString();
             break;
           }
-          case 482: {
+          case 802: {
             if (player_ == null) {
               Player = new global::Poker.Player();
             }
@@ -4082,7 +4197,7 @@ namespace Poker {
             PlayerID = input.ReadString();
             break;
           }
-          case 482: {
+          case 802: {
             if (player_ == null) {
               Player = new global::Poker.Player();
             }
@@ -4129,7 +4244,7 @@ namespace Poker {
       id_ = other.id_;
       position_ = other.position_;
       money_ = other.money_ != null ? other.money_.Clone() : null;
-      state_ = other.state_;
+      state_ = other.state_.Clone();
       card_ = other.card_.Clone();
       hand_ = other.hand_.Clone();
       combo_ = other.combo_;
@@ -4194,13 +4309,12 @@ namespace Poker {
 
     /// <summary>Field number for the "state" field.</summary>
     public const int StateFieldNumber = 50;
-    private global::Poker.PlayerState state_ = global::Poker.PlayerState.Default;
+    private static readonly pb::FieldCodec<global::Poker.PlayerState> _repeated_state_codec
+        = pb::FieldCodec.ForEnum(402, x => (int) x, x => (global::Poker.PlayerState) x);
+    private readonly pbc::RepeatedField<global::Poker.PlayerState> state_ = new pbc::RepeatedField<global::Poker.PlayerState>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Poker.PlayerState State {
+    public pbc::RepeatedField<global::Poker.PlayerState> State {
       get { return state_; }
-      set {
-        state_ = value;
-      }
     }
 
     /// <summary>Field number for the "card" field.</summary>
@@ -4269,7 +4383,7 @@ namespace Poker {
       if (Id != other.Id) return false;
       if (Position != other.Position) return false;
       if (!object.Equals(Money, other.Money)) return false;
-      if (State != other.State) return false;
+      if(!state_.Equals(other.state_)) return false;
       if(!card_.Equals(other.card_)) return false;
       if(!hand_.Equals(other.hand_)) return false;
       if (Combo != other.Combo) return false;
@@ -4284,7 +4398,7 @@ namespace Poker {
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Position != 0L) hash ^= Position.GetHashCode();
       if (money_ != null) hash ^= Money.GetHashCode();
-      if (State != global::Poker.PlayerState.Default) hash ^= State.GetHashCode();
+      hash ^= state_.GetHashCode();
       hash ^= card_.GetHashCode();
       hash ^= hand_.GetHashCode();
       if (Combo.Length != 0) hash ^= Combo.GetHashCode();
@@ -4321,10 +4435,7 @@ namespace Poker {
         output.WriteRawTag(242, 1);
         output.WriteMessage(Money);
       }
-      if (State != global::Poker.PlayerState.Default) {
-        output.WriteRawTag(144, 3);
-        output.WriteEnum((int) State);
-      }
+      state_.WriteTo(output, _repeated_state_codec);
       card_.WriteTo(output, _repeated_card_codec);
       hand_.WriteTo(output, _repeated_hand_codec);
       if (Combo.Length != 0) {
@@ -4360,10 +4471,7 @@ namespace Poker {
         output.WriteRawTag(242, 1);
         output.WriteMessage(Money);
       }
-      if (State != global::Poker.PlayerState.Default) {
-        output.WriteRawTag(144, 3);
-        output.WriteEnum((int) State);
-      }
+      state_.WriteTo(ref output, _repeated_state_codec);
       card_.WriteTo(ref output, _repeated_card_codec);
       hand_.WriteTo(ref output, _repeated_hand_codec);
       if (Combo.Length != 0) {
@@ -4395,9 +4503,7 @@ namespace Poker {
       if (money_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Money);
       }
-      if (State != global::Poker.PlayerState.Default) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) State);
-      }
+      size += state_.CalculateSize(_repeated_state_codec);
       size += card_.CalculateSize(_repeated_card_codec);
       size += hand_.CalculateSize(_repeated_hand_codec);
       if (Combo.Length != 0) {
@@ -4432,9 +4538,7 @@ namespace Poker {
         }
         Money.MergeFrom(other.Money);
       }
-      if (other.State != global::Poker.PlayerState.Default) {
-        State = other.State;
-      }
+      state_.Add(other.state_);
       card_.Add(other.card_);
       hand_.Add(other.hand_);
       if (other.Combo.Length != 0) {
@@ -4479,8 +4583,9 @@ namespace Poker {
             input.ReadMessage(Money);
             break;
           }
+          case 402:
           case 400: {
-            State = (global::Poker.PlayerState) input.ReadEnum();
+            state_.AddEntriesFrom(input, _repeated_state_codec);
             break;
           }
           case 482: {
@@ -4535,8 +4640,9 @@ namespace Poker {
             input.ReadMessage(Money);
             break;
           }
+          case 402:
           case 400: {
-            State = (global::Poker.PlayerState) input.ReadEnum();
+            state_.AddEntriesFrom(ref input, _repeated_state_codec);
             break;
           }
           case 482: {

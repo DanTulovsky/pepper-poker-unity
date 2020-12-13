@@ -37,6 +37,9 @@ public class UI : MonoBehaviour
     public QUI_Window winnersWindow;
     public TMP_Text winnersWindowHeading;
     public List<TablePosition> tablePositions;
+    public GameObject buttonToken;
+    public GameObject smallBlindToken;
+    public GameObject bigBlindToken;
 
     private Object cardBlankPrefab;
     private Game game;
@@ -77,34 +80,34 @@ public class UI : MonoBehaviour
             gameStartsInfo.SetActive(false);
         }
 
-        Player player = game.MyInfo();
-        if (player is null)
+        Player localPlayer = game.MyInfo();
+        if (localPlayer is null)
         {
             return;
         }
 
         // Stack
-        string stack = $"${player.Money?.Stack.ToString()}";
+        string stack = $"${localPlayer.Money?.Stack.ToString()}";
         stackAmount.SetText(stack);
 
         // Bank
-        string bank = $"${player.Money?.Bank.ToString().Humanize()}";
+        string bank = $"${localPlayer.Money?.Bank.ToString().Humanize()}";
         bankAmount.SetText(bank.Humanize());
 
         // Total bet this hand
-        string totalBetThisHand = $"${player.Money?.BetThisHand.ToString().Humanize()}";
+        string totalBetThisHand = $"${localPlayer.Money?.BetThisHand.ToString().Humanize()}";
         totalBetThisHandAmount.SetText(totalBetThisHand);
 
         // Current bet
-        string currentBet = $"${player.Money?.BetThisRound.ToString().Humanize()}";
+        string currentBet = $"${localPlayer.Money?.BetThisRound.ToString().Humanize()}";
         currentBetAmount.SetText(currentBet);
 
         // Minimum bet this round
-        string minBetThisRound = $"${player.Money?.MinBetThisRound.ToString().Humanize()}";
+        string minBetThisRound = $"${localPlayer.Money?.MinBetThisRound.ToString().Humanize()}";
         minBetThisRoundAmount.SetText(minBetThisRound);
 
         // Pot
-        string pot = $"${player.Money?.Pot.ToString().Humanize()}";
+        string pot = $"${localPlayer.Money?.Pot.ToString().Humanize()}";
         potAmount.SetText(pot);
 
         // Next player
@@ -115,39 +118,46 @@ public class UI : MonoBehaviour
 
         ShowCommunityCards(game.CommunityCards());
 
-        // Per player settings
-        if (game.Players() == null) return;
-
         int pos = game.TablePosition(game.MyInfo());
         tablePositions[pos].nameText.SetText($"{game.MyInfo().Name}");
 
+        // Per player settings
+        if (game.Players() == null) return;
+
         foreach (Player p in game.Players())
         {
-            pos = game.TablePosition(p);
+            TablePosition position = tablePositions[game.TablePosition(p)];
 
             TimeSpan turnTimeLeft;
             turnTimeLeft = TimeSpan.FromSeconds(p.Id == nextID ? Convert.ToInt32(game.WaitTurnTimeLeftSec()) : 0);
 
             // Name
-            tablePositions[pos].nameText.SetText($"{p.Name}");
+            position.nameText.SetText($"{p.Name}");
+            if (Game.HasState(p.State, PlayerState.Folded))
+            {
+                position.nameText.alpha = (float) 0.5;
+            }
 
             // LastAction
             string lastAction = p.LastAction.Action == PlayerAction.None ? "" : p.LastAction.Action.ToString();
-            tablePositions[pos].lastActionText
+            position.lastActionText
                 .SetText(p.LastAction.Amount > 0 ? $"{lastAction} (${p.LastAction.Amount})" : $"{lastAction}");
 
             // Stacks
-            tablePositions[pos].stackText.SetText($"${p.Money.Stack}");
+            position.stackText.SetText($"${p.Money.Stack}");
 
             // Turn timeout bars
-            tablePositions[pos].radialBar.gameObject.SetActive(false);
+            position.radialBar.gameObject.SetActive(false);
 
+            // tokens
+            ShowToken(p, position);
+            
             // Player whose turn it is
             if (p.Id == nextID)
             {
-                tablePositions[pos].radialBar.gameObject.SetActive(true);
+                position.radialBar.gameObject.SetActive(true);
                 float fillAmount = turnTimeLeft.Seconds / (float) game.WaitTurnTimeMaxSec();
-                tablePositions[pos].radialBar.SetFill(fillAmount);
+                position.radialBar.SetFill(fillAmount);
             }
         }
 
@@ -165,11 +175,25 @@ public class UI : MonoBehaviour
         lastGameState = game.GameState.GetValueOrDefault();
     }
 
+    private void ShowToken(Player p, TablePosition position)
+    {
+        if (game.IsButton(p)) { ShowTokenButton(position.tokenPosition); }
+        if (game.IsSmallBlind(p)) { ShowTokenSmallBlind(position.tokenPosition); }
+        if (game.IsBigBlind(p)) { ShowTokenBigBlind(position.tokenPosition); }
+    }
+    
     private void ShowCards()
     {
         foreach (Player p in game.Players())
         {
             int pos = game.TablePosition(p);
+
+            if (Game.HasState(p.State, PlayerState.Folded))
+            {
+                GameObject parent = tablePositions[pos].cards;
+                RemoveChildren(parent);
+                continue;
+            }
 
             if (p.Id == clientInfo.PlayerID)
             {
@@ -246,7 +270,7 @@ public class UI : MonoBehaviour
     }
 
     // CardsAtPosition puts face up cards at the given position
-    private void CardsAtPosition(RepeatedField<Card> hole, int pos)
+    private void CardsAtPosition(IReadOnlyList<Card> hole, int pos)
     {
         const int offset = 180;
         GameObject parent = tablePositions[pos].cards;
@@ -292,14 +316,14 @@ public class UI : MonoBehaviour
             cardObject.transform.Rotate(new Vector3(-90, 180, 0));
             Vector3 position = parent.transform.position;
             cardObject.transform.position = new Vector3(
-                position.x + i * offset, position.y, position.z);
+                position.x + i * offset, position.y, position.z-i);
             cardObject.transform.localScale = new Vector3(12, 12, 12);
         }
     }
 
     private static void RemoveChildren(GameObject parent)
     {
-        for (int i = parent.transform.childCount - 1; i >= 0; i--)
+        for (int i = 0; i < parent.transform.childCount; i++)
         {
             GameObject child = parent.transform.GetChild(i).gameObject;
             child.SetActive(false); // hide right away
@@ -312,16 +336,52 @@ public class UI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows the button token at the parent.
+    /// </summary>
+    /// <param name="parent"></param>
+    private void ShowTokenButton(Transform parent)
+    {
+        buttonToken.transform.SetParent(parent, false);
+        buttonToken.transform.localPosition = new Vector3(0,0, -2);
+        buttonToken.SetActive(true);
+    }
+
+    /// <summary>
+    /// Shows the smallBlind token at the parent.
+    /// </summary>
+    /// <param name="parent"></param>
+    private void ShowTokenSmallBlind(Transform parent)
+    {
+        smallBlindToken.transform.SetParent(parent, false);
+        smallBlindToken.transform.localPosition = new Vector3(0, 0, -2);
+        smallBlindToken.SetActive(true);
+    }
+
+    /// <summary>
+    /// Shows the bigBlind token at the parent.
+    /// </summary>
+    /// <param name="parent"></param>
+    private void ShowTokenBigBlind(Transform parent)
+    {
+        bigBlindToken.transform.SetParent(parent, false);
+        bigBlindToken.transform.localPosition = new Vector3(0, 0, -2);
+        bigBlindToken.SetActive(true);
+    }
     // Start is called before the first frame update
     public void Start()
     {
         game = Manager.Instance.Game;
         Assert.IsNotNull(game);
-        
+
         clientInfo = Manager.Instance.clientInfo;
         Assert.IsNotNull(clientInfo);
 
         radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
+
+        buttonToken.SetActive(false);
+        smallBlindToken.SetActive(false);
+        bigBlindToken.SetActive(false);
 
         foreach (TablePosition t in tablePositions)
         {

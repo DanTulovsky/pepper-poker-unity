@@ -2,14 +2,12 @@
 using Poker;
 using Google.Protobuf.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using NUnit.Framework.Constraints;
 
 public class Game
 {
     // the current instance of GameData proto
-    private GameData current = new GameData { Info = new GameInfo() };
+    private GameData current = new GameData {Info = new GameInfo()};
     private readonly object locker = new object();
 
     public long PlayerPosition
@@ -76,6 +74,11 @@ public class Game
         }
     }
 
+    public static bool HasState(IEnumerable<PlayerState> states, PlayerState s)
+    {
+        return states.Any(state => state == s);
+    }
+
     public GameState? GameState
     {
         get
@@ -106,15 +109,39 @@ public class Game
     // The human always shows up at position 3
     public int TablePosition(Player p)
     {
-        int wantHumanPosition = 3;
-        
+        const int wantHumanPosition = 3;
+
         int realHumanPosition = Convert.ToInt32(PlayerPosition);
 
-        int r = Convert.ToInt32(p.Position + (wantHumanPosition - realHumanPosition)) % (maxPlayers-1); // starts at 0
+        int r = Convert.ToInt32(p.Position + (wantHumanPosition - realHumanPosition)) % (maxPlayers - 1); // starts at 0
         if (r < 0)
             return maxPlayers + r;
         else
             return r;
+    }
+
+    public bool IsButton(Player p)
+    {
+        lock (locker)
+        {
+            return p.Position == current.Info.ButtonPosition;
+        }
+    }
+
+    public bool IsSmallBlind(Player p)
+    {
+        lock (locker)
+        {
+            return p.Position == current.Info.SmallBlindPosition;
+        }
+    }
+
+    public bool IsBigBlind(Player p)
+    {
+        lock (locker)
+        {
+            return p.Position == current.Info.BigBlindPosition;
+        }
     }
 
     // WaitTurnTimeMaxSec returns WaitTurnTimeMaxSec

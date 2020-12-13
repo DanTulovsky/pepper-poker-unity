@@ -13,6 +13,7 @@ public class TablePosition : MonoBehaviour
     public TMP_Text stackText;
     public QUI_Bar radialBar;
     public GameObject cards;
+    public Transform tokenPosition;
     
     public ParticleSystem pSystem;
     public TMP_Text nameText;
@@ -25,7 +26,8 @@ public class TablePosition : MonoBehaviour
         stackText = gameObject.transform.Find("Stack").gameObject.GetComponent<TMP_Text>();
         radialBar = gameObject.transform.Find("Radial Bar").gameObject.GetComponent<QUI_Bar>();
         cards = gameObject.transform.Find("Cards").gameObject;
-        
+        tokenPosition = gameObject.transform.Find("Token");
+
         nameText = playerName.GetComponent<TMP_Text>();
         pSystem = playerName.GetComponent<ParticleSystem>();
     }
