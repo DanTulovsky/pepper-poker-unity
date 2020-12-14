@@ -272,6 +272,7 @@
               </e>
             </e>
             <e p="Framework" t="Include">
+              <e p="DentedPixel.asmdef" t="Include" />
               <e p="LeanAudio.cs" t="Include" />
               <e p="LeanSmooth.cs" t="Include" />
               <e p="LeanTest.cs" t="Include" />
@@ -396,6 +397,7 @@
           <e p="Tests.asmdef" t="Include" />
         </e>
       </e>
+      <e p="DentedPixel.csproj" t="IncludeRecursive" />
       <e p="LeanCommon.csproj" t="IncludeRecursive" />
       <e p="LeanGUI.csproj" t="IncludeRecursive" />
       <e p="LeanTransition.csproj" t="IncludeRecursive" />

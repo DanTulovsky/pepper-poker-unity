@@ -1,28 +1,64 @@
 using UnityEngine;
-
-public class Singleton<T> : MonoBehaviour where T : Singleton<T>
+ 
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T Instance { get; private set; }
-
-    protected virtual void Awake()
+    // Check to see if we're about to be destroyed.
+    private static bool mShuttingDown;
+    private static readonly object MLock = new object();
+    private static T mInstance;
+ 
+    /// <summary>
+    /// Access singleton instance through this propriety.
+    /// </summary>
+    public static T Instance
     {
-        if (Instance != null)
+        get
         {
-            Debug.LogError("[Singleton] Trying to make second instance of singletone class.");
-
-        }
-        else
-        {
-            Instance = (T)this;
+            if (mShuttingDown)
+            {
+                Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
+                                 "' already destroyed. Returning null.");
+                return null;
+            }
+ 
+            lock (MLock)
+            {
+                if (mInstance == null)
+                {
+                    // Search for existing instance.
+                    mInstance = (T)FindObjectOfType(typeof(T));
+ 
+                    // Create new instance if one doesn't already exist.
+                    if (mInstance == null)
+                    {
+                        // Need to create a new GameObject to attach the singleton to.
+                        var singletonObject = new GameObject();
+                        mInstance = singletonObject.AddComponent<T>();
+                        singletonObject.name = typeof(T) + " (Singleton)";
+ 
+                        // Make instance persistent.
+                        DontDestroyOnLoad(singletonObject);
+                    }
+                }
+ 
+                return mInstance;
+            }
         }
     }
 
-    protected virtual void OnDestroy()
+    private void Awake()
     {
-        if (Instance == this)
-        {
-            Instance = null;
-        }
+        DontDestroyOnLoad(gameObject);
     }
 
+    private void OnApplicationQuit()
+    {
+        mShuttingDown = true;
+    }
+ 
+ 
+    private void OnDestroy()
+    {
+        mShuttingDown = true;
+    }
 }

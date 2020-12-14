@@ -16,8 +16,11 @@ namespace Tests
                 (pos: 0, humanPlayerPos: 0, want: 3),
                 (pos: 1, humanPlayerPos: 0, want: 4),
                 
+                (pos: 6, humanPlayerPos: 2, want: 0),
+                
                 (pos: 0, humanPlayerPos: 3, want: 0),
                 (pos: 3, humanPlayerPos: 3, want: 3),
+                (pos: 6, humanPlayerPos: 3, want: 6),
                 
                 (pos: 0, humanPlayerPos: 4, want: 6),
                 (pos: 2, humanPlayerPos: 4, want: 1),
@@ -29,7 +32,7 @@ namespace Tests
             })
             {
                 Player p = new Player { Position = tc.pos };  // player being tested
-                Game game = new Game {PlayerPosition = tc.humanPlayerPos}; // human player position
+                Game game = new Game {PlayerRealPosition = tc.humanPlayerPos}; // human player position
             
                 Assert.AreEqual(tc.want, game.TablePosition(p));
             }

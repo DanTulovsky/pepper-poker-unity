@@ -10,7 +10,7 @@ public class Game
     private GameData current = new GameData {Info = new GameInfo()};
     private readonly object locker = new object();
 
-    public long PlayerPosition
+    public long PlayerRealPosition
     {
         get
         {
@@ -111,15 +111,34 @@ public class Game
     {
         const int wantHumanPosition = 3;
 
-        int realHumanPosition = Convert.ToInt32(PlayerPosition);
+        int realHumanPosition = Convert.ToInt32(PlayerRealPosition);
 
-        int r = Convert.ToInt32(p.Position + (wantHumanPosition - realHumanPosition)) % (maxPlayers - 1); // starts at 0
+        int r = Convert.ToInt32(p.Position + (wantHumanPosition - realHumanPosition)) % (maxPlayers);
         if (r < 0)
             return maxPlayers + r;
         else
             return r;
     }
 
+    /// <summary>
+    /// Returns the player at the table position
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns>Player</returns>
+    public Player PlayerAtTablePosition(int pos)
+    {
+        lock (locker)
+        {
+            foreach (Player player in Players())
+            {
+                if (TablePosition(player) == pos) return player;
+            }
+        }
+
+        return null;
+    }
+
+    
     public bool IsButton(Player p)
     {
         lock (locker)
