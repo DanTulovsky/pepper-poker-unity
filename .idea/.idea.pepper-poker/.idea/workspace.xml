@@ -20,16 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/pepper-poker.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/pepper-poker.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/singleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +171,7 @@
       <workItem from="1607562905494" duration="5009000" />
       <workItem from="1607627794146" duration="645000" />
       <workItem from="1607642482168" duration="326000" />
-      <workItem from="1607654223251" duration="34392000" />
+      <workItem from="1607654223251" duration="35292000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -321,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607831009241</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="updates">
+      <created>1607916106559</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1607916106559</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,10 +501,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="401" y="125" width="2059" height="1193" key="VCS.FileHistoryDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607874455788" />
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2" timestamp="1607831012593">
+    <state x="950" y="458" key="Vcs.Push.Dialog.v2" timestamp="1607916109712">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607831012593" />
+    <state x="950" y="458" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607916109712" />
     <state width="1209" height="696" key="XDebugger.FullValuePopup" timestamp="1607134031496">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
