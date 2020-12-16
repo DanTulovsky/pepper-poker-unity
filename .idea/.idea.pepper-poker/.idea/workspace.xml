@@ -20,8 +20,123 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
+      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/token.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/token.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/MouseUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/MouseUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/PathHandle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/PathHandle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/ScreenSpacePolyLine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/Helper/ScreenSpacePolyLine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathCreatorEditor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathCreatorEditor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Editor/PathEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/BezierPath.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/BezierPath.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/EndOfPathInstruction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/EndOfPathInstruction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/GlobalDisplaySettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/GlobalDisplaySettings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/MinMax3D.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/MinMax3D.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreatorData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathCreatorData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathSpace.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/PathSpace.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/VertexPath.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Objects/VertexPath.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/PathCreator.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/PathCreator.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/CubicBezierUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/CubicBezierUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/MathUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/MathUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/VertexPathUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Runtime/Utility/VertexPathUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Settings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Settings/GlobalDisplaySettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Core/Settings/GlobalDisplaySettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Documentation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Documentation/Documentation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Documentation/Documentation.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Black.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Black.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Brown.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Brown.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Dark Grey.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Dark Grey.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Green.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Green.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Red.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Red.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Texture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Texture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Underside.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road Underside.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Materials/Road.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Cube.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Cube.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Follower.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Follower.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Path.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Path.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Sphere.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Prefabs/Sphere.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Follow Path.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Follow Path.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Generate Path.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Generate Path.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Object Placement.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Object Placement.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Path as Prefab.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Path as Prefab.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Road.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scenes/Road.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/Editor/PathSceneToolEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/Editor/PathSceneToolEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/GeneratePathExample.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/GeneratePathExample.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathFollower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathFollower.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathPlacer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathPlacer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSceneTool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSceneTool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSpawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/PathSpawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/RoadMeshCreator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PathCreator/Examples/Scripts/RoadMeshCreator.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Materials/tokenButton.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Materials/tokenButton.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Textures/tokenBigBlind.tiff.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Textures/tokenBigBlind.tiff.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Textures/tokenButton.tiff.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Textures/tokenButton.tiff.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Textures/tokenSmallBlind.tiff.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Textures/tokenSmallBlind.tiff.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,40 +150,26 @@
     <option name="projectConfigVersion" value="2" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/2b/737336de/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/0d/7fdb5081/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/e7/b6e80f28/Convert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/0d/7fdb5081/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/ff/883d7d5b/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/0/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/0/IAsyncStreamReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/7/AsyncStreamReaderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/2b/737336de/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/8B/MissingMethodException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/ff/883d7d5b/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/0/Void.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Tests/CardsTestScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/singleton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Plugins/Quantum Tek/Quantum UI/Scripts/QUI_Element.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" />
-        <option value="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Position.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
-        <option value="$PROJECT_DIR$/.git/info/exclude" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" />
-        <option value="$PROJECT_DIR$/Assets/Proto/poker.proto" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
+    </changedPaths>
+  </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="docker-for-desktop" />
+    <option name="namespace" value="default" />
   </component>
   <component name="ProjectId" id="1kTphn2QSA2kFJmxRP0U9SMUmIC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -81,6 +182,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ACTIVE_CLOUD_PROJECT_ACCOUNT" value="dant@wetsnow.com" />
+    <property name="ACTIVE_CLOUD_PROJECT_ID" value="snowcloud-01" />
+    <property name="ACTIVE_CLOUD_PROJECT_NAME" value="snowcloud" />
+    <property name="ACTIVE_CLOUD_PROJECT_NUMBER" value="53644033433" />
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34995425" />
@@ -89,10 +194,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/Assets/Plugins/TheTopicbirdTools/ToDoList/readme.txt&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/QuickOutline/Scripts/Outline.cs&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/Quantum Tek/Quantum UI/Scripts/QUI_Element.cs" />
+    <property name="com.google.cloudcode.ide_session_index" value="20201215_0020" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
     <property name="nodejs.cucumber.cucumber_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RestClientSettings">
@@ -124,12 +230,12 @@
     <configuration name="All in rest-api" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="50582">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="50582" />
+      <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -138,7 +244,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -171,7 +277,11 @@
       <workItem from="1607562905494" duration="5009000" />
       <workItem from="1607627794146" duration="645000" />
       <workItem from="1607642482168" duration="326000" />
-      <workItem from="1607654223251" duration="35292000" />
+      <workItem from="1607654223251" duration="36517000" />
+      <workItem from="1607961882209" duration="454000" />
+      <workItem from="1607962424638" duration="478000" />
+      <workItem from="1607963100943" duration="1587000" />
+      <workItem from="1607992992162" duration="200000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -320,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607916106559</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="updates">
+      <created>1607917036356</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1607917036356</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,45 +447,23 @@
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="290" />
+    <option name="symbolColumnWidth" value="397" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 21598/21598" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 21598/21598" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 45/45" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="CardsTestScript 0% 18/18" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="CardsTestScript 0% 18/18" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="CardsTestScriptWithEnumeratorPasses() 0% 3/3" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 0% 18888/18888" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Tests 0% 34/34" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PokerTestScript 0% 16/16" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 0% 21598/21598" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 45/45" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Tests 0% 45/45" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -399,131 +494,5 @@
     <MESSAGE value="Unit tests" />
     <MESSAGE value="updates" />
     <option name="LAST_COMMIT_MESSAGE" value="updates" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1164" y="446" key="#Menus_and_Toolbars" timestamp="1607539249576">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1164" y="446" key="#Menus_and_Toolbars/0.25.2560.1415@0.25.2560.1415" timestamp="1607539249576" />
-    <state x="1215" y="591" width="700" height="559" key="#Vim_Emulation" timestamp="1607540526604">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1215" y="591" width="700" height="559" key="#Vim_Emulation/0.25.2560.1415@0.25.2560.1415" timestamp="1607540526604" />
-    <state x="933" y="380" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605739498481">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="933" y="380" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1605739498481" />
-    <state x="1104" y="400" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1607563854546">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1104" y="400" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607563854546" />
-    <state x="1110" y="595" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1606966619544">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1110" y="595" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.25.2560.1415@0.25.2560.1415" timestamp="1606966619544" />
-    <state width="2217" height="244" key="GridCell.Tab.0.bottom" timestamp="1607903624982">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624982" />
-    <state width="2217" height="244" key="GridCell.Tab.0.center" timestamp="1607903624982">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624982" />
-    <state width="2217" height="244" key="GridCell.Tab.0.left" timestamp="1607903624981">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624981" />
-    <state width="2217" height="244" key="GridCell.Tab.0.right" timestamp="1607903624982">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624982" />
-    <state width="2217" height="244" key="GridCell.Tab.1.bottom" timestamp="1607903624984">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.1.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624984" />
-    <state width="2217" height="244" key="GridCell.Tab.1.center" timestamp="1607903624983">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.1.center/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624983" />
-    <state width="2217" height="244" key="GridCell.Tab.1.left" timestamp="1607903624983">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.1.left/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624983" />
-    <state width="2217" height="244" key="GridCell.Tab.1.right" timestamp="1607903624983">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.1.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624983" />
-    <state width="2217" height="244" key="GridCell.Tab.2.bottom" timestamp="1607903624985">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.2.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624985" />
-    <state width="2217" height="244" key="GridCell.Tab.2.center" timestamp="1607903624984">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.2.center/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624984" />
-    <state width="2217" height="244" key="GridCell.Tab.2.left" timestamp="1607903624984">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.2.left/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624984" />
-    <state width="2217" height="244" key="GridCell.Tab.2.right" timestamp="1607903624985">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.2.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624985" />
-    <state width="2217" height="244" key="GridCell.Tab.3.bottom" timestamp="1607903624987">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.3.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624987" />
-    <state width="2217" height="244" key="GridCell.Tab.3.center" timestamp="1607903624986">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.3.center/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624986" />
-    <state width="2217" height="244" key="GridCell.Tab.3.left" timestamp="1607903624985">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.3.left/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624985" />
-    <state width="2217" height="244" key="GridCell.Tab.3.right" timestamp="1607903624986">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="2217" height="244" key="GridCell.Tab.3.right/0.25.2560.1415@0.25.2560.1415" timestamp="1607903624986" />
-    <state x="1174" y="449" key="RiderGenerateDialog" timestamp="1607899667562">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1174" y="449" key="RiderGenerateDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607899667562" />
-    <state x="716" y="321" width="1391" height="859" key="SettingsEditor" timestamp="1607873369081">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="716" y="321" width="1391" height="859" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1607873369081" />
-    <state x="1223" y="557" key="SimpleOpenTaskDialog" timestamp="1605739546401">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1223" y="557" key="SimpleOpenTaskDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1605739546401" />
-    <state x="401" y="125" width="2059" height="1193" key="VCS.FileHistoryDialog" timestamp="1607874455788">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="401" y="125" width="2059" height="1193" key="VCS.FileHistoryDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607874455788" />
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2" timestamp="1607916109712">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="950" y="458" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607916109712" />
-    <state width="1209" height="696" key="XDebugger.FullValuePopup" timestamp="1607134031496">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state width="1209" height="696" key="XDebugger.FullValuePopup/0.25.2560.1415@0.25.2560.1415" timestamp="1607134031496" />
-    <state x="1296" y="570" width="657" height="519" key="cloudConfig.SelfSettingsDialog" timestamp="1607628057255">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1296" y="570" width="657" height="519" key="cloudConfig.SelfSettingsDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1607628057255" />
-    <state x="1152" y="639" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607540507719">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1152" y="639" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.2560.1415@0.25.2560.1415" timestamp="1607540507719" />
-    <state x="1095" y="339" width="670" height="675" key="run.anything.popup" timestamp="1607611370919">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1095" y="339" width="670" height="675" key="run.anything.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1607611370919" />
-    <state x="1013" y="342" width="672" height="678" key="search.everywhere.popup" timestamp="1607915542170">
-      <screen x="0" y="25" width="2560" height="1415" />
-    </state>
-    <state x="1013" y="342" width="672" height="678" key="search.everywhere.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1607915542170" />
   </component>
 </project>

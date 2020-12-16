@@ -7,6 +7,7 @@ using QuantumTek.QuantumUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+// ReSharper disable HeapView.BoxingAllocation
 
 public class TablePosition : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class TablePosition : MonoBehaviour
     public int index;
 
     private Player myPlayer;
+    private PlayerAction previousAction;
 
     public void Awake()
     {
@@ -40,8 +42,8 @@ public class TablePosition : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        myPlayer = Manager.Instance.Game.PlayerAtTablePosition(index);
-        Game game = Manager.Instance.Game;
+        myPlayer = Manager.Instance.game.PlayerAtTablePosition(index);
+        Game game = Manager.Instance.game;
 
         if (myPlayer == null)
         {
@@ -70,13 +72,18 @@ public class TablePosition : MonoBehaviour
         }
 
         // LastAction
-        string lastAction = myPlayer.LastAction.Action == PlayerAction.None
-            ? ""
-            : myPlayer.LastAction.Action.ToString();
-        lastActionText
-            .SetText(myPlayer.LastAction.Amount > 0
-                ? $"{lastAction} (${myPlayer.LastAction.Amount})"
-                : $"{lastAction}");
+        // string lastAction = myPlayer.LastAction.Action == PlayerAction.None
+        //     ? ""
+        //     : myPlayer.LastAction.Action.ToString();
+        // lastActionText
+        //     .SetText(myPlayer.LastAction.Amount > 0
+        //         ? $"{lastAction} (${myPlayer.LastAction.Amount})"
+        //         : $"{lastAction}");
+        
+        if (previousAction != myPlayer.LastAction.Action && myPlayer.LastAction.Action != PlayerAction.None)
+        {
+            StartCoroutine(showLastAction(TimeSpan.FromSeconds(5)));
+        }
 
         // Stacks
         stackText.SetText($"${myPlayer.Money.Stack}");
@@ -108,9 +115,25 @@ public class TablePosition : MonoBehaviour
         }
     }
 
+    IEnumerator showLastAction(TimeSpan delay)
+    {
+        string lastAction = myPlayer.LastAction.Action == PlayerAction.None
+            ? ""
+            : myPlayer.LastAction.Action.ToString();
+        lastActionText
+            .SetText(myPlayer.LastAction.Amount > 0
+                ? $"{lastAction} (${myPlayer.LastAction.Amount})"
+                : $"{lastAction}");
+
+        yield return new WaitForSeconds(delay.Seconds);
+        lastActionText.SetText("");
+
+        previousAction = myPlayer.LastAction.Action;
+    }
+    
     private void ShowCards()
     {
-        Game game = Manager.Instance.Game;
+        Game game = Manager.Instance.game;
         
         if (Game.HasState(myPlayer.State, PlayerState.Folded))
         {
@@ -118,7 +141,7 @@ public class TablePosition : MonoBehaviour
             return;
         }
         
-        if (Manager.Instance.Game.GameFinished()) 
+        if (Manager.Instance.game.GameFinished()) 
         {
             CardsAtPosition(myPlayer.Card);
         }
@@ -130,7 +153,7 @@ public class TablePosition : MonoBehaviour
             }
             else
             {
-                if (Manager.Instance.Game.GameState > GameState.ReadyToStart)
+                if (Manager.Instance.game.GameState > GameState.ReadyToStart)
                 {
                     FaceDownCardsAtPosition();
                 }
@@ -227,7 +250,7 @@ public class TablePosition : MonoBehaviour
     /// <param name="position"></param>
     private void ShowToken(Player p, TablePosition position)
     {
-        Game game = Manager.Instance.Game;
+        Game game = Manager.Instance.game;
         
         if (game.IsButton(p))
         {

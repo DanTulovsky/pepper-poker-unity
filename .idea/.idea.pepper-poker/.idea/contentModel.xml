@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.gitignore_global" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/consoles/ide" t="IncludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_pepper-poker.-845602599.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_pepper-poker.-845602599.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
-      <e p=".git/info/exclude" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
-      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -19,50 +16,6 @@
               <e p="netstandard2.0" t="Include">
                 <e p="Humanizer.xml" t="Include" />
               </e>
-            </e>
-          </e>
-        </e>
-        <e p="PathCreator" t="Include">
-          <e p="Core" t="Include">
-            <e p="Editor" t="Include">
-              <e p="Helper" t="Include">
-                <e p="MouseUtility.cs" t="Include" />
-                <e p="PathHandle.cs" t="Include" />
-                <e p="ScreenSpacePolyLine.cs" t="Include" />
-              </e>
-              <e p="PathCreatorEditor.asmdef" t="Include" />
-              <e p="PathEditor.cs" t="Include" />
-            </e>
-            <e p="Runtime" t="Include">
-              <e p="Objects" t="Include">
-                <e p="BezierPath.cs" t="Include" />
-                <e p="EndOfPathInstruction.cs" t="Include" />
-                <e p="GlobalDisplaySettings.cs" t="Include" />
-                <e p="MinMax3D.cs" t="Include" />
-                <e p="PathCreator.cs" t="Include" />
-                <e p="PathCreatorData.cs" t="Include" />
-                <e p="PathSpace.cs" t="Include" />
-                <e p="VertexPath.cs" t="Include" />
-              </e>
-              <e p="PathCreator.asmdef" t="Include" />
-              <e p="Utility" t="Include">
-                <e p="CubicBezierUtility.cs" t="Include" />
-                <e p="MathUtility.cs" t="Include" />
-                <e p="VertexPathUtility.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="Examples" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="Editor" t="Include">
-                <e p="PathSceneToolEditor.cs" t="Include" />
-              </e>
-              <e p="GeneratePathExample.cs" t="Include" />
-              <e p="PathFollower.cs" t="Include" />
-              <e p="PathPlacer.cs" t="Include" />
-              <e p="PathSceneTool.cs" t="Include" />
-              <e p="PathSpawner.cs" t="Include" />
-              <e p="RoadMeshCreator.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -284,6 +237,50 @@
             </e>
             <e p="License.txt" t="Include" />
             <e p="ReadMe.txt" t="Include" />
+          </e>
+          <e p="PathCreator" t="Include">
+            <e p="Core" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Helper" t="Include">
+                  <e p="MouseUtility.cs" t="Include" />
+                  <e p="PathHandle.cs" t="Include" />
+                  <e p="ScreenSpacePolyLine.cs" t="Include" />
+                </e>
+                <e p="PathCreatorEditor.asmdef" t="Include" />
+                <e p="PathEditor.cs" t="Include" />
+              </e>
+              <e p="Runtime" t="Include">
+                <e p="Objects" t="Include">
+                  <e p="BezierPath.cs" t="Include" />
+                  <e p="EndOfPathInstruction.cs" t="Include" />
+                  <e p="GlobalDisplaySettings.cs" t="Include" />
+                  <e p="MinMax3D.cs" t="Include" />
+                  <e p="PathCreator.cs" t="Include" />
+                  <e p="PathCreatorData.cs" t="Include" />
+                  <e p="PathSpace.cs" t="Include" />
+                  <e p="VertexPath.cs" t="Include" />
+                </e>
+                <e p="PathCreator.asmdef" t="Include" />
+                <e p="Utility" t="Include">
+                  <e p="CubicBezierUtility.cs" t="Include" />
+                  <e p="MathUtility.cs" t="Include" />
+                  <e p="VertexPathUtility.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Examples" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="PathSceneToolEditor.cs" t="Include" />
+                </e>
+                <e p="GeneratePathExample.cs" t="Include" />
+                <e p="PathFollower.cs" t="Include" />
+                <e p="PathPlacer.cs" t="Include" />
+                <e p="PathSceneTool.cs" t="Include" />
+                <e p="PathSpawner.cs" t="Include" />
+                <e p="RoadMeshCreator.cs" t="Include" />
+              </e>
+            </e>
           </e>
           <e p="Playing Cards" t="Include">
             <e p="Image Effects" t="Include">

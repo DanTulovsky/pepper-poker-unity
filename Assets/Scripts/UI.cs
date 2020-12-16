@@ -174,10 +174,10 @@ public class UI : MonoBehaviour
 // Start is called before the first frame update
     public void Start()
     {
-        game = Manager.Instance.Game;
+        game = Manager.Instance.game;
         Assert.IsNotNull(game);
         
-        clientInfo = Manager.Instance.ClientInfo;
+        clientInfo = Manager.Instance.clientInfo;
         Assert.IsNotNull(clientInfo);
 
         Assert.IsNotNull(Manager.Instance.tablePositions);

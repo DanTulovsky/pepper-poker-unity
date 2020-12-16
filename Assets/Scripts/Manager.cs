@@ -13,10 +13,10 @@ public class Manager : Singleton<Manager>
     private long lastTurnID = -1;
     private string lastAckToken = "";
 
-    [NonSerialized] public readonly ClientInfo ClientInfo = new ClientInfo();
+    [NonSerialized] public readonly ClientInfo clientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
-    [NonSerialized] public readonly Game Game = new Game();
+    [NonSerialized] public readonly Game game = new Game();
 
     public List<TablePosition> tablePositions;
 
@@ -61,19 +61,19 @@ public class Manager : Singleton<Manager>
 
     private void DoRegister()
     {
-        ClientInfo.PlayerUsername = uiUpdater.playerUsernameInput.text;
-        ClientInfo.Password = uiUpdater.playerPasswordInput.text;
+        clientInfo.PlayerUsername = uiUpdater.playerUsernameInput.text;
+        clientInfo.Password = uiUpdater.playerPasswordInput.text;
 
         try
         {
-            ClientInfo.PlayerID = pokerClient.Register(ClientInfo);
+            clientInfo.PlayerID = pokerClient.Register(clientInfo);
         }
         catch (RpcException)
         {
             return;
         }
 
-        uiUpdater.playerUsernameDisplay.SetText(ClientInfo.PlayerUsername);
+        uiUpdater.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
     }
 
     private void DoJoinTable()
@@ -82,15 +82,15 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            (ClientInfo.TableID, Game.PlayerRealPosition) = pokerClient.JoinTable(ClientInfo);
+            (clientInfo.TableID, game.PlayerRealPosition) = pokerClient.JoinTable(clientInfo);
         }
         catch (RpcException)
         {
             return;
         }
 
-        Debug.Log("Table ID: " + ClientInfo.TableID);
-        Debug.Log("Player Position: " + Game.PlayerRealPosition);
+        Debug.Log("Table ID: " + clientInfo.TableID);
+        Debug.Log("Player Position: " + game.PlayerRealPosition);
 
         // Kick off background refresh thread for Game
         StartInfoStream();
@@ -98,14 +98,14 @@ public class Manager : Singleton<Manager>
 
     public void ActionAllIn()
     {
-        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             return;
         }
 
         try
         {
-            pokerClient.ActionAllIn(ClientInfo);
+            pokerClient.ActionAllIn(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -113,7 +113,7 @@ public class Manager : Singleton<Manager>
             return;
         }
 
-        lastTurnID = Game.WaitTurnNum();
+        lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionBuyIn()
@@ -122,7 +122,7 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            pokerClient.ActionBuyIn(ClientInfo);
+            pokerClient.ActionBuyIn(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -130,19 +130,19 @@ public class Manager : Singleton<Manager>
             return;
         }
 
-        lastTurnID = Game.WaitTurnNum();
+        lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionCheck()
     {
-        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             return;
         }
 
         try
         {
-            pokerClient.ActionCheck(ClientInfo);
+            pokerClient.ActionCheck(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -150,19 +150,19 @@ public class Manager : Singleton<Manager>
             return;
         }
 
-        lastTurnID = Game.WaitTurnNum();
+        lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionCall()
     {
-        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             return;
         }
 
         try
         {
-            pokerClient.ActionCall(ClientInfo);
+            pokerClient.ActionCall(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -170,19 +170,19 @@ public class Manager : Singleton<Manager>
             return;
         }
 
-        lastTurnID = Game.WaitTurnNum();
+        lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionFold()
     {
-        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             return;
         }
 
         try
         {
-            pokerClient.ActionFold(ClientInfo);
+            pokerClient.ActionFold(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
@@ -190,12 +190,12 @@ public class Manager : Singleton<Manager>
             return;
         }
 
-        lastTurnID = Game.WaitTurnNum();
+        lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionBet()
     {
-        if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             return;
         }
@@ -214,7 +214,7 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            pokerClient.ActionBet(ClientInfo, amount);
+            pokerClient.ActionBet(clientInfo, amount);
         }
         catch (InvalidTurnException ex)
         {
@@ -222,12 +222,12 @@ public class Manager : Singleton<Manager>
             return;
         }
 
-        lastTurnID = Game.WaitTurnNum();
+        lastTurnID = game.WaitTurnNum();
     }
 
     private void StartInfoStream()
     {
-        stream = pokerClient.GetGameDataStreaming(ClientInfo);
+        stream = pokerClient.GetGameDataStreaming(clientInfo);
 
         Debug.Log("Starting server stream listener...");
         StartCoroutine(nameof(StartServerStream));
@@ -246,8 +246,8 @@ public class Manager : Singleton<Manager>
                 tokenSource.Token.ThrowIfCancellationRequested();
 
                 GameData gd = stream.ResponseStream.Current;
-                Game.Set(gd);
-                Game.PlayerRealPosition = gd.Player.Position;
+                game.Set(gd);
+                game.PlayerRealPosition = gd.Player.Position;
 
                 Debug.Log($"> {gd}");
 
@@ -292,7 +292,7 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            pokerClient.ActionAckToken(ClientInfo, token);
+            pokerClient.ActionAckToken(clientInfo, token);
         }
         catch (InvalidTurnException ex)
         {
