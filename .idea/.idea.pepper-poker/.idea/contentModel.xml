@@ -373,6 +373,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AvatarAnimations.cs" t="Include" />
           <e p="Cards.cs" t="Include" />
           <e p="Game.cs" t="Include" />
           <e p="Generated" t="Include">

@@ -9,6 +9,7 @@ using UnityEngine;
 public class Manager : Singleton<Manager>
 {
     public UI uiUpdater;
+    public AvatarAnimations anim;
     private PokerClient pokerClient;
     private long lastTurnID = -1;
     private string lastAckToken = "";
@@ -70,6 +71,7 @@ public class Manager : Singleton<Manager>
         }
         catch (RpcException)
         {
+            anim.AnimateShrug();
             return;
         }
 
@@ -86,6 +88,7 @@ public class Manager : Singleton<Manager>
         }
         catch (RpcException)
         {
+            anim.AnimateShrug();
             return;
         }
 
@@ -100,6 +103,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
+            anim.AnimateShrug();
             return;
         }
 
@@ -110,6 +114,7 @@ public class Manager : Singleton<Manager>
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
+            anim.AnimateShrug();
             return;
         }
 
@@ -127,6 +132,7 @@ public class Manager : Singleton<Manager>
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
+            anim.AnimateShrug();
             return;
         }
 
@@ -137,6 +143,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
+            anim.AnimateShrug();
             return;
         }
 
@@ -147,6 +154,7 @@ public class Manager : Singleton<Manager>
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
+            anim.AnimateShrug();
             return;
         }
 
@@ -157,6 +165,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
+            anim.AnimateShrug();
             return;
         }
 
@@ -167,6 +176,7 @@ public class Manager : Singleton<Manager>
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
+            anim.AnimateShrug();
             return;
         }
 
@@ -177,6 +187,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
+            anim.AnimateShrug();
             return;
         }
 
@@ -187,6 +198,7 @@ public class Manager : Singleton<Manager>
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
+            anim.AnimateShrug();
             return;
         }
 
@@ -197,6 +209,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
+            anim.AnimateShrug();
             return;
         }
 
@@ -209,6 +222,7 @@ public class Manager : Singleton<Manager>
         catch (FormatException ex)
         {
             Debug.Log($"({input}) {ex}");
+            anim.AnimateShrug();
             return;
         }
 
@@ -219,6 +233,7 @@ public class Manager : Singleton<Manager>
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex);
+            anim.AnimateShrug();
             return;
         }
 
@@ -242,14 +257,13 @@ public class Manager : Singleton<Manager>
         {
             while (await stream.ResponseStream.MoveNext())
             {
-                Debug.Log("got data");
                 tokenSource.Token.ThrowIfCancellationRequested();
 
                 GameData gd = stream.ResponseStream.Current;
                 game.Set(gd);
                 game.PlayerRealPosition = gd.Player.Position;
 
-                Debug.Log($"> {gd}");
+                // Debug.Log($"> {gd}");
 
                 AckIfNeeded(gd.Info.AckToken);
             }

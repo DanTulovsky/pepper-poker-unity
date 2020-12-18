@@ -11,33 +11,46 @@ using Resources = UnityEngine.Resources;
 
 public class UI : MonoBehaviour
 {
-    [Header("Text Fields")] public TMP_Text playerUsernameDisplay;
+    [Header("Text Fields")] 
+    public TMP_Text playerUsernameDisplay;
     public TMP_Text blindsDisplay;
     public TMP_Text tableStatusDisplay;
     public TMP_Text gameStartsTime;
 
-    [Header("Money Text Fields")] public TMP_Text stackAmount;
+    [Header("Money Text Fields")] 
+    public TMP_Text stackAmount;
     public TMP_Text bankAmount;
     public TMP_Text totalBetThisHandAmount;
     public TMP_Text minBetThisRoundAmount;
     public TMP_Text currentBetAmount;
     public TMP_Text potAmount;
 
-    [Header("Input Fields")] public TMP_InputField playerUsernameInput;
+    [Header("Input Fields")] 
+    public TMP_InputField playerUsernameInput;
     public TMP_InputField playerPasswordInput;
     public TMP_InputField betAmountInput;
 
 
-    [Header("Table Game Objects")] public QUI_Window gameStartsInfo;
+    [Header("Table Game Objects")] 
+    public QUI_Window gameStartsInfo;
     public GameObject gameStartsRadialBar;
     public GameObject communityCardLocation;
     public QUI_Window winnersWindow;
     public TMP_Text winnersWindowHeading;
+    
+    [Header("Table Game Objects (Tokens)")] 
     public GameObject buttonToken;
     public GameObject smallBlindToken;
     public GameObject bigBlindToken;
     
-    public Object cardBlankPrefab;
+    [Header("Table Game Objects (Prefabs)")] 
+    public GameObject actionAllInPrefab;
+    public GameObject actionBetPrefab;
+    public GameObject actionCallPrefab;
+    public GameObject actionCheckPrefab;
+    public GameObject actionFoldPrefab;
+    public GameObject cardBlankPrefab;
+    
     private Game game;
     private GameState lastGameState;
     private ClientInfo clientInfo;
@@ -190,12 +203,11 @@ public class UI : MonoBehaviour
         foreach (TablePosition t in Manager.Instance.tablePositions)
         {
             t.nameText.SetText("");
-            t.lastActionText.SetText("");
             t.stackText.SetText("");
             t.radialBar.gameObject.SetActive(false);
         }
 
-        cardBlankPrefab = Resources.Load(Cards.BlankCard());
+        cardBlankPrefab = (GameObject) Resources.Load(Cards.BlankCard());
         if (cardBlankPrefab == null)
         {
             throw new FileNotFoundException(Cards.BlankCard() + " no file found - please check the configuration");

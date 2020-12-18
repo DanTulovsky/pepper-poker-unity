@@ -36,7 +36,7 @@ public class PokerClient {
     }
 
     internal (string id, long position) JoinTable(ClientInfo clientInfo) {
-        Debug.Log("Calling JoinTable");
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionJoinTable");
         JoinTableRequest req = new JoinTableRequest {
             ClientInfo = clientInfo,
         };
@@ -70,7 +70,7 @@ public class PokerClient {
 
     // ActionBet used for Raise
     internal void ActionBet(ClientInfo clientInfo, long amount) {
-        Debug.Log("Calling ActionBet: " + amount);
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionBet ({amount})");
         TakeTurnRequest req = new TakeTurnRequest
         {
             ClientInfo = clientInfo,
@@ -87,7 +87,7 @@ public class PokerClient {
 
     // ActionAckToken acks a token
     internal void ActionAckToken(ClientInfo clientInfo, string token) {
-        Debug.Log("Calling ActionAck");
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionAck");
         AckTokenRequest req = new AckTokenRequest
         {
             ClientInfo = clientInfo,
@@ -106,7 +106,7 @@ public class PokerClient {
     
     // ActionAllIn goes all in
     internal void ActionAllIn(ClientInfo clientInfo) {
-        Debug.Log("Calling ActionAllIn");
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionAllIn");
         TakeTurnRequest req = new TakeTurnRequest
         {
             ClientInfo = clientInfo,
@@ -123,7 +123,7 @@ public class PokerClient {
     
     // ActionBuyIn adds more money to the stack
     internal void ActionBuyIn(ClientInfo clientInfo) {
-        Debug.Log("Calling ActionBuyIn");
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionBuyIn");
         TakeTurnRequest req = new TakeTurnRequest
         {
             ClientInfo = clientInfo,
@@ -139,7 +139,7 @@ public class PokerClient {
     
     // ActionCall call
     internal void ActionCall(ClientInfo clientInfo) {
-        Debug.Log("Calling ActionCall");
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionCall");
         TakeTurnRequest req = new TakeTurnRequest
         {
             ClientInfo = clientInfo,
@@ -154,7 +154,7 @@ public class PokerClient {
     }
 
     internal void ActionCheck(ClientInfo clientInfo) {
-        Debug.Log("Calling ActionCheck");
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionCheck");
         TakeTurnRequest req = new TakeTurnRequest
         {
             ClientInfo = clientInfo,
@@ -169,7 +169,7 @@ public class PokerClient {
     }
 
     internal void ActionFold(ClientInfo clientInfo) {
-        Debug.Log("Calling ActionFold");
+        Debug.Log($"{clientInfo.PlayerUsername} Calling ActionFold");
         TakeTurnRequest req = new TakeTurnRequest
         {
             ClientInfo = clientInfo,
