@@ -93,6 +93,8 @@ public class Manager : Singleton<Manager>
         }
 
         uiUpdater.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
+        StartCoroutine(tablePositions[3].avatar.Say($"Hi there {clientInfo.PlayerUsername}!"));
+        tablePositions[3].avatar.AnimateWave();
     }
 
     private void DoJoinTable()
