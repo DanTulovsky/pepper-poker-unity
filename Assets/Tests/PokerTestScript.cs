@@ -116,7 +116,7 @@ namespace Tests
                     GameStartsInSec = 0,
                     AckToken = "",
                     
-                    CommunityCards = new CommunityCards
+                    CommunityCards = new Poker.CommunityCards
                     {
                         Card =
                         {

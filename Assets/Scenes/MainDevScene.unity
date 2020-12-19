@@ -329,7 +329,6 @@ MonoBehaviour:
   betAmountInput: {fileID: 1259554987}
   gameStartsInfo: {fileID: 113855208}
   gameStartsRadialBar: {fileID: 1954187109}
-  communityCardLocation: {fileID: 1937830853}
   winnersWindow: {fileID: 1035500856}
   winnersWindowHeading: {fileID: 1287235637}
   buttonToken: {fileID: 1923668816}
@@ -370,8 +369,8 @@ MonoBehaviour:
   title: UI Improvements
   textList:
   - s: 'Fix LastAction - should popup and stay active '
-    state: 0
-    show: 1
+    state: 3
+    show: 0
     deleteQuestion: 0
 --- !u!1 &61255016 stripped
 GameObject:
@@ -991,7 +990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f4c85c03da14420bb308ddc2115a104, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9f4c85c03da14420bb308ddc2115a104, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1347,7 +1346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9f4c85c03da14420bb308ddc2115a104, type: 3}
       propertyPath: m_Name
-      value: Ch46_nonPBR@Thoughtful Head Shake
+      value: Avatar
       objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: 9f4c85c03da14420bb308ddc2115a104, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1860,7 +1859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiUpdater: {fileID: 44096163}
-  anim: {fileID: 1129434965}
+  avatar: {fileID: 1129434965}
   tablePositions:
   - {fileID: 464393822}
   - {fileID: 641742932}
@@ -21185,6 +21184,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1129434964}
+--- !u!114 &1129434966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129434963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedBlackboard: '{"_variables":{}}'
+  _objectReferences: []
+  _serializedVariables: []
+--- !u!114 &1129434967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129434963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad115aca74ce3c4891b3f6de0b4aae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedExposedParameters: []
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":675.0,"y":315.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphObjectReferences: []
+  _boundGraphSource:
+    _version: 3.08
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _firstActivation: 0
+  _enableAction: 0
+  _disableAction: 0
+  _lockBoundGraphPrefabOverrides: 1
+  _preInitializeSubGraphs: 0
+  _updateMode: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 1129434966}
 --- !u!1 &1189368505
 GameObject:
   m_ObjectHideFlags: 0
@@ -44628,6 +44671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937830854}
+  - component: {fileID: 1937830855}
   m_Layer: 5
   m_Name: CommunityCard0
   m_TagString: Untagged
@@ -44654,6 +44698,19 @@ RectTransform:
   m_AnchoredPosition: {x: -261, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1937830855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937830853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bee3d55bbaab4412a6b7275e48e8da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  communityCardLocation: {fileID: 1937830853}
 --- !u!1 &1943376399
 GameObject:
   m_ObjectHideFlags: 0

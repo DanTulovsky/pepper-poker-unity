@@ -6,57 +6,52 @@ using QuantumTek.QuantumUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
-using Object = UnityEngine.Object;
 using Resources = UnityEngine.Resources;
 
 public class UI : MonoBehaviour
 {
-    [Header("Text Fields")] 
-    public TMP_Text playerUsernameDisplay;
+    [Header("Text Fields")] public TMP_Text playerUsernameDisplay;
     public TMP_Text blindsDisplay;
     public TMP_Text tableStatusDisplay;
     public TMP_Text gameStartsTime;
 
-    [Header("Money Text Fields")] 
-    public TMP_Text stackAmount;
+    [Header("Money Text Fields")] public TMP_Text stackAmount;
     public TMP_Text bankAmount;
     public TMP_Text totalBetThisHandAmount;
     public TMP_Text minBetThisRoundAmount;
     public TMP_Text currentBetAmount;
     public TMP_Text potAmount;
 
-    [Header("Input Fields")] 
-    public TMP_InputField playerUsernameInput;
+    [Header("Input Fields")] public TMP_InputField playerUsernameInput;
     public TMP_InputField playerPasswordInput;
     public TMP_InputField betAmountInput;
 
 
-    [Header("Table Game Objects")] 
-    public QUI_Window gameStartsInfo;
+    [Header("Table Game Objects")] public QUI_Window gameStartsInfo;
     public GameObject gameStartsRadialBar;
-    public GameObject communityCardLocation;
     public QUI_Window winnersWindow;
     public TMP_Text winnersWindowHeading;
-    
-    [Header("Table Game Objects (Tokens)")] 
+
+    [Header("Table Game Objects (Tokens)")]
     public GameObject buttonToken;
+
     public GameObject smallBlindToken;
     public GameObject bigBlindToken;
-    
-    [Header("Table Game Objects (Prefabs)")] 
+
+    [Header("Table Game Objects (Prefabs)")]
     public GameObject actionAllInPrefab;
+
     public GameObject actionBetPrefab;
     public GameObject actionCallPrefab;
     public GameObject actionCheckPrefab;
     public GameObject actionFoldPrefab;
     public GameObject cardBlankPrefab;
-    
+
     private Game game;
     private GameState lastGameState;
     private ClientInfo clientInfo;
 
     private QUI_Bar radialBarGameStart;
-
 
     // Update updates the UI based on game
     private void UpdateUI()
@@ -89,7 +84,6 @@ public class UI : MonoBehaviour
             gameStartsInfo.SetActive(false);
         }
 
-        ShowCommunityCards(game.CommunityCards());
 
         if (game.GameFinished())
         {
@@ -103,68 +97,6 @@ public class UI : MonoBehaviour
 
         lastGameState = game.GameState.GetValueOrDefault();
     }
-
-// ShowWinners displays the winning window
-    private void ShowWinners()
-    {
-        // Only run this once per finished game
-        if (lastGameState == GameState.Finished) return;
-        winnersWindow.SetActive(true);
-
-        var winningPlayers = game.WinningPlayers();
-        for (int j = 0; j < winningPlayers.Count; j++)
-        {
-            var level = winningPlayers[j];
-
-            for (int i = 0; i < level.Count; i++)
-            {
-                Player player = level[i];
-
-                int pos = game.TablePosition(player);
-                TimeSpan delay = TimeSpan.FromSeconds(i * j * 5);
-
-                if (player.Money.Winnings > 0)
-                {
-                    StartCoroutine(Manager.Instance.tablePositions[pos].PlayWinnerParticles(delay));
-                    winnersWindowHeading.SetText(player.Combo);
-                }
-            }
-        }
-    }
-
-
-    private void ShowCommunityCards(CommunityCards cc)
-    {
-        const int offset = 180; // cards next to each other
-        GameObject parent = communityCardLocation;
-
-        RemoveChildren(parent);
-        for (int i = 0;
-            i < cc?.Card.Count;
-            i++)
-        {
-            string file = Cards.FileForCard(cc.Card[i]);
-            Object cardPrefab = Resources.Load(file);
-            if (cardPrefab == null)
-            {
-                throw new FileNotFoundException(file + " not file found - please check the configuration");
-            }
-
-            GameObject cardObject = Instantiate(cardPrefab, new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
-            Assert.IsNotNull(cardObject);
-
-            // Debug.Assert(cardObject != null, nameof(cardObject) + " != null");
-
-            cardObject.transform.parent = parent.transform;
-            cardObject.transform.Rotate(new Vector3(-90, 0, 0));
-            Vector3 position = parent.transform.position;
-            cardObject.transform.position = new Vector3(
-                position.x + i * offset, position.y, position.z);
-            cardObject.transform.localScale = new Vector3(12, 12, 12);
-        }
-    }
-
-
 
     public static void RemoveChildren(GameObject parent)
     {
@@ -182,6 +114,35 @@ public class UI : MonoBehaviour
             DestroyImmediate(child);
         }
     }
+    /// <summary>
+    /// Display winners.
+    /// </summary>
+    private void ShowWinners()
+    {
+        // Only run this once per finished game
+        if (lastGameState == GameState.Finished) return;
+        winnersWindow.SetActive(true);
+
+        var winningPlayers = game.WinningPlayers();
+        for (int j = 0; j < winningPlayers.Count; j++)
+        {
+            var level = winningPlayers[j];
+
+            for (int i = 0; i < level.Count; i++)
+            {
+                Player player = level[i];
+
+                int pos = game.TablePosition(player);
+                TimeSpan delay = TimeSpan.FromSeconds(i * j * 2);
+
+                if (player.Money.Winnings > 0)
+                {
+                    StartCoroutine(Manager.Instance.tablePositions[pos].PlayWinnerParticles(delay));
+                    winnersWindowHeading.SetText(player.Combo);
+                }
+            }
+        }
+    }
 
 
 // Start is called before the first frame update
@@ -189,17 +150,17 @@ public class UI : MonoBehaviour
     {
         game = Manager.Instance.game;
         Assert.IsNotNull(game);
-        
+
         clientInfo = Manager.Instance.clientInfo;
         Assert.IsNotNull(clientInfo);
 
         Assert.IsNotNull(Manager.Instance.tablePositions);
-        
+
         radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
         buttonToken.SetActive(false);
         smallBlindToken.SetActive(false);
         bigBlindToken.SetActive(false);
-        
+
         foreach (TablePosition t in Manager.Instance.tablePositions)
         {
             t.nameText.SetText("");

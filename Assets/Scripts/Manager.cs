@@ -5,14 +5,20 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Poker;
 using UnityEngine;
+using UnityEngine.Events;
+
+[Serializable]
+public class RpcErrorEvent : UnityEvent<string> { }
+public class GameFailedEvent : UnityEvent<string> { }
 
 public class Manager : Singleton<Manager>
 {
     public UI uiUpdater;
-    public AvatarAnimations anim;
     private PokerClient pokerClient;
     private long lastTurnID = -1;
     private string lastAckToken = "";
+
+    public Avatar avatar;
 
     [NonSerialized] public readonly ClientInfo clientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
@@ -25,7 +31,11 @@ public class Manager : Singleton<Manager>
     private AsyncServerStreamingCall<GameData> stream;
     //private Grpc.Core.Logging.LogLevelFilterLogger logger;
 
-    // Start is called before the first frame update
+    // On RPC error call these actions
+    // private UnityAction rpcErrorAction;
+    private RpcErrorEvent mRPCErrorEvent;
+    private GameFailedEvent mGameFailedEvent;
+    
     public void Awake()
     {
         //Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "info");
@@ -49,6 +59,15 @@ public class Manager : Singleton<Manager>
 
     }
 
+    private void Start()
+    {
+        // rpcErrorAction += avatar.AnimateShrug;
+        mRPCErrorEvent ??= new RpcErrorEvent();
+        mRPCErrorEvent.AddListener(avatar.AnimateShrug);
+        
+        mGameFailedEvent ??= new GameFailedEvent();
+        mGameFailedEvent.AddListener(avatar.AnimateDefeat);
+    }
 
     public void JoinTable()
     {
@@ -69,9 +88,9 @@ public class Manager : Singleton<Manager>
         {
             clientInfo.PlayerID = pokerClient.Register(clientInfo);
         }
-        catch (RpcException)
+        catch (RpcException ex)
         {
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -86,9 +105,9 @@ public class Manager : Singleton<Manager>
         {
             (clientInfo.TableID, game.PlayerRealPosition) = pokerClient.JoinTable(clientInfo);
         }
-        catch (RpcException)
+        catch (RpcException ex)
         {
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -103,7 +122,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke("Not your turn!");
             return;
         }
 
@@ -113,8 +132,7 @@ public class Manager : Singleton<Manager>
         }
         catch (InvalidTurnException ex)
         {
-            Debug.Log(ex);
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -123,16 +141,13 @@ public class Manager : Singleton<Manager>
 
     public void ActionBuyIn()
     {
-        // if (!Game.IsMyTurn(ClientInfo.PlayerID, lastTurnID)) { return; }
-
         try
         {
             pokerClient.ActionBuyIn(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
-            Debug.Log(ex);
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -143,7 +158,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke("Not your turn!");
             return;
         }
 
@@ -153,8 +168,7 @@ public class Manager : Singleton<Manager>
         }
         catch (InvalidTurnException ex)
         {
-            Debug.Log(ex);
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -165,7 +179,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke("Not your turn!");
             return;
         }
 
@@ -175,8 +189,7 @@ public class Manager : Singleton<Manager>
         }
         catch (InvalidTurnException ex)
         {
-            Debug.Log(ex);
-            anim.AnimateShrug();
+           mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -187,7 +200,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke("Not your turn!");
             return;
         }
 
@@ -197,8 +210,7 @@ public class Manager : Singleton<Manager>
         }
         catch (InvalidTurnException ex)
         {
-            Debug.Log(ex);
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -209,7 +221,7 @@ public class Manager : Singleton<Manager>
     {
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke("Not your turn!");
             return;
         }
 
@@ -221,8 +233,7 @@ public class Manager : Singleton<Manager>
         }
         catch (FormatException ex)
         {
-            Debug.Log($"({input}) {ex}");
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke($"(input: {input}) {ex}");
             return;
         }
 
@@ -232,8 +243,7 @@ public class Manager : Singleton<Manager>
         }
         catch (InvalidTurnException ex)
         {
-            Debug.Log(ex);
-            anim.AnimateShrug();
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -270,20 +280,20 @@ public class Manager : Singleton<Manager>
         }
         catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
         {
-            Debug.Log("Stream cancelled");
+            mGameFailedEvent.Invoke($"Stream cancelled: {ex}");
         }
-        catch (OperationCanceledException)
+        catch (OperationCanceledException ex)
         {
-            Debug.Log("server streaming thread cancelled...");
+            mGameFailedEvent.Invoke($"server streaming thread cancelled: {ex}");
             stream.Dispose();
         }
         catch (RpcException ex)
         {
-            Debug.Log(ex.ToString());
+            mGameFailedEvent.Invoke(ex.ToString());
         }
         catch (Exception ex)
         {
-            Debug.Log($"Server reading thread failed: {ex}");
+            mGameFailedEvent.Invoke($"Server reading thread failed: {ex}");
             Application.Quit();
         }
 
@@ -291,11 +301,6 @@ public class Manager : Singleton<Manager>
         return null;
     }
 
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
 
     private void AckIfNeeded(string token)
     {

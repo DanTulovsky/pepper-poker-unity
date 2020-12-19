@@ -20,55 +20,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
-      <change afterPath="$PROJECT_DIR$/Assets/Animator Controller.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animator Controller.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AvatarAnimations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Diffuse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Diffuse.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Glossiness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Glossiness.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Specular.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Specular.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_body.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_body.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_nonPBR@Thoughtful Head Shake.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Ch46_nonPBR@Thoughtful Head Shake.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionAllIn.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionAllIn.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionBet.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionBet.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionCall.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionCall.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionCheck.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionCheck.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionFold.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Prefabs/actionFold.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionAllIn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionAllIn.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionBet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionBet.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionCall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionCall.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionCheck.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionCheck.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionFold.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Textures/actionFold.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Diffuse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Diffuse.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Glossiness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Glossiness.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Specular.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Specular.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_body.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_body.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Defeated.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Defeated.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Idle.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Idle.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Thoughtful Head Shake.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Thoughtful Head Shake.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animator Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animator Controller.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AvatarAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Diffuse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Diffuse.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Glossiness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Glossiness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Specular.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Specular.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_body.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_body.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_nonPBR@Thoughtful Head Shake.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_nonPBR@Thoughtful Head Shake.fbx.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +79,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/ff/883d7d5b/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AvatarAnimations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Avatar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/0/IAsyncStreamReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/7/AsyncStreamReaderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/2b/737336de/Object.cs" root0="SKIP_HIGHLIGHTING" />
@@ -96,12 +88,17 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Animations.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AvatarAnimations.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Proto/poker.proto" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AvatarAnimations.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
     </changedPaths>
   </component>
   <component name="KubernetesApiPersistence">
@@ -126,12 +123,12 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34995425" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3000915" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/Assets/Plugins/TheTopicbirdTools/ToDoList/readme.txt&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/QuickOutline/Scripts/Outline.cs&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/Quantum Tek/Quantum UI/Scripts/QUI_Element.cs" />
-    <property name="com.google.cloudcode.ide_session_index" value="20201217_0022" />
+    <property name="com.google.cloudcode.ide_session_index" value="20201219_0013" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
     <property name="nodejs.cucumber.cucumber_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -167,10 +164,10 @@
     <configuration name="All in rest-api" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http">
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="9592">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="9592" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -221,7 +218,7 @@
       <workItem from="1607992992162" duration="246000" />
       <workItem from="1608084180696" duration="319000" />
       <workItem from="1608129149927" duration="216000" />
-      <workItem from="1608144406542" duration="12920000" />
+      <workItem from="1608144406542" duration="23217000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -384,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608084080122</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="updates">
+      <created>1608265519823</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1608265519823</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,5 +445,12 @@
     <MESSAGE value="Unit tests" />
     <MESSAGE value="updates" />
     <option name="LAST_COMMIT_MESSAGE" value="updates" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
+        <watch expression="shownCommunityCards" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

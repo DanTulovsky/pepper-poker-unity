@@ -98,7 +98,7 @@ public class TablePosition : MonoBehaviour
         radialBar.gameObject.SetActive(false);
 
         // tokens
-        ShowToken(myPlayer, this);
+        ShowToken(myPlayer);
 
         // Player whose turn it is
         if (myPlayer.Id == nextID)
@@ -127,7 +127,7 @@ public class TablePosition : MonoBehaviour
 
         DateTime start = DateTime.Now;
 
-        GameObject prefab = null;
+        GameObject prefab;
         switch (myPlayer.LastAction.Action)
         {
             case PlayerAction.Call:
@@ -295,36 +295,34 @@ public class TablePosition : MonoBehaviour
     /// Shows the token next to the player.
     /// </summary>
     /// <param name="p"></param>
-    /// <param name="position"></param>
-    private void ShowToken(Player p, TablePosition position)
+    private void ShowToken(Player p)
     {
         Game game = Manager.Instance.game;
 
         if (game.IsButton(p))
         {
-            ShowTokenButton(position.tokenPosition);
+            ShowTokenButton();
         }
 
         if (game.IsSmallBlind(p))
         {
-            ShowTokenSmallBlind(position.tokenPosition);
+            ShowTokenSmallBlind();
         }
 
         if (game.IsBigBlind(p))
         {
-            ShowTokenBigBlind(position.tokenPosition);
+            ShowTokenBigBlind();
         }
     }
 
     /// <summary>
     /// Shows the button token at the parent.
     /// </summary>
-    /// <param name="parent"></param>
-    private static void ShowTokenButton(Transform parent)
+    private void ShowTokenButton()
     {
         UI ui = Manager.Instance.uiUpdater;
 
-        ui.buttonToken.transform.SetParent(parent, false);
+        ui.buttonToken.transform.SetParent(tokenPosition, false);
         ui.buttonToken.transform.localPosition = new Vector3(0, 0, -2);
         ui.buttonToken.SetActive(true);
     }
@@ -332,12 +330,11 @@ public class TablePosition : MonoBehaviour
     /// <summary>
     /// Shows the smallBlind token at the parent.
     /// </summary>
-    /// <param name="parent"></param>
-    private static void ShowTokenSmallBlind(Transform parent)
+    private void ShowTokenSmallBlind()
     {
         UI ui = Manager.Instance.uiUpdater;
 
-        ui.smallBlindToken.transform.SetParent(parent, false);
+        ui.smallBlindToken.transform.SetParent(tokenPosition, false);
         ui.smallBlindToken.transform.localPosition = new Vector3(0, 0, -2);
         ui.smallBlindToken.SetActive(true);
     }
@@ -345,18 +342,26 @@ public class TablePosition : MonoBehaviour
     /// <summary>
     /// Shows the bigBlind token at the parent.
     /// </summary>
-    /// <param name="parent"></param>
-    private static void ShowTokenBigBlind(Transform parent)
+    private void ShowTokenBigBlind()
     {
         UI ui = Manager.Instance.uiUpdater;
 
-        ui.bigBlindToken.transform.SetParent(parent, false);
+        ui.bigBlindToken.transform.SetParent(tokenPosition, false);
         ui.bigBlindToken.transform.localPosition = new Vector3(0, 0, -2);
         ui.bigBlindToken.SetActive(true);
     }
 
     public IEnumerator PlayWinnerParticles(TimeSpan delay)
     {
+        // raise winning cards
+        if (myPlayer != null)
+        {
+            var winCards = myPlayer.Hand;
+        }
+
+        // iterate over community cards and player hole and
+        // raise the ones that are in winCards
+        
         yield return new WaitForSeconds(delay.Seconds);
         pSystem.Play(true);
     }

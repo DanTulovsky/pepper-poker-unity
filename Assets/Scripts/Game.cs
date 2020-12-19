@@ -182,11 +182,19 @@ public class Game
     }
 
     // CommunityCards returns the community cards
-    public CommunityCards CommunityCards()
+    public Poker.CommunityCards CommunityCards()
     {
         lock (locker)
         {
             return current?.Info?.CommunityCards;
+        }
+    }
+
+    public int NumCommunityCards()
+    {
+        lock (locker)
+        {
+            return current?.Info?.CommunityCards?.Card.Count ?? 0;
         }
     }
 
