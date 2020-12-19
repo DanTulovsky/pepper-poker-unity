@@ -8,8 +8,13 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
-public class RpcErrorEvent : UnityEvent<string> { }
-public class GameFailedEvent : UnityEvent<string> { }
+public class RpcErrorEvent : UnityEvent<string>
+{
+}
+
+public class GameFailedEvent : UnityEvent<string>
+{
+}
 
 public class Manager : Singleton<Manager>
 {
@@ -17,6 +22,7 @@ public class Manager : Singleton<Manager>
     private PokerClient pokerClient;
     private long lastTurnID = -1;
     private string lastAckToken = "";
+    private TablePosition localHuman;
 
     [NonSerialized] public readonly ClientInfo clientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
@@ -33,7 +39,7 @@ public class Manager : Singleton<Manager>
     // private UnityAction rpcErrorAction;
     private RpcErrorEvent mRPCErrorEvent;
     private GameFailedEvent mGameFailedEvent;
-    
+
     public void Awake()
     {
         //Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "info");
@@ -54,17 +60,18 @@ public class Manager : Singleton<Manager>
 
         uiUpdater.playerUsernameInput.text = "dant";
         uiUpdater.playerPasswordInput.text = "password";
-
     }
 
     private void Start()
     {
+        localHuman = tablePositions[3];
+
         mRPCErrorEvent ??= new RpcErrorEvent();
         // TODO: Fix for all players
-        mRPCErrorEvent.AddListener(tablePositions[3].avatar.AnimateShrug);
-        
+        mRPCErrorEvent.AddListener(localHuman.avatar.AnimateShrug);
+
         mGameFailedEvent ??= new GameFailedEvent();
-        mGameFailedEvent.AddListener(tablePositions[3].avatar.AnimateDefeat);
+        mGameFailedEvent.AddListener(localHuman.avatar.AnimateDefeat);
     }
 
     public void JoinTable()
@@ -93,7 +100,7 @@ public class Manager : Singleton<Manager>
         }
 
         uiUpdater.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
-        StartCoroutine(tablePositions[3].avatar.Say($"Hi there {clientInfo.PlayerUsername}!"));
+        StartCoroutine(localHuman.avatar.Say($"Hi there {clientInfo.PlayerUsername}!"));
         tablePositions[3].avatar.AnimateWave();
     }
 
@@ -123,6 +130,7 @@ public class Manager : Singleton<Manager>
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
@@ -159,6 +167,7 @@ public class Manager : Singleton<Manager>
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
@@ -180,6 +189,7 @@ public class Manager : Singleton<Manager>
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
@@ -189,7 +199,7 @@ public class Manager : Singleton<Manager>
         }
         catch (InvalidTurnException ex)
         {
-           mRPCErrorEvent.Invoke(ex.ToString());
+            mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -201,6 +211,7 @@ public class Manager : Singleton<Manager>
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
@@ -222,6 +233,7 @@ public class Manager : Singleton<Manager>
         if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
         {
             mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
             return;
         }
 

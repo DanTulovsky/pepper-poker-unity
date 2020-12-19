@@ -22,12 +22,11 @@ public class Avatar : MonoBehaviour
 
     public IEnumerator Say(string msg)
     {
-        Debug.Log("saying hi");
+        Debug.Log($"saying: {msg}");
         speechBubbleWindow.SetActive(true);
         speechBubbleText.SetText(msg);
 
         yield return new WaitForSeconds(TimeSpan.FromSeconds(5).Seconds);
-        Debug.Log("exiting");
         speechBubbleWindow.SetActive(false);
     }
     

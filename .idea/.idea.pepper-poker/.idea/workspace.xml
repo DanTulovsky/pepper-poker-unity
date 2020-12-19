@@ -19,15 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates.">
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Waving.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Waving.fbx.meta" afterDir="false" />
+    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="Animation fixes.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animator Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animator Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +180,7 @@
       <workItem from="1607992992162" duration="246000" />
       <workItem from="1608084180696" duration="319000" />
       <workItem from="1608129149927" duration="216000" />
-      <workItem from="1608144406542" duration="28679000" />
+      <workItem from="1608144406542" duration="29558000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -369,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608407174029</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Animation fixes.">
+      <created>1608411363055</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1608411363055</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,6 +429,7 @@
     <MESSAGE value="updates" />
     <MESSAGE value="animations." />
     <MESSAGE value="updates." />
-    <option name="LAST_COMMIT_MESSAGE" value="updates." />
+    <MESSAGE value="Animation fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Animation fixes." />
   </component>
 </project>
