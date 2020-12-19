@@ -26,6 +26,7 @@ public class TablePosition : MonoBehaviour
 
     private Player myPlayer;
     private PlayerAction previousAction;
+    [SerializeField] public Avatar avatar;
 
     public void Awake()
     {
@@ -35,7 +36,7 @@ public class TablePosition : MonoBehaviour
         radialBar = gameObject.transform.Find("Radial Bar").gameObject.GetComponent<QUI_Bar>();
         cardsPosition = gameObject.transform.Find("Cards").gameObject;
         tokenPosition = gameObject.transform.Find("Token");
-
+        
         nameText = playerNamePosition.GetComponent<TMP_Text>();
         pSystem = playerNamePosition.GetComponent<ParticleSystem>();
     }
@@ -358,11 +359,13 @@ public class TablePosition : MonoBehaviour
         {
             var winCards = myPlayer.Hand;
         }
-
+        
+        yield return new WaitForSeconds(delay.Seconds);
         // iterate over community cards and player hole and
         // raise the ones that are in winCards
         
-        yield return new WaitForSeconds(delay.Seconds);
+        
+        
         pSystem.Play(true);
     }
 

@@ -18,8 +18,6 @@ public class Manager : Singleton<Manager>
     private long lastTurnID = -1;
     private string lastAckToken = "";
 
-    public Avatar avatar;
-
     [NonSerialized] public readonly ClientInfo clientInfo = new ClientInfo();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
@@ -61,12 +59,12 @@ public class Manager : Singleton<Manager>
 
     private void Start()
     {
-        // rpcErrorAction += avatar.AnimateShrug;
         mRPCErrorEvent ??= new RpcErrorEvent();
-        mRPCErrorEvent.AddListener(avatar.AnimateShrug);
+        // TODO: Fix for all players
+        mRPCErrorEvent.AddListener(tablePositions[3].avatar.AnimateShrug);
         
         mGameFailedEvent ??= new GameFailedEvent();
-        mGameFailedEvent.AddListener(avatar.AnimateDefeat);
+        mGameFailedEvent.AddListener(tablePositions[3].avatar.AnimateDefeat);
     }
 
     public void JoinTable()

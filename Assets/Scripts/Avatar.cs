@@ -12,10 +12,7 @@ public class Avatar : MonoBehaviour
 
     private static readonly int ShakeHead = Animator.StringToHash("HeadShake");
     private static readonly int Defeated = Animator.StringToHash("Defeated");
-
-    // Start is called before the first frame update
-
-    // Update is called once per frame
+    private static readonly int Victory = Animator.StringToHash("Victory");
 
     public void AnimateShrug(string msg)
     {
@@ -28,6 +25,12 @@ public class Avatar : MonoBehaviour
         anim.SetTrigger(Defeated);
         Debug.Log(msg);
     }
+    
+    public void AnimateVictory()
+    {
+        anim.SetTrigger(Victory );
+    }
+    
     private void Start()
     {
         game = Manager.Instance.game;

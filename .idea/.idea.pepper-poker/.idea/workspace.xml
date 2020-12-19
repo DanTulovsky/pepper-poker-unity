@@ -19,48 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Diffuse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Diffuse.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Glossiness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Glossiness.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Specular.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_1001_Specular.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_body.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_body.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Defeated.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Defeated.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Idle.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Idle.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Thoughtful Head Shake.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Thoughtful Head Shake.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="animations.">
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Victory.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Victory.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Animator Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animator Controller.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AvatarAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Diffuse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Diffuse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Glossiness.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Glossiness.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Normal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Specular.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_1001_Specular.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_body.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_body.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_nonPBR@Thoughtful Head Shake.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Ch46_nonPBR@Thoughtful Head Shake.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Idle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_FBX/Avatar/Ch46_nonPBR@Idle.fbx.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,12 +61,12 @@
       <option value="$PROJECT_DIR$/Assets/Proto/poker.proto" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Game.cs" />
       <option value="$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UI.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AvatarAnimations.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" />
     </changedPaths>
   </component>
   <component name="KubernetesApiPersistence">
@@ -128,7 +96,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/Assets/Plugins/TheTopicbirdTools/ToDoList/readme.txt&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/QuickOutline/Scripts/Outline.cs&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/Quantum Tek/Quantum UI/Scripts/QUI_Element.cs" />
-    <property name="com.google.cloudcode.ide_session_index" value="20201219_0013" />
+    <property name="com.google.cloudcode.ide_session_index" value="20201219_0014" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
     <property name="nodejs.cucumber.cucumber_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -218,7 +186,7 @@
       <workItem from="1607992992162" duration="246000" />
       <workItem from="1608084180696" duration="319000" />
       <workItem from="1608129149927" duration="216000" />
-      <workItem from="1608144406542" duration="23217000" />
+      <workItem from="1608144406542" duration="25538000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -388,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608265519823</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="animations.">
+      <created>1608404068853</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1608404068853</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +419,8 @@
     <MESSAGE value="fixed turn timer" />
     <MESSAGE value="Unit tests" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="animations." />
+    <option name="LAST_COMMIT_MESSAGE" value="animations." />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
