@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Poker;
+using QuantumTek.QuantumUI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,37 +31,46 @@ public class Manager : Singleton<Manager>
 
     [NonSerialized] public readonly Game game = new Game();
 
+    public TMP_InputField serverNameInput;
+    public TMP_InputField serverPortInput;
     public List<TablePosition> tablePositions;
 
     // server streaming for Game from server
     private AsyncServerStreamingCall<GameData> stream;
-    //private Grpc.Core.Logging.LogLevelFilterLogger logger;
+
+    // debug
+    private Grpc.Core.Logging.LogLevelFilterLogger logger;
+    public QUI_SwitchToggle devToggle;
+    public QUI_SwitchToggle debugGrpcToggle;
 
     // On RPC error call these actions
     // private UnityAction rpcErrorAction;
     private RpcErrorEvent mRPCErrorEvent;
     private GameFailedEvent mGameFailedEvent;
 
-    public void Awake()
+    public override void Awake()
     {
-        //Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "info");
-        //Environment.SetEnvironmentVariable("GRPC_DNS_RESOLVER", "native");
-        //Environment.SetEnvironmentVariable("GRPC_TRACE", "all");
-        //Debug.Log("Setting Grpc Logger");
+        base.Awake();
+        // EnabledGrpcTracing();
+    }
 
-        //logger = new Grpc.Core.Logging.LogLevelFilterLogger(new GrpcLogger(), Grpc.Core.Logging.LogLevel.Info);
-        //Grpc.Core.GrpcEnvironment.SetLogger(logger);
+    private void EnabledGrpcTracing()
+    {
+        if (!debugGrpcToggle.toggle.isOn)
+        {
+            return;
+        }
 
-        //logger.Debug("GRPC_VERBOSITY = " + Environment.GetEnvironmentVariable("GRPC_VERBOSITY"));
-        //logger.Debug("GRPC_TRACE = " + Environment.GetEnvironmentVariable("GRPC_TRACE"));
+        Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "info");
+        Environment.SetEnvironmentVariable("GRPC_DNS_RESOLVER", "native");
+        Environment.SetEnvironmentVariable("GRPC_TRACE", "all");
+        Debug.Log("Setting Grpc Logger");
 
-        pokerClient = new PokerClient();
+        logger = new Grpc.Core.Logging.LogLevelFilterLogger(new GrpcLogger(), Grpc.Core.Logging.LogLevel.Info);
+        GrpcEnvironment.SetLogger(logger);
 
-        // UIUpdater = GameObject.Find("UI").GetComponent<UI>();
-        // Assert.IsNotNull(UIUpdater);
-
-        uiUpdater.playerUsernameInput.text = "dant";
-        uiUpdater.playerPasswordInput.text = "password";
+        logger.Debug("GRPC_VERBOSITY = " + Environment.GetEnvironmentVariable("GRPC_VERBOSITY"));
+        logger.Debug("GRPC_TRACE = " + Environment.GetEnvironmentVariable("GRPC_TRACE"));
     }
 
     private void Start()
@@ -74,16 +85,31 @@ public class Manager : Singleton<Manager>
         mGameFailedEvent.AddListener(localHuman.avatar.AnimateDefeat);
     }
 
+
+    public void Register()
+    {
+        
+        int port = Convert.ToInt32(serverPortInput.text);
+        string serverName = serverNameInput.text;
+        bool insecure = false;
+
+        if (devToggle.toggle.isOn)
+        {
+            port = 8443;
+            serverName = "pepper-poker"; // make sure this is in /etc/hosts pointing to 127.0.0.1
+            insecure = true;
+        }
+
+        pokerClient = new PokerClient(serverName, port, insecure);
+
+        StartCoroutine(nameof(DoRegister));
+    }
+
     public void JoinTable()
     {
         StartCoroutine(nameof(DoJoinTable));
     }
-
-    public void Register()
-    {
-        StartCoroutine(nameof(DoRegister));
-    }
-
+    
     private void DoRegister()
     {
         clientInfo.PlayerUsername = uiUpdater.playerUsernameInput.text;

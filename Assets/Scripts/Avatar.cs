@@ -22,7 +22,6 @@ public class Avatar : MonoBehaviour
 
     public IEnumerator Say(string msg)
     {
-        Debug.Log($"saying: {msg}");
         speechBubbleWindow.SetActive(true);
         speechBubbleText.SetText(msg);
 
@@ -44,7 +43,6 @@ public class Avatar : MonoBehaviour
     
     public void AnimateWave()
     {
-        Debug.Log("waving");
         anim.SetTrigger(Wave);
     }
     
