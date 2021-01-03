@@ -7,36 +7,36 @@ using System.Linq;
 public class Game
 {
     // the current instance of GameData proto
-    private GameData current = new GameData {Info = new GameInfo()};
-    private readonly object locker = new object();
+    private GameData _current = new GameData {Info = new GameInfo()};
+    private readonly object _locker = new object();
 
     public long PlayerRealPosition
     {
         get
         {
-            lock (locker)
+            lock (_locker)
             {
-                return playerPosition;
+                return _playerPosition;
             }
         }
         set
         {
-            lock (locker)
+            lock (_locker)
             {
-                playerPosition = value;
+                _playerPosition = value;
             }
         }
     }
 
-    private int maxPlayers = 7;
-    private long playerPosition;
+    private int _maxPlayers = 7;
+    private long _playerPosition;
 
     // Set a new instance of Game
     public void Set(GameData newGameData)
     {
-        lock (locker)
+        lock (_locker)
         {
-            current = newGameData;
+            _current = newGameData;
         }
     }
 
@@ -45,9 +45,9 @@ public class Game
     {
         get
         {
-            lock (locker)
+            lock (_locker)
             {
-                return current?.Clone();
+                return _current?.Clone();
             }
         }
     }
@@ -56,9 +56,9 @@ public class Game
     {
         get
         {
-            lock (locker)
+            lock (_locker)
             {
-                return current?.Info?.SmallBlind;
+                return _current?.Info?.SmallBlind;
             }
         }
     }
@@ -67,9 +67,9 @@ public class Game
     {
         get
         {
-            lock (locker)
+            lock (_locker)
             {
-                return current.Info.BigBlind;
+                return _current.Info.BigBlind;
             }
         }
     }
@@ -83,9 +83,9 @@ public class Game
     {
         get
         {
-            lock (locker)
+            lock (_locker)
             {
-                return current?.Info?.GameState;
+                return _current?.Info?.GameState;
             }
         }
     }
@@ -93,15 +93,15 @@ public class Game
     // GameFinished returns true when the game is over
     public bool GameFinished()
     {
-        return current?.Info?.GameState >= Poker.GameState.Finished;
+        return _current?.Info?.GameState >= Poker.GameState.Finished;
     }
 
     // WaitTurnNum returns the WaitTurnNum
     public long WaitTurnNum()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current?.WaitTurnNum ?? -1;
+            return _current?.WaitTurnNum ?? -1;
         }
     }
 
@@ -113,9 +113,9 @@ public class Game
 
         int realHumanPosition = Convert.ToInt32(PlayerRealPosition);
 
-        int r = Convert.ToInt32(p.Position + (wantHumanPosition - realHumanPosition)) % (maxPlayers);
+        int r = Convert.ToInt32(p.Position + (wantHumanPosition - realHumanPosition)) % (_maxPlayers);
         if (r < 0)
-            return maxPlayers + r;
+            return _maxPlayers + r;
         else
             return r;
     }
@@ -127,7 +127,7 @@ public class Game
     /// <returns>Player</returns>
     public Player PlayerAtTablePosition(int pos)
     {
-        lock (locker)
+        lock (_locker)
         {
             foreach (Player player in Players())
             {
@@ -141,78 +141,78 @@ public class Game
     
     public bool IsButton(Player p)
     {
-        lock (locker)
+        lock (_locker)
         {
-            return p.Position == current.Info.ButtonPosition;
+            return p.Position == _current.Info.ButtonPosition;
         }
     }
 
     public bool IsSmallBlind(Player p)
     {
-        lock (locker)
+        lock (_locker)
         {
-            return p.Position == current.Info.SmallBlindPosition;
+            return p.Position == _current.Info.SmallBlindPosition;
         }
     }
 
     public bool IsBigBlind(Player p)
     {
-        lock (locker)
+        lock (_locker)
         {
-            return p.Position == current.Info.BigBlindPosition;
+            return p.Position == _current.Info.BigBlindPosition;
         }
     }
 
     // WaitTurnTimeMaxSec returns WaitTurnTimeMaxSec
     public long WaitTurnTimeMaxSec()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current.WaitTurnTimeMaxSec;
+            return _current.WaitTurnTimeMaxSec;
         }
     }
 
     // WaitTurnTimeLeftSec returns WaitTurnTimeLeftSec
     public long? WaitTurnTimeLeftSec()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current?.WaitTurnTimeLeftSec;
+            return _current?.WaitTurnTimeLeftSec;
         }
     }
 
     // CommunityCards returns the community cards
     public Poker.CommunityCards CommunityCards()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current?.Info?.CommunityCards;
+            return _current?.Info?.CommunityCards;
         }
     }
 
     public int NumCommunityCards()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current?.Info?.CommunityCards?.Card.Count ?? 0;
+            return _current?.Info?.CommunityCards?.Card.Count ?? 0;
         }
     }
 
     // WaitTurnID returns the WaitTurnId
     public string WaitTurnID()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current?.WaitTurnID;
+            return _current?.WaitTurnID;
         }
     }
 
     public TimeSpan GameStartsIn()
     {
         int t;
-        lock (locker)
+        lock (_locker)
         {
-            t = Convert.ToInt32(current?.Info?.GameStartsInSec);
+            t = Convert.ToInt32(_current?.Info?.GameStartsInSec);
         }
 
         return TimeSpan.FromSeconds(t);
@@ -221,9 +221,9 @@ public class Game
     public TimeSpan GameStartsInMax()
     {
         int t;
-        lock (locker)
+        lock (_locker)
         {
-            t = Convert.ToInt32(current?.Info?.GameStartsInMaxSec);
+            t = Convert.ToInt32(_current?.Info?.GameStartsInMaxSec);
         }
 
         return TimeSpan.FromSeconds(t);
@@ -232,33 +232,33 @@ public class Game
     // IsMyTurn returns true if it's my turn
     public bool IsMyTurn(string playerID, long lastTurnID)
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current?.WaitTurnID == playerID && lastTurnID < current?.WaitTurnNum;
+            return _current?.WaitTurnID == playerID && lastTurnID < _current?.WaitTurnNum;
         }
     }
 
     public Player PlayerFromID(string id)
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current.Info.Players.FirstOrDefault(p => p.Id == id);
+            return _current.Info.Players.FirstOrDefault(p => p.Id == id);
         }
     }
 
     public Player MyInfo()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current.Player;
+            return _current.Player;
         }
     }
 
     public RepeatedField<Player> Players()
     {
-        lock (locker)
+        lock (_locker)
         {
-            return current?.Info.Players;
+            return _current?.Info.Players;
         }
     }
 
@@ -267,9 +267,9 @@ public class Game
     {
         var levels = new List<List<Player>>();
 
-        lock (locker)
+        lock (_locker)
         {
-            levels.AddRange(current.Info.WinningIds.Select(l1 => l1.Ids.Select(PlayerFromID).ToList()));
+            levels.AddRange(_current.Info.WinningIds.Select(l1 => l1.Ids.Select(PlayerFromID).ToList()));
         }
 
         return levels;
@@ -277,7 +277,7 @@ public class Game
 
     public long PlayerStack(Player player)
     {
-        lock (locker)
+        lock (_locker)
         {
             return player?.Money?.Stack ?? 0;
         }
@@ -285,7 +285,7 @@ public class Game
 
     public long PlayerTotalBetThisHand(Player player)
     {
-        lock (locker)
+        lock (_locker)
         {
             return player?.Money?.BetThisHand ?? 0;
         }
@@ -293,7 +293,7 @@ public class Game
 
     public long PlayerCurrentBet(Player player)
     {
-        lock (locker)
+        lock (_locker)
         {
             return player?.Money?.BetThisHand ?? 0;
         }
@@ -301,7 +301,7 @@ public class Game
 
     public long Pot(Player player)
     {
-        lock (locker)
+        lock (_locker)
         {
             return player?.Money?.Pot ?? 0;
         }

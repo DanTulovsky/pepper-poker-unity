@@ -5,16 +5,16 @@ using UnityEngine.Assertions;
 
 public class CommunityCards : MonoBehaviour
 {
-    private int shownCommunityCards;
-    private Game game;
+    private int _shownCommunityCards;
+    private Game _game;
 
     public GameObject communityCardLocation;
 
     // Start is called before the first frame update
     private void Start()
     {
-        game = Manager.Instance.game;
-        Assert.IsNotNull(game);
+        _game = Manager.Instance.game;
+        Assert.IsNotNull(_game);
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class CommunityCards : MonoBehaviour
 
         if (Manager.Instance.game.GameState == GameState.WaitingPlayers)
         {
-            shownCommunityCards = 0;
+            _shownCommunityCards = 0;
             UI.RemoveChildren(communityCardLocation);
         }
     }
@@ -33,7 +33,7 @@ public class CommunityCards : MonoBehaviour
     {
         Poker.CommunityCards cc = Manager.Instance.game.CommunityCards();
 
-        if (shownCommunityCards >= Manager.Instance.game.NumCommunityCards())
+        if (_shownCommunityCards >= Manager.Instance.game.NumCommunityCards())
         {
             return;
         }
@@ -62,6 +62,6 @@ public class CommunityCards : MonoBehaviour
             cardObject.transform.localScale = new Vector3(12, 12, 12);
         }
 
-        shownCommunityCards = Manager.Instance.game.NumCommunityCards();
+        _shownCommunityCards = Manager.Instance.game.NumCommunityCards();
     }
 }

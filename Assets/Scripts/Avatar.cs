@@ -12,8 +12,8 @@ public class Avatar : MonoBehaviour
     public QUI_Window speechBubbleWindow;
     public TMP_Text speechBubbleText;
     
-    private Game game;
-    private ClientInfo clientInfo;
+    private Game _game;
+    private ClientInfo _clientInfo;
 
     private static readonly int ShakeHead = Animator.StringToHash("HeadShake");
     private static readonly int Defeated = Animator.StringToHash("Defeated");
@@ -53,11 +53,11 @@ public class Avatar : MonoBehaviour
     
     private void Start()
     {
-        game = Manager.Instance.game;
-        Assert.IsNotNull(game);
+        _game = Manager.Instance.game;
+        Assert.IsNotNull(_game);
         
-        clientInfo = Manager.Instance.clientInfo;
-        Assert.IsNotNull(clientInfo);
+        _clientInfo = Manager.Instance.clientInfo;
+        Assert.IsNotNull(_clientInfo);
 
         speechBubbleWindow.SetActive(false);
     }

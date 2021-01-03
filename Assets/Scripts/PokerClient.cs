@@ -10,15 +10,14 @@ using Newtonsoft.Json;
 
 public class PokerClient
 {
-    private readonly PokerServer.PokerServerClient client;
+    private readonly PokerServer.PokerServerClient _client;
 
     // Inside StreamingAssets folder
-    private readonly string devServerCert = "server.crt";
+    private readonly string _devServerCert = "server.crt";
 
     internal PokerClient(string serverName, int serverPort, bool insecure)
     {
         var opts = new List<ChannelOption>();
-        ChannelCredentials channelCredentials;
         SslCredentials sslCredentials;
 
         Debug.Log($"Connecting to: {serverName}:{serverPort}; insecure? {insecure}");
@@ -35,7 +34,7 @@ public class PokerClient
         {
             case true:
             {
-                string rootCertificates = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, devServerCert));
+                string rootCertificates = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, _devServerCert));
                 sslCredentials = new SslCredentials(rootCertificates);
 
                 opts.Add(new ChannelOption("InsecureSkipVerify", "True"));
@@ -47,10 +46,10 @@ public class PokerClient
         }
 
         opts.Add(new ChannelOption(ChannelOptions.SslTargetNameOverride, serverName));
-        channelCredentials = ChannelCredentials.Create(sslCredentials,
+        ChannelCredentials channelCredentials = ChannelCredentials.Create(sslCredentials,
             CallCredentials.FromInterceptor(AsyncAuthInterceptor));
         Channel channel = new Channel(serverName, serverPort, channelCredentials, opts);
-        client = new PokerServer.PokerServerClient(channel);
+        _client = new PokerServer.PokerServerClient(channel);
     }
 
 #pragma warning disable 1998
@@ -90,7 +89,7 @@ public class PokerClient
 
         try
         {
-            res = client.Register(req);
+            res = _client.Register(req);
         }
         catch (RpcException ex)
         {
@@ -112,7 +111,7 @@ public class PokerClient
 
         try
         {
-            res = client.JoinTable(req);
+            res = _client.JoinTable(req);
         }
         catch (RpcException ex)
         {
@@ -132,7 +131,7 @@ public class PokerClient
             {
                 ClientInfo = clientInfo,
             };
-            var stream = client.Play(new PlayRequest(req));
+            var stream = _client.Play(new PlayRequest(req));
             return stream;
         }
         catch (RpcException ex)
@@ -155,7 +154,7 @@ public class PokerClient
 
         try
         {
-            client.TakeTurn(req);
+            _client.TakeTurn(req);
         }
         catch (RpcException ex)
         {
@@ -175,7 +174,7 @@ public class PokerClient
 
         try
         {
-            client.AckToken(req);
+            _client.AckToken(req);
         }
         catch (RpcException ex)
         {
@@ -195,7 +194,7 @@ public class PokerClient
 
         try
         {
-            client.TakeTurn(req);
+            _client.TakeTurn(req);
         }
         catch (RpcException ex)
         {
@@ -216,7 +215,7 @@ public class PokerClient
 
         try
         {
-            client.TakeTurn(req);
+            _client.TakeTurn(req);
         }
         catch (RpcException ex)
         {
@@ -236,7 +235,7 @@ public class PokerClient
 
         try
         {
-            client.TakeTurn(req);
+            _client.TakeTurn(req);
         }
         catch (RpcException ex)
         {
@@ -255,7 +254,7 @@ public class PokerClient
 
         try
         {
-            client.TakeTurn(req);
+            _client.TakeTurn(req);
         }
         catch (RpcException ex)
         {
@@ -274,7 +273,7 @@ public class PokerClient
 
         try
         {
-            client.TakeTurn(req);
+            _client.TakeTurn(req);
         }
         catch (RpcException ex)
         {

@@ -47,29 +47,29 @@ public class UI : MonoBehaviour
     public GameObject actionFoldPrefab;
     public GameObject cardBlankPrefab;
 
-    private Game game;
-    private GameState lastGameState;
-    private ClientInfo clientInfo;
+    private Game _game;
+    private GameState _lastGameState;
+    private ClientInfo _clientInfo;
 
-    private QUI_Bar radialBarGameStart;
+    private QUI_Bar _radialBarGameStart;
 
     // Update updates the UI based on game
     private void UpdateUI()
     {
-        if (game == null)
+        if (_game == null)
         {
             return;
         }
 
-        string blinds = $"${game.SmallBlind} / ${game.BigBlind}";
+        string blinds = $"${_game.SmallBlind} / ${_game.BigBlind}";
         blindsDisplay.SetText(blinds);
 
         // Table and round status
-        tableStatusDisplay.SetText(game.GameState.ToString());
+        tableStatusDisplay.SetText(_game.GameState.ToString());
 
         // Time to game start
-        TimeSpan startsIn = game.GameStartsIn();
-        TimeSpan startsInMax = game.GameStartsInMax();
+        TimeSpan startsIn = _game.GameStartsIn();
+        TimeSpan startsInMax = _game.GameStartsInMax();
 
         if (startsIn.Seconds > 0)
         {
@@ -77,7 +77,7 @@ public class UI : MonoBehaviour
             gameStartsTime.SetText($"{startsIn.Humanize()}");
 
             float fillAmount = 1 - startsIn.Seconds / (float) startsInMax.Seconds;
-            radialBarGameStart.SetFill(fillAmount);
+            _radialBarGameStart.SetFill(fillAmount);
         }
         else
         {
@@ -85,7 +85,7 @@ public class UI : MonoBehaviour
         }
 
 
-        if (game.GameFinished())
+        if (_game.GameFinished())
         {
             ShowWinners();
         }
@@ -95,7 +95,7 @@ public class UI : MonoBehaviour
             winnersWindowHeading.SetText("");
         }
 
-        lastGameState = game.GameState.GetValueOrDefault();
+        _lastGameState = _game.GameState.GetValueOrDefault();
     }
 
     public static void RemoveChildren(GameObject parent)
@@ -120,10 +120,10 @@ public class UI : MonoBehaviour
     private void ShowWinners()
     {
         // Only run this once per finished game
-        if (lastGameState == GameState.Finished) return;
+        if (_lastGameState == GameState.Finished) return;
         winnersWindow.SetActive(true);
 
-        var winningPlayers = game.WinningPlayers();
+        var winningPlayers = _game.WinningPlayers();
         for (int j = 0; j < winningPlayers.Count; j++)
         {
             var level = winningPlayers[j];
@@ -132,7 +132,7 @@ public class UI : MonoBehaviour
             {
                 Player player = level[i];
 
-                int pos = game.TablePosition(player);
+                int pos = _game.TablePosition(player);
                 TimeSpan delay = TimeSpan.FromSeconds(i * j * 2);
 
                 if (player.Money.Winnings > 0)
@@ -148,15 +148,15 @@ public class UI : MonoBehaviour
 // Start is called before the first frame update
     public void Start()
     {
-        game = Manager.Instance.game;
-        Assert.IsNotNull(game);
+        _game = Manager.Instance.game;
+        Assert.IsNotNull(_game);
 
-        clientInfo = Manager.Instance.clientInfo;
-        Assert.IsNotNull(clientInfo);
+        _clientInfo = Manager.Instance.clientInfo;
+        Assert.IsNotNull(_clientInfo);
 
         Assert.IsNotNull(Manager.Instance.tablePositions);
 
-        radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
+        _radialBarGameStart = gameStartsRadialBar.GetComponent<QUI_Bar>();
         buttonToken.SetActive(false);
         smallBlindToken.SetActive(false);
         bigBlindToken.SetActive(false);

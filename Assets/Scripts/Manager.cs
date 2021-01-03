@@ -21,14 +21,14 @@ public class GameFailedEvent : UnityEvent<string>
 public class Manager : Singleton<Manager>
 {
     public UI uiUpdater;
-    private PokerClient pokerClient;
-    private long lastTurnID = -1;
-    private string lastAckToken = "";
-    private TablePosition localHuman;
+    private PokerClient _pokerClient;
+    private long _lastTurnID = -1;
+    private string _lastAckToken = "";
+    private TablePosition _localHuman;
 
     [NonSerialized] public readonly ClientInfo clientInfo = new ClientInfo();
     [NonSerialized] public readonly Game game = new Game();
-    private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
+    private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
 
 
     public TMP_InputField serverNameInput;
@@ -36,17 +36,17 @@ public class Manager : Singleton<Manager>
     public List<TablePosition> tablePositions;
 
     // server streaming for Game from server
-    private AsyncServerStreamingCall<GameData> stream;
+    private AsyncServerStreamingCall<GameData> _stream;
 
     // debug
-    private Grpc.Core.Logging.LogLevelFilterLogger logger;
+    private Grpc.Core.Logging.LogLevelFilterLogger _logger;
     public QUI_SwitchToggle devToggle;
     public QUI_SwitchToggle debugGrpcToggle;
 
     // On RPC error call these actions
     // private UnityAction rpcErrorAction;
-    private RpcErrorEvent mRPCErrorEvent;
-    private GameFailedEvent mGameFailedEvent;
+    private RpcErrorEvent _mRPCErrorEvent;
+    private GameFailedEvent _mGameFailedEvent;
 
     public override void Awake()
     {
@@ -62,23 +62,23 @@ public class Manager : Singleton<Manager>
         Environment.SetEnvironmentVariable("GRPC_TRACE", "all");
         Debug.Log("Setting Grpc Logger");
 
-        logger = new Grpc.Core.Logging.LogLevelFilterLogger(new GrpcLogger(), Grpc.Core.Logging.LogLevel.Info);
-        GrpcEnvironment.SetLogger(logger);
+        _logger = new Grpc.Core.Logging.LogLevelFilterLogger(new GrpcLogger(), Grpc.Core.Logging.LogLevel.Info);
+        GrpcEnvironment.SetLogger(_logger);
 
-        logger.Debug("GRPC_VERBOSITY = " + Environment.GetEnvironmentVariable("GRPC_VERBOSITY"));
-        logger.Debug("GRPC_TRACE = " + Environment.GetEnvironmentVariable("GRPC_TRACE"));
+        _logger.Debug("GRPC_VERBOSITY = " + Environment.GetEnvironmentVariable("GRPC_VERBOSITY"));
+        _logger.Debug("GRPC_TRACE = " + Environment.GetEnvironmentVariable("GRPC_TRACE"));
     }
 
     private void Start()
     {
-        localHuman = tablePositions[3];
+        _localHuman = tablePositions[3];
 
-        mRPCErrorEvent ??= new RpcErrorEvent();
+        _mRPCErrorEvent ??= new RpcErrorEvent();
         // TODO: Fix for all players
-        mRPCErrorEvent.AddListener(localHuman.avatar.AnimateShrug);
+        _mRPCErrorEvent.AddListener(_localHuman.avatar.AnimateShrug);
 
-        mGameFailedEvent ??= new GameFailedEvent();
-        mGameFailedEvent.AddListener(localHuman.avatar.AnimateDefeat);
+        _mGameFailedEvent ??= new GameFailedEvent();
+        _mGameFailedEvent.AddListener(_localHuman.avatar.AnimateDefeat);
     }
 
 
@@ -98,11 +98,11 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            pokerClient = new PokerClient(serverName, port, insecure);
+            _pokerClient = new PokerClient(serverName, port, insecure);
         }
         catch (Exception ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -120,16 +120,16 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            clientInfo.PlayerID = pokerClient.Register(clientInfo);
+            clientInfo.PlayerID = _pokerClient.Register(clientInfo);
         }
         catch (RpcException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
         uiUpdater.playerUsernameDisplay.SetText(clientInfo.PlayerUsername);
-        StartCoroutine(localHuman.avatar.Say($"Hi there {clientInfo.PlayerUsername}!"));
+        StartCoroutine(_localHuman.avatar.Say($"Hi there {clientInfo.PlayerUsername}!"));
         tablePositions[3].avatar.AnimateWave();
     }
 
@@ -139,11 +139,11 @@ public class Manager : Singleton<Manager>
 
         try
         {
-            (clientInfo.TableID, game.PlayerRealPosition) = pokerClient.JoinTable(clientInfo);
+            (clientInfo.TableID, game.PlayerRealPosition) = _pokerClient.JoinTable(clientInfo);
         }
         catch (RpcException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
@@ -156,113 +156,113 @@ public class Manager : Singleton<Manager>
 
     public void ActionAllIn()
     {
-        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, _lastTurnID))
         {
-            mRPCErrorEvent.Invoke("Not your turn!");
-            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
+            _mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(_localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
         try
         {
-            pokerClient.ActionAllIn(clientInfo);
+            _pokerClient.ActionAllIn(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
-        lastTurnID = game.WaitTurnNum();
+        _lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionBuyIn()
     {
         try
         {
-            pokerClient.ActionBuyIn(clientInfo);
+            _pokerClient.ActionBuyIn(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
-        lastTurnID = game.WaitTurnNum();
+        _lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionCheck()
     {
-        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, _lastTurnID))
         {
-            mRPCErrorEvent.Invoke("Not your turn!");
-            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
+            _mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(_localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
         try
         {
-            pokerClient.ActionCheck(clientInfo);
+            _pokerClient.ActionCheck(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
-        lastTurnID = game.WaitTurnNum();
+        _lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionCall()
     {
-        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, _lastTurnID))
         {
-            mRPCErrorEvent.Invoke("Not your turn!");
-            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
+            _mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(_localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
         try
         {
-            pokerClient.ActionCall(clientInfo);
+            _pokerClient.ActionCall(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
-        lastTurnID = game.WaitTurnNum();
+        _lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionFold()
     {
-        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, _lastTurnID))
         {
-            mRPCErrorEvent.Invoke("Not your turn!");
-            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
+            _mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(_localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
         try
         {
-            pokerClient.ActionFold(clientInfo);
+            _pokerClient.ActionFold(clientInfo);
         }
         catch (InvalidTurnException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
-        lastTurnID = game.WaitTurnNum();
+        _lastTurnID = game.WaitTurnNum();
     }
 
     public void ActionBet()
     {
-        if (!game.IsMyTurn(clientInfo.PlayerID, lastTurnID))
+        if (!game.IsMyTurn(clientInfo.PlayerID, _lastTurnID))
         {
-            mRPCErrorEvent.Invoke("Not your turn!");
-            StartCoroutine(localHuman.avatar.Say("Not your turn!"));
+            _mRPCErrorEvent.Invoke("Not your turn!");
+            StartCoroutine(_localHuman.avatar.Say("Not your turn!"));
             return;
         }
 
@@ -274,26 +274,26 @@ public class Manager : Singleton<Manager>
         }
         catch (FormatException ex)
         {
-            mRPCErrorEvent.Invoke($"(input: {input}) {ex}");
+            _mRPCErrorEvent.Invoke($"(input: {input}) {ex}");
             return;
         }
 
         try
         {
-            pokerClient.ActionBet(clientInfo, amount);
+            _pokerClient.ActionBet(clientInfo, amount);
         }
         catch (InvalidTurnException ex)
         {
-            mRPCErrorEvent.Invoke(ex.ToString());
+            _mRPCErrorEvent.Invoke(ex.ToString());
             return;
         }
 
-        lastTurnID = game.WaitTurnNum();
+        _lastTurnID = game.WaitTurnNum();
     }
 
     private void StartInfoStream()
     {
-        stream = pokerClient.GetGameDataStreaming(clientInfo);
+        _stream = _pokerClient.GetGameDataStreaming(clientInfo);
 
         Debug.Log("Starting server stream listener...");
         StartCoroutine(nameof(StartServerStream));
@@ -306,11 +306,11 @@ public class Manager : Singleton<Manager>
     {
         try
         {
-            while (await stream.ResponseStream.MoveNext())
+            while (await _stream.ResponseStream.MoveNext())
             {
-                tokenSource.Token.ThrowIfCancellationRequested();
+                _tokenSource.Token.ThrowIfCancellationRequested();
 
-                GameData gd = stream.ResponseStream.Current;
+                GameData gd = _stream.ResponseStream.Current;
                 game.Set(gd);
                 game.PlayerRealPosition = gd.Player.Position;
 
@@ -321,20 +321,20 @@ public class Manager : Singleton<Manager>
         }
         catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
         {
-            mGameFailedEvent.Invoke($"Stream cancelled: {ex}");
+            _mGameFailedEvent.Invoke($"Stream cancelled: {ex}");
         }
         catch (OperationCanceledException ex)
         {
-            mGameFailedEvent.Invoke($"server streaming thread cancelled: {ex}");
-            stream.Dispose();
+            _mGameFailedEvent.Invoke($"server streaming thread cancelled: {ex}");
+            _stream.Dispose();
         }
         catch (RpcException ex)
         {
-            mGameFailedEvent.Invoke(ex.ToString());
+            _mGameFailedEvent.Invoke(ex.ToString());
         }
         catch (Exception ex)
         {
-            mGameFailedEvent.Invoke($"Server reading thread failed: {ex}");
+            _mGameFailedEvent.Invoke($"Server reading thread failed: {ex}");
             Application.Quit();
         }
 
@@ -345,26 +345,26 @@ public class Manager : Singleton<Manager>
 
     private void AckIfNeeded(string token)
     {
-        if (lastAckToken == token || token == "")
+        if (_lastAckToken == token || token == "")
         {
             return;
         }
 
         try
         {
-            pokerClient.ActionAckToken(clientInfo, token);
+            _pokerClient.ActionAckToken(clientInfo, token);
         }
         catch (InvalidTurnException ex)
         {
             Debug.Log(ex.ToString());
         }
 
-        lastAckToken = token;
+        _lastAckToken = token;
     }
 
     private void OnApplicationQuit()
     {
-        tokenSource.Cancel();
+        _tokenSource.Cancel();
         StopAllCoroutines();
         Debug.Log("Application ending after " + Time.time + " seconds");
     }

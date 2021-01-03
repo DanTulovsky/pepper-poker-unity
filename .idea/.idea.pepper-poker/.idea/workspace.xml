@@ -19,8 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="added oauth">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" afterDir="false" />
+    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="cleanup">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +43,14 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/0d/7fdb5081/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/ff/883d7d5b/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/dant/Unity Local/Projects/pepper-poker/Assets/Scripts/AuthResponse.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3A963D3C-190B-46F8-9745-9FB3E24624C1/3/Channel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/45B/StreamReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/468/File.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/8B/MissingMethodException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/dant/Unity Local/Projects/pepper-poker/Assets/StreamingAssets/Server.crt.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/e7/b6e80f28/Convert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/06DED3DC-FC81-410D-B8BE-9BD115706DB1/92/175f69f0/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Avatar.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,8 +74,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/jjj.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
     </changedPaths>
   </component>
   <component name="KubernetesApiPersistence">
@@ -192,7 +201,7 @@
       <workItem from="1609622296146" duration="55000" />
       <workItem from="1609622574740" duration="940000" />
       <workItem from="1609685090390" duration="7467000" />
-      <workItem from="1609693367614" duration="921000" />
+      <workItem from="1609693367614" duration="1034000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -418,7 +427,28 @@
       <option name="project" value="LOCAL" />
       <updated>1609694277862</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="remove tokens">
+      <created>1609694313014</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1609694313014</updated>
+    </task>
+    <task id="LOCAL-00035" summary="remove tokens">
+      <created>1609694336593</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1609694336593</updated>
+    </task>
+    <task id="LOCAL-00036" summary="cleanup">
+      <created>1609694352742</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1609694352742</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,6 +510,8 @@
     <MESSAGE value="add missing files." />
     <MESSAGE value="updates" />
     <MESSAGE value="added oauth" />
-    <option name="LAST_COMMIT_MESSAGE" value="added oauth" />
+    <MESSAGE value="remove tokens" />
+    <MESSAGE value="cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup" />
   </component>
 </project>

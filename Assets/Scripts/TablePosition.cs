@@ -24,8 +24,8 @@ public class TablePosition : MonoBehaviour
 
     public int index;
 
-    private Player myPlayer;
-    private PlayerAction previousAction;
+    private Player _myPlayer;
+    private PlayerAction _previousAction;
     [SerializeField] public Avatar avatar;
 
     public void Awake()
@@ -44,10 +44,10 @@ public class TablePosition : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        myPlayer = Manager.Instance.game.PlayerAtTablePosition(index);
+        _myPlayer = Manager.Instance.game.PlayerAtTablePosition(index);
         Game game = Manager.Instance.game;
 
-        if (myPlayer == null)
+        if (_myPlayer == null)
         {
             // reset UI
             nameText.SetText($"");
@@ -66,9 +66,9 @@ public class TablePosition : MonoBehaviour
         string nextID = nextPlayer?.Id;
 
         // Name
-        nameText.SetText($"{myPlayer.Name}");
+        nameText.SetText($"{_myPlayer.Name}");
         nameText.alpha = 1.0f;
-        if (Game.HasState(myPlayer.State, PlayerState.Folded))
+        if (Game.HasState(_myPlayer.State, PlayerState.Folded))
         {
             nameText.alpha = 0.5f;
         }
@@ -82,10 +82,10 @@ public class TablePosition : MonoBehaviour
         //         ? $"{lastAction} (${myPlayer.LastAction.Amount})"
         //         : $"{lastAction}");
 
-        if (myPlayer.LastAction.Action != PlayerAction.None)
+        if (_myPlayer.LastAction.Action != PlayerAction.None)
         {
             // Debug.Log($"> {index} previous: {previousAction}; now: {myPlayer.LastAction}");
-            if (previousAction != myPlayer.LastAction.Action)
+            if (_previousAction != _myPlayer.LastAction.Action)
             {
                 var currentState = Manager.Instance.game.GameState;
                 StartCoroutine(ShowLastAction(TimeSpan.FromSeconds(5), currentState));
@@ -93,20 +93,20 @@ public class TablePosition : MonoBehaviour
         }
 
         // Stacks
-        stackText.SetText($"${myPlayer.Money.Stack}");
+        stackText.SetText($"${_myPlayer.Money.Stack}");
 
         // Turn timeout bars
         radialBar.gameObject.SetActive(false);
 
         // tokens
-        ShowToken(myPlayer);
+        ShowToken(_myPlayer);
 
         // Player whose turn it is
-        if (myPlayer.Id == nextID)
+        if (_myPlayer.Id == nextID)
         {
             TimeSpan turnTimeLeft;
             turnTimeLeft =
-                TimeSpan.FromSeconds(myPlayer.Id == nextID ? Convert.ToInt32(game.WaitTurnTimeLeftSec()) : 0);
+                TimeSpan.FromSeconds(_myPlayer.Id == nextID ? Convert.ToInt32(game.WaitTurnTimeLeftSec()) : 0);
 
             radialBar.gameObject.SetActive(true);
             float fillAmount = turnTimeLeft.Seconds / (float) game.WaitTurnTimeMaxSec();
@@ -116,7 +116,7 @@ public class TablePosition : MonoBehaviour
         ShowCards();
 
         // Set additional info for the local player
-        if (myPlayer.Id == game.MyInfo().Id)
+        if (_myPlayer.Id == game.MyInfo().Id)
         {
             UpdateLocalPlayer();
         }
@@ -124,12 +124,12 @@ public class TablePosition : MonoBehaviour
 
     private IEnumerator ShowLastAction(TimeSpan delay, GameState? currentState)
     {
-        previousAction = myPlayer.LastAction.Action;
+        _previousAction = _myPlayer.LastAction.Action;
 
         DateTime start = DateTime.Now;
 
         GameObject prefab;
-        switch (myPlayer.LastAction.Action)
+        switch (_myPlayer.LastAction.Action)
         {
             case PlayerAction.Call:
                 prefab = Manager.Instance.uiUpdater.actionCallPrefab;
@@ -176,14 +176,14 @@ public class TablePosition : MonoBehaviour
         yield return new WaitUntil(() => DateTime.Now.Subtract(start) > delay);
 
         GameObject.Destroy(actionPrefab);
-        previousAction = PlayerAction.None;
+        _previousAction = PlayerAction.None;
     }
 
     private void ShowCards()
     {
         Game game = Manager.Instance.game;
 
-        if (Game.HasState(myPlayer.State, PlayerState.Folded))
+        if (Game.HasState(_myPlayer.State, PlayerState.Folded))
         {
             UI.RemoveChildren(cardsPosition);
             return;
@@ -191,11 +191,11 @@ public class TablePosition : MonoBehaviour
 
         if (Manager.Instance.game.GameFinished())
         {
-            CardsAtPosition(myPlayer.Card);
+            CardsAtPosition(_myPlayer.Card);
         }
         else
         {
-            if (myPlayer.Id == game.MyInfo().Id)
+            if (_myPlayer.Id == game.MyInfo().Id)
             {
                 CardsAtPosition(game.MyInfo().Card);
             }
@@ -263,32 +263,32 @@ public class TablePosition : MonoBehaviour
     {
         UI ui = Manager.Instance.uiUpdater;
 
-        if (myPlayer?.Money == null) return;
+        if (_myPlayer?.Money == null) return;
 
         // Stack
-        string stack = $"${myPlayer.Money?.Stack.ToString()}";
+        string stack = $"${_myPlayer.Money?.Stack.ToString()}";
         ui.stackAmount.SetText(stack);
 
-        stackText.SetText($"${myPlayer.Money.Stack}");
+        stackText.SetText($"${_myPlayer.Money.Stack}");
 
         // Bank
-        string bank = $"${myPlayer.Money?.Bank.ToString().Humanize()}";
+        string bank = $"${_myPlayer.Money?.Bank.ToString().Humanize()}";
         ui.bankAmount.SetText(bank.Humanize());
 
         // Total bet this hand
-        string totalBetThisHand = $"${myPlayer.Money?.BetThisHand.ToString().Humanize()}";
+        string totalBetThisHand = $"${_myPlayer.Money?.BetThisHand.ToString().Humanize()}";
         ui.totalBetThisHandAmount.SetText(totalBetThisHand);
 
         // Current bet
-        string currentBet = $"${myPlayer.Money?.BetThisRound.ToString().Humanize()}";
+        string currentBet = $"${_myPlayer.Money?.BetThisRound.ToString().Humanize()}";
         ui.currentBetAmount.SetText(currentBet);
 
         // Minimum bet this round
-        string minBetThisRound = $"${myPlayer.Money?.MinBetThisRound.ToString().Humanize()}";
+        string minBetThisRound = $"${_myPlayer.Money?.MinBetThisRound.ToString().Humanize()}";
         ui.minBetThisRoundAmount.SetText(minBetThisRound);
 
         // Pot
-        string pot = $"${myPlayer.Money?.Pot.ToString().Humanize()}";
+        string pot = $"${_myPlayer.Money?.Pot.ToString().Humanize()}";
         ui.potAmount.SetText(pot);
     }
 
@@ -355,9 +355,9 @@ public class TablePosition : MonoBehaviour
     public IEnumerator PlayWinnerParticles(TimeSpan delay)
     {
         // raise winning cards
-        if (myPlayer != null)
+        if (_myPlayer != null)
         {
-            var winCards = myPlayer.Hand;
+            var winCards = _myPlayer.Hand;
         }
         
         yield return new WaitForSeconds(delay.Seconds);
