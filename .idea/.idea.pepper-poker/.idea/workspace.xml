@@ -19,18 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/singleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/packages.config" afterDir="false" />
+    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="added oauth">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +64,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/jjj.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" />
     </changedPaths>
   </component>
   <component name="KubernetesApiPersistence">
@@ -202,7 +192,7 @@
       <workItem from="1609622296146" duration="55000" />
       <workItem from="1609622574740" duration="940000" />
       <workItem from="1609685090390" duration="7467000" />
-      <workItem from="1609693367614" duration="795000" />
+      <workItem from="1609693367614" duration="921000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -421,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608859549973</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="added oauth">
+      <created>1609694277862</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1609694277862</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,6 +479,7 @@
     <MESSAGE value="Fix not your turn." />
     <MESSAGE value="add missing files." />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="added oauth" />
+    <option name="LAST_COMMIT_MESSAGE" value="added oauth" />
   </component>
 </project>
