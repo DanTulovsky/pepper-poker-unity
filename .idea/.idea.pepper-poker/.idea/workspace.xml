@@ -19,14 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="add missing files.">
+    <list default="true" id="86d6a3f8-d4c8-4740-8d0e-17f68e3aefec" name="Default Changelist" comment="updates">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.pepper-poker/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainDevScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generated/Poker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Server.crt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Server.crt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/singleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,17 +44,21 @@
     <option name="projectConfigVersion" value="2" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/e7/b6e80f28/Convert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/0d/7fdb5081/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/ff/883d7d5b/CultureInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/PokerTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Tests/GameTestScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3A963D3C-190B-46F8-9745-9FB3E24624C1/3/Channel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/45B/StreamReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/468/File.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/8B/MissingMethodException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/e7/b6e80f28/Convert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/06DED3DC-FC81-410D-B8BE-9BD115706DB1/92/175f69f0/HttpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Avatar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/0/IAsyncStreamReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5160277F-0BA5-41C5-ACE0-F2B90AF8356B/7/AsyncStreamReaderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7568019C-F96A-4C76-A1A1-1EF0B54B1A8E/2b/737336de/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/8B/MissingMethodException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/d1/5491aa31/AsyncTaskCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/E44D5B5A-41A8-4B08-B652-EB0ACC9ED4B6/0/Void.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -64,9 +72,11 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/CommunityCards.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/TablePosition.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Avatar.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/jjj.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AuthResponse.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PokerClient.cs" />
     </changedPaths>
   </component>
   <component name="KubernetesApiPersistence">
@@ -96,11 +106,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/Assets/Plugins/TheTopicbirdTools/ToDoList/readme.txt&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/QuickOutline/Scripts/Outline.cs&#10;/Users/dant/Unity Local/Projects/pepper-poker/Assets/Plugins/Quantum Tek/Quantum UI/Scripts/QUI_Element.cs" />
-    <property name="com.google.cloudcode.ide_session_index" value="20201224_0005" />
+    <property name="com.google.cloudcode.ide_session_index" value="20210103_0003" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
     <property name="nodejs.cucumber.cucumber_node_package_dir" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RestClientSettings">
@@ -187,7 +197,12 @@
       <workItem from="1608084180696" duration="319000" />
       <workItem from="1608129149927" duration="216000" />
       <workItem from="1608144406542" duration="30131000" />
-      <workItem from="1608842233622" duration="5954000" />
+      <workItem from="1608842233622" duration="6007000" />
+      <workItem from="1608862182695" duration="204000" />
+      <workItem from="1609622296146" duration="55000" />
+      <workItem from="1609622574740" duration="940000" />
+      <workItem from="1609685090390" duration="7467000" />
+      <workItem from="1609693367614" duration="795000" />
     </task>
     <task id="LOCAL-00002" summary="Refactor for new server.">
       <created>1606958836362</created>
@@ -399,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608412385219</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="updates">
+      <created>1608859549973</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1608859549973</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,12 +476,12 @@
     <MESSAGE value="fix winners window" />
     <MESSAGE value="fixed turn timer" />
     <MESSAGE value="Unit tests" />
-    <MESSAGE value="updates" />
     <MESSAGE value="animations." />
     <MESSAGE value="updates." />
     <MESSAGE value="Animation fixes." />
     <MESSAGE value="Fix not your turn." />
     <MESSAGE value="add missing files." />
-    <option name="LAST_COMMIT_MESSAGE" value="add missing files." />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>

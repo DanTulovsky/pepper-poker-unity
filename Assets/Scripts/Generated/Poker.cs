@@ -42,67 +42,66 @@ namespace Poker {
             "CgdtZXNzYWdlGBQgASgJIiUKEkRpc2Nvbm5lY3RSZXNwb25zZRIPCgdtZXNz",
             "YWdlGBQgASgJIl8KC1BsYXlSZXF1ZXN0EiUKCmNsaWVudEluZm8YCiABKAsy",
             "ES5wb2tlci5DbGllbnRJbmZvEikKDHBsYXllckFjdGlvbhgyIAEoDjITLnBv",
-            "a2VyLlBsYXllckFjdGlvbiJtCgpDbGllbnRJbmZvEhAKCHBsYXllcklEGAog",
+            "a2VyLlBsYXllckFjdGlvbiJbCgpDbGllbnRJbmZvEhAKCHBsYXllcklEGAog",
             "ASgJEhIKCnBsYXllck5hbWUYFCABKAkSFgoOcGxheWVyVXNlcm5hbWUYHiAB",
-            "KAkSDwoHdGFibGVJRBgoIAEoCRIQCghwYXNzd29yZBgyIAEoCSK/AwoIR2Ft",
-            "ZUluZm8SEQoJdGFibGVOYW1lGAogASgJEg8KB3RhYmxlSUQYFCABKAkSIwoJ",
-            "Z2FtZVN0YXRlGB4gASgOMhAucG9rZXIuR2FtZVN0YXRlEhcKD2dhbWVTdGFy",
-            "dHNJblNlYxgoIAEoAxIaChJnYW1lU3RhcnRzSW5NYXhTZWMYLSABKAMSEAoI",
-            "YWNrVG9rZW4YMiABKAkSLQoOQ29tbXVuaXR5Q2FyZHMYPCABKAsyFS5wb2tl",
-            "ci5Db21tdW5pdHlDYXJkcxISCgptYXhQbGF5ZXJzGGQgASgDEhIKCm1pblBs",
-            "YXllcnMYbiABKAMSEAoIYmlnQmxpbmQYeCABKAMSEgoKc21hbGxCbGluZBh9",
-            "IAEoAxIOCgVidXlpbhiCASABKAMSFwoOYnV0dG9uUG9zaXRpb24YjAEgASgD",
-            "EhsKEnNtYWxsQmxpbmRQb3NpdGlvbhiWASABKAMSGQoQYmlnQmxpbmRQb3Np",
-            "dGlvbhigASABKAMSHwoHcGxheWVycxiqASADKAsyDS5wb2tlci5QbGF5ZXIS",
-            "JAoLd2lubmluZ19pZHMYtAEgAygLMg4ucG9rZXIuV2lubmVycyIWCgdXaW5u",
-            "ZXJzEgsKA2lkcxgKIAMoCSLSAQoIR2FtZURhdGESHQoEaW5mbxgKIAEoCzIP",
-            "LnBva2VyLkdhbWVJbmZvEhIKCndhaXRUdXJuSUQYFCABKAkSFAoMd2FpdFR1",
-            "cm5OYW1lGB4gASgJEhMKC3dhaXRUdXJuTnVtGCMgASgDEhsKE3dhaXRUdXJu",
-            "VGltZUxlZnRTZWMYKCABKAMSGgoSd2FpdFR1cm5UaW1lTWF4U2VjGC0gASgD",
-            "EhAKCHBsYXllcklEGDIgASgJEh0KBnBsYXllchhkIAEoCzINLnBva2VyLlBs",
-            "YXllciLmAQoGUGxheWVyEgwKBG5hbWUYCiABKAkSCgoCaWQYDyABKAkSEAoI",
-            "cG9zaXRpb24YFCABKAMSIQoFbW9uZXkYHiABKAsyEi5wb2tlci5QbGF5ZXJN",
-            "b25leRIhCgVzdGF0ZRgyIAMoDjISLnBva2VyLlBsYXllclN0YXRlEhkKBGNh",
-            "cmQYPCADKAsyCy5wb2tlci5DYXJkEhkKBGhhbmQYRiADKAsyCy5wb2tlci5D",
-            "YXJkEg0KBWNvbWJvGFAgASgJEiUKCmxhc3RBY3Rpb24YWiABKAsyES5wb2tl",
-            "ci5MYXN0QWN0aW9uIkEKCkxhc3RBY3Rpb24SIwoGYWN0aW9uGAogASgOMhMu",
-            "cG9rZXIuUGxheWVyQWN0aW9uEg4KBmFtb3VudBgUIAEoAyKNAQoLUGxheWVy",
-            "TW9uZXkSDAoEYmFuaxgKIAEoAxINCgVzdGFjaxgUIAEoAxILCgNwb3QYHiAB",
-            "KAMSFwoPbWluQmV0VGhpc1JvdW5kGCggASgDEhQKDGJldFRoaXNSb3VuZBgy",
-            "IAEoAxITCgtiZXRUaGlzSGFuZBg8IAEoAxIQCgh3aW5uaW5ncxhGIAEoAyIr",
-            "Cg5Db21tdW5pdHlDYXJkcxIZCgRjYXJkGAogAygLMgsucG9rZXIuQ2FyZCJF",
-            "CgRDYXJkEh4KBXN1aXRlGAogASgOMg8ucG9rZXIuQ2FyZFN1aXQSHQoEcmFu",
-            "axgUIAEoDjIPLnBva2VyLkNhcmRSYW5rKqsCCgxQbGF5ZXJBY3Rpb24SFAoQ",
-            "UGxheWVyQWN0aW9uTm9uZRAAEhgKFFBsYXllckFjdGlvblJlZ2lzdGVyEAES",
-            "GQoVUGxheWVyQWN0aW9uSm9pblRhYmxlEAISFAoQUGxheWVyQWN0aW9uUGxh",
-            "eRADEhQKEFBsYXllckFjdGlvbkNhbGwQBBIVChFQbGF5ZXJBY3Rpb25DaGVj",
-            "axAFEhMKD1BsYXllckFjdGlvbkJldBAGEhQKEFBsYXllckFjdGlvbkZvbGQQ",
-            "BxIYChRQbGF5ZXJBY3Rpb25BY2tUb2tlbhAIEhUKEVBsYXllckFjdGlvbkFs",
-            "bEluEAkSFQoRUGxheWVyQWN0aW9uQnV5SW4QChIaChZQbGF5ZXJBY3Rpb25E",
-            "aXNjb25uZWN0EAsquQIKCUdhbWVTdGF0ZRIbChdHYW1lU3RhdGVXYWl0aW5n",
-            "UGxheWVycxAAEhkKFUdhbWVTdGF0ZUluaXRpYWxpemluZxABEhkKFUdhbWVT",
-            "dGF0ZVJlYWR5VG9TdGFydBACEh4KGkdhbWVTdGF0ZVBsYXlpbmdTbWFsbEJs",
-            "aW5kEAMSHAoYR2FtZVN0YXRlUGxheWluZ0JpZ0JsaW5kEAQSGwoXR2FtZVN0",
-            "YXRlUGxheWluZ1ByZUZsb3AQBRIYChRHYW1lU3RhdGVQbGF5aW5nRmxvcBAG",
-            "EhgKFEdhbWVTdGF0ZVBsYXlpbmdUdXJuEAcSGQoVR2FtZVN0YXRlUGxheWlu",
-            "Z1JpdmVyEAgSGAoUR2FtZVN0YXRlUGxheWluZ0RvbmUQCRIVChFHYW1lU3Rh",
-            "dGVGaW5pc2hlZBAKKo0BCgtQbGF5ZXJTdGF0ZRIWChJQbGF5ZXJTdGF0ZURl",
-            "ZmF1bHQQABIVChFQbGF5ZXJTdGF0ZUZvbGRlZBABEhkKFVBsYXllclN0YXRl",
-            "U3RhY2tFbXB0eRACEhgKFFBsYXllclN0YXRlQmFua0VtcHR5EAMSGgoWUGxh",
-            "eWVyU3RhdGVDdXJyZW50VHVybhAEKjcKCENhcmRTdWl0EgkKBVNwYWRlEAAS",
-            "CAoEQ2x1YhABEgsKB0RpYW1vbmQQAhIJCgVIZWFydBADKowBCghDYXJkUmFu",
-            "axIHCgNUd28QABIJCgVUaHJlZRABEggKBEZvdXIQAhIICgRGaXZlEAMSBwoD",
-            "U2l4EAQSCQoFU2V2ZW4QBRIJCgVFaWdodBAGEggKBE5pbmUQBxIHCgNUZW4Q",
-            "CBIICgRKYWNrEAkSCQoFUXVlZW4QChIICgRLaW5nEAsSBwoDQWNlEAwyvQIK",
-            "C1Bva2VyU2VydmVyEj0KCEFja1Rva2VuEhYucG9rZXIuQWNrVG9rZW5SZXF1",
-            "ZXN0GhcucG9rZXIuQWNrVG9rZW5SZXNwb25zZSIAEkAKCUpvaW5UYWJsZRIX",
-            "LnBva2VyLkpvaW5UYWJsZVJlcXVlc3QaGC5wb2tlci5Kb2luVGFibGVSZXNw",
-            "b25zZSIAEi8KBFBsYXkSEi5wb2tlci5QbGF5UmVxdWVzdBoPLnBva2VyLkdh",
-            "bWVEYXRhIgAwARI9CghSZWdpc3RlchIWLnBva2VyLlJlZ2lzdGVyUmVxdWVz",
-            "dBoXLnBva2VyLlJlZ2lzdGVyUmVzcG9uc2UiABI9CghUYWtlVHVybhIWLnBv",
-            "a2VyLlRha2VUdXJuUmVxdWVzdBoXLnBva2VyLlRha2VUdXJuUmVzcG9uc2Ui",
-            "AEItWitnaXRodWIuY29tL0RhblR1b3Zza3kvcGVwcGVyLXBva2VyLXYyL3By",
-            "b3RvYgZwcm90bzM="));
+            "KAkSDwoHdGFibGVJRBgoIAEoCSK/AwoIR2FtZUluZm8SEQoJdGFibGVOYW1l",
+            "GAogASgJEg8KB3RhYmxlSUQYFCABKAkSIwoJZ2FtZVN0YXRlGB4gASgOMhAu",
+            "cG9rZXIuR2FtZVN0YXRlEhcKD2dhbWVTdGFydHNJblNlYxgoIAEoAxIaChJn",
+            "YW1lU3RhcnRzSW5NYXhTZWMYLSABKAMSEAoIYWNrVG9rZW4YMiABKAkSLQoO",
+            "Q29tbXVuaXR5Q2FyZHMYPCABKAsyFS5wb2tlci5Db21tdW5pdHlDYXJkcxIS",
+            "CgptYXhQbGF5ZXJzGGQgASgDEhIKCm1pblBsYXllcnMYbiABKAMSEAoIYmln",
+            "QmxpbmQYeCABKAMSEgoKc21hbGxCbGluZBh9IAEoAxIOCgVidXlpbhiCASAB",
+            "KAMSFwoOYnV0dG9uUG9zaXRpb24YjAEgASgDEhsKEnNtYWxsQmxpbmRQb3Np",
+            "dGlvbhiWASABKAMSGQoQYmlnQmxpbmRQb3NpdGlvbhigASABKAMSHwoHcGxh",
+            "eWVycxiqASADKAsyDS5wb2tlci5QbGF5ZXISJAoLd2lubmluZ19pZHMYtAEg",
+            "AygLMg4ucG9rZXIuV2lubmVycyIWCgdXaW5uZXJzEgsKA2lkcxgKIAMoCSLS",
+            "AQoIR2FtZURhdGESHQoEaW5mbxgKIAEoCzIPLnBva2VyLkdhbWVJbmZvEhIK",
+            "CndhaXRUdXJuSUQYFCABKAkSFAoMd2FpdFR1cm5OYW1lGB4gASgJEhMKC3dh",
+            "aXRUdXJuTnVtGCMgASgDEhsKE3dhaXRUdXJuVGltZUxlZnRTZWMYKCABKAMS",
+            "GgoSd2FpdFR1cm5UaW1lTWF4U2VjGC0gASgDEhAKCHBsYXllcklEGDIgASgJ",
+            "Eh0KBnBsYXllchhkIAEoCzINLnBva2VyLlBsYXllciLmAQoGUGxheWVyEgwK",
+            "BG5hbWUYCiABKAkSCgoCaWQYDyABKAkSEAoIcG9zaXRpb24YFCABKAMSIQoF",
+            "bW9uZXkYHiABKAsyEi5wb2tlci5QbGF5ZXJNb25leRIhCgVzdGF0ZRgyIAMo",
+            "DjISLnBva2VyLlBsYXllclN0YXRlEhkKBGNhcmQYPCADKAsyCy5wb2tlci5D",
+            "YXJkEhkKBGhhbmQYRiADKAsyCy5wb2tlci5DYXJkEg0KBWNvbWJvGFAgASgJ",
+            "EiUKCmxhc3RBY3Rpb24YWiABKAsyES5wb2tlci5MYXN0QWN0aW9uIkEKCkxh",
+            "c3RBY3Rpb24SIwoGYWN0aW9uGAogASgOMhMucG9rZXIuUGxheWVyQWN0aW9u",
+            "Eg4KBmFtb3VudBgUIAEoAyKNAQoLUGxheWVyTW9uZXkSDAoEYmFuaxgKIAEo",
+            "AxINCgVzdGFjaxgUIAEoAxILCgNwb3QYHiABKAMSFwoPbWluQmV0VGhpc1Jv",
+            "dW5kGCggASgDEhQKDGJldFRoaXNSb3VuZBgyIAEoAxITCgtiZXRUaGlzSGFu",
+            "ZBg8IAEoAxIQCgh3aW5uaW5ncxhGIAEoAyIrCg5Db21tdW5pdHlDYXJkcxIZ",
+            "CgRjYXJkGAogAygLMgsucG9rZXIuQ2FyZCJFCgRDYXJkEh4KBXN1aXRlGAog",
+            "ASgOMg8ucG9rZXIuQ2FyZFN1aXQSHQoEcmFuaxgUIAEoDjIPLnBva2VyLkNh",
+            "cmRSYW5rKqsCCgxQbGF5ZXJBY3Rpb24SFAoQUGxheWVyQWN0aW9uTm9uZRAA",
+            "EhgKFFBsYXllckFjdGlvblJlZ2lzdGVyEAESGQoVUGxheWVyQWN0aW9uSm9p",
+            "blRhYmxlEAISFAoQUGxheWVyQWN0aW9uUGxheRADEhQKEFBsYXllckFjdGlv",
+            "bkNhbGwQBBIVChFQbGF5ZXJBY3Rpb25DaGVjaxAFEhMKD1BsYXllckFjdGlv",
+            "bkJldBAGEhQKEFBsYXllckFjdGlvbkZvbGQQBxIYChRQbGF5ZXJBY3Rpb25B",
+            "Y2tUb2tlbhAIEhUKEVBsYXllckFjdGlvbkFsbEluEAkSFQoRUGxheWVyQWN0",
+            "aW9uQnV5SW4QChIaChZQbGF5ZXJBY3Rpb25EaXNjb25uZWN0EAsquQIKCUdh",
+            "bWVTdGF0ZRIbChdHYW1lU3RhdGVXYWl0aW5nUGxheWVycxAAEhkKFUdhbWVT",
+            "dGF0ZUluaXRpYWxpemluZxABEhkKFUdhbWVTdGF0ZVJlYWR5VG9TdGFydBAC",
+            "Eh4KGkdhbWVTdGF0ZVBsYXlpbmdTbWFsbEJsaW5kEAMSHAoYR2FtZVN0YXRl",
+            "UGxheWluZ0JpZ0JsaW5kEAQSGwoXR2FtZVN0YXRlUGxheWluZ1ByZUZsb3AQ",
+            "BRIYChRHYW1lU3RhdGVQbGF5aW5nRmxvcBAGEhgKFEdhbWVTdGF0ZVBsYXlp",
+            "bmdUdXJuEAcSGQoVR2FtZVN0YXRlUGxheWluZ1JpdmVyEAgSGAoUR2FtZVN0",
+            "YXRlUGxheWluZ0RvbmUQCRIVChFHYW1lU3RhdGVGaW5pc2hlZBAKKo0BCgtQ",
+            "bGF5ZXJTdGF0ZRIWChJQbGF5ZXJTdGF0ZURlZmF1bHQQABIVChFQbGF5ZXJT",
+            "dGF0ZUZvbGRlZBABEhkKFVBsYXllclN0YXRlU3RhY2tFbXB0eRACEhgKFFBs",
+            "YXllclN0YXRlQmFua0VtcHR5EAMSGgoWUGxheWVyU3RhdGVDdXJyZW50VHVy",
+            "bhAEKjcKCENhcmRTdWl0EgkKBVNwYWRlEAASCAoEQ2x1YhABEgsKB0RpYW1v",
+            "bmQQAhIJCgVIZWFydBADKowBCghDYXJkUmFuaxIHCgNUd28QABIJCgVUaHJl",
+            "ZRABEggKBEZvdXIQAhIICgRGaXZlEAMSBwoDU2l4EAQSCQoFU2V2ZW4QBRIJ",
+            "CgVFaWdodBAGEggKBE5pbmUQBxIHCgNUZW4QCBIICgRKYWNrEAkSCQoFUXVl",
+            "ZW4QChIICgRLaW5nEAsSBwoDQWNlEAwyvQIKC1Bva2VyU2VydmVyEj0KCEFj",
+            "a1Rva2VuEhYucG9rZXIuQWNrVG9rZW5SZXF1ZXN0GhcucG9rZXIuQWNrVG9r",
+            "ZW5SZXNwb25zZSIAEkAKCUpvaW5UYWJsZRIXLnBva2VyLkpvaW5UYWJsZVJl",
+            "cXVlc3QaGC5wb2tlci5Kb2luVGFibGVSZXNwb25zZSIAEi8KBFBsYXkSEi5w",
+            "b2tlci5QbGF5UmVxdWVzdBoPLnBva2VyLkdhbWVEYXRhIgAwARI9CghSZWdp",
+            "c3RlchIWLnBva2VyLlJlZ2lzdGVyUmVxdWVzdBoXLnBva2VyLlJlZ2lzdGVy",
+            "UmVzcG9uc2UiABI9CghUYWtlVHVybhIWLnBva2VyLlRha2VUdXJuUmVxdWVz",
+            "dBoXLnBva2VyLlRha2VUdXJuUmVzcG9uc2UiAEItWitnaXRodWIuY29tL0Rh",
+            "blR1b3Zza3kvcGVwcGVyLXBva2VyLXYyL3Byb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Poker.PlayerAction), typeof(global::Poker.GameState), typeof(global::Poker.PlayerState), typeof(global::Poker.CardSuit), typeof(global::Poker.CardRank), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -117,7 +116,7 @@ namespace Poker {
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.TakeTurnResponse), global::Poker.TakeTurnResponse.Parser, new[]{ "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.DisconnectResponse), global::Poker.DisconnectResponse.Parser, new[]{ "Message" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.PlayRequest), global::Poker.PlayRequest.Parser, new[]{ "ClientInfo", "PlayerAction" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ClientInfo), global::Poker.ClientInfo.Parser, new[]{ "PlayerID", "PlayerName", "PlayerUsername", "TableID", "Password" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Poker.ClientInfo), global::Poker.ClientInfo.Parser, new[]{ "PlayerID", "PlayerName", "PlayerUsername", "TableID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameInfo), global::Poker.GameInfo.Parser, new[]{ "TableName", "TableID", "GameState", "GameStartsInSec", "GameStartsInMaxSec", "AckToken", "CommunityCards", "MaxPlayers", "MinPlayers", "BigBlind", "SmallBlind", "Buyin", "ButtonPosition", "SmallBlindPosition", "BigBlindPosition", "Players", "WinningIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.Winners), global::Poker.Winners.Parser, new[]{ "Ids" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Poker.GameData), global::Poker.GameData.Parser, new[]{ "Info", "WaitTurnID", "WaitTurnName", "WaitTurnNum", "WaitTurnTimeLeftSec", "WaitTurnTimeMaxSec", "PlayerID", "Player" }, null, null, null, null),
@@ -2562,7 +2561,6 @@ namespace Poker {
       playerName_ = other.playerName_;
       playerUsername_ = other.playerUsername_;
       tableID_ = other.tableID_;
-      password_ = other.password_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2615,17 +2613,6 @@ namespace Poker {
       }
     }
 
-    /// <summary>Field number for the "password" field.</summary>
-    public const int PasswordFieldNumber = 50;
-    private string password_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Password {
-      get { return password_; }
-      set {
-        password_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as ClientInfo);
@@ -2643,7 +2630,6 @@ namespace Poker {
       if (PlayerName != other.PlayerName) return false;
       if (PlayerUsername != other.PlayerUsername) return false;
       if (TableID != other.TableID) return false;
-      if (Password != other.Password) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2654,7 +2640,6 @@ namespace Poker {
       if (PlayerName.Length != 0) hash ^= PlayerName.GetHashCode();
       if (PlayerUsername.Length != 0) hash ^= PlayerUsername.GetHashCode();
       if (TableID.Length != 0) hash ^= TableID.GetHashCode();
-      if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2687,10 +2672,6 @@ namespace Poker {
         output.WriteRawTag(194, 2);
         output.WriteString(TableID);
       }
-      if (Password.Length != 0) {
-        output.WriteRawTag(146, 3);
-        output.WriteString(Password);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2716,10 +2697,6 @@ namespace Poker {
         output.WriteRawTag(194, 2);
         output.WriteString(TableID);
       }
-      if (Password.Length != 0) {
-        output.WriteRawTag(146, 3);
-        output.WriteString(Password);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2740,9 +2717,6 @@ namespace Poker {
       }
       if (TableID.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(TableID);
-      }
-      if (Password.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2766,9 +2740,6 @@ namespace Poker {
       }
       if (other.TableID.Length != 0) {
         TableID = other.TableID;
-      }
-      if (other.Password.Length != 0) {
-        Password = other.Password;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2800,10 +2771,6 @@ namespace Poker {
             TableID = input.ReadString();
             break;
           }
-          case 402: {
-            Password = input.ReadString();
-            break;
-          }
         }
       }
     #endif
@@ -2832,10 +2799,6 @@ namespace Poker {
           }
           case 322: {
             TableID = input.ReadString();
-            break;
-          }
-          case 402: {
-            Password = input.ReadString();
             break;
           }
         }

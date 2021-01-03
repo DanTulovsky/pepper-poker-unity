@@ -27,9 +27,9 @@ public class Manager : Singleton<Manager>
     private TablePosition localHuman;
 
     [NonSerialized] public readonly ClientInfo clientInfo = new ClientInfo();
+    [NonSerialized] public readonly Game game = new Game();
     private readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
 
-    [NonSerialized] public readonly Game game = new Game();
 
     public TMP_InputField serverNameInput;
     public TMP_InputField serverPortInput;
@@ -56,10 +56,6 @@ public class Manager : Singleton<Manager>
 
     private void EnabledGrpcTracing()
     {
-        if (!debugGrpcToggle.toggle.isOn)
-        {
-            return;
-        }
 
         Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "info");
         Environment.SetEnvironmentVariable("GRPC_DNS_RESOLVER", "native");
@@ -96,11 +92,19 @@ public class Manager : Singleton<Manager>
         if (devToggle.toggle.isOn)
         {
             port = 8443;
-            serverName = "pepper-poker"; // make sure this is in /etc/hosts pointing to 127.0.0.1
+            serverName = "pepper-poker-grpc"; // make sure this is in /etc/hosts pointing to 127.0.0.1
             insecure = true;
         }
 
-        pokerClient = new PokerClient(serverName, port, insecure);
+        try
+        {
+            pokerClient = new PokerClient(serverName, port, insecure);
+        }
+        catch (Exception ex)
+        {
+            mRPCErrorEvent.Invoke(ex.ToString());
+            return;
+        }
 
         StartCoroutine(nameof(DoRegister));
     }
@@ -113,7 +117,6 @@ public class Manager : Singleton<Manager>
     private void DoRegister()
     {
         clientInfo.PlayerUsername = uiUpdater.playerUsernameInput.text;
-        clientInfo.Password = uiUpdater.playerPasswordInput.text;
 
         try
         {

@@ -1,43 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Grpc.Core;
 using Poker;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class PokerClient
 {
     private readonly PokerServer.PokerServerClient client;
+
+    // Inside StreamingAssets folder
     private readonly string devServerCert = "server.crt";
 
     internal PokerClient(string serverName, int serverPort, bool insecure)
     {
-        SslCredentials credentials;
-        List<ChannelOption> opts = new List<ChannelOption>();
-        Channel channel;
+        var opts = new List<ChannelOption>();
+        ChannelCredentials channelCredentials;
+        SslCredentials sslCredentials;
 
         Debug.Log($"Connecting to: {serverName}:{serverPort}; insecure? {insecure}");
 
-        if (insecure)
-        {
-            string rootCertificates = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, devServerCert));
-            credentials = new SslCredentials(rootCertificates);
+        var token = GetTokenFromCredentials();
 
-            opts.Add(new ChannelOption("InsecureSkipVerify", "True"));
-            opts.Add(new ChannelOption(ChannelOptions.SslTargetNameOverride, "pepper-poker"));
-            
-            channel = new Channel(serverName, serverPort, credentials, opts);
-        }
-        else
+        async Task AsyncAuthInterceptor(AuthInterceptorContext context, Metadata metadata)
         {
-            credentials = new SslCredentials();
-            opts.Add(new ChannelOption(ChannelOptions.SslTargetNameOverride, serverName));
-            channel = new Channel(serverName, serverPort, credentials, opts);
+            await Task.Delay(200).ConfigureAwait(false); // make sure the operation is asynchronous.
+            metadata.Add("authorization", $"Bearer {token.Result}");
         }
 
+        switch (insecure)
+        {
+            case true:
+            {
+                string rootCertificates = File.ReadAllText(Path.Combine(Application.streamingAssetsPath, devServerCert));
+                sslCredentials = new SslCredentials(rootCertificates);
+
+                opts.Add(new ChannelOption("InsecureSkipVerify", "True"));
+                break;
+            }
+            default:
+                sslCredentials = new SslCredentials();
+                break;
+        }
+
+        opts.Add(new ChannelOption(ChannelOptions.SslTargetNameOverride, serverName));
+        channelCredentials = ChannelCredentials.Create(sslCredentials,
+            CallCredentials.FromInterceptor(AsyncAuthInterceptor));
+        Channel channel = new Channel(serverName, serverPort, channelCredentials, opts);
         client = new PokerServer.PokerServerClient(channel);
     }
 
+#pragma warning disable 1998
+    private static async Task<string> GetTokenFromCredentials()
+    {
+        Debug.Log("Getting token...");
+        string tokenUrl = $"https://login.wetsnow.com/auth/realms/wetsnow/protocol/openid-connect/token";
+        HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Post, tokenUrl)
+        {
+            Content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                ["grant_type"] = "password",
+                ["client_id"] = "pepper-poker-grpc.wetsnow.com",
+                // ["client_secret"] = "REDACTED",
+                ["grant_type"] = "password",
+                ["response_type"] = "token",
+                ["username"] = "mrwetsnow",
+                ["password"] = "Superman9"
+            })
+        };
+
+        Debug.Log("Waiting for token response...");
+        using HttpClient client = new HttpClient();
+        HttpResponseMessage res = client.SendAsync(req).Result;
+
+        string json = res.Content.ReadAsStringAsync().Result;
+        AuthResponse j = JsonConvert.DeserializeObject<AuthResponse>(json);
+        return j.AccessToken;
+    }
+#pragma warning restore 1998
 
     // Register registers with the server and gets back a PlayerID
     internal string Register(ClientInfo clientInfo)

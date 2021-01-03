@@ -18,6 +18,13 @@
               </e>
             </e>
           </e>
+          <e p="Newtonsoft.Json.12.0.3" t="Include">
+            <e p="lib" t="Include">
+              <e p="net45" t="Include">
+                <e p="Newtonsoft.Json.xml" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="Grpc.Core" t="Include">
@@ -980,6 +987,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AuthResponse.cs" t="Include" />
           <e p="Avatar.cs" t="Include" />
           <e p="Cards.cs" t="Include" />
           <e p="CommunityCards.cs" t="Include" />

@@ -14450,7 +14450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_Text
-      value: password
+      value: Superman9
       objectReference: {fileID: 0}
     - target: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_InputType
@@ -38980,7 +38980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_Text
-      value: dant
+      value: mrwetsnow
       objectReference: {fileID: 0}
     - target: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_ContentType
@@ -39003,8 +39003,12 @@ PrefabInstance:
       value: UsernameInput
       objectReference: {fileID: 0}
     - target: {fileID: 8908306527016688383, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
+      propertyPath: m_text
+      value: "dant\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908306527016688383, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 35.8
       objectReference: {fileID: 0}
     - target: {fileID: 8908306527016688383, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_margin.w
@@ -45404,7 +45408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_Text
-      value: pepper-poker.wetsnow.com
+      value: pepper-poker-grpc.wetsnow.com
       objectReference: {fileID: 0}
     - target: {fileID: 4731533635222591732, guid: b70a0d4e683c84847974b6ddea172fea, type: 3}
       propertyPath: m_ContentType
